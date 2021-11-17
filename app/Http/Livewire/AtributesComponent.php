@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\AlpFilters;
+use App\Models\JargonCategory;
 use App\Models\Jargons;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -50,10 +51,10 @@ class AtributesComponent extends Component
         }
         else
         {
-            $jargons = Jargon::where('afid',$atributes_id)->paginate($this->pagesize);
+            $jargons = Jargons::where('afid',$atributes_id)->paginate($this->pagesize);
         }
         $jargoncategories = JargonCategory::all();
-        $atributes = AlpFilter::all();
+        $atributes = AlpFilters::all();
         return view('livewire.atributes-component',['jargons'=>$jargons, 'jargoncategories'=>$jargoncategories,'atributes_name'=>$atributes_name,'atributes'=>$atributes])->layout('layouts.baseapp');
     }
 }
