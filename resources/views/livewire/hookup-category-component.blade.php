@@ -16,7 +16,7 @@
   </div>
 </header>
 	<!-- Main Content -->
-	<div class="container-full">
+	<div class="container">
 		<div class="hookup">
             <div class="container">
                 <div class="row">

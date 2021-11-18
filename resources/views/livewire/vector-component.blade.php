@@ -41,7 +41,7 @@
         </div>
     </header>
         <!-- Main Content -->
-        <div class="container-full">
+        <div class="container">
             
             <div class="row" id="vector" wire:loading.delay.class="opacity-50">
               @foreach ($vectorlogos as $vector)

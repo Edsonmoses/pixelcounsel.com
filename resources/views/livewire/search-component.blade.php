@@ -41,7 +41,7 @@
         </div>
     </header>
         <!-- Main Content -->
-        <div class="container-full">
+        <div class="container">
             <div class="container">
             <div class="row" id="vector" id="post-data">
             @if ($vector->count()>0)
