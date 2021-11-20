@@ -68,7 +68,7 @@ Route::get('/', function () {
 
 Route::get('/home',HomeComponent::class);
 
-Route::get('/vector', VectorComponent::class);
+Route::get('/vector', VectorComponent::class)->middleware('auth','verified');
 Route::get('/vectors/{slug}', VectorlogosComponent::class)->name('vector.vectors');
 
 Route::get('/jargon', JargonbusterComponent::class);
