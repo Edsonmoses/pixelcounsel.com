@@ -57,7 +57,11 @@
 </div>
     <div class="form-modal">
         <div class="form-toggle">
-
+            @if (session('status'))
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ session('status') }}
+            </div>
+        @endif
             <button id="login-toggle" onclick="toggleLogin()">sign up</button>
             <button id="signup-toggle" onclick="toggleSignup()">log in</button>
         </div>
@@ -96,10 +100,10 @@
         <div id="login-form">
             <form name="frm-login" method="POST" action="{{route('register')}}">
                 @csrf
-                <input type="email" name="email" class="form-input" placeholder="Email Address" :value="email" required autofocus>
-                <input type="text" name="name" id="first_name" class="form-input" placeholder="Username" :value="name" required autofocus autocomplete="name">
+                <input type="email" name="email" class="form-input" id="email" placeholder="Email Address" :value="email" required autofocus>
+                <input type="text" name="name" id="name" id="password" class="form-input" placeholder="Username" :value="name" required autofocus autocomplete="name">
                 <input type="password" name="password" class="form-input" placeholder="Password" required autocomplete="new-password">
-                <input type="password" name="password_confirmation" class="form-input" placeholder="Confirm Password" required autocomplete="new-password">
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-input" placeholder="Confirm Password" required autocomplete="new-password">
                 <div class="form-checked">
                     <label class="flex items-center">
                      <span class="texted text-gray-600">{{ __('I wish to receive news, promotions & the latest uploads from Pixel Counsel by email') }}</span>
