@@ -24,7 +24,7 @@
                         <form action="#" role="search">
                             
                         <div class="input-group">
-                        <input class="form-control" placeholder="Find a vector logo" name="query" id="ed-srch-term" type="text" wire:model="searchTerm">
+                        <input class="form-control" placeholder="Online vector logo collection of brands in Africa" name="query" id="ed-srch-term" type="text" wire:model="searchTerm">
                         <div class="input-group-btn">
                         <button type="submit" id="searchbtn">
                             <i class="fa fa-search" aria-hidden="true"></i> </button>

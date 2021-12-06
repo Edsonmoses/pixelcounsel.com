@@ -5,9 +5,14 @@ namespace App\Http\Livewire;
 use App\Models\VectorCategory;
 use App\Models\Vectorlogos;
 use Livewire\Component;
+use Livewire\WithPagination;
+use Livewire\WithFileUploads;
 
 class VectorlogosComponent extends Component
 {
+    use WithPagination;
+    use WithFileUploads;
+
     public $slug;
     public $searchTerm;
 
@@ -32,7 +37,7 @@ class VectorlogosComponent extends Component
                 ->orWhere('slug','LIKE',$searchTerm)
                 ->orWhere('description','LIKE',$searchTerm)
                 ->orWhere('designer','LIKE',$searchTerm)
-                ->orderBy('id','DESC',$searchTerm)->paginate(24);
+                ->orderBy('id','DESC',$searchTerm)->paginate(12);
                 
         $vector = Vectorlogos::where('slug',$this->slug)->orderBy('name','ASC')->first();
         $popular_vectors = Vectorlogos::inRandomOrder()->limit(4)->get();
