@@ -1796,3 +1796,6 @@ min-height: 48vh !important;
 .category-active{
   color: #0085A1 !important;
 }
+.h-100{
+  height: 30vh;
+}

@@ -73,28 +73,42 @@
             	<a class="pull-left footer-brands" href="{{ url('/') }}"><img src="{{asset('assets/uploads/img/Pixel Counsel--11.svg')}}" class="img-responsive" alt="{{ config('app.name', 'pixelcounsel') }}"> </a>
                 
             </div>
-            	<div class="col-md-3 footer-brand md animated fadeInLeft">
-                    <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
-                    <p>© <?php echo date("Y");?>, All rights reserved</p>
+            	<div class="col-md-4 footer-brand md animated fadeInLeft">
+                <p style="margin-top: 5px !important;">pixelcounsel a community of designers by designers in africa sharing resources and information</p>
+                <p><?php echo date("Y");?> Pixelcounsel. All logos © their respective owners</p>
                 </div>
             	<div class="col-md-2  footer-nav animated fadeInUp">
-                    <ul class="list">
+                    <ul class="list h-100">
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contacts</a></li>
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Shop</a></li>
                     </ul>
                 </div>
         	<div class="col-md-2 footer-social animated fadeInDown">
-            	<h4>Follow Us</h4>
-            	<ul>
-                	<li><a href="#">Facebook</a></li>
-                	<li><a href="#">Twitter</a></li>
-                	<li><a href="#">Instagram</a></li>
-                	<li><a href="#">RSS</a></li>
+            	<ul class="h-100">
+                	<li><a href="#">Community</a></li>
+                	<li><a href="#">Blog</a></li>
+                	<li><a href="#">Meetups</a></li>
+                	<li><a href="#">Newsletter</a></li>
+                  <li><a href="#">Testimonials</a></li>
+                  <li><a href="#">Handbook</a></li>
+                  <li><a href="#">Brand Guidelines</a></li>
                 </ul>
             </div>
-        	<div class="col-md-3 footer-ns animated fadeInRight">
+            <div class="col-md-2 footer-social animated fadeInDown">
+            	<ul class="h-100">
+                	<li><a href="#">Connect</a></li>
+                	<li><a href="#">Find Designers</a></li>
+                	<li><a href="#">Job for Designers</a></li>
+                	<li><a href="#">Teams</a></li>
+                  <li><a href="#">Advertise</a></li>
+                  
+                </ul>
+            </div>
+           <!-- <div class="col-md-3 footer-ns animated fadeInRight">
             	<h4>Newsletter</h4>
                 <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
                 <p>
@@ -103,9 +117,9 @@
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
                       </span>
-                    </div><!-- /input-group -->
+                    </div><!-- /input-group --
                  </p>
-            </div>
+            </div>-->
         </div>
       </div>
     </footer>
