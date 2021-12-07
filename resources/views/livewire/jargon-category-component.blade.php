@@ -3,14 +3,14 @@
 <header class="intro-header intro-jargon">
     <div class="container">
         <div class="row">
-            <div class="col-lg-7 col-md-7">
+            <div class="col-lg-7 col-md-7 col-sm-7">
                 <div class="heading-style">
                     <h1>JARGON BUSTER</h1>
                     <span class="sub-heading">A comprehensive dictionary of web, architecture, design and printing terms</span>
                 </div>
             </div>
             <!--header title-->
-            <div class="col-lg-5 col-md-5">
+            <div class="col-lg-5 col-md-5 col-sm-5">
                 <div class="vector-search heading-mr">
           <form action="#" role="search">
             
@@ -34,9 +34,8 @@
 		<div class="bottom-menu">
             <ul class="nav navbar-nav">
                 @foreach ($jargoncategories as $j_catagory )
-                    <li class="nav-link">
+                    <li class="nav-link {{ route('jargon.category',['category_slug'=>$j_catagory->slug]) == url()->current() ? 'active' : '' }}">
                         <a href="{{ route('jargon.category',['category_slug'=>$j_catagory->slug]) }}">{{ $j_catagory->name}}
-                            <span class="{{ (request()->is('jargon.category*',['category_slug'=>$j_catagory->slug])) ? 'category-active' : '' }}"></span>
                         </a>
                     </li>
                 @endforeach
@@ -48,10 +47,9 @@
                 <p style="margin: 20px 0 0 0; tra">Glossary of {{ $category_name }} Terms</p>
             <ul class="nav navbar-nav">
                 @foreach ($atributes as $atribute )
-                <li class="nav-link">
+                <li class="nav-link {{ route('jargon.atributes', ['atributes_name'=>$atribute->name]) == url()->current() ? 'active' : '' }}">
                     <a href="{{ route('jargon.atributes',['atributes_name'=>$atribute->name]) }}">
                         {{ $atribute->name}}
-                        <span class="{{ (request()->is('jargon.atributes',['atributes_name'=>$atribute->name.'*'])) ? 'category-active' : '' }}"></span>
                     </a>
                 </li>
                 @if ($loop->last)
@@ -77,7 +75,7 @@
                 <option value="2">2 per page</option>
                 <option value="1">1 per page</option>
             </select>--}}
-                <div class="col-lg-10 col-md-10">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     @foreach ( $jargons  as $jargon )
                       <p><strong>{{$jargon->name}} :</strong> {{$jargon->short_description}}</p>
                     @endforeach

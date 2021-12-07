@@ -87,8 +87,8 @@
                         <li><a href="#">Shop</a></li>
                     </ul>
                 </div>
-        	<div class="col-md-2 footer-social animated fadeInDown">
-            	<ul class="h-100">
+        	<div class="col-md-2 footer-nav animated fadeInDown">
+            	<ul class="list h-100 mt-10">
                 	<li><a href="#">Community</a></li>
                 	<li><a href="#">Blog</a></li>
                 	<li><a href="#">Meetups</a></li>
@@ -98,8 +98,8 @@
                   <li><a href="#">Brand Guidelines</a></li>
                 </ul>
             </div>
-            <div class="col-md-2 footer-social animated fadeInDown">
-            	<ul class="h-100">
+            <div class="col-md-2 footer-nav animated fadeInDown">
+            	<ul class="list h-100 mt-9">
                 	<li><a href="#">Connect</a></li>
                 	<li><a href="#">Find Designers</a></li>
                 	<li><a href="#">Job for Designers</a></li>

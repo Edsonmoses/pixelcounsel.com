@@ -4,13 +4,13 @@
     <header class="intro-header intro-header-vector">
         <div class="container">
             <div class="row  header-0">
-                <div class="col-lg-7 col-md-7">
+                <div class="col-lg-7 col-md-7 col-sm-7">
                     <div class="heading-style">
                         <h1>VECTOR LOGOS</h1>
                         <span class="sub-heading">Online vector logo collection of brands in Africa</span>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-5 vector-s-btn">
+                <div class="col-lg-5 col-md-5 col-sm-5 vector-s-btn">
                   <a class="btn btn-vector v-single" href="#" role="button" data-toggle="modal" data-target="#logoModal">SUBMIT A LOGO</a>
                 </div>
             </div>
@@ -45,7 +45,7 @@
             
             <div class="row" id="vector" wire:loading.delay.class="opacity-50">
               @foreach ($vectorlogos as $vector)
-                <div class="col-md-2 vector-img ml-1" @if ($loop->last) id="last_record" @endif>
+                <div class="col-md-2 col-sm-2 col-lg-2 vector-img ml-1" @if ($loop->last) id="last_record" @endif>
                   <a href="{{ route('vector.vectors',['slug'=>$vector->slug]) }}"><img class="bd-placeholder-img" src="{{ asset('assets/images/vectors') }}/{{ $vector->image }}" alt="{{ $vector->name }}"  width="100%" height="225"></a>
                 </div>
                 @endforeach

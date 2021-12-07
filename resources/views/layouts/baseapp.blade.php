@@ -41,7 +41,7 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 ml-2 menu-actives">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="/vector">VECTOR LOGOS
               <span class="{{ (request()->is('vector*')) ? 'vector-arrows' : '' }}"></span>
             </a>
@@ -146,11 +146,11 @@
             	<a class="pull-left footer-brands" href="{{ url('/') }}"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'pixelcounsel') }}"> </a>
                 
             </div>
-            	<div class="col-md-4 footer-brand md animated fadeInLeft">
-                    <p style="margin-top: 5px !important;">pixelcounsel a community of designers by designers in africa sharing resources and information</p>
-                    <p><?php echo date("Y");?> Pixelcounsel. All logos © their respective owners</p>
-                </div>
-                <div class="col-md-2  footer-nav animated fadeInUp">
+            <div class="col-md-4 footer-brand md animated fadeInLeft">
+              <p style="margin-top: 5px !important;">pixelcounsel a community of designers by designers in africa sharing resources and information</p>
+              <p><?php echo date("Y");?> Pixelcounsel. All logos © their respective owners</p>
+              </div>
+            <div class="col-md-2  footer-nav animated fadeInUp">
                   <ul class="list h-100">
                       <li><a href="#">About Us</a></li>
                       <li><a href="#">Help</a></li>
@@ -160,8 +160,8 @@
                       <li><a href="#">Shop</a></li>
                   </ul>
               </div>
-        <div class="col-md-2 footer-social animated fadeInDown">
-            <ul class="h-100">
+        <div class="col-md-2 footer-nav animated fadeInDown">
+            <ul class="list h-100 mt-10">
                 <li><a href="#">Community</a></li>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#">Meetups</a></li>
@@ -171,8 +171,8 @@
                 <li><a href="#">Brand Guidelines</a></li>
               </ul>
           </div>
-          <div class="col-md-2 footer-social animated fadeInDown">
-            <ul class="h-100">
+          <div class="col-md-2 footer-nav animated fadeInDown">
+            <ul class="list h-100 mt-9">
                 <li><a href="#">Connect</a></li>
                 <li><a href="#">Find Designers</a></li>
                 <li><a href="#">Job for Designers</a></li>

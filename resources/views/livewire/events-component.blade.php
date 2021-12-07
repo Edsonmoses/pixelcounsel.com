@@ -3,13 +3,13 @@
 <header class="intro-header intro-events">
     <div class="container">
         <div class="row">
-            <div class="col-lg-7 col-md-7">
+            <div class="col-lg-7 col-md-7 col-sm-7">
                 <div class="heading-style">
                     <h1>EVENTS</h1>
-                    <span class="sub-heading">hat’s happening where and when (and if the drinks are on the house</span>
+                    <span class="sub-heading">What’s happening where and when (and if the drinks are on the house</span>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-5 vector-s-btn">
+            <div class="col-lg-5 col-md-5 col-sm-5 vector-s-btn">
                 <a class="btn btn-events" href="#" role="button" data-toggle="modal" data-target="#EventsModal">SUBMIT AN EVENT</a>
             </div>
         </div>
@@ -36,10 +36,10 @@
               <div class="col-md-4 mb-4">
                 <div class="card mb-4 shadow-sm">
                     <img class="bd-placeholder-img card-img-top mb-img" src="{{ asset('assets/images/events') }}/{{ $event->images }}" alt="{{$event->name}}"  width="100%" height="400"  data-toggle="modal" data-target="#eventModal_{{$event->id}}">
-                  {{-- <div class="card-body">
+                  <div class="card-body">
                     <div class="row  col-bb">
                         <div class="col-sm-8">
-                          <a href="#" role="button" data-toggle="modal" data-target="#eventModal_{{$event->id}}"><h2 class="card-title">{{$event->name}}</h2></a>
+                          <a href="#" role="button" data-toggle="modal" data-target="#eventModal_{{$event->id}}"><h2 class="card-title" >{{$event->name}}</h2></a>
                             <p class="card-text">{{substr($event->short_description,0,103)}}</p>
                         </div>
                         <div class="col-sm-2 col-dates">
@@ -50,7 +50,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                     <p class="footer-title">{{$event->exhibition}}</p>
                     </div>
-                  </div> --}}
+                  </div>
                 </div>
               </div>
             

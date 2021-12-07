@@ -3,13 +3,13 @@
   <header class="intro-header intro-events">
     <div class="container">
         <div class="row">
-            <div class="col-lg-7 col-md-7">
+            <div class="col-lg-7 col-md-7 col-sm-7">
                 <div class="heading-style">
                     <h1>EVENTS</h1>
                     <span class="sub-heading">hat’s happening where and when (and if the drinks are on the house</span>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-5 vector-s-btn">
+            <div class="col-lg-5 col-md-5 col-sm-5 vector-s-btn">
                 <a class="btn btn-events" href="#" role="button" data-toggle="modal" data-target="#EventsModal">SUBMIT AN EVENT</a>
             </div>
         </div>

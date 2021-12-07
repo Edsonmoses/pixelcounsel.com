@@ -5,7 +5,7 @@
 				<div class="col-md-4 col-lg-4 logo">
 					<img src="{{asset('assets/uploads/img/Pixel Counsel--11.svg')}}" class="img-fluid" alt="Pixel Counsel Logo">
 				</div>
-				<div class="col-md-8 col-lg-8 banner">
+				<div class="col-md-12 col-lg-8 banner">
 					<img src="{{asset('assets/user/img/about-bg.jpg')}}" class="img-fluid" alt="Pixel Counsel Logo">
 				</div>
 			</div>
@@ -14,7 +14,7 @@
 	<section class="main">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-7 col-lg-7 vectorl">
+				<div class="col-md-12 col-lg-7 vectorl">
 					<img src="{{asset('assets/uploads/img/Pixel Counsel-Vector-09.svg')}}" class="img-fluid" alt="Pixel Counsel Logo">
 					<div class="vector-search">
 						<form action="{{ route('vector.search') }}" role="search">
@@ -30,7 +30,7 @@
 							</form>
 					</div>
 				</div>
-				<div class="col-md-5 col-lg-5 ads">
+				<div class="col-md-12 col-lg-5 ads">
 					<div class="row ml-4">
 						<div class="col-md-4 h-updates">
 							<img src="{{asset('assets/uploads/img/message.png')}}" class="img-fluid" alt="RVector Logo">

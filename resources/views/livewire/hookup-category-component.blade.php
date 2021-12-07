@@ -33,11 +33,16 @@
                 </div>
                     <div class="col-lg-12 col-md-12">
                         <form action="#">
+                            <div class="checkbox-inline">
+                                <a href="/hookup" style="margin-right:20px">
+                                  <label class="checkbox-inline" for="executive">
+                                  <input type="checkbox" class="form-check-input" id="executive" {{  url('/hookup') == url()->current() ? 'checked' : '' }} name="optradio" value="all">All
+                                </label></a>
                             @foreach ($hookupcategories as $h_catagory)
-                            <div class="radio-inline">
+                            <div class="checkbox-inline">
                               <a href="{{ route('hookup.category',['category_slug'=>$h_catagory->slug]) }}">
-                                <label class="radio-inline" for="executive">
-                                <input type="radio" class="form-check-input" id="executive" name="optradio" value="{{ $h_catagory->name}}">{{ $h_catagory->name}}
+                                <label class="checkbox-inline" for="executive">
+                                <input type="checkbox" class="form-check-input" id="executive" {{ route('hookup.category', ['category_slug'=>$h_catagory->slug]) == url()->current() ? 'checked' : '' }} name="optradio" value="{{ $h_catagory->name}}">{{ $h_catagory->name}}
                               </label></a>
                             </div>
                             @endforeach
@@ -50,8 +55,8 @@
 		</div>
 	</div>
 		<div class="container">
-	    <div class="row" id="hookup">
-        <div class="col-lg-8 col-md-8">
+	    <div class="row cat" id="hookup">
+        <div class="col-lg-12 col-md-12 col-sm-12">
           <table class="table table-striped">
             <tbody>
                 @foreach ($hookups as $hookup)
