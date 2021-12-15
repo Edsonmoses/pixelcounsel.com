@@ -49,12 +49,12 @@
               <li>
                 <a href="{{route('register')}}" title="Join us">Join Us</a>
               </li>
-              <li class="d-sm-none">
+              {{--<li class="d-sm-none">
                 <a href="#">|</a>
               </li>
               <li>
                 <a href="{{ route('facebook.login') }}"><i class="fa fa-facebook-square" aria-hidden="true"></i>  Login with facebook</a>
-              </li>
+              </li>--}}
                        
            @endif
       </ul>

@@ -20,16 +20,15 @@
             <div class="row">
                 <div class="col-lg-8 col-md-8">
                     <div class="vector-search" style="margin:25px 0 0 0">
-                        <form action="{{ route('vector.search') }}" role="search">
-                         <input type="hidden" name="vector_cat" value="{{ $vector_cat }}" id="vector-cat">
-						<input type="hidden" name="vector_cat_id" value="{{ $vector_cat_id }}" id="vector-cat-id">
-						<div class="input-group">
-						<input class="form-control" placeholder="Find a logo here" name="query" id="ed-srch-term" type="text" value="{{ $search }}" wire:model="searchTerm">
-						<div class="input-group-btn">
-						<button type="submit" id="searchbtn">
-							<i class="fa fa-search" aria-hidden="true"></i> </button>
-						</div>
-						</div>
+                      <form action="#" role="search">
+						
+                        <div class="input-group">
+                        <input class="form-control" placeholder="Online vector logo collection of brands in Africa" name="query" id="ed-srch-term" type="text" wire:model="searchTerm">
+                        <div class="input-group-btn">
+                        <button type="submit" id="searchbtn">
+                          <i class="fa fa-search" aria-hidden="true"></i> </button>
+                        </div>
+                        </div>
                         </form>
                     </div>
                 </div>

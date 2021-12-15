@@ -37,6 +37,6 @@ class AdminEditJargonCategoryComponent extends Component
     }
     public function render()
     {
-        return view('livewire.admin.admin-edit-jargon-category-component'->layout('layouts.backend');
+        return view('livewire.admin.admin-edit-jargon-category-component')->layout('layouts.backend');
     }
 }

@@ -125,9 +125,9 @@
                   <li>
                     <a href="#">|</a>
                   </li>
-                  <li>
+                  {{-- <li>
                     <a href="{{ route('facebook.login') }}"><i class="fa fa-facebook-square" aria-hidden="true"></i>  Login with facebook</a>
-                  </li>
+                  </li>--}}
                </ul>
           @endauth
         @endif

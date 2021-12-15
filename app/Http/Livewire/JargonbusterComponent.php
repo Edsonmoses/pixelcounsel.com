@@ -24,7 +24,7 @@ class JargonbusterComponent extends Component
     {
         if($this->sorting =='date')
         {
-            $jargons = Jargons::orderBy('created_at','DESC')->paginate($this->pagesize); 
+            $jargons = Jargons::orderBy('created_at','ASC')->paginate($this->pagesize); 
         }
         elseif($this->sorting =='price')
         {
@@ -32,7 +32,7 @@ class JargonbusterComponent extends Component
         }
         elseif($this->sorting =='price-desc')
         {
-            $jargons = Jargons::orderBy('name','DESC')->paginate($this->pagesize); 
+            $jargons = Jargons::orderBy('name','ASC')->paginate($this->pagesize); 
         }
         elseif($this->searchTerm)
         {
@@ -41,7 +41,7 @@ class JargonbusterComponent extends Component
                     ->orWhere('name','LIKE',$searchTerm)
                     ->orWhere('slug','LIKE',$searchTerm)
                     ->orWhere('description','LIKE',$searchTerm)
-                    ->orderBy('id','DESC',$searchTerm)->paginate($this->pagesize);
+                    ->orderBy('id','ASC',$searchTerm)->paginate($this->pagesize);
         }
         else
         {
