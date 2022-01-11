@@ -22,10 +22,19 @@ class AdminAddHookupComponent extends Component
     public $hookup_status;
     public $images;
     public $hookup_categories_id;
+    public $experience;
+    public $price;
+    public $schedule;
+    public $fjob;
+    public $featured;
+    public $phone;
+    public $email;
+    public $web;
 
     public function mount()
     {
         $this->hookup_status = 'published';
+        $this->featured = '0';
     }
 
     public function generateSlug()
@@ -48,6 +57,14 @@ class AdminAddHookupComponent extends Component
         $this->images->storeAs('hookups',$imageName);
         $hookup->images = $imageName;
         $hookup->hookup_categories_id = $this->hookup_categories_id;
+        $hookup->experience = $this->experience;
+        $hookup->price = $this->price;
+        $hookup->schedule = $this->schedule;
+        $hookup->fjob = $this->fjob;
+        $hookup->featured = $this->featured;
+        $hookup->phone = $this->phone;
+        $hookup->email = $this->email;
+        $hookup->web = $this->web;
         $hookup->save();
         session()->flash('message','Hookup has been created successfully!');
     }

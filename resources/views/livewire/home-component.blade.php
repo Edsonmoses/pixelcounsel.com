@@ -1,4 +1,4 @@
-<div class="home-page">
+<div class="home-page" style="overflow: hidden !important">
 	<section class="header">
 		<div class="container">
 			<div class="row">
@@ -14,11 +14,11 @@
 	<section class="main">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-lg-7 vectorl">
+				<div class="col-lg-7 col-md-12 col-sm-12 vectorl">
 					<img src="{{asset('assets/uploads/img/Pixel Counsel-Vector-09.svg')}}" class="img-fluid" alt="Pixel Counsel Logo">
 					@livewire('home-search-component')
 				</div>
-				<div class="col-md-12 col-lg-5 ads">
+				<div class="col-lg-5 col-md-12 col-sm-12 ads">
 					<div class="row ml-4">
 						<div class="col-md-4 h-updates">
 							<img src="{{asset('assets/uploads/img/message.png')}}" class="img-fluid" alt="RVector Logo">

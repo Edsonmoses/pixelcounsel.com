@@ -44,7 +44,7 @@ class VectorComponent extends Component
     {
         $this->totalRecords = Vectorlogos::count();
         $this->vector_status = 'unpublished';
-        $this->contributor = Auth::user()->name;
+        //$this->contributor = Auth::user()->name;
         $this->vectors_status = 'published';
     }
 

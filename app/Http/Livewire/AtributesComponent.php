@@ -43,11 +43,12 @@ class AtributesComponent extends Component
         elseif($this->searchTerm)
         {
             $searchTerm = '%'.$this->searchTerm . '%';
-            $jargons = Jargons::where('hookup_categories_id','LIKE',$atributes_id,$searchTerm)
-                    ->orWhere('name','LIKE',$searchTerm)
-                    ->orWhere('slug','LIKE',$searchTerm)
-                    ->orWhere('description','LIKE',$searchTerm)
-                    ->orderBy('id','ASC',$searchTerm)->all($this->pagesize);
+            $jargons = Jargons::where('name','LIKE',$searchTerm)
+                ->orWhere('name','LIKE',$searchTerm)
+                ->orWhere('slug','LIKE',$searchTerm)
+                ->orWhere('short_description','LIKE',$searchTerm)
+                ->orWhere('description','LIKE',$searchTerm)
+                ->orderBy('name','ASC',$searchTerm)->paginate($this->pagesize);
         }
         else
         {

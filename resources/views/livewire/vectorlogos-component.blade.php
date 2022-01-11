@@ -66,19 +66,6 @@
             </div>
             <!--left col-->
         </div>
-        <p class="related-title">Related</p>
-    </div>
-    <hr/>
-    <div class="container">
-        <div class="row">
-          @foreach ($related_vectors as $r_vectors)
-            <div class="col-lg-2 col-md-2 related-image">
-              <a href="{{ route('vector.vectors',['slug'=>$r_vectors->slug]) }}" title="{{ $r_vectors->name }}">
-                <img src= "{{ asset('assets/images/vectors') }}/{{ $r_vectors->image }}" alt="{{ $r_vectors->name }}">
-              </a>
-            </div>
-            @endforeach
-        </div>
     </div>
     <hr/>
     <div class="container">
@@ -89,15 +76,26 @@
                     <div class="col-md-3">
                         <input type="checkbox" id="toggle"/>
                         <span>I agree</span>
-                  </div>
-                  <div class="col-md-3">
-                    <a  style="margin-bottom:10px;" class="disabled" id="to-toggle" href="#" wire:click="export({{$vector->id}})"><small class="v-download disable"> Download | <i class="fa fa-arrow-down" aria-hidden="true"></i></small></a>
-                    <br/>
+                        <a  style="margin-bottom:10px; margin-left:20px;" class="disabled" id="to-toggle" href="#" wire:click="export({{$vector->id}})"><small class="v-download disable"> Download | <i class="fa fa-arrow-down" aria-hidden="true"></i></small></a>
                   </div>
             </div>
         </div>
         <div class="space-footer"></div>
     </div>
+
+  </div>
+    <hr/>
+    <div class="container">
+      <h4 class="related-title">Related</h4>
+        <div class="row">
+          @foreach ($related_vectors as $r_vectors)
+            <div class="col-lg-2 col-md-2 related-image">
+              <a href="{{ route('vector.vectors',['slug'=>$r_vectors->slug]) }}" title="{{ $r_vectors->name }}">
+                <img src= "{{ asset('assets/images/vectors') }}/{{ $r_vectors->image }}" alt="{{ $r_vectors->name }}">
+              </a>
+            </div>
+            @endforeach
+        </div>
     <!-- The Modal -->
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="logoModal" wire:ignore.self>
     <div class="modal-dialog modal-lg">

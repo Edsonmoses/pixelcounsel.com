@@ -89,9 +89,10 @@ class EventsComponent extends Component
         else
         {
             $events = Events::orderBy('name','ASC')->paginate($this->pagesize);
+            $ads_events = Events::orderBy('name','ASC')->take(3)->get();
         }
         $eventcategories = EventsCategory::all();
         $eventtypes = EventType::all();
-        return view('livewire.events-component',['events'=>$events,'eventcategories'=>$eventcategories, 'eventtypes'=>$eventtypes])->layout('layouts.baseapp');
+        return view('livewire.events-component',['events'=>$events,'eventcategories'=>$eventcategories, 'eventtypes'=>$eventtypes,'ads_events'=>$ads_events])->layout('layouts.baseapp');
     }
 }

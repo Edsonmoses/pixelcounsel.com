@@ -28,6 +28,7 @@
                             <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                         @endif
                       <form class="form-horizontal" wire:submit.prevent="addEvent">
+                          <div class="row">
                         <div class="form-group">
                             <label class="col-md-6 control-label">Event Venue</label>
                             <div class="col-md-6">

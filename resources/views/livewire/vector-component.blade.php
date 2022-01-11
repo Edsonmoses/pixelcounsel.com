@@ -11,7 +11,11 @@
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-5 vector-s-btn">
+                  @if (Auth::check())
                   <a class="btn btn-vector v-single" href="#" role="button" data-toggle="modal" data-target="#logoModal">SUBMIT A LOGO</a>
+                  @else
+                  <a class="btn btn-vector v-single" href="{{route('login')}}" title="Login" role="button">SUBMIT A LOGO</a>
+                  @endif
                 </div>
             </div>
         </div>
@@ -45,8 +49,8 @@
             
             <div class="row" id="vector" wire:loading.delay.class="opacity-50">
               @foreach ($vectorlogos as $vector)
-                <div class="col-md-2 col-sm-2 col-lg-2 vector-img ml-1" @if ($loop->last) id="last_record" @endif>
-                  <a href="{{ route('vector.vectors',['slug'=>$vector->slug]) }}"><img class="bd-placeholder-img" src="{{ asset('assets/images/vectors') }}/{{ $vector->image }}" alt="{{ $vector->name }}"  width="100%" height="225"></a>
+                <div class="col-md-2 col-sm-2 col-lg-2 vector-img" @if ($loop->last) id="last_record" @endif>
+                  <a href="{{ route('vector.vectors',['slug'=>$vector->slug]) }}"><img class="bd-placeholder-img" src="{{ asset('assets/images/vectors') }}/{{ $vector->image }}" alt="{{ $vector->name }}"  width="100%" height="144"></a>
                 </div>
                 @endforeach
             </div>
@@ -201,7 +205,7 @@
             <form action="#" role="search">
                 
             <div class="input-group">
-            <input class="form-control" placeholder="Find a vector logo" name="query" id="ed-srch-term" type="text" wire:model="searchTerm">
+            <input class="form-control" placeholder="Online vector logo collection of brands in Africa" name="query" id="ed-srch-term" type="text" wire:model="searchTerm">
             <div class="input-group-btn">
             <button type="submit" id="searchbtn">
                 <i class="fa fa-search" aria-hidden="true"></i> </button>
@@ -211,7 +215,11 @@
         </div>
       </div>
       <div class="col-lg-6 col-md-6 vector-s-btn text-right">
-        <a class="btn btn-vector v-single" href="#" role="button" data-toggle="modal" data-target="#logoModal">SUBMIT A LOGO</a>
+          @if (Auth::check())
+            <a class="btn btn-vector v-single" href="#" role="button" data-toggle="modal" data-target="#logoModal">SUBMIT A LOGO</a>
+          @else
+            <a class="btn btn-vector v-single" href="{{route('login')}}" title="Login" role="button">SUBMIT A LOGO</a>
+          @endif
       </div>
     </div>
         </div>

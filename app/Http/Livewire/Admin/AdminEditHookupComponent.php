@@ -25,6 +25,14 @@ class AdminEditHookupComponent extends Component
     public $hookup_categories_id;
     public $newimage;
     public $hookup_id;
+    public $experience;
+    public $price;
+    public $schedule;
+    public $fjob;
+    public $featured;
+    public $phone;
+    public $email;
+    public $web;
 
     public function mount($hookup_slug)
     {
@@ -40,6 +48,14 @@ class AdminEditHookupComponent extends Component
         $this->images = $hookup->images;
         $this->hookup_categories_id = $hookup->hookup_categories_id;
         $this->hookup_id = $hookup->id;
+        $this->experience = $hookup->experience;
+        $this->price = $hookup->price;
+        $this->schedule = $hookup->schedule;
+        $this->fjob = $hookup->fjob;
+        $this->featured = $hookup->featured;
+        $this->phone = $hookup->phone;
+        $this->email = $hookup->email;
+        $this->web = $hookup->web;
     }
 
     public function generateSlug()
@@ -65,6 +81,14 @@ class AdminEditHookupComponent extends Component
         $hookup->images = $imageName;
         }
         $hookup->hookup_categories_id = $this->hookup_categories_id;
+        $hookup->experience = $this->experience;
+        $hookup->price = $this->price;
+        $hookup->schedule = $this->schedule;
+        $hookup->fjob = $this->fjob;
+        $hookup->featured = $this->featured;
+        $hookup->phone = $this->phone;
+        $hookup->email = $this->email;
+        $hookup->web = $this->web;
         $hookup->save();
         session()->flash('message','Hookup has been updated successfully!');
     }

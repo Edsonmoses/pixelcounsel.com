@@ -25,6 +25,7 @@
   
     <script src="{{ asset('assets/user/js/ajax.googleapis.js') }}"></script>
     <link rel="shortcut icon" href="{{ asset('assets/admin/assets/images/favicon.png')}}" />
+    <script src="https://cdn.tiny.cloud/1/k8q9tgside9eky8q9awxina5c3fwpwso4mslw3530tjl39hj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     @livewireStyles
 </head>
 
@@ -40,34 +41,36 @@
         <a class="navbar-brand" href="/"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'PixelCounsel') }}"></a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 ml-2 menu-actives">
-          <li class="nav-item">
-            <a class="nav-link" href="/vector">VECTOR LOGOS
-              <span class="{{ (request()->is('vector*')) ? 'vector-arrows' : '' }}"></span>
-            </a>
-          </li>
-          <li>
-            <a href="/hookup">HOOKUP
-              <span class="{{ (request()->is('hookup*')) ? 'hookup-arrows' : '' }}"></span>
-            </a>
-          </li>
-          <li>
-            <a href="/jargon">JARGON BUSTER
-              <span class="{{ (request()->is('jargon*')) ? 'jargon-arrows' : '' }}"></span>
-            </a>
-          </li>
-          <li>
-            <a href="/events">EVENTS
-              <span class="{{ (request()->is('events*')) ? 'events-arrows' : '' }}"></span>
-            </a>
-          </li>
-          <li>
-            <a href="/blog">BLOG
-              <i class="fa fa-comments" aria-hidden="true"></i>
-              <span class="{{ (request()->is('blog*')) ? 'blog-arrows' : '' }}"></span>
-            </a>
-          </li>
-        </ul>
+        <div class="m-menu">
+          <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 ml-2 menu-actives">
+            <li class="nav-item">
+              <a class="nav-link" href="/vector">VECTOR LOGOS
+                <span class="{{ (request()->is('vector*')) ? 'vector-arrows' : '' }}"></span>
+              </a>
+            </li>
+            <li>
+              <a href="/hookup">HOOKUP
+                <span class="{{ (request()->is('hookup*')) ? 'hookup-arrows' : '' }}"></span>
+              </a>
+            </li>
+            <li>
+              <a href="/jargon">JARGON BUSTER
+                <span class="{{ (request()->is('jargon*')) ? 'jargon-arrows' : '' }}"></span>
+              </a>
+            </li>
+            <li>
+              <a href="/events">EVENTS
+                <span class="{{ (request()->is('events*')) ? 'events-arrows' : '' }}"></span>
+              </a>
+            </li>
+            <li>
+              <a href="/blog">BLOG
+                <i class="fa fa-comments" aria-hidden="true"></i>
+                <span class="{{ (request()->is('blog*')) ? 'blog-arrows' : '' }}"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
         @if (Route::has('login'))
           @auth
               @if (Auth::user()->utype === 'ADM')
@@ -139,8 +142,8 @@
  {{$slot}}
     <!-- Footer -->
     <footer class="footer-bs-light">
+      <hr>
       <div class="container">
-        <hr>
         <div class="row">
         	<div class="col-md-2 col-sm-12 footer-brand animated fadeInDown">
             	<a class="pull-left footer-brands" href="{{ url('/') }}"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'pixelcounsel') }}"> </a>
@@ -190,7 +193,7 @@
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
                       </span>
-                    </div><!-- /input-group --
+                    </div><-- /input-group --
                  </p>
             </div>-->
         </div>
@@ -218,14 +221,40 @@
         $(window).load(function(){        
         $('#myModal').modal('show');
           }); 
-        ///tinymce
-        tinymce.init({
-          selector: 'textarea',
-          plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-          toolbar_mode: 'floating',
-      });
     </script>
+
+    @stack('scripts')
+
     @livewireScripts
+
+    @push('scripts')
+  <script type= text/javascript>
+    $(function() {
+        tinymce.init({
+            selector:'#short_description',
+            setup:function(editor) {
+                editor.on('Change',function(e) {
+                    tinyMCE.triggerSave();
+                    var sd_data = $('#short_description').val();
+                    @this.set('short_description',sd_data);
+                });
+            }
+        });
+
+        tinymce.init({
+            selector:'#description',
+            setup:function(editor) {
+                editor.on('Change',function(e) {
+                    tinyMCE.triggerSave();
+                    var sd_data = $('#description').val();
+                    @this.set('description',sd_data);
+                });
+            }
+        });
+    });
+    
+</script>
+  @endpush
 </body>
 
 </html>

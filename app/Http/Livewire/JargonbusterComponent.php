@@ -20,6 +20,7 @@ class JargonbusterComponent extends Component
         $this->sorting = "default";
         $this->pagesize = 12;
     }
+
     public function render()
     {
         if($this->sorting =='date')
@@ -38,10 +39,11 @@ class JargonbusterComponent extends Component
         {
             $searchTerm = '%'.$this->searchTerm . '%';
             $jargons = Jargons::where('name','LIKE',$searchTerm)
-                    ->orWhere('name','LIKE',$searchTerm)
-                    ->orWhere('slug','LIKE',$searchTerm)
-                    ->orWhere('description','LIKE',$searchTerm)
-                    ->orderBy('id','ASC',$searchTerm)->paginate($this->pagesize);
+                ->orWhere('name','LIKE',$searchTerm)
+                ->orWhere('slug','LIKE',$searchTerm)
+                ->orWhere('short_description','LIKE',$searchTerm)
+                ->orWhere('description','LIKE',$searchTerm)
+                ->orderBy('name','ASC',$searchTerm)->paginate($this->pagesize);
         }
         else
         {

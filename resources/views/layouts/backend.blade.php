@@ -20,6 +20,8 @@
   <link href="{{ asset('assets/user/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="{{ asset('assets/admin/assets/images/favicon.png')}}" />
+
+  <script src="https://cdn.tiny.cloud/1/k8q9tgside9eky8q9awxina5c3fwpwso4mslw3530tjl39hj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   @livewireStyles
 </head>
 <body>
@@ -478,6 +480,38 @@
   <script src="{{ asset('assets/admin/assets/js/dashboard.js')}}"></script>
   <script src="{{ asset('assets/admin/assets/js/datepicker.js')}}"></script>
 	<!-- end custom js for this page -->
+  
+  @stack('scripts')
+
   @livewireScripts
+
+  @push('scripts')
+  <script type= text/javascript>
+    $(function() {
+        tinymce.init({
+            selector:'#short_description',
+            setup:function(editor) {
+                editor.on('Change',function(e) {
+                    tinyMCE.triggerSave();
+                    var sd_data = $('#short_description').val();
+                    @this.set('short_description',sd_data);
+                });
+            }
+        });
+
+        tinymce.init({
+            selector:'#description',
+            setup:function(editor) {
+                editor.on('Change',function(e) {
+                    tinyMCE.triggerSave();
+                    var sd_data = $('#description').val();
+                    @this.set('description',sd_data);
+                });
+            }
+        });
+    });
+    
+</script>
+  @endpush
 </body>
 </html>      

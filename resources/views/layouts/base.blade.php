@@ -18,11 +18,13 @@
 
     <!-- Custom Fonts -->
     <link href="{{ asset('assets/user/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/fontawesome.css')}}" rel="stylesheet" media="screen"> 
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <!------<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">---------->
+    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
     <link rel="shortcut icon" href="{{ asset('assets/admin/assets/images/favicon.png')}}" />
     <script src="{{ asset('assets/user/js/ajax.googleapis.js') }}"></script>
+    <script src="https://cdn.tiny.cloud/1/k8q9tgside9eky8q9awxina5c3fwpwso4mslw3530tjl39hj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     @livewireStyles
 </head>
 
@@ -66,8 +68,10 @@
  {{$slot}}
     <!-- Footer -->
     <footer class="footer-bs-dark">
-      <div class="container">
+      <div class="container-fluid">
         <hr>
+      </div>
+      <div class="container">
         <div class="row">
         	<div class="col-md-2 col-sm-12 footer-brand animated fadeInDown">
             	<a class="pull-left footer-brands" href="{{ url('/') }}"><img src="{{asset('assets/uploads/img/Pixel Counsel--11.svg')}}" class="img-responsive" alt="{{ config('app.name', 'pixelcounsel') }}"> </a>
@@ -117,7 +121,7 @@
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
                       </span>
-                    </div><!-- /input-group --
+                    </div><-- /input-group --
                  </p>
             </div>-->
         </div>
@@ -141,7 +145,38 @@
    $('#myModal').modal('show');
     }); 
     </script>
+    @stack('scripts')
+
     @livewireScripts
+
+    @push('scripts')
+  <script type= text/javascript>
+    $(function() {
+        tinymce.init({
+            selector:'#short_description',
+            setup:function(editor) {
+                editor.on('Change',function(e) {
+                    tinyMCE.triggerSave();
+                    var sd_data = $('#short_description').val();
+                    @this.set('short_description',sd_data);
+                });
+            }
+        });
+
+        tinymce.init({
+            selector:'#description',
+            setup:function(editor) {
+                editor.on('Change',function(e) {
+                    tinyMCE.triggerSave();
+                    var sd_data = $('#description').val();
+                    @this.set('description',sd_data);
+                });
+            }
+        });
+    });
+    
+</script>
+  @endpush
 </body>
 
 </html>
