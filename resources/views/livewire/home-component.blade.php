@@ -20,7 +20,7 @@
 				</div>
 				<div class="col-lg-5 col-md-12 col-sm-12 ads">
 					<div class="row ml-4">
-						<div class="col-md-4 h-updates">
+						{{--<div class="col-md-4 h-updates">
 							<img src="{{asset('assets/uploads/img/message.png')}}" class="img-fluid" alt="RVector Logo">
 							<h3 style="color:#444">Have Your Say</h3>
 							<h3> It's The Blog</h3>
@@ -28,8 +28,8 @@
 							<p></p>
 							<p></p>
 							<p>Daily posts of what's trending in the creative field in Africa at large</p>
-						</div>
-						<div class="col-md-4 col-sm-12 h-events">
+						</div>--}}
+						<div class="col-md-8 col-sm-12 h-events" style="border-left: none !important;">
 							<div style="margin-top:47px;"></div>
 							<div>
 								<h3><a href="/hookup" style="color: #fff;">Hook Up</a></h3>
