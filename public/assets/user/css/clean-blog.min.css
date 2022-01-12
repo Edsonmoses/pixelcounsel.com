@@ -2235,3 +2235,21 @@ float: left !important;
 ul{
   list-style: none !important;
 }
+@media (max-width: 1200px){
+  .home-page .main {
+    background: linear-gradient(to left, #333333 46%, #fff100 46%);
+    height: 100%;
+}
+.h-events{
+  margin-left: 2.5rem;
+}
+}
+@media (min-width: 1800px){
+  .home-page .main {
+    background: linear-gradient(to left, #333333 46%, #fff100 46%);
+    height: 100%;
+}
+.h-events{
+  margin-left: 5.5rem;
+}
+}
