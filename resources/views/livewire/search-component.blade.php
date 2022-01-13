@@ -9,8 +9,12 @@
                         <span class="sub-heading">Online vector logo collection of brands in Africa</span>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-5">
-                    
+                <div class="col-lg-5 col-md-5 col-sm-5 vector-s-btn">
+                  @if (Auth::check())
+                  <a class="btn btn-vector v-single" href="#" role="button" data-toggle="modal" data-target="#logoModal">SUBMIT A LOGO</a>
+                  @else
+                  <a class="btn btn-vector v-single" href="{{route('login')}}" title="Login" role="button">SUBMIT A LOGO</a>
+                  @endif
                 </div>
             </div>
         </div>
@@ -19,21 +23,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-8">
-                    <div class="vector-search" style="margin:25px 0 0 0">
-                      <form action="#" role="search">
-						
-                        <div class="input-group">
-                        <input class="form-control" placeholder="Online vector logo collection of brands in Africa" name="query" id="ed-srch-term" type="text" wire:model="searchTerm">
-                        <div class="input-group-btn">
-                        <button type="submit" id="searchbtn">
-                          <i class="fa fa-search" aria-hidden="true"></i> </button>
-                        </div>
-                        </div>
-                        </form>
+                  <div id="custom-search-input" style="margin-top: 33px">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="  search-query form-control" placeholder="Find a logo"  wire:model="searchTerm"/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button">
+                                <span class=" glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
                     </div>
                 </div>
+                </div>
                 <div class="col-lg-4 col-md-4 vector-s-btn">
-                    <a class="btn btn-vector v-single" href="#" role="button" data-toggle="modal" data-target="#logoModal">SUBMIT A LOGO</a>
+                   
                 </div>
                 
             </div>

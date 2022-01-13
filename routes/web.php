@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\AddVectorComponent;
 use App\Http\Livewire\Admin\AdminAddAlpFilterComponent;
 use App\Http\Livewire\Admin\AdminAddBlogComponent;
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
@@ -38,6 +39,7 @@ use App\Http\Livewire\Admin\AdminVectorCategoryComponent;
 use App\Http\Livewire\Admin\AdminVectorComponent;
 use App\Http\Livewire\AtributesComponent;
 use App\Http\Livewire\BlogComponent;
+use App\Http\Livewire\EventAddComponent;
 use App\Http\Livewire\EventDetailsComponent;
 use App\Http\Livewire\EventsCategoryComponent;
 use App\Http\Livewire\EventsComponent;
@@ -72,6 +74,7 @@ Route::get('/home',HomeComponent::class);
 
 Route::get('/vector', VectorComponent::class)->name('vector');
 Route::get('/vectors/{slug}', VectorlogosComponent::class)->name('vector.vectors');
+Route::get('/add-vectors/add', AddVectorComponent::class)->name('vector.addvectors');
 
 Route::get('/jargon', JargonbusterComponent::class);
 Route::get('/jargon-category/{category_slug}', JargonCategoryComponent::class)->name('jargon.category');
@@ -80,10 +83,12 @@ Route::get('/jargons-category/{atributes_name}', AtributesComponent::class)->nam
 Route::get('/hookup', HookupComponent::class);
 Route::get('/hookup-category/{category_slug}', HookupCategoryComponent::class)->name('hookup.category');
 Route::get('/hookup-details/{hookup_slug}', HookupDedailsComponent::class)->name('hookup.details');
+Route::get('/hookup/add', HookupDedailsComponent::class)->name('hookup.addhookup');
 
 Route::get('/events', EventsComponent::class);
 Route::get('/events-category/{category_slug}', EventsCategoryComponent::class)->name('events.category');
 Route::get('/events-details/{event_slug}', EventDetailsComponent::class)->name('events.details');
+Route::get('/events/add', EventAddComponent::class)->name('events.addevent');
 
 Route::get('/blog', BlogComponent::class);
 

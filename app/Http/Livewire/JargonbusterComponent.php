@@ -48,9 +48,10 @@ class JargonbusterComponent extends Component
         else
         {
             $jargons = Jargons::paginate($this->pagesize);
+            $af_jargons = Jargons::where('afid',1)->paginate($this->pagesize); 
         }
         $jargoncategories = JargonCategory::all();
         $atributes = AlpFilters::all();
-        return view('livewire.jargonbuster-component',['jargons'=>$jargons, 'jargoncategories'=>$jargoncategories,'atributes'=>$atributes])->layout('layouts.baseapp');
+        return view('livewire.jargonbuster-component',['jargons'=>$jargons, 'jargoncategories'=>$jargoncategories,'atributes'=>$atributes,'af_jargons'=>$af_jargons])->layout('layouts.baseapp');
     }
 }

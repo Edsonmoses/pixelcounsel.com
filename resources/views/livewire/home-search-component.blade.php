@@ -1,14 +1,14 @@
-<div class="vector-search">
-    <form action="#" role="search">
-
-    <div class="input-group">
-    <input class="form-control" placeholder="Online vector logo collection of brands in Africa" name="query" id="ed-srch-term" type="search" wire:model="search">
-    <div class="input-group-btn">
-    <button type="submit" id="searchbtn">
-        <i class="fa fa-search" aria-hidden="true"></i> </button>
+<div style="margin:-50px 0 33px 0">
+    <div id="custom-search-input">
+        <div class="input-group col-md-12">
+            <input type="text" class="  search-query form-control" placeholder="Online vector logo collection of brands in Africa"  wire:model="search"/>
+            <span class="input-group-btn">
+                <button class="btn btn-danger" type="button">
+                    <span class=" glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
     </div>
-    </div>
-    </form>
     @if ($search)
     <ul class="hmsearch">
         @foreach($vector as $vector)

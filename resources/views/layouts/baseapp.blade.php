@@ -20,7 +20,7 @@
 
     <!-- Custom Fonts -->
     <link href="{{ asset('assets/user/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;500;700&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
   
     <script src="{{ asset('assets/user/js/ajax.googleapis.js') }}"></script>
@@ -63,12 +63,12 @@
                 <span class="{{ (request()->is('events*')) ? 'events-arrows' : '' }}"></span>
               </a>
             </li>
-            <li>
+            {{-- <li>
               <a href="/blog">BLOG
                 <i class="fa fa-comments" aria-hidden="true"></i>
                 <span class="{{ (request()->is('blog*')) ? 'blog-arrows' : '' }}"></span>
               </a>
-            </li>
+            </li>--}}
           </ul>
         </div>
         @if (Route::has('login'))
@@ -149,14 +149,13 @@
             	<a class="pull-left footer-brands" href="{{ url('/') }}"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'pixelcounsel') }}"> </a>
                 
             </div>
-            <div class="col-md-4 footer-brand md animated fadeInLeft">
+            <div class="col-md-3 footer-brand md animated fadeInLeft">
               <p style="margin-top: 5px !important;">pixelcounsel a community of designers by designers in africa sharing resources and information</p>
               <p><?php echo date("Y");?> Pixelcounsel. All logos © their respective owners</p>
               </div>
             <div class="col-md-2  footer-nav animated fadeInUp">
                   <ul class="list h-100">
-                      <li><a href="#">About Us</a></li>
-                      <li><a href="#">Help</a></li>
+                      <li><a href="#">Faq</a></li>
                       <li><a href="#">Contact</a></li>
                       <li><a href="#">Terms</a></li>
                       <li><a href="#">Privacy</a></li>
@@ -165,22 +164,43 @@
               </div>
         <div class="col-md-2 footer-nav animated fadeInDown">
             <ul class="list h-100 mt-10">
-                <li><a href="#">Community</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Meetups</a></li>
-                <li><a href="#">Newsletter</a></li>
-                <li><a href="#">Testimonials</a></li>
-                <li><a href="#">Handbook</a></li>
+              <li>
+                <a href="/vector">VECTOR LOGOS
+                  <span class="{{ (request()->is('vector*')) ? 'vector-arrows' : '' }}"></span>
+                </a>
+              </li>
+              <li>
+                <a href="/hookup">HOOKUP
+                  <span class="{{ (request()->is('hookup*')) ? 'hookup-arrows' : '' }}"></span>
+                </a>
+              </li>
+              <li>
+                <a href="/jargon">JARGON BUSTER
+                  <span class="{{ (request()->is('jargon*')) ? 'jargon-arrows' : '' }}"></span>
+                </a>
+              </li>
+              <li>
+                <a href="/events">EVENTS
+                  <span class="{{ (request()->is('events*')) ? 'events-arrows' : '' }}"></span>
+                </a>
+              </li>
                 <li><a href="#">Brand Guidelines</a></li>
               </ul>
           </div>
-          <div class="col-md-2 footer-nav animated fadeInDown">
+          <div class="col-md-3 footer-nav animated fadeInDown">
             <ul class="list h-100 mt-9">
-                <li><a href="#">Connect</a></li>
-                <li><a href="#">Find Designers</a></li>
-                <li><a href="#">Job for Designers</a></li>
-                <li><a href="#">Teams</a></li>
+                <li><a href="{{route('vector.addvectors')}}">Find Designers</a></li>
+                <li><a href="/hookup">Job for Designers</a></li>
                 <li><a href="#">Advertise</a></li>
+                <h4>Newsletter</h4>
+                <p>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter your email">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                    </span>
+                  </div><!-- /input-group -->
+               </p>
                 
               </ul>
           </div>

@@ -10,19 +10,17 @@
                 </div>
             </div>
             <!--header title-->
-            <div class="col-lg-5 col-md-5 col-sm-5">
-                <div class="vector-search heading-mr">
-          <form action="#" role="search">
-            
-          <div class="input-group">
-          <input class="form-control" placeholder="Search a term" name="query" id="ed-srch-term" type="text" wire:model="searchTerm">
-          <div class="input-group-btn">
-          <button type="submit" id="searchbtn">
-            <i class="fa fa-search" aria-hidden="true"></i> </button>
-          </div>
-          </div>
-          </form>
-          </div>
+            <div class="col-lg-4 col-md-4 col-sm-5 heading-mr">
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="  search-query form-control" placeholder="Search a term"  wire:model="searchTerm"/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button">
+                                <span class=" glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
         <!--row-->

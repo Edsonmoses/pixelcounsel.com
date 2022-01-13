@@ -10,19 +10,17 @@
                 </div>
             </div>
             <!--header title-->
-            <div class="col-lg-4 col-md-4 col-sm-5">
-                <div class="vector-search heading-mr">
-          <form action="#" role="search">
-            
-          <div class="input-group">
-          <input class="form-control" placeholder="Search a term" name="query" id="ed-srch-term" type="text" wire:model="searchTerm">
-          <div class="input-group-btn">
-          <button type="submit" id="searchbtn">
-            <i class="fa fa-search" aria-hidden="true"></i> </button>
-          </div>
-          </div>
-          </form>
-          </div>
+            <div class="col-lg-4 col-md-4 col-sm-5 heading-mr">
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="  search-query form-control" placeholder="Search a term"  wire:model="searchTerm"/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button">
+                                <span class=" glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
         <!--row-->
@@ -47,7 +45,7 @@
                 <p style="margin: 20px 0 0 0;">Glossary of Architectural Terms</p>
             <ul class="nav navbar-nav">
                 @foreach ($atributes as $atribute )
-                <li class="nav-link{{ route('jargon.atributes', ['atributes_name'=>$atribute->name]) == url()->current() ? 'active' : '' }}">
+                <li class="nav-link{{ route('jargon.atributes', ['atributes_name'=>$atribute->name]) == url()->current('') ? 'active' : '' }} {{ $loop->first ? 'active' : '' }}">
                     <a href="{{ route('jargon.atributes',['atributes_name'=>$atribute->name]) }}">
                         {{ $atribute->name}}
                     </a>
@@ -63,20 +61,8 @@
             </div>
             <br/>
 	    <div class="row" id="jargon">
-            {{--<select name="orderby" wire:model="sorting">
-                <option value="default">Default sorting</option>
-                <option value="date">Sort by newness</option>
-                <option value="price">Sort by price: low to high</option>
-                <option value="price-desc">Sort by price: high to low</option>
-            </select>
-            <select name="post-per-page" wire:model="pagesize">
-                <option value="12">12 per page</option>
-                <option value="3">3 per page</option>
-                <option value="2">2 per page</option>
-                <option value="1">1 per page</option>
-            </select>--}}
             <div class="col-lg-12 col-md-12 col-sm-12">
-                @foreach ( $jargons  as $jargon )
+                @foreach ( $af_jargons  as $jargon )
                     <p><strong>{{$jargon->name}} :</strong> {{$jargon->description}}</p>
                 @endforeach
             </div>

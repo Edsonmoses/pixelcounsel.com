@@ -1,5 +1,6 @@
 <div>
     <div class="container">
+        
         <div class="row">
             <div class="col-lg-12">
                 <h4 class="text-dark mb-3">{{$hookup->jobtitle }}</h4>

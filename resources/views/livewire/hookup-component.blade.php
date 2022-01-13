@@ -2,54 +2,31 @@
     <div class="hookup-actives"><div class="hookup-arrows"></div></div>
 <header class="intro-header intro-hookup">
   <div class="container">
-      <div class="row">
+      <div class="row hookup">
           <div class="col-lg-7 col-md-7 col-sm-7">
               <div class="heading-style">
                   <h1>HOOK UP</h1>
                   <span class="sub-heading">Collection of career changing jobs in Africa for your picking</span>
               </div>
           </div>
-          <div class="col-lg-5 col-md-5 col-sm-5">
-          
-          </div>
+          <div class="col-lg-5 col-md-5 col-sm-5 hook-search heading-mt">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="  search-query form-control" placeholder="Find a job"  wire:model="searchTerm"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" type="button">
+                            <span class=" glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            </div>
+      </div>
       </div>
   </div>
 </header>
 	<!-- Main Content -->
 	<div class="container">
-		<div class="hookup">
-            <div class="container">
-                <div class="row">
-                <div class="col-lg-5 col-md-5 hook-search">
-                    <div class="vector-search heading-mt">  
-                        <div class="input-group">
-                        <input class="form-control" placeholder="Find a logo here" type="text" wire:model="searchTerm">
-                        <div class="input-group-btn">
-                        <button type="submit" id="searchbtn">
-                            <i class="fa fa-search" aria-hidden="true"></i> </button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                    <div class="col-lg-12 col-md-12">
-                        <form action="#">
-                          @foreach ($hookupcategories as $h_catagory)
-                            <div class="checkbox-inline">
-                              <a href="{{ route('hookup.category',['category_slug'=>$h_catagory->slug]) }}">
-                                <label class="checkbox-inline" for="executive">
-                                <input type="checkbox" class="form-check-input" id="executive" {{ route('hookup.category', ['category_slug'=>$h_catagory->slug]) == url()->current() ? 'checked' : '' }} name="optradio" value="{{ $h_catagory->name}}">{{ $h_catagory->name}}
-                              </label></a>
-                            </div>
-                            @endforeach
-                
-                          </form>
-                          
-                    </div>
-                </div>
-            </div>
-		</div>
-	</div>
-		<div class="container">
 	    <div class="row" id="hookup">
         <div class="col-lg-12 col-md-12 col-sm-12">
         <ul class="nav nav-pills nav nav-pills rounded nav-justified flex-column flex-sm-row" id="pills-tab" role="tablist">
@@ -103,9 +80,9 @@
                             
                             <div class="p-3 bg-light">
                                 <div class="row">
-                                    <div class="col-md-10">
+                                    <div class="col-md-8 col-md-offset-2">
                                         <div>
-                                            <p class="text-muted ml-3 mb-0 mo-mb-2"><span class="text-dark">Experience :</span> {{$hookup->experience}}</p>
+                                            <p class="text-muted ml-3 mb-4 mo-mb-2"><span class="text-dark">Experience :</span> {{$hookup->experience}}</p>
                                         </div>
                                     </div>
                                    {{--<div class="col-md-6">
