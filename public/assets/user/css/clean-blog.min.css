@@ -24,7 +24,7 @@
 .menu-space-r{ width: 167px;}
 /*header styleing*/
 .header-0{
-  margin-top: -50px;
+  margin-top: -0px;
 }
 .heading-style{
   color:#999999;
@@ -346,7 +346,7 @@ margin-top: 11% !important;
 }
 .hookup{
   width: 100%;
-  margin-top: -65px;
+  margin-top: 0px;
   margin-bottom: 20px;
 }
 .hookup-search{
@@ -603,7 +603,7 @@ margin-top: 11% !important;
   color: #fff !important;
 }
 .intro-jargon .header-0{
-  margin-top: -50px;
+  margin-top: 0px;
 }
 .intro-jargon .heading-style{
   color:#999999;
@@ -2117,4 +2117,90 @@ ul{
 }
 .bg-white {
   background-color: #fff !important;
+}
+
+.checkbox label:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.checkbox .cr {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #a9a9a9;
+  border-radius: .25em;
+  width: 1.5em;
+  height: 1.5em;
+  float: left;
+  margin-right: .5em;
+}
+
+.checkbox .cr .cr-icon {
+  position: absolute;
+  font-size: .8em;
+  line-height: 0;
+  top: 50%;
+  left: 15%;
+}
+
+.checkbox input:checked ~ .cr {
+  background-color: #fff100;
+}
+
+.checkbox label input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox label input[type="checkbox"]+.cr>.cr-icon {
+  opacity: 0;
+}
+
+.checkbox label input[type="checkbox"]:checked+.cr>.cr-icon {
+  opacity: 1;
+}
+
+.checkbox label input[type="checkbox"]:disabled+.cr {
+  opacity: .5;
+}
+.newsletter {
+  background: #fff;
+  }
+  
+  .newsletter .content {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2; }
+  .newsletter .content h2 {
+  color: #243c4f;
+  margin-bottom: 40px; }
+  .newsletter .content .form-control {
+  height: 50px;
+  border-color: #ccc;
+  border-radius:0;
+  font-weight: 300;
+  }
+  .newsletter .content.form-control:focus {
+  box-shadow: none;
+  border: 2px solid #243c4f;
+  }
+  .newsletter .content .btn {
+  min-height: 50px; 
+  border-radius:0;
+  background: #243c4f;
+  color: #fff;
+  font-weight:600;
+  }
+  .newsletter .input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    margin-left: -40px;
+}
+
+.no-gutter {
+  margin-right: 0;
+  margin-left: -26px;
 }

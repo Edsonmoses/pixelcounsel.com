@@ -83,10 +83,9 @@
                 </div>
             	<div class="col-md-2  footer-nav animated fadeInUp">
                     <ul class="list h-100">
-                      <li><a href="#">Faq</a></li>
                       <li><a href="#">Contact</a></li>
                       <li><a href="#">Terms</a></li>
-                      <li><a href="#">Privacy</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
                       <li><a href="#">Shop</a></li>
                     </ul>
                 </div>
@@ -112,7 +111,6 @@
                   <span class="{{ (request()->is('events*')) ? 'events-arrows' : '' }}"></span>
                 </a>
               </li>
-                <li><a href="#">Brand Guidelines</a></li>
               </ul>
             </div>
             <div class="col-md-3 footer-nav animated fadeInDown">

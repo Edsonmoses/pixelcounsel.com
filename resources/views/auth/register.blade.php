@@ -62,8 +62,8 @@
     <div class="container mb-0">
     <div class="row text-center">
         <div class="col-md-12 lgin">
-            <img src="{{asset('assets/uploads/img/Pixel Counsel--11.svg')}}" alt="Pixel Counsel" width="100" height="100" class="mx-auto d-block"> 
-            <span class="text-md text-gray-600" style="color: #fff100">Online vector logo collection of brands in Africa</span>
+            <a href="/"><img src="{{asset('assets/uploads/img/Pixel Counsel--11.svg')}}" alt="Pixel Counsel" width="100" height="100" class="mx-auto d-block"> </a>
+            <span class="text-md text-gray-600" style="color: #fff100">pixelcounsel a community of designers</span>
         </div>
     </div>
 </div>
@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn login">login</button>
-                <span class="ml-2 text-sm text-gray-600">By joining Pixel Counsel, you agree to our Terms Of Service and Privacy Policy</span>
+                <span class="ml-12 text-sm text-gray-600">By joining Pixel Counsel, you agree to our <a href="#">Terms</a> Of Service and <a href="#">Privacy Policy</a></span>
               
             </form>
         </div>
@@ -116,16 +116,16 @@
                 <input type="text" name="name" id="name" id="password" class="form-input" placeholder="Username" :value="name" required autofocus autocomplete="name">
                 <input type="password" name="password" class="form-input" placeholder="Password" required autocomplete="new-password">
                 <input type="password" name="password_confirmation" id="password_confirmation" class="form-input" placeholder="Confirm Password" required autocomplete="new-password">
-                <div class="form-checked">
-                    <label class="flex items-center">
-                     <span class="texted text-gray-600">{{ __('I wish to receive news, promotions & the latest uploads from Pixel Counsel by email') }}</span>
-                     <x-jet-checkbox id="news" name="news" />
-                     <span class="ml-2 text-sm text-gray-600 checkmark"></span>
-                 </label>
-                 </div>
-                <button type="submit" class="btn signup"><i class="fa fa-spinner fa-pulse"></i> Create Your Pixel Counsel Account
+                <div class="checkbox">
+                    <label>
+                     <input type="checkbox" value="" checked>
+                     <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                     I wish to receive news, promotions & the latest uploads from Pixel Counsel by email
+                     </label>
+                  </div>
+                <button type="submit" class="btn signup">Create Your Pixel Counsel Account
               </button> 
-              <span class="ml-12 text-sm text-gray-600">By joining Pixel Counsel, you agree to our Terms Of Service and Privacy Policy</span>
+              <span class="ml-12 text-sm text-gray-600">By joining Pixel Counsel, you agree to our <a href="#">Terms</a> Of Service and <a href="#">Privacy Policy</a></span>
                 
             </form>
         </div>

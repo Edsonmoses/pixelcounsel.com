@@ -54,9 +54,9 @@
                                                 <img src="{{ asset('assets/images/hookups') }}/{{$hookup->images}}" alt="{{$hookup->jobtitle}}" class="img-fluid mx-auto d-block" width="84" height="84">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-5">
                                         <div>
-                                            <h5 class="f-18"><a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}" class="text-dark">{{$hookup->jobtitle}}</a></h5>
+                                            <h5 class="f-18" style="margin-bottom: -25px"><a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}" class="text-dark">{{$hookup->jobtitle}}</a></h5>
                                             <p class="text-muted mb-0">{{$hookup->company}}</p>
                                         </div>
                                     </div>
@@ -65,11 +65,11 @@
                                             <p class="text-muted mb-0"><i class="fa fa-map-marker text-primary mr-2"></i>{{$hookup->location}}</p>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    {{-- <div class="col-md-2">
                                         <div>
                                             <p class="text-muted mb-0 mo-mb-2"><span class="text-primary">$</span>{{$hookup->price}}</p>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                     <div class="col-md-2">
                                         <div>
                                             <p class="text-muted mb-0">{{$hookup->schedule}}</p>
@@ -82,7 +82,7 @@
                                 <div class="row">
                                     <div class="col-md-8 col-md-offset-2">
                                         <div>
-                                            <p class="text-muted ml-3 mb-4 mo-mb-2"><span class="text-dark">Experience :</span> {{$hookup->experience}}</p>
+                                            <p class="text-muted" style="margin:10px 0 10px 0"><span class="text-dark">Experience :</span> {{$hookup->experience}}</p>
                                         </div>
                                     </div>
                                    {{--<div class="col-md-6">
@@ -91,7 +91,7 @@
                                         </div>
                                     </div>--}}
                                     <div class="col-md-2">
-                                        <div class="mt-5">
+                                        <div class="mt-4">
                                             <a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}" class="text-primary">Apply Now <i class="fa fa-angle-double-right"></i></a>
                                         </div>
                                     </div>

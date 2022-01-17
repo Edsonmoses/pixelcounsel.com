@@ -44,8 +44,8 @@
     </header>
         <!-- Main Content -->
         <div class="container">
-            
             <div class="row" id="vector" wire:loading.delay.class="opacity-50">
+              <h4 class="text-gray-800">Recently uploaded</h4>
               @foreach ($vectorlogos as $vector)
                 <div class="col-md-2 col-sm-2 col-lg-2 vector-img" @if ($loop->last) id="last_record" @endif>
                   <a href="{{ route('vector.vectors',['slug'=>$vector->slug]) }}"><img class="bd-placeholder-img" src="{{ asset('assets/images/vectors') }}/{{ $vector->image }}" alt="{{ $vector->name }}"  width="100%" height="144"></a>

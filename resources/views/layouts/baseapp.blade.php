@@ -141,7 +141,26 @@
 <!-- Page Header -->
  {{$slot}}
     <!-- Footer -->
-    <footer class="footer-bs-light">
+    <footer class="footer-bs-light newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-8 col-lg-8 no-gutter">
+            <div class="content">
+              <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Enter your email">
+                    <span class="input-group-btn">
+                    <button class="btn" type="submit">Subscribe</button>
+                    </span>
+                    <div class="input-group" style="margin-right: -10px">
+                      <span class="input-group-btn">
+                      <button class="btn" type="submit">Unsubscribe</button>
+                      </span>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <hr>
       <div class="container">
         <div class="row">
@@ -155,10 +174,9 @@
               </div>
             <div class="col-md-2  footer-nav animated fadeInUp">
                   <ul class="list h-100">
-                      <li><a href="#">Faq</a></li>
                       <li><a href="#">Contact</a></li>
                       <li><a href="#">Terms</a></li>
-                      <li><a href="#">Privacy</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
                       <li><a href="#">Shop</a></li>
                   </ul>
               </div>
@@ -184,7 +202,6 @@
                   <span class="{{ (request()->is('events*')) ? 'events-arrows' : '' }}"></span>
                 </a>
               </li>
-                <li><a href="#">Brand Guidelines</a></li>
               </ul>
           </div>
           <div class="col-md-3 footer-nav animated fadeInDown">
