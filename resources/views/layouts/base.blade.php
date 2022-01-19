@@ -29,6 +29,7 @@
 </head>
 
 <body>
+  @include('cookieConsent::index')
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
@@ -118,7 +119,7 @@
                 <li><a href="{{route('vector.addvectors')}}">Find Designers</a></li>
                 <li><a href="/hookup">Job for Designers</a></li>
                 <li><a href="#">Advertise</a></li>
-                <h4>Newsletter</h4>
+                {{-- <h4>Newsletter</h4>
                 <p>
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Enter your email">
@@ -126,7 +127,7 @@
                       <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
                     </span>
                   </div><!-- /input-group -->
-               </p>
+               </p>--}}
                 
               </ul>
             </div>

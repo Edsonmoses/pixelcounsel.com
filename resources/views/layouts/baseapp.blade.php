@@ -30,6 +30,7 @@
 </head>
 
 <body>
+  @include('cookieConsent::index')
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
@@ -45,22 +46,22 @@
           <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 ml-2 menu-actives">
             <li class="nav-item">
               <a class="nav-link" href="/vector">VECTOR LOGOS
-                <span class="{{ (request()->is('vector*')) ? 'vector-arrows' : '' }}"></span>
+                <span class="{{ (request()->is('vector*')) ? 'vector-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
               </a>
             </li>
             <li>
               <a href="/hookup">HOOKUP
-                <span class="{{ (request()->is('hookup*')) ? 'hookup-arrows' : '' }}"></span>
+                <span class="{{ (request()->is('hookup*')) ? 'hookup-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
               </a>
             </li>
             <li>
               <a href="/jargon">JARGON BUSTER
-                <span class="{{ (request()->is('jargon*')) ? 'jargon-arrows' : '' }}"></span>
+                <span class="{{ (request()->is('jargon*')) ? 'jargon-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
               </a>
             </li>
             <li>
               <a href="/events">EVENTS
-                <span class="{{ (request()->is('events*')) ? 'events-arrows' : '' }}"></span>
+                <span class="{{ (request()->is('events*')) ? 'events-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
               </a>
             </li>
             {{-- <li>
@@ -119,13 +120,13 @@
                 <li>
                     <a href="{{route('login')}}" title="Login">Login</a>
                   </li>
-                  <li>
+                  <li class="d-none d-sm-block d-sm-none d-md-block">
                     <a href="#">|</a>
                   </li>
                   <li>
                     <a href="{{route('register')}}" title="Join us">Join Us</a>
                   </li>
-                  <li>
+                  {{-- <li  class="d-none d-sm-block d-sm-none d-md-block">
                     <a href="#">|</a>
                   </li>
                   {{-- <li>
@@ -144,21 +145,20 @@
     <footer class="footer-bs-light newsletter">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 col-sm-8 col-lg-8 no-gutter">
+          <div class="col-md-2 col-sm-2 "></div>
+          <div class="col-md-8 col-sm-8 col-lg-8">
             <div class="content">
+              <p class="text-left">Send me tips, trends, freebies, updates & offers.</p>
               <div class="input-group">
-                    <input type="email" class="form-control" placeholder="Enter your email">
+                    <input type="email" class="form-control" placeholder="Email address">
                     <span class="input-group-btn">
-                    <button class="btn" type="submit">Subscribe</button>
+                    <button class="btn" type="submit">Sign me up</button>
                     </span>
-                    <div class="input-group" style="margin-right: -10px">
-                      <span class="input-group-btn">
-                      <button class="btn" type="submit">Unsubscribe</button>
-                      </span>
-                  </div>
                 </div>
+                <p class="text-left">Privacy Policy</p>
             </div>
           </div>
+          <div class="col-md-2 col-sm-2"></div>
         </div>
       </div>
       <hr>
@@ -209,7 +209,7 @@
                 <li><a href="{{route('vector.addvectors')}}">Find Designers</a></li>
                 <li><a href="/hookup">Job for Designers</a></li>
                 <li><a href="#">Advertise</a></li>
-                <h4>Newsletter</h4>
+               {{--<h4>Newsletter</h4>
                 <p>
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Enter your email">
@@ -217,7 +217,7 @@
                       <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
                     </span>
                   </div><!-- /input-group -->
-               </p>
+               </p>--}}
                 
               </ul>
           </div>
