@@ -1,4 +1,4 @@
-<div style="margin:-50px 0 33px 0">
+<div class="search-hm">
     <div id="custom-search-input">
         <div class="input-group col-md-12">
             <input type="text" class="  search-query form-control" placeholder="Online vector logo collection of brands in Africa"  wire:model="search"/>

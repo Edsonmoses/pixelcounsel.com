@@ -2083,8 +2083,12 @@ ul{
 }
 @media (max-width: 1200px){
   .home-page .main {
-    background: linear-gradient(to left, #333333 46%, #fff100 46%);
+    background: linear-gradient(to left, #333333 0%, #fff100 0%);
     height: 100%;
+
+}
+.home-page .search-hm{
+  margin: -36px 0 33px 0 !important;
 }
 .h-events{
   margin-left: 2.5rem;
@@ -2248,4 +2252,7 @@ ul{
   /*background-color: #fffbdb;
   border-color: #fffacc;
   border: solid 1px;*/
+}
+.search-hm{
+  margin:-50px 0 33px 0;
 }
