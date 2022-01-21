@@ -17,6 +17,7 @@ class VectorlogosComponent extends Component
     public $searchTerm;
 
     public $image;
+    public $downloads = 0;
 
     public function mount($slug)
     {
@@ -26,8 +27,20 @@ class VectorlogosComponent extends Component
     public function export($id)
     {
         $vector = Vectorlogos::where('id', $id)->firstOrFail();
+
+        $vector = Vectorlogos::find($id);
+        if($vector->downloads == 0)
+        {
+            $vector->downloads = $this->downloads+1;
+        }
+        else
+        {
+            $vector->downloads+= 1;
+        }
+        $vector->save();
+
         $download_path = ( public_path() . '/assets/images/vectors/' . $vector->images );
-         return( response()->download( $download_path ) );
+         return( response()->download( $download_path ) && redirect(request()->header('Referer')) );
     }
     public function render()
     {

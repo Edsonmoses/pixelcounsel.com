@@ -74,23 +74,23 @@
       </div>
       <div class="container">
         <div class="row">
-        	<div class="col-md-2 col-sm-12 footer-brand animated fadeInDown">
-            	<a class="pull-left footer-brands" href="{{ url('/') }}"><img src="{{asset('assets/uploads/img/Pixel Counsel--11.svg')}}" class="img-responsive" alt="{{ config('app.name', 'pixelcounsel') }}"> </a>
+        	<div class="col-md-3 col-sm-12 footer-brand animated fadeInDown">
+            	<a class="pull-left footer-brands" href="{{ url('/') }}"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'pixelcounsel') }}"> </a>
                 
             </div>
-            	<div class="col-md-3 footer-brand md animated fadeInLeft">
-                <p style="margin-top: 5px !important;">pixelcounsel a community of designers by designers in africa sharing resources and information</p>
-                <p><?php echo date("Y");?> Pixelcounsel. All logos © their respective owners</p>
-                </div>
-            	<div class="col-md-2  footer-nav animated fadeInUp">
-                    <ul class="list h-100">
+            {{--<div class="col-md-3 footer-brand md animated fadeInLeft">
+              <p style="margin-top: 5px !important;">pixelcounsel a community of designers by designers in africa sharing resources and information</p>
+              <p><?php echo date("Y");?> Pixelcounsel. All logos © their respective owners</p>
+              </div> 
+            <div class="col-md-2  footer-nav animated fadeInUp">
+                  <ul class="list h-100">
                       <li><a href="#">Contact</a></li>
                       <li><a href="#">Terms</a></li>
                       <li><a href="#">Privacy Policy</a></li>
                       <li><a href="#">Shop</a></li>
-                    </ul>
-                </div>
-        	<div class="col-md-2 footer-nav animated fadeInDown">
+                  </ul>
+              </div> --}}
+        <div class="col-md-2 footer-nav animated fadeInDown">
             <ul class="list h-100 mt-10">
               <li>
                 <a href="/vector">VECTOR LOGOS
@@ -113,13 +113,14 @@
                 </a>
               </li>
               </ul>
-            </div>
-            <div class="col-md-3 footer-nav animated fadeInDown">
-            	<ul class="list h-100 mt-9">
-                <li><a href="{{route('vector.addvectors')}}">Find Designers</a></li>
-                <li><a href="/hookup">Job for Designers</a></li>
+          </div>
+          <div class="col-md-3 footer-nav animated fadeInDown">
+            <ul class="list h-100 mt-9">
                 <li><a href="#">Advertise</a></li>
-                {{-- <h4>Newsletter</h4>
+                <li><a href="/hookup">Find A Creative's Job</a></li>
+                <li><a href="{{route('vector.addvectors')}}">Post A Creative's Job</a></li>
+                <li><a href="#">Find Creative Teams</a></li>
+               {{--<h4>Newsletter</h4>
                 <p>
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Enter your email">
@@ -130,19 +131,16 @@
                </p>--}}
                 
               </ul>
-            </div>
-           <!-- <div class="col-md-3 footer-ns animated fadeInRight">
-            	<h4>Newsletter</h4>
-                <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
-                <p>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Enter your email">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
-                      </span>
-                    </div><-- /input-group --
+          </div>
+        	<div class="col-md-3 footer-ns animated fadeInRight">
+                    <ul>
+                      <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                      <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                      <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                      <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                    </ul>
                  </p>
-            </div>-->
+            </div>
         </div>
       </div>
     </footer>

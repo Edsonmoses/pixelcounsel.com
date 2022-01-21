@@ -20,7 +20,7 @@
                 <button class="js-cookie-consent-agree cookie-consent__agree">
                     {{ trans('cookieConsent::texts.agree') }}
                 </button>
-                <button type="button" onclick="close_window()">I don't agree</button>
+                <button type="button" onclick="close_window()"  data-dismiss="modal">I don't agree</button>
             </div>
         </div>
       </div>
@@ -31,10 +31,10 @@
 </div>
 <script type="text/javascript"> 
     function close_window() {
-if (confirm(“Are you sure to close window?”)) {
-close();
-}
-}
+      if (confirm(“Are you sure to close window?”)) {
+      close();
+      }
+      }
         $(window).on('load', function() {
         $('#myModal').modal({
             backdrop: 'static',
