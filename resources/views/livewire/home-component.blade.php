@@ -31,9 +31,13 @@
 						</div>--}}
 						<div class="col-md-8 col-sm-12 h-events" style="border-left: none !important;">
 							<div style="margin-top:47px;"></div>
-							<div>
-								<h3><a href="/hookup" style="color: #fff;">Hook Up</a></h3>
-								<p><a href="/hookup-category/senior" style="color: #fff; text-decoration: none;">{{ $hookup->name }}</a></p>
+							<div class="m-hookup">
+								<h3><a href="/hookup">Hook Up 
+									<span class="fa-stack fa-1x" data-count="{{ $hookup->id }}">
+									<i class="fa fa-circle fa-stack-2x"></i>
+									<i class="fa fa-bell fa-stack-1x fa-inverse"></i>
+								  </span></a></h3>
+								<p><a href="/hookup-category/senior">{{ $hookup->name }}</a></p>
 								<hr>
 							</div>
 							<div>

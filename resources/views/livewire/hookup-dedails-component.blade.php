@@ -2,7 +2,7 @@
     <div class="container">
         
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12" style="margin-top: 50px;">
                 <h4 class="text-dark mb-3">{{$hookup->jobtitle }}</h4>
             </div>
         </div>
@@ -227,7 +227,7 @@
                     </div>
                 </div>
 
-                <div class="job-detail border rounded mt-4 p-4">
+               {{--  <div class="job-detail border rounded mt-4 p-4">
                     <h5 class="text-muted text-center pb-2 h5"><i class="fa fa-clock-o mr-2"></i>Opening Hours</h5>
 
                     <div class="job-detail-time border-top pt-4">
@@ -282,10 +282,14 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="job-detail border rounded mt-4">
-                    <a href="#" class="btn btn-primary btn-block rounded">Apply For Job</a>
+                    @if ($hookup->jobUrl) 
+                        <a href="{{ $hookup->jobUrl }}" class="btn btn-primary btn-block rounded" target="_blank">Apply For Job</a>
+                    @else
+                        <a href="#apply-job" class="btn btn-primary btn-block rounded">Apply For Job</a>
+                    @endif
                 </div>
             </div>
         </div>

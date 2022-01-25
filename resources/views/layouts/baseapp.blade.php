@@ -206,7 +206,7 @@
             <ul class="list h-100 mt-9">
                 <li><a href="#">Advertise</a></li>
                 <li><a href="/hookup">Find A Creative's Job</a></li>
-                <li><a href="{{route('vector.addvectors')}}">Post A Creative's Job</a></li>
+                <li><a href="{{route('hookup.addhookup')}}">Post A Creative's Job</a></li>
                 <li><a href="#">Find Creative Teams</a></li>
                {{--<h4>Newsletter</h4>
                 <p>
@@ -230,6 +230,21 @@
                  </p>
             </div>
         </div>
+        <div class="row b-footer">
+          <div class="col-md-8">
+            <ul>
+              <li><a href="#">Terms of use</a></li>|
+              <li><a href="#">Privacy Terms</a></li>
+            </ul>
+            <p class="text-muted mt-0"><?php echo date("Y");?> Tradmarks and brands are the property of their respective owners.</p>
+          </div>
+          <div class="col-md-4">
+            <div class="b-logo">
+              <a href="ovakast.com"><img src="{{asset('assets/uploads/img/Ovakast-04.svg')}}" class="img-responsive" alt="ovakast"></a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </footer>
 

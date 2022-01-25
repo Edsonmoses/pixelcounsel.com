@@ -29,7 +29,7 @@ class VectorlogosComponent extends Component
         $vector = Vectorlogos::where('id', $id)->firstOrFail();
 
         $vector = Vectorlogos::find($id);
-        if($vector->downloads == 0)
+        if($vector->downloads == 0 || $vector->downloads == '')
         {
             $vector->downloads = $this->downloads+1;
         }

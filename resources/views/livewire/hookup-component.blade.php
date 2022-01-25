@@ -10,6 +10,11 @@
               </div>
           </div>
           <div class="col-lg-5 col-md-5 col-sm-5 hook-search heading-mt">
+            @if (Auth::check())
+                <a class="btn btn-events" href="{{ route('hookup.addhookup') }}" role="button" style="margin-top: -50px;">SUBMIT A JOB</a>
+            @else
+                <a class="btn btn-events" href="{{route('login')}}" title="Login" role="button" style="margin-top: -50px;">SUBMIT A JOB</a>
+            @endif
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
                     <input type="text" class="  search-query form-control" placeholder="Find a job"  wire:model="searchTerm"/>

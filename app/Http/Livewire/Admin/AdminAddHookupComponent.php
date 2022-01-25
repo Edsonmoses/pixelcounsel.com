@@ -30,6 +30,7 @@ class AdminAddHookupComponent extends Component
     public $phone;
     public $email;
     public $web;
+    public $jobUrl;
 
     public function mount()
     {
@@ -65,6 +66,7 @@ class AdminAddHookupComponent extends Component
         $hookup->phone = $this->phone;
         $hookup->email = $this->email;
         $hookup->web = $this->web;
+        $hookup->jobUrl = $this->jobUrl;
         $hookup->save();
         session()->flash('message','Hookup has been created successfully!');
     }

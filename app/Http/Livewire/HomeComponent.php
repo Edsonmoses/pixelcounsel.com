@@ -38,6 +38,7 @@ class HomeComponent extends Component
 
         $vectorcategories = VectorCategory::all();
         $hookup = Hookup::orderBy('name','ASC')->latest('updated_at')->first();
+        //$countHookup = Hookup::where('id', $this->id)->latest('created_at')->first();
         $jargon = Jargons::orderBy('name','ASC')->first();
         $event = Events::orderBy('name','ASC')->latest('updated_at')->first();
         return view('livewire.home-component',['vector'=>$vector, 'vectorcategories'=>$vectorcategories,'hookup'=>$hookup,'jargon'=>$jargon,'event'=>$event])->layout('layouts.base');

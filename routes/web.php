@@ -37,6 +37,7 @@ use App\Http\Livewire\Admin\AdminJargonCategoryComponent;
 use App\Http\Livewire\Admin\AdminJargonComponent;
 use App\Http\Livewire\Admin\AdminVectorCategoryComponent;
 use App\Http\Livewire\Admin\AdminVectorComponent;
+use App\Http\Livewire\ApplyJobComponent;
 use App\Http\Livewire\AtributesComponent;
 use App\Http\Livewire\BlogComponent;
 use App\Http\Livewire\EventAddComponent;
@@ -44,6 +45,8 @@ use App\Http\Livewire\EventDetailsComponent;
 use App\Http\Livewire\EventsCategoryComponent;
 use App\Http\Livewire\EventsComponent;
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\HookupAddComponent;
+use App\Http\Livewire\HookupApplyjobComponent;
 use App\Http\Livewire\HookupCategoryComponent;
 use App\Http\Livewire\HookupComponent;
 use App\Http\Livewire\HookupDedailsComponent;
@@ -83,7 +86,8 @@ Route::get('/jargons-category/{atributes_name}', AtributesComponent::class)->nam
 Route::get('/hookup', HookupComponent::class);
 Route::get('/hookup-category/{category_slug}', HookupCategoryComponent::class)->name('hookup.category');
 Route::get('/hookup-details/{hookup_slug}', HookupDedailsComponent::class)->name('hookup.details');
-Route::get('/hookup/add', HookupDedailsComponent::class)->name('hookup.addhookup');
+Route::get('/hookup/add', HookupAddComponent::class)->name('hookup.addhookup');
+Route::get('/apply-job', HookupApplyjobComponent::class)->name('hookup.applyjob');
 
 Route::get('/events', EventsComponent::class);
 Route::get('/events-category/{category_slug}', EventsCategoryComponent::class)->name('events.category');
