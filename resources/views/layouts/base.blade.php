@@ -118,7 +118,11 @@
             <ul class="list h-100 mt-9">
                 <li><a href="#">Advertise</a></li>
                 <li><a href="/hookup">Find A Creative's Job</a></li>
+                @if (Auth::check())
                 <li><a href="{{route('hookup.addhookup')}}">Post A Creative's Job</a></li>
+                @else
+                <li><a href="{{route('login')}}" title="Login">Post A Creative's Job</a></li>
+                @endif
                 <li><a href="#">Find Creative Teams</a></li>
                {{--<h4>Newsletter</h4>
                 <p>
