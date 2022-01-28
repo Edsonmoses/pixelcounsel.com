@@ -169,6 +169,23 @@
               </ul>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#atribute" role="button" aria-expanded="false" aria-controls="uiComponents">
+              <i class="link-icon" data-feather="feather"></i>
+              <span class="link-title">Ads</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="atribute">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="{{route('admin.ads')}}" class="nav-link">All Ads</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('admin.add_ads')}}" class="nav-link">New Ad</a>
+                </li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>

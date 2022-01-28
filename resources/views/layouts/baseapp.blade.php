@@ -147,7 +147,7 @@
         <div class="row">
           <div class="col-md-8 col-sm-10 col-lg-10">
             <div class="content" style="float: left !important">
-              <p class="text-left">Send me tips, trends, freebies, updates & offers.</p>
+              <p class="text-left">Get exclusive resources, tips, news, trends, updates & offers straight to your inbox.</p>
               <div class="input-group">
                     <input type="email" class="form-control" placeholder="Email address">
                     <span class="input-group-btn">

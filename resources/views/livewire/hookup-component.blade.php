@@ -1,35 +1,35 @@
 <div>
     <div class="hookup-actives"><div class="hookup-arrows"></div></div>
-<header class="intro-header intro-hookup">
-  <div class="container">
-      <div class="row hookup">
-          <div class="col-lg-7 col-md-7 col-sm-7">
-              <div class="heading-style">
-                  <h1>HOOK UP</h1>
-                  <span class="sub-heading">Collection of career changing jobs in Africa for your picking</span>
-              </div>
-          </div>
-          <div class="col-lg-5 col-md-5 col-sm-5 hook-search heading-mt">
-            @if (Auth::check())
-                <a class="btn btn-events" href="{{ route('hookup.addhookup') }}" role="button" style="margin-top: -50px;">SUBMIT A JOB</a>
-            @else
-                <a class="btn btn-events" href="{{route('login')}}" title="Login" role="button" style="margin-top: -50px;">SUBMIT A JOB</a>
-            @endif
-            <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                    <input type="text" class="  search-query form-control" placeholder="Find a job"  wire:model="searchTerm"/>
-                    <span class="input-group-btn">
-                        <button class="btn btn-danger" type="button">
-                            <span class=" glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
+   <header class="intro-header intro-hookup">
+    <div class="container">
+        <div class="row hookup">
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <div class="heading-style">
+                    <h1>HOOK UP</h1>
+                    <span class="sub-heading">Collection of career changing jobs in Africa for your picking</span>
                 </div>
             </div>
-            </div>
-      </div>
-      </div>
-  </div>
-</header>
+            <div class="col-lg-5 col-md-5 col-sm-5 hook-search heading-mt">
+                @if (Auth::check())
+                    <a class="btn btn-events" href="{{ route('hookup.addhookup') }}" role="button" style="margin-top: -50px;">SUBMIT A JOB</a>
+                @else
+                    <a class="btn btn-events" href="{{route('login')}}" title="Login" role="button" style="margin-top: -50px;">SUBMIT A JOB</a>
+                @endif
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="  search-query form-control" placeholder="Find a job"  wire:model="searchTerm"/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button">
+                                <span class=" glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                </div>
+        </div>
+        </div>
+    </div>
+    </header>
 	<!-- Main Content -->
 	<div class="container">
 	    <div class="row" id="hookup">

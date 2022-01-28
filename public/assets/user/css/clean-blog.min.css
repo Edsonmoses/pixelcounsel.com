@@ -1765,8 +1765,8 @@ min-height: 48vh !important;
   margin-top: 1.5em;
 }
 .category-active, .active a{
-  color: #0085A1 !important;
-  border-bottom: solid 2px #0085A1 !important;
+  color: #c86c26 !important;
+  border-bottom: solid 2px #c86c26 !important;
 }
 .h-100{
   height: 218px;
@@ -2320,4 +2320,56 @@ ul{
   height: auto;
   float: right;
   margin-right: 105px;
+}
+.avatar.avatar-medium {
+  height: 110px;
+}
+.rounded-pill {
+  border-radius: 50rem !important;
+}
+.ml-auto, .mx-auto {
+  margin-left: auto !important;
+}
+.mr-auto, .mx-auto {
+  margin-right: auto !important;
+}
+.text-dark {
+  color: #3c4858 !important;
+}
+.apply .mt-3 {
+  margin-top: 4.75rem;
+}
+.nav > li > a:focus, .nav > li > a:hover {
+  text-decoration: none;
+  background-color: transparent !important;
+  color: #c86c26 !important;
+}
+.footer-bs-dark hr {
+  border-top: .85px solid #eeeeee2e !important;
+}
+/**advert***/
+.lt-advert{
+  object-fit: cover;
+  width: 272px;
+  height: auto;
+  padding-bottom: 50px;
+}
+.rt-advert{
+  object-fit: cover;
+  width: 272px;
+  height: auto;
+  padding-bottom: 50px;
+}
+.tp-advert{
+  object-fit: cover;
+  width: 970px;
+  height: auto;
+}
+.bm-advert{
+  object-fit: cover;
+  width: 970px;
+  height: auto;
+}
+.advert{
+  text-align: center;
 }

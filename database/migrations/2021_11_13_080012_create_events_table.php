@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateEventsTable extends Migration
@@ -30,7 +31,7 @@ class CreateEventsTable extends Migration
             $table->string('ephone')->nullable();
             $table->string('website')->nullable();
             $table->string('ticket')->nullable();
-            $table->string('enddate')->after('eventdate')->nullable();
+            $table->string('enddate')->after('eventdate')->default(DB::raw('CURRENT_DATE'));
             $table->timestamps();
             $table->foreign('events_categories_id')->references('id')->on('events_categories')->onDelete('cascade');
             $table->foreign('etype_id')->references('id')->on('event_types')->onDelete('cascade');

@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Ads;
 use App\Models\VectorCategory;
 use App\Models\Vectorlogos;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
@@ -56,6 +58,7 @@ class VectorlogosComponent extends Component
         $popular_vectors = Vectorlogos::inRandomOrder()->limit(4)->get();
         $related_vectors = Vectorlogos::where('vector_categories_id',$vector->vector_categories_id)->inRandomOrder()->limit(5)->get();
         $vectorcategories = VectorCategory::all();
-        return view('livewire.vectorlogos-component',['vector'=>$vector,'popular_vectors'=>$popular_vectors,'related_vectors'=>$related_vectors,'vectorcategories'=>$vectorcategories])->layout('layouts.baseapp');
+        $vectorAds = Ads::all();
+        return view('livewire.vectorlogos-component',['vector'=>$vector,'popular_vectors'=>$popular_vectors,'related_vectors'=>$related_vectors,'vectorcategories'=>$vectorcategories,'vectorAds'=>$vectorAds])->layout('layouts.baseapp');
     }
 }

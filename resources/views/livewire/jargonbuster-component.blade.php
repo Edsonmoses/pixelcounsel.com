@@ -59,8 +59,8 @@
             @endforeach
             </ul>
             </div>
-            <br/>
 	    <div class="row" id="jargon">
+            @livewire('top-ads-component')
             <div class="col-lg-12 col-md-12 col-sm-12">
                 @foreach ( $af_jargons  as $jargon )
                     <p><strong>{{$jargon->name}} :</strong> {{$jargon->description}}</p>

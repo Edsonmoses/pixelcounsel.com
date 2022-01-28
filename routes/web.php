@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\AddVectorComponent;
+use App\Http\Livewire\Admin\AdminAddAdsComponent;
 use App\Http\Livewire\Admin\AdminAddAlpFilterComponent;
 use App\Http\Livewire\Admin\AdminAddBlogComponent;
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
@@ -13,10 +14,12 @@ use App\Http\Livewire\Admin\AdminAddJargonCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddJargonComponent;
 use App\Http\Livewire\Admin\AdminAddVectorCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddVectorComponent;
+use App\Http\Livewire\Admin\AdminAdsComponent;
 use App\Http\Livewire\Admin\AdminAlpFilterComponent;
 use App\Http\Livewire\Admin\AdminBlogComponent;
 use App\Http\Livewire\Admin\AdminCategoryComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
+use App\Http\Livewire\Admin\AdminEditAdsComponent;
 use App\Http\Livewire\Admin\AdminEditAlpFilterComponent;
 use App\Http\Livewire\Admin\AdminEditBlogComponent;
 use App\Http\Livewire\Admin\AdminEditCategoryComponent;
@@ -87,7 +90,7 @@ Route::get('/hookup', HookupComponent::class);
 Route::get('/hookup-category/{category_slug}', HookupCategoryComponent::class)->name('hookup.category');
 Route::get('/hookup-details/{hookup_slug}', HookupDedailsComponent::class)->name('hookup.details');
 Route::get('/hookup/add', HookupAddComponent::class)->name('hookup.addhookup');
-Route::get('/apply-job', HookupApplyjobComponent::class)->name('hookup.applyjob');
+Route::get('/hookup/apply-job', HookupApplyjobComponent::class)->name('hookup.applyjob');
 
 Route::get('/events', EventsComponent::class);
 Route::get('/events-category/{category_slug}', EventsCategoryComponent::class)->name('events.category');
@@ -165,5 +168,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
        Route::get('admin/atributes',AdminAlpFilterComponent::class)->name('admin.alpfilter');
        Route::get('admin/atributes/add',AdminAddAlpFilterComponent::class)->name('admin.addalpfilter');
        Route::get('admin/atributes/edit/{name}',AdminEditAlpFilterComponent::class)->name('admin.editalpfilter');
+       //Ads
+       Route::get('/admin/ads',AdminAdsComponent::class)->name('admin.ads');
+       Route::get('/admin/ads/add',AdminAddAdsComponent::class)->name('admin.add_ads');
+       Route::get('/admin/ads/edit/{name}',AdminEditAdsComponent::class)->name('admin.edit_ads');
 });
 

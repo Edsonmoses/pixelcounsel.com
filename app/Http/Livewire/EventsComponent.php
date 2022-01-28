@@ -88,8 +88,8 @@ class EventsComponent extends Component
         }
         else
         {
-            $events = Events::orderBy('name','ASC')->paginate($this->pagesize);
-            $ads_events = Events::orderBy('name','ASC')->take(3)->get();
+            $events = Events::where('enddate','>=',Carbon::today())->orderBy('name','ASC')->paginate($this->pagesize);
+            $ads_events = Events::where('enddate','>=',Carbon::today())->orderBy('name','ASC')->take(3)->get();
         }
         $eventcategories = EventsCategory::all();
         $eventtypes = EventType::all();
