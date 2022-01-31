@@ -50,7 +50,6 @@
                         <div class="col-sm-2 col-dates">
                             <p class="dates">{{\Carbon\Carbon::parse($event->eventdate)->isoFormat('D') }}</p>
                             <p class="months">{{\Carbon\Carbon::parse($event->eventdate)->isoFormat('MMM') }}</p>
-                            <p class="years">{{\Carbon\Carbon::parse($event->eventdate)->isoFormat('Y') }}</p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
@@ -88,7 +87,6 @@
                         <div class="col-sm-2 col-dates">
                             <p class="dates">{{\Carbon\Carbon::parse($event->eventdate)->isoFormat('D') }}</p>
                             <p class="months">{{\Carbon\Carbon::parse($event->eventdate)->isoFormat('MMM') }}</p>
-                            <p class="years">{{\Carbon\Carbon::parse($event->eventdate)->isoFormat('Y') }}</p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
