@@ -62,11 +62,11 @@
                 {{ session('status') }}
             </div>
         @endif
-            <button id="login-toggle" onclick="toggleLogin()">sign up</button>
-            <button id="signup-toggle" onclick="toggleSignup()">log in</button>
+            <button id="signup-toggle" onclick="toggleSignup()">sign up</button>
+            <button id="login-toggle" onclick="toggleLogin()">log in</button>
         </div>
     
-        <div id="signup-form">
+        <div id="login-form">
             @if (session('status'))
                 <div class="mb-4 font-medium text-sm text-green-600">
                     {{ session('status') }}
@@ -102,7 +102,7 @@
             </form>
         </div>
     
-        <div id="login-form">
+        <div id="signup-form">
             <form name="frm-login" method="POST" action="{{route('register')}}">
                 @csrf
                 <input type="email" name="email" class="form-input" id="email" placeholder="Email Address" :value="email" required autofocus>
