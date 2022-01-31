@@ -154,7 +154,6 @@
                     <button class="btn" type="submit">Sign me up</button>
                     </span>
                 </div>
-                <p class="text-left">Privacy Policy</p>
             </div>
           </div>
         </div>

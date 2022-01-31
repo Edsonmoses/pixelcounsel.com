@@ -92,6 +92,11 @@
                     </div>
                 </div>
                 <button type="submit" class="btn login">login</button>
+                {{-- <div class="flex items-center justify-end mt-4">
+                    <a href="{{ url('auth/google') }}">
+                        <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" style="margin-left: 3em;">
+                    </a>
+                </div>--}}
                 <span class="ml-2 text-sm text-gray-600">By joining Pixel Counsel, you agree to our Terms Of Service and Privacy Policy</span>
               
             </form>
@@ -113,6 +118,11 @@
                   </div>
                 <button type="submit" class="btn signup">Create Your Pixel Counsel Account
               </button> 
+             {{--  <div class="flex items-center justify-end mt-4">
+                <a href="{{ url('auth/google') }}">
+                    <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" style="margin-left: 3em;">
+                </a>
+            </div>--}}
               <span class="ml-12 text-sm text-gray-600">By joining Pixel Counsel, you agree to our <a href="#">Terms</a> Of Service and <a href="#">Privacy Policy</a></span>
                 
             </form>

@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                    <p class="footer-title">{{$event->exhibition}} {{$event->id}}</p>
+                    <p class="footer-title" style="margin-bottom: 5px !important">{{$event->exhibition}} {{$event->id}}</p>
                     </div>
                   </div>
                 </div>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                    <p class="footer-title">{{$event->exhibition}}</p>
+                    <p class="footer-title" style="margin-bottom: 5px !important">{{$event->exhibition}}</p>
                     </div>
                   </div>
                 </div>

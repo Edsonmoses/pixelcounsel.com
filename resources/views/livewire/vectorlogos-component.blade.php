@@ -53,7 +53,7 @@
                 <div class="vector-detail">
                     <small>{{ $vector->name }}</small><br/>
                     <p class="p-border"></p>
-                    <small><span style="padding-right: 40px;">Designer:</span><span class="pulls">{{ $vector->designer }}</span></small><br/>
+                    {{-- <small><spanstyle="padding-right:40px;">Designer:</span><spanclass="pulls">$vector->designer }}</span></small><br/>--}}
                     <p class="p-border"></p>
                     <small><span style="padding-right: 50px;">Format:</span><span class="pulls">{{ $vector->format}}</span></small><br/>
                     <p class="p-border"></p>

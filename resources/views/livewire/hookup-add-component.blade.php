@@ -39,14 +39,14 @@
               <div class="row">
                   <div class="col-md-6">
                       <div class="form-group">
-                          <label class="col-md-6">Hookup Name</label>
+                          <label class="col-md-6">Job Name</label>
                           <div class="col-md-12">
                               <input type="text" placeholder="Hookup Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug"/>
                               @error('name')<p class="text-danger">{{ $message }}</p>@enderror
                           </div>
                       </div>
                   </div>
-                  <div class="col-md-6">
+                  {{-- <div class="col-md-6">
                       <div class="form-group">
                           <label class="col-md-6">Hookup Slug</label>
                           <div class="col-md-12">
@@ -54,7 +54,7 @@
                               @error('slug')<p class="text-danger">{{ $message }}</p>@enderror
                           </div>
                       </div>
-                  </div>
+                  </div>--}}
                   <div class="col-md-6">
                       <div class="form-group">
                           <label class="col-md-6">Company</label>
@@ -95,7 +95,10 @@
                       <div class="form-group">
                           <label class="col-md-6">Salary</label>
                           <div class="col-md-12">
-                              <input type="text" placeholder="Salary" class="form-control input-md" wire:model="price">
+                            <select class="form-control input-md nice-select rounded" wire:model="price">
+                                <option value="N/A">N/A</option>
+                                <option value="1">Salary</option>
+                            </select>
                               @error('price')<p class="text-danger">{{ $message }}</p>@enderror 
                           </div>
                       </div>
@@ -147,25 +150,38 @@
                           </div>
                       </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-6">Job Category</label>
+                        <div class="col-md-12">
+                            <select class="form-control" wire:model="fjob">
+                                <option value="">Select Job Category</option>
+                                    <option value="Part Time">Part Time</option>
+                                    <option value="Full Time">Full Time</option>
+                            </select>
+                            @error('fjob')<p class="text-danger">{{ $message }}</p>@enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="col-md-6">Job Description</label>
+                        <div class="col-md-12" wire:ignore>
+                            <textarea style="height: 100px" placeholder="Description" id="description" class="form-control" wire:model="description"></textarea>
+                            @error('short_description')<p class="text-danger">{{ $message }}</p>@enderror
+                        </div>
+                    </div>
+                </div>
                   <div class="col-md-12">
                       <div class="form-group">
-                          <label class="col-md-6">Short Description</label>
+                          <label class="col-md-6"> Company BIO</label>
                           <div class="col-md-12" wire:ignore>
                               <textarea style="height: 100px" placeholder="Short Description" id="short_description" class="form-control" wire:model="short_description"></textarea>
                               @error('short_description')<p class="text-danger">{{ $message }}</p>@enderror
                           </div>
                       </div>
                   </div>
-                  <div class="col-md-12">
-                      <div class="form-group">
-                          <label class="col-md-6">Description</label>
-                          <div class="col-md-12" wire:ignore>
-                              <textarea style="height: 100px" placeholder="Description" id="description" class="form-control" wire:model="description"></textarea>
-                              @error('short_description')<p class="text-danger">{{ $message }}</p>@enderror
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
+                 {{-- <div class="col-md-6">
                       <div class="form-group">
                           <label class="col-md-6">Hookup Category</label>
                           <div class="col-md-12">
@@ -178,20 +194,8 @@
                               @error('hookup_categories_id')<p class="text-danger">{{ $message }}</p>@enderror
                           </div>
                       </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label class="col-md-6">Job Category</label>
-                          <div class="col-md-12">
-                              <select class="form-control" wire:model="fjob">
-                                  <option value="">Select Job Category</option>
-                                      <option value="Part Time">Part Time</option>
-                                      <option value="Full Time">Full Time</option>
-                              </select>
-                              @error('fjob')<p class="text-danger">{{ $message }}</p>@enderror
-                          </div>
-                      </div>
-                  </div>
+                  </div>--}}
+                
                   <div class="col-md-6">
                       <div class="form-group pull-left" style="margin-left: -100px !important">
                           <label class="col-md-6"></label>

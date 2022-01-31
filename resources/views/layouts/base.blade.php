@@ -69,9 +69,6 @@
  {{$slot}}
     <!-- Footer -->
     <footer class="footer-bs-dark">
-      <div class="container-fluid">
-        <hr>
-      </div>
       <div class="container">
         <div class="row">
         	<div class="col-md-3 col-sm-12 footer-brand animated fadeInDown">
