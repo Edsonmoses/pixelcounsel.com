@@ -523,17 +523,27 @@ margin-top: 11% !important;
 }
 .btn-events {
   margin-top: 50px;
-  background: #666666;
-  border-color: #b3b3b3;
-  border-radius: 10px !important;
+  background: #000000;
+  border-color: #fff;
+  border-radius: 4px !important;
+  border: #fff 1px solid;
   color: #fff100;
   margin-left: 49%;
+}
+.hook-searchs .btn {
+  font-size: 14px;
+  border-radius: 0;
+  padding: 10px 18px !important;
+  float: right;
+}
+.custom-search-input{
+  float: right;
 }
 
 .btn-events:hover {
   background: #666666;
   border-color: #b3b3b3;
-  border-radius: 10px !important;
+  border-radius: 4px !important;
   color: #fff;
 }
 
@@ -2122,6 +2132,7 @@ ul{
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
+  margin-right: -29px;
 }
 
 #custom-search-input button {

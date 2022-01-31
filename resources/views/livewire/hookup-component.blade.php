@@ -11,9 +11,13 @@
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5 hook-search heading-mt">
                 @if (Auth::check())
-                    <a class="btn btn-events" href="{{ route('hookup.addhookup') }}" role="button" style="margin-top: -50px;">SUBMIT A JOB</a>
+                <div class="hook-searchs">
+                    <a class="btn btn-events" href="{{ route('hookup.addhookup') }}" role="button" style="margin-top: -43px;">SUBMIT A JOB</a>
+                </div>
                 @else
-                    <a class="btn btn-events" href="{{route('login')}}" title="Login" role="button" style="margin-top: -50px;">SUBMIT A JOB</a>
+                <div class="hook-searchs">
+                    <a class="btn btn-events" href="{{route('login')}}" title="Login" role="button" style="margin-top: -43px;">SUBMIT A JOB</a>
+                </div>
                 @endif
                 <div id="custom-search-input">
                     <div class="input-group col-md-12">
