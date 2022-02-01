@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-lg-7 vectorl">
-					<img src="{{asset('assets/uploads/img/Pixel Counsel-Vector-09.svg')}}" class="img-fluid" alt="Pixel Counsel Logo">
+					<img src="{{asset('assets/uploads/img/vector logos of brands in africa.svg')}}" class="img-fluid" alt="Pixel Counsel Logo">
 					@livewire('home-search-component')
 				</div>
 				<div class="col-md-5 col-lg-5 ads">
