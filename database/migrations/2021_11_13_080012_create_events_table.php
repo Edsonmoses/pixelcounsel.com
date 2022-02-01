@@ -18,10 +18,10 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('short_description');
-            $table->text('description');
-            $table->string('exhibition');
-            $table->string('eventdate');
+            $table->string('short_description')->default(false);
+            $table->text('description')->default(false);
+            $table->string('exhibition')->default(false);
+            $table->string('eventdate')->default(DB::raw('CURRENT_DATE'));
             $table->enum('events_status',['published','unpublished']);
             $table->text('images')->nullable();
             $table->bigInteger('events_categories_id')->unsigned()->nullable();

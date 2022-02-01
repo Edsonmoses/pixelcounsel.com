@@ -21,7 +21,7 @@
                         @if (Session::has('message'))
                                 <div class="alert alert-success" id="message3" role="alert">{{ Session::get('message') }}</div>
                              @endif
-                        <form id="contact-form3" class="form-horizontal" wire:submit.prevent="addEvent">
+                        <form id="contact-form3" class="form-horizontal" wire:submit.prevent="storeEvent">
                             
                             <div class="row">
                                 <div class="col-md-12">
@@ -143,7 +143,7 @@
                                         <label class="text-muted">Event Start Date & Time</label>
                                         <input wire:model="eventdate"
                                         type="text" class="form-control input-md datepicker" placeholder="Event Start Date & Time" autocomplete="off"
-                                        data-provide="datepicker" data-datetime-autoclose="true" data-datetime-format="dd-mm-yyyy" data-date-today-highlight="true"                        
+                                        data-provide="datepicker" data-datetime-autoclose="true" data-date-format="dd-mm-yyyy" data-date-today-highlight="true"                        
                                         onchange="this.dispatchEvent(new InputEvent('input'))">
                                     </div>
                                 </div>
@@ -160,7 +160,7 @@
 
                             <div class="row">
                                 <div class="col-lg-12 mt-2">
-                                    <a href="#" class="btn btn-primary">Post a event</a>
+                                    <button type="submit" class="btn btn-primary">Post a event</button>
                                 </div>
                             </div>
                         </form>

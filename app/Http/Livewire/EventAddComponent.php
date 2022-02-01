@@ -40,7 +40,7 @@ class EventAddComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
-    public function addEvent()
+    public function storeEvent()
     {
         $event = new Events();
         $event->name = $this->name;

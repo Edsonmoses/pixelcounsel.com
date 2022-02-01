@@ -31,6 +31,7 @@
 						</div>--}}
 						<div class="col-md-8 col-sm-12 h-events" style="border-left: none !important;">
 							<div style="margin-top:47px;"></div>
+							@if (!empty($hookup))
 							<div class="m-hookup">
 								<h3><a href="/hookup">Hook Up 
 									<span class="fa-stack fa-1x" data-count="{{ $hookup->id }}">
@@ -40,19 +41,27 @@
 								<p><a href="/hookup-category/senior">{{ $hookup->name }}</a></p>
 								<hr>
 							</div>
+							@endif
+							<!--hookup end here-->
+							@if (!empty($jargon))
 							<div>
 								<h3><a href="/jargon" style="color: #fff;">Jargon <br/><br/><br/><br/><br/>Buster</a></h3>
 								<p><a href="/jargon-category/architecture" style="color: #fff; text-decoration: none;">{!! Str::words("$jargon->short_description", 10,'') !!}</a></p>
 								<hr>
 							</div>
+							@endif
+							<!--Jargon end here-->
+							@if (!empty($event))
 							<div>
 								<h3><a href="/events" style="color: #fff;">Events</a></h3>
 								<p><a href="/events-category/east-africa" style="color: #fff; text-decoration: none;">{{ $event->name }}</a></p>
 						</div>
-					</div>
-				</div>
-				</div>
-			</div>
-		</div>
+						@endif
+						<!--events end here-->
+					</div><!--col-8 end here-->
+				</div><!--inner row end here-->
+				</div><!--col-5 end here-->
+			</div><!--row end here-->
+		</div><!--container end here-->
 	</section>
 </div>

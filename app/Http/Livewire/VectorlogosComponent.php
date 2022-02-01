@@ -42,7 +42,9 @@ class VectorlogosComponent extends Component
         $vector->save();
 
         $download_path = ( public_path() . '/assets/images/vectors/' . $vector->images );
-         return( response()->download( $download_path ) && redirect(request()->header('Referer')) );
+         return( response()->download( $download_path ));
+         //return(redirect(request()->header('Referer')) );
+         $this->redirectTo = request()->header('Referer');
     }
     public function render()
     {

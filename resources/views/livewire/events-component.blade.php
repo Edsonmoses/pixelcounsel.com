@@ -39,7 +39,7 @@
         @foreach ($ads_events as $event )
         <a href="{{ route('events.details',['event_slug'=>$event->slug]) }}">
               <div class="col-md-3 mb-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sms">
                     <img class="bd-placeholder-img card-img-top mb-img" src="{{ asset('assets/images/events') }}/{{ $event->images }}" alt="{{$event->name}}"  width="262" height="262">
                   <div class="card-body">
                     <div class="row  col-bb">
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                    <p class="footer-title" style="margin-bottom: 5px !important">{{$event->exhibition}} {{$event->id}}</p>
+                    <p class="footer-title" style="margin-bottom: 5px !important">{{substr($event->exhibition,0,21)}}</p>
                     </div>
                   </div>
                 </div>
@@ -63,7 +63,7 @@
         <a href="#">
           <div class="col-md-3 mb-4">
             <div class="card mb-4 shadow-sm">
-              <img class="bd-placeholder-img card-img-top mb-img" src="{{ asset('assets/images/events/eventholder.jpg') }}" alt=""  width="262" height="415" style="border-bottom-left-radius: 20px; border-bottom-right-radius:20px;">
+              <img class="bd-placeholder-img card-img-top mb-img" src="{{ asset('assets/images/events/eventholder.jpg') }}" alt=""  width="262" height="400" style="border-bottom-left-radius: 20px; border-bottom-right-radius:20px;">
               <div class="card-body" style="background:none;">
               </div>
             </div>
