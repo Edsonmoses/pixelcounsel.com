@@ -31,14 +31,24 @@
                     <p class="text-muted">
                         {!! html_entity_decode($event->description)!!}<br/><br/>
                         Date: @if (!empty($event->enddate))
-                            {{\Carbon\Carbon::parse($event->eventdate)->isoFormat('D MMMM Y') }}
-                        @else
                         {{\Carbon\Carbon::parse($event->eventdate)->isoFormat('D MMMM Y') }} to {{\Carbon\Carbon::parse($event->enddate)->isoFormat('D MMMM Y') }}
+                        @else
+                        {{\Carbon\Carbon::parse($event->eventdate)->isoFormat('D MMMM Y') }}
                         @endif<br/>
                          VANUE : {{$event->exhibition}}<br/>
-                        GALLERY: {{$event->ticket}}<br/>
-                        TICKETS:  <a href="https://{{$event->website}}" class="text-muted" style="text-decoration: none" target="_blank">Click here</a><br/>
-                        INQUIRIES: {{$event->ephone}}</p>
+                        @if (!empty($event->ticket))
+                        @else
+                        GALLERY: {{$event->ticket}}
+                        @endif<br/>
+                        @if (!empty($event->website))
+                        @else
+                        TICKETS:  <a href="https://{{$event->website}}" class="text-muted" style="text-decoration: none" target="_blank">Click here</a>
+                        @endif<br/>
+                        @if (!empty($event->ephone))
+                        @else
+                        INQUIRIES: {{$event->ephone}}
+                        @endif
+                    </p>
                 </div>
             </div>
         </div>
