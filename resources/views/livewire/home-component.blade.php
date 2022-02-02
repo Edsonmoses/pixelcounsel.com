@@ -44,17 +44,17 @@
 							@endif
 							<!--hookup end here-->
 							@if (!empty($jargon))
-							<div>
-								<h3><a href="/jargon" style="color: #fff;">Jargon <br/><br/><br/><br/><br/>Buster</a></h3>
-								<p><a href="/jargon-category/architecture" style="color: #fff; text-decoration: none;">{!! Str::words("Online vector logo collection of brands in Africa", 100,'') !!}</a></p>
+							<div class="m-hookup">
+								<h3  style="width:50px; line-height: 1;"><a href="/jargon">Jargon Buster</a></h3>
+								<p><a href="/jargon-category/architecture">{!! Str::words("Online vector logo collection of brands in Africa", 100,'') !!}</a></p>
 								<hr>
 							</div>
 							@endif
 							<!--Jargon end here-->
 							@if (!empty($event))
-							<div>
-								<h3><a href="/events" style="color: #fff;">Events</a></h3>
-								<p><a href="/events" style="color: #fff; text-decoration: none;">What’s happening where and when</a></p>
+							<div class="m-hookup">
+								<h3><a href="/events">Events</a></h3>
+								<p><a href="/events">What’s happening where and when</a></p>
 						</div>
 						@endif
 						<!--events end here-->

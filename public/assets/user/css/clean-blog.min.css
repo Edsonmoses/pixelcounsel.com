@@ -1550,12 +1550,12 @@ border-radius: 0 50px 50px 0 !important;
 /*dark footer*/
 .footer-bs-dark {
 background-color: #3c3d41;
-padding: 60px 40px;
+padding: 0px;
 color: rgba(255,255,255,1.00);
-margin-bottom: -1px;
-border-bottom-right-radius: 6px;
+margin-bottom: 0px;
+border-bottom-right-radius: 0px;
 border-top-left-radius: 0px;
-border-bottom-left-radius: 6px;
+border-bottom-left-radius: 0px;
 }
 .footer-bs-dark .footer-brand, .footer-bs-dark .footer-nav, .footer-bs-dark .footer-social, .footer-bs-dark .footer-ns { padding:10px 25px; }
 .footer-bs-dark .footer-nav, .footer-bs-dark .footer-social, .footer-bs-dark .footer-ns { border-color: transparent; }
