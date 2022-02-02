@@ -52,10 +52,11 @@
 							@endif
 							<!--Jargon end here-->
 							@if (!empty($event))
-							<div class="m-hookup">
+							<div class="m-hookup"style="margin-bottom: 30px;">
 								<h3><a href="/events">Events</a></h3>
 								<p><a href="/events">What’s happening where and when</a></p>
 						</div>
+						<hr/>
 						@endif
 						<!--events end here-->
 					</div><!--col-8 end here-->
