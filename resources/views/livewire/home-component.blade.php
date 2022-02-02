@@ -38,7 +38,7 @@
 									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-bell fa-stack-1x fa-inverse"></i>
 								  </span></a></h3>
-								<p><a href="/hookup-category/senior">{{ $hookup->name }}</a></p>
+								<p><a href="/hookup">Collection of career changing jobs in Africa for your picking</a></p>
 								<hr>
 							</div>
 							@endif
@@ -46,7 +46,7 @@
 							@if (!empty($jargon))
 							<div>
 								<h3><a href="/jargon" style="color: #fff;">Jargon <br/><br/><br/><br/><br/>Buster</a></h3>
-								<p><a href="/jargon-category/architecture" style="color: #fff; text-decoration: none;">{!! Str::words("$jargon->short_description", 10,'') !!}</a></p>
+								<p><a href="/jargon-category/architecture" style="color: #fff; text-decoration: none;">{!! Str::words("Online vector logo collection of brands in Africa", 100,'') !!}</a></p>
 								<hr>
 							</div>
 							@endif
@@ -54,7 +54,7 @@
 							@if (!empty($event))
 							<div>
 								<h3><a href="/events" style="color: #fff;">Events</a></h3>
-								<p><a href="/events-category/east-africa" style="color: #fff; text-decoration: none;">{{ $event->name }}</a></p>
+								<p><a href="/events" style="color: #fff; text-decoration: none;">What’s happening where and when</a></p>
 						</div>
 						@endif
 						<!--events end here-->

@@ -20,7 +20,7 @@
     </div>
   </header>
   <!-- Main Content -->
-  <div class="container">
+ {{--<div class="container">
     <div class="bottom-menu">
         <ul class="nav navbar-nav">
           @foreach ($eventcategories as $e_catagory )
@@ -30,7 +30,7 @@
         @endforeach
       </ul>
     </div>
-  </div>
+  </div>--}}
     <div class="container">
       @if (Session::has('message'))
                             <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="col-sm-2 col-dates">
                             <p class="dates">{{\Carbon\Carbon::parse($event->eventdate)->isoFormat('D') }}</p>
-                            <p class="months">{{\Carbon\Carbon::parse($event->eventdate)->isoFormat('MMM') }}</p>
+                            <p class="months">{{Str::upper(\Carbon\Carbon::parse($event->eventdate)->isoFormat('MMMM')) }}</p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
@@ -86,7 +86,7 @@
                         </div>
                         <div class="col-sm-2 col-dates">
                             <p class="dates">{{\Carbon\Carbon::parse($event->eventdate)->isoFormat('D') }}</p>
-                            <p class="months">{{\Carbon\Carbon::parse($event->eventdate)->isoFormat('MMM') }}</p>
+                            <p class="months">{{Str::upper(\Carbon\Carbon::parse($event->eventdate)->isoFormat('MMMM')) }}</p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">

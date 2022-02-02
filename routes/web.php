@@ -73,11 +73,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-Route::get('/home',HomeComponent::class);
+Route::get('/',HomeComponent::class);
 
 Route::get('/vector', VectorComponent::class)->name('vector');
 Route::get('/vectors/{slug}', VectorlogosComponent::class)->name('vector.vectors');
@@ -114,6 +114,9 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     //return view('dashboard');
 //})->name('dashboard');
+
+Route::get('lang/home', 'LangController@index');
+Route::get('lang/change', 'LangController@change')->name('changeLang');
 
 //For Users or Customer
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
