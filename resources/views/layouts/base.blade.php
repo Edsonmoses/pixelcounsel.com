@@ -146,7 +146,7 @@
         <div class="row b-footer">
           <div class="col-md-8">
             <ul>
-              <li><a href="#" class="text-muted">Terms of use</a></li>|
+              <li><a href="/terms-of-use" class="text-muted">Terms of use</a></li>|
               <li><a href="#" class="text-muted">Privacy Terms</a></li>
             </ul>
             <p class="text-muted mt-0"><?php echo date("Y");?> Tradmarks and brands are the property of their respective owners.</p>

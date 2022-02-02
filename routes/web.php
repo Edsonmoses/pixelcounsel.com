@@ -57,6 +57,7 @@ use App\Http\Livewire\HookupDedailsComponent;
 use App\Http\Livewire\JargonbusterComponent;
 use App\Http\Livewire\JargonCategoryComponent;
 use App\Http\Livewire\SearchComponent;
+use App\Http\Livewire\TermsOfUseComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\User\UserEditProfileComponent;
 use App\Http\Livewire\User\UserProfileComponent;
@@ -103,6 +104,7 @@ Route::get('/events/add', EventAddComponent::class)->name('events.addevent');
 Route::get('/blog', BlogComponent::class);
 
 Route::get('/search', SearchComponent::class)->name('vector.search');
+Route::get('/terms-of-use', TermsOfUseComponent::class);
 
 
 // Facebook Login URL
