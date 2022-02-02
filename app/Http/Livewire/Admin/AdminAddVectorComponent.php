@@ -27,7 +27,7 @@ class AdminAddVectorComponent extends Component
 
     public function mount()
     {
-        $this->vector_status = 'published';
+        $this->vector_status = 'unpublished';
         $this->contributor = Auth::user()->name;
     }
 

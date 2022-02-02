@@ -129,21 +129,22 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group app-label mt-2 mr-2">
-                                        <label class="text-muted">Event End Date & Time</label>
-                                        <input wire:model="enddate"
-                                        type="text" class="form-control input-md datepicker" placeholder="Event End Date & Time" autocomplete="off"
-                                        data-provide="datepicker" data-date-autoclose="true" data-date-format="dd-mm-yyyy" data-date-today-highlight="true"                        
-                                        onchange="this.dispatchEvent(new InputEvent('input'))">
-                                    </div>
-                                </div>
+                               
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2">
                                         <label class="text-muted">Event Start Date & Time</label>
                                         <input wire:model="eventdate"
                                         type="text" class="form-control input-md datepicker" placeholder="Event Start Date & Time" autocomplete="off"
-                                        data-provide="datepicker" data-datetime-autoclose="true" data-date-format="dd-mm-yyyy" data-date-today-highlight="true"                        
+                                        data-provide="datepicker" data-datetime-autoclose="true" data-date-format="yyy-mm-dd" data-date-today-highlight="true"                        
+                                        onchange="this.dispatchEvent(new InputEvent('input'))">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group app-label mt-2 mr-2">
+                                        <label class="text-muted">Event End Date & Time</label>
+                                        <input wire:model="enddate"
+                                        type="text" class="form-control input-md datepicker" placeholder="Event End Date & Time" autocomplete="off"
+                                        data-provide="datepicker" data-date-autoclose="true" data-date-format="yyy-mm-dd" data-date-today-highlight="true"                        
                                         onchange="this.dispatchEvent(new InputEvent('input'))">
                                     </div>
                                 </div>

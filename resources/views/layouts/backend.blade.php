@@ -30,164 +30,181 @@
 		<!-- partial:partials/_sidebar.html -->
 		<nav class="sidebar">
       <div class="sidebar-header">
-        <a href="#" class="sidebar-brand">
-            Pixel<span>Counsel</span>
-        </a>
+        @if (Route::has('login'))
+          @auth
+              @if (Auth::user()->utype === 'ADM')
+              <a href="{{route('admin.dashboard')}}" class="sidebar-brand">
+                  Pixel<span>Counsel</span>
+              </a>
+              @else
+              <a href="{{route('user.dashboard')}}" class="sidebar-brand">
+                Pixel<span>Counsel</span>
+            </a>
+          @endif
+          @endauth
+      @endif
         <div class="sidebar-toggler not-active">
           <span></span>
           <span></span>
           <span></span>
         </div>
       </div>
-      <div class="sidebar-body">
-        <ul class="nav">
-          <li class="nav-item nav-category">
-            <a href="{{route('admin.dashboard')}}" class="nav-link">
-              <i class="link-icon" data-feather="box"></i>
-              <span class="link-title">Dashboard</span>
-            </a>
-            <br/>
-          </li>
-          <li class="nav-item nav-category"></li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#blogs" role="button" aria-expanded="false" aria-controls="uiComponents">
-              <i class="link-icon" data-feather="feather"></i>
-              <span class="link-title">Post</span>
-              <i class="link-arrow" data-feather="chevron-down"></i>
-            </a>
-            <div class="collapse" id="blogs">
-              <ul class="nav sub-menu">
-                <li class="nav-item">
-                  <a href="{{route('admin.blog')}}" class="nav-link">All Posts</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.addblog')}}" class="nav-link">New Post</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.categories')}}" class="nav-link">Categories</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#vector" role="button" aria-expanded="false" aria-controls="uiComponents">
-              <i class="link-icon" data-feather="feather"></i>
-              <span class="link-title">Vector</span>
-              <i class="link-arrow" data-feather="chevron-down"></i>
-            </a>
-            <div class="collapse" id="vector">
-              <ul class="nav sub-menu">
-                <li class="nav-item">
-                  <a href="{{route('admin.vectorlogos')}}" class="nav-link">All Vectors</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.addvectorlogos')}}" class="nav-link">New Vector</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.vectors')}}" class="nav-link">Categories</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#events" role="button" aria-expanded="false" aria-controls="uiComponents">
-              <i class="link-icon" data-feather="feather"></i>
-              <span class="link-title">Event</span>
-              <i class="link-arrow" data-feather="chevron-down"></i>
-            </a>
-            <div class="collapse" id="events">
-              <ul class="nav sub-menu">
-                <li class="nav-item">
-                  <a href="{{route('admin.event')}}" class="nav-link">All Events</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.addevents')}}" class="nav-link">New Event</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.events')}}" class="nav-link">Categories</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.etypes')}}" class="nav-link">Event Types</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#hookups" role="button" aria-expanded="false" aria-controls="uiComponents">
-              <i class="link-icon" data-feather="feather"></i>
-              <span class="link-title">Hookup</span>
-              <i class="link-arrow" data-feather="chevron-down"></i>
-            </a>
-            <div class="collapse" id="hookups">
-              <ul class="nav sub-menu">
-                <li class="nav-item">
-                  <a href="{{route('admin.hookup')}}" class="nav-link">All Hookups</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.addhookups')}}" class="nav-link">New Hookup</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.hookups')}}" class="nav-link">Categories</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#jargon" role="button" aria-expanded="false" aria-controls="uiComponents">
-              <i class="link-icon" data-feather="feather"></i>
-              <span class="link-title">Jargon</span>
-              <i class="link-arrow" data-feather="chevron-down"></i>
-            </a>
-            <div class="collapse" id="jargon">
-              <ul class="nav sub-menu">
-                <li class="nav-item">
-                  <a href="{{route('admin.jargon')}}" class="nav-link">All Jargons</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.addjargons')}}" class="nav-link">New Jargon</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.jargons')}}" class="nav-link">Categories</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#atribute" role="button" aria-expanded="false" aria-controls="uiComponents">
-              <i class="link-icon" data-feather="feather"></i>
-              <span class="link-title">Atribute</span>
-              <i class="link-arrow" data-feather="chevron-down"></i>
-            </a>
-            <div class="collapse" id="atribute">
-              <ul class="nav sub-menu">
-                <li class="nav-item">
-                  <a href="{{route('admin.alpfilter')}}" class="nav-link">All Atributes</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.addalpfilter')}}" class="nav-link">New Atribute</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#atribute" role="button" aria-expanded="false" aria-controls="uiComponents">
-              <i class="link-icon" data-feather="feather"></i>
-              <span class="link-title">Ads</span>
-              <i class="link-arrow" data-feather="chevron-down"></i>
-            </a>
-            <div class="collapse" id="atribute">
-              <ul class="nav sub-menu">
-                <li class="nav-item">
-                  <a href="{{route('admin.ads')}}" class="nav-link">All Ads</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('admin.add_ads')}}" class="nav-link">New Ad</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </div>
+      @if (Route::has('login'))
+          @auth
+              @if (Auth::user()->utype === 'ADM')
+                <div class="sidebar-body">
+                  <ul class="nav">
+                    <li class="nav-item nav-category">
+                      <a href="{{route('admin.dashboard')}}" class="nav-link">
+                        <i class="link-icon" data-feather="box"></i>
+                        <span class="link-title">Dashboard</span>
+                      </a>
+                      <br/>
+                    </li>
+                    <li class="nav-item nav-category"></li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="collapse" href="#blogs" role="button" aria-expanded="false" aria-controls="uiComponents">
+                        <i class="link-icon" data-feather="feather"></i>
+                        <span class="link-title">Post</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
+                      </a>
+                      <div class="collapse" id="blogs">
+                        <ul class="nav sub-menu">
+                          <li class="nav-item">
+                            <a href="{{route('admin.blog')}}" class="nav-link">All Posts</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.addblog')}}" class="nav-link">New Post</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.categories')}}" class="nav-link">Categories</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="collapse" href="#vector" role="button" aria-expanded="false" aria-controls="uiComponents">
+                        <i class="link-icon" data-feather="feather"></i>
+                        <span class="link-title">Vector</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
+                      </a>
+                      <div class="collapse" id="vector">
+                        <ul class="nav sub-menu">
+                          <li class="nav-item">
+                            <a href="{{route('admin.vectorlogos')}}" class="nav-link">All Vectors</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.addvectorlogos')}}" class="nav-link">New Vector</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.vectors')}}" class="nav-link">Categories</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="collapse" href="#events" role="button" aria-expanded="false" aria-controls="uiComponents">
+                        <i class="link-icon" data-feather="feather"></i>
+                        <span class="link-title">Event</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
+                      </a>
+                      <div class="collapse" id="events">
+                        <ul class="nav sub-menu">
+                          <li class="nav-item">
+                            <a href="{{route('admin.event')}}" class="nav-link">All Events</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.addevents')}}" class="nav-link">New Event</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.events')}}" class="nav-link">Categories</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.etypes')}}" class="nav-link">Event Types</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="collapse" href="#hookups" role="button" aria-expanded="false" aria-controls="uiComponents">
+                        <i class="link-icon" data-feather="feather"></i>
+                        <span class="link-title">Hookup</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
+                      </a>
+                      <div class="collapse" id="hookups">
+                        <ul class="nav sub-menu">
+                          <li class="nav-item">
+                            <a href="{{route('admin.hookup')}}" class="nav-link">All Hookups</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.addhookups')}}" class="nav-link">New Hookup</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.hookups')}}" class="nav-link">Categories</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="collapse" href="#jargon" role="button" aria-expanded="false" aria-controls="uiComponents">
+                        <i class="link-icon" data-feather="feather"></i>
+                        <span class="link-title">Jargon</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
+                      </a>
+                      <div class="collapse" id="jargon">
+                        <ul class="nav sub-menu">
+                          <li class="nav-item">
+                            <a href="{{route('admin.jargon')}}" class="nav-link">All Jargons</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.addjargons')}}" class="nav-link">New Jargon</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.jargons')}}" class="nav-link">Categories</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="collapse" href="#atribute" role="button" aria-expanded="false" aria-controls="uiComponents">
+                        <i class="link-icon" data-feather="feather"></i>
+                        <span class="link-title">Atribute</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
+                      </a>
+                      <div class="collapse" id="atribute">
+                        <ul class="nav sub-menu">
+                          <li class="nav-item">
+                            <a href="{{route('admin.alpfilter')}}" class="nav-link">All Atributes</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.addalpfilter')}}" class="nav-link">New Atribute</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="collapse" href="#atribute" role="button" aria-expanded="false" aria-controls="uiComponents">
+                        <i class="link-icon" data-feather="feather"></i>
+                        <span class="link-title">Ads</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
+                      </a>
+                      <div class="collapse" id="atribute">
+                        <ul class="nav sub-menu">
+                          <li class="nav-item">
+                            <a href="{{route('admin.ads')}}" class="nav-link">All Ads</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{route('admin.add_ads')}}" class="nav-link">New Ad</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                @else
+                @endif
+            @endauth
+        @endif
     </nav>
     <nav class="settings-sidebar">
       <div class="sidebar-body">
@@ -221,8 +238,17 @@
         </div>
       </div>
     </nav>
-	<!-- partial -->
-  <div class="page-wrapper">
+    @if (Route::has('login'))
+          @auth
+              @if (Auth::user()->utype === 'ADM')
+        <!-- partial -->
+        <div class="page-wrapper">
+          @else
+          @endif
+           <!-- partial -->
+        <div class="page-wrapper" style="width: calc(100% ) !important; margin-left: 0px;">
+      @endauth
+      @endif
 					
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar">
@@ -430,35 +456,72 @@
                             </div>
                         </div>
                         <div class="dropdown-body">
-                            <ul class="profile-nav p-0 pt-3">
-                                <li class="nav-item">
-                                    <a href="pages/general/profile.html" class="nav-link">
-                                        <i data-feather="user"></i>
-                                        <span>Profile</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:;" class="nav-link">
-                                        <i data-feather="edit"></i>
-                                        <span>Edit Profile</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:;" class="nav-link">
-                                        <i data-feather="repeat"></i>
-                                        <span>Switch User</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('logout')}}" onclick="event.preventDefault();  document.getElementById('logout-form') .submit();" class="nav-link">
-                                        <i data-feather="log-out"></i>
-                                        <span>Log Out</span>
-                                    </a>
-                                </li>
-                                <form id="logout-form" method="POST" action="{{route('logout')}}">
-                                  @csrf
-                                </form>
-                            </ul>
+                          @if (Route::has('login'))
+                                @auth
+                                    @if (Auth::user()->utype === 'ADM')
+                                      <ul class="profile-nav p-0 pt-3">
+                                        <li class="nav-item">
+                                            <a href="pages/general/profile.html" class="nav-link">
+                                                <i data-feather="user"></i>
+                                                <span>Profile</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="javascript:;" class="nav-link">
+                                                <i data-feather="edit"></i>
+                                                <span>Edit Profile</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="javascript:;" class="nav-link">
+                                                <i data-feather="repeat"></i>
+                                                <span>Switch User</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('logout')}}" onclick="event.preventDefault();  document.getElementById('logout-form') .submit();" class="nav-link">
+                                                <i data-feather="log-out"></i>
+                                                <span>Log Out</span>
+                                            </a>
+                                        </li>
+                                        <form id="logout-form" method="POST" action="{{route('logout')}}">
+                                          @csrf
+                                        </form>
+                                      </ul>
+                                    @else
+                                      <ul class="profile-nav p-0 pt-3">
+                                        <li class="nav-item">
+                                            <a href="{{route('user.profile')}}" class="nav-link">
+                                                <i data-feather="user"></i>
+                                                <span>Profile</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('user.edit_profile')}}" class="nav-link">
+                                                <i data-feather="edit"></i>
+                                                <span>Edit Profile</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="javascript:;" class="nav-link">
+                                                <i data-feather="repeat"></i>
+                                                <span>Switch User</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('logout')}}" onclick="event.preventDefault();  document.getElementById('logout-form') .submit();" class="nav-link">
+                                                <i data-feather="log-out"></i>
+                                                <span>Log Out</span>
+                                            </a>
+                                        </li>
+                                        <form id="logout-form" method="POST" action="{{route('logout')}}">
+                                          @csrf
+                                        </form>
+                                      </ul>
+                                    @endif
+                                @endauth
+                            @endif
+                            
                         </div>
                     </div>
                 </li>

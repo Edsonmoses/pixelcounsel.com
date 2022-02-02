@@ -58,6 +58,8 @@ use App\Http\Livewire\JargonbusterComponent;
 use App\Http\Livewire\JargonCategoryComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\UserEditProfileComponent;
+use App\Http\Livewire\User\UserProfileComponent;
 use App\Http\Livewire\VectorComponent;
 use App\Http\Livewire\VectorlogosComponent;
 use Illuminate\Support\Facades\Route;
@@ -102,6 +104,7 @@ Route::get('/blog', BlogComponent::class);
 
 Route::get('/search', SearchComponent::class)->name('vector.search');
 
+
 // Facebook Login URL
 Route::prefix('facebook')->name('facebook.')->group( function(){
     Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
@@ -121,6 +124,8 @@ Route::get('lang/change', 'LangController@change')->name('changeLang');
 //For Users or Customer
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
+    Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
+    Route::get('/user/profile/edit',UserEditProfileComponent::class)->name('user.edit_profile');
 });
 
 //For Admin

@@ -14,12 +14,12 @@ class VectorlogosComponent extends Component
 {
     use WithPagination;
     use WithFileUploads;
-
     public $slug;
     public $searchTerm;
 
     public $image;
     public $downloads = 0;
+    public $downloadmodes;
 
     public function mount($slug)
     {
@@ -44,7 +44,6 @@ class VectorlogosComponent extends Component
         $download_path = ( public_path() . '/assets/images/vectors/' . $vector->images );
          return( response()->download( $download_path ));
          //return(redirect(request()->header('Referer')) );
-         $this->redirectTo = request()->header('Referer');
     }
     public function render()
     {

@@ -79,9 +79,13 @@
               <p>The above logo design and the artwork you are about to download is the intellectual property of the copyright and/or trademark holder and is offered to you as a convenience for lawful use with proper permission from the copyright and/or trademark holder only. You hereby agree that you agree to the Terms of Use and that the artwork you download will be used for non-commercial use without infringing on the rights of the copyright and/or trademark holder and in compliance with the DMCA act of 1998. Before you use or reproduce this artwork in any manner, you agree to obtain the express permission of the copyright and/or trademark holder. Failure to obtain such permission is a violation of international copyright and trademark laws subject to specific financial and criminal penalties.</p>
                 <div class="row">
                     <div class="col-md-3">
-                        <input type="checkbox" id="toggle"/>
+                        <input type="checkbox" id="toggle" value="downloaded" wire:model="downloadmodes"/>
                         <span>I agree</span>
-                        <a  style="margin-bottom:10px; margin-left:20px;" class="disabled" id="to-toggle" href="#" wire:click="export({{$vector->id}})"><small class="v-download disable"> Download | <i class="fa fa-arrow-down" aria-hidden="true"></i></small></a>
+                        @if($downloadmodes == 'downloaded')
+                            <a  style="margin-bottom:10px; margin-left:20px;" href="#" wire:click="export({{$vector->id}})"><small class="v-download btns"> Download | <i class="fa fa-arrow-down" aria-hidden="true"></i></small></a>
+                        @else
+                        <a  style="margin-bottom:10px; margin-left:20px;" class="disabled" id="to-toggle"><small class="v-download disable"> Download | <i class="fa fa-arrow-down" aria-hidden="true"></i></small></a>
+                        @endif
                   </div>
             </div>
         </div>
@@ -112,7 +116,7 @@
       $(".select2").select2();
     });
   
-  var link = $("#to-toggle");
+  /*var link = $("#to-toggle");
   $("#toggle").on("change", function() {
       if(this.checked) {
           link.attr("href", link.data("href"));
@@ -128,7 +132,7 @@
   for (var inp of elements) {
       if (inp.type === "checkbox")
           inp.checked = false;
-  }
+  }*/
   </script>
   <script> 
     window.livewire.on('startDownload', path => {

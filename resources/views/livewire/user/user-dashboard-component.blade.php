@@ -1,108 +1,183 @@
 <div>
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-     <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+  <div class="page-content">
 
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav navbar-sidenav">
-
-          <a class="nav-link navlogo text-center" href="index.php">
-            <img src="https://vignette.wikia.nocookie.net/nationstates/images/2/29/WS_Logo.png/revision/latest?cb=20080507063620">
-          </a>
-
-        <li class="nav-item">
-          <a class="nav-link sidefrst" href="index.php">
-            <span class="textside">  Dashboard</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link sidesecnd" href="employee.php">
-            <span class="textside">  Employee</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link sidesthrd" href="clients.php">
-            <span class="textside">  Clients</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link sidesforth" href="job.php">
-            <span class="textside">  Jobs</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link sidesfifth" href="quotation.php">
-            <span class="textside">  Quotation</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link sidesix" href="service.php">
-            <span class="textside">  Services</span>
-          </a>
-        </li>
-      </ul>
-      
-      <ul class="navbar-nav2 ml-auto">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome WaLia</a>
-            <ul class="dropdown-menu">
-                <li class="resflset"><a href="profile.php"><i class="fa fa-fw fa-cog"></i> Edit profile</a></li>
-                <li class="divider"></li>
-                <li class="resflset"><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
-            </ul>
-        </li>
-      </ul>
-      
-    </div>
-  </nav>
-    <div class="content-wrapper">
-        <div class="container-fluid">
-          <div class="row">
-    
-          <!-- Icon Cards-->
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
-                <div class="inforide">
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-4 rideone">
-                        <img src="https://vignette.wikia.nocookie.net/nationstates/images/2/29/WS_Logo.png/revision/latest?cb=20080507063620">
-                    </div>
-                    <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
-                        <h4>Employee</h4>
-                        <h2>20</h2>
-                    </div>
-                  </div>
-                </div>
-            </div>
-    
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
-                <div class="inforide">
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridetwo">
-                        <img src="https://vignette.wikia.nocookie.net/nationstates/images/2/29/WS_Logo.png/revision/latest?cb=20080507063620">
-                    </div>
-                    <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
-                        <h4>Clients</h4>
-                        <h2>120</h2>
-                    </div>
-                  </div>
-                </div>
-            </div>
-    
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
-                <div class="inforide">
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridethree">
-                        <img src="https://vignette.wikia.nocookie.net/nationstates/images/2/29/WS_Logo.png/revision/latest?cb=20080507063620">
-                    </div>
-                    <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
-                        <h4>Jobs</h4>
-                        <h2>50</h2>
-                    </div>
-                  </div>
-                </div>
-            </div>
-    
+    <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+      <div>
+        <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
+      </div>
+      <div class="d-flex align-items-center flex-wrap text-nowrap">
+        <div class="input-group date datepicker dashboard-date mr-2 mb-2 mb-md-0 d-md-none d-xl-flex" id="dashboardDate">
+          <span class="input-group-addon bg-transparent"><i data-feather="calendar" class=" text-primary"></i></span>
+          <input type="text" class="form-control">
         </div>
       </div>
     </div>
+    
+    <div class="row">
+      <div class="col-12 col-xl-12 stretch-card">
+        <div class="row flex-grow">
+          <div class="col-md-4 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                  <h6 class="card-title mb-0">New Customers</h6>
+                  <div class="dropdown mb-2">
+                    <button class="btn p-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="eye" class="icon-sm mr-2"></i> <span class="">View</span></a>
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="edit-2" class="icon-sm mr-2"></i> <span class="">Edit</span></a>
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="trash" class="icon-sm mr-2"></i> <span class="">Delete</span></a>
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span></a>
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6 col-md-12 col-xl-5">
+                    <h3 class="mb-2">3,897</h3>
+                    <div class="d-flex align-items-baseline">
+                      <p class="text-success">
+                        <span>+3.3%</span>
+                        <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-12 col-xl-7">
+                    <div id="apexChart1" class="mt-md-3 mt-xl-0"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                  <h6 class="card-title mb-0">New Orders</h6>
+                  <div class="dropdown mb-2">
+                    <button class="btn p-0" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="eye" class="icon-sm mr-2"></i> <span class="">View</span></a>
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="edit-2" class="icon-sm mr-2"></i> <span class="">Edit</span></a>
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="trash" class="icon-sm mr-2"></i> <span class="">Delete</span></a>
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span></a>
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6 col-md-12 col-xl-5">
+                    <h3 class="mb-2">35,084</h3>
+                    <div class="d-flex align-items-baseline">
+                      <p class="text-danger">
+                        <span>-2.8%</span>
+                        <i data-feather="arrow-down" class="icon-sm mb-1"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-12 col-xl-7">
+                    <div id="apexChart2" class="mt-md-3 mt-xl-0"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                  <h6 class="card-title mb-0">Growth</h6>
+                  <div class="dropdown mb-2">
+                    <button class="btn p-0" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="eye" class="icon-sm mr-2"></i> <span class="">View</span></a>
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="edit-2" class="icon-sm mr-2"></i> <span class="">Edit</span></a>
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="trash" class="icon-sm mr-2"></i> <span class="">Delete</span></a>
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span></a>
+                      <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6 col-md-12 col-xl-5">
+                    <h3 class="mb-2">89.87%</h3>
+                    <div class="d-flex align-items-baseline">
+                      <p class="text-success">
+                        <span>+2.8%</span>
+                        <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-12 col-xl-7">
+                    <div id="apexChart3" class="mt-md-3 mt-xl-0"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- row -->
+    <div class="row">
+      <div class="col-lg-12 col-xl-12 stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-baseline mb-2">
+              <h6 class="card-title mb-0">Logos Uploaded</h6>
+              <div class="dropdown mb-2">
+                <button class="btn p-0" type="button" id="dropdownMenuButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
+                  <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="eye" class="icon-sm mr-2"></i> <span class="">View</span></a>
+                  <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="edit-2" class="icon-sm mr-2"></i> <span class="">Edit</span></a>
+                  <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="trash" class="icon-sm mr-2"></i> <span class="">Delete</span></a>
+                  <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span></a>
+                  <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th class="pt-0">#</th>
+                    <th class="pt-0">Name</th>
+                    <th class="pt-0">Category</th>
+                    <th class="pt-0">Date</th>
+                    <th class="pt-0">Format</th>
+                    <th class="pt-0">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($vectors as $vector)
+                  <tr>
+                    <td>{{$vector->id}}</td>
+                    <td>{{$vector->name}}</td>
+                    <td>{{$vector->designer}}</td>
+                    <td>{{$vector->created_at}}</td>
+                    <td>{{$vector->format}}</td>
+                    <td>
+                      @if ($vector->vector_status == 'published')
+                      <span class="badge badge-success">Published</span>
+                      @else
+                      <span class="badge badge-info-muted">Pending</span>
+                      @endif
+                    </td>
+                  </tr>
+                  @endforeach
+                  
+                </tbody>
+              </table>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div> <!-- row -->
 </div>
