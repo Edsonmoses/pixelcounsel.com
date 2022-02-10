@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Hookup;
 use App\Models\HookupCategory;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
@@ -31,11 +32,18 @@ class AdminAddHookupComponent extends Component
     public $email;
     public $web;
     public $jobUrl;
+    public $open;
+    public $postedby;
 
     public function mount()
     {
-        $this->hookup_status = 'published';
+        $this->hookup_status = 'unpublished';
         $this->featured = '0';
+        $this->postedby = Auth::user()->name;
+        $this->phone = '+254 700 000 000';
+        $this->web = 'example.com';
+        $this->email = 'hookup@example.com';
+        $this->jobUrl = 'example.com';
     }
 
     public function generateSlug()
@@ -67,6 +75,8 @@ class AdminAddHookupComponent extends Component
         $hookup->email = $this->email;
         $hookup->web = $this->web;
         $hookup->jobUrl = $this->jobUrl;
+        $hookup->open = $this->open;
+        $hookup->postedby = $this->postedby;
         $hookup->save();
         session()->flash('message','Hookup has been created successfully!');
     }

@@ -6,6 +6,7 @@ use App\Models\AlpFilters;
 use App\Models\JargonCategory;
 use App\Models\Jargons;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
@@ -23,6 +24,7 @@ class AdminEditJargonComponent extends Component
     public $afid;
     public $newimage;
     public $jargon_id;
+    public $postedby;
 
     public function mount($jargon_slug)
     {
@@ -36,6 +38,7 @@ class AdminEditJargonComponent extends Component
         $this->jargon_categories_id = $jargon->jargon_categories_id;
         $this->afid = $jargon->afid;
         $this->jargon_id = $jargon->id;
+        $this->postedby = Auth::user()->name;
     }
 
     public function generateSlug()
@@ -59,6 +62,7 @@ class AdminEditJargonComponent extends Component
         }
         $jargon->jargon_categories_id = $this->jargon_categories_id;
         $jargon->afid = $this->afid;
+        $jargon->postedby = $this->postedby;
         $jargon->save();
         session()->flash('message','Jargon has been updated successfully!');
     }

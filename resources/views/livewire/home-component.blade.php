@@ -5,20 +5,20 @@
 				<div class="col-md-4 col-lg-4 logo">
 					<img src="{{asset('assets/uploads/img/Pixel Counsel--11.svg')}}" class="img-fluid" alt="Pixel Counsel Logo">
 				</div>
-				<div class="col-md-12 col-lg-8 banner">
+				<div class="col-sm-12 col-md-12 col-lg-8 banner">
 					<img src="{{asset('assets/user/img/about-bg.jpg')}}" class="img-fluid" alt="Pixel Counsel Logo">
 				</div>
 			</div>
 		</div>
 	</section>
 	<section class="main">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12 col-lg-7 vectorl">
 					<img src="{{asset('assets/uploads/img/vector logos of brands in africa.svg')}}" class="img-fluid" alt="Pixel Counsel Logo">
 					@livewire('home-search-component')
 				</div>
-				<div class="col-md-5 col-lg-5 ads">
+				<div class="col-lg-5 col-md-12 col-sm-12 ads">
 					<div class="row ml-4">
 						{{--<div class="col-md-4 h-updates">
 							<img src="{{asset('assets/uploads/img/message.png')}}" class="img-fluid" alt="RVector Logo">
@@ -31,17 +31,18 @@
 						</div>--}}
 						<div class="col-md-8 col-sm-12 h-events" style="border-left: none !important;">
 							<div style="margin-top:47px;"></div>
-							@if (!empty($hookup))
+							
 							<div class="m-hookup">
 								<h3><a href="/hookup">Hook Up 
+									@if (!empty($hookup))
 									<span class="fa-stack fa-1x" data-count="{{ $hookup->id }}">
 									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-bell fa-stack-1x fa-inverse"></i>
-								  </span></a></h3>
+								  </span>
+								@endif</a></h3>
 								<p><a href="/hookup">Collection of career changing jobs in Africa for your picking</a></p>
 								<hr>
 							</div>
-							@endif
 							<!--hookup end here-->
 							@if (!empty($jargon))
 							<div class="m-hookup">

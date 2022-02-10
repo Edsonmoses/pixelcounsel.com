@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\JargonCategory;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -10,6 +11,12 @@ class AdminAddJargonCategoryComponent extends Component
 {
     public $name;
     public $slug;
+    public $postedby;
+
+    public function mount()
+    {
+        $this->postedby = Auth::user()->name;
+    }
 
     public function generateslug()
     {
@@ -21,6 +28,7 @@ class AdminAddJargonCategoryComponent extends Component
         $jargon = new JargonCategory();
         $jargon->name = $this->name;
         $jargon->slug = $this->slug;
+        $jargon->postedby = $this->postedby;
         $jargon->save();
         session()->flash('message','Jargon Category has been created successfully!');
     }

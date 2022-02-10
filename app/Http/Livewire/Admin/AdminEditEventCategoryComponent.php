@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\EventsCategory;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -12,6 +13,7 @@ class AdminEditEventCategoryComponent extends Component
     public $event_id;
     public $name;
     public $slug;
+    public $postedby;
 
     public function mount($event_slug)
     {
@@ -20,6 +22,7 @@ class AdminEditEventCategoryComponent extends Component
         $this->event_id = $event->id;
         $this->name = $event->name;
         $this->slug = $event->slug;
+        $this->postedby = Auth::user()->name;
     }
 
     public function generateslug()
@@ -32,6 +35,7 @@ class AdminEditEventCategoryComponent extends Component
         $event = EventsCategory::find($this->event_id);
         $event->name = $this->name;
         $event->slug = $this->slug;
+        $event->postedby = $this->postedby;
         $event->save();
         session()->flash('message','Event Category has been updated successfully!');
     }

@@ -21,7 +21,7 @@ class CreateEventsTable extends Migration
             $table->string('short_description')->default(false);
             $table->text('description')->default(false);
             $table->string('exhibition')->default(false);
-            $table->string('eventdate')->default(DB::raw('CURRENT_DATE'));
+            $table->dateTime('eventdate')->default(DB::raw('CURRENT_DATE'));
             $table->enum('events_status',['published','unpublished']);
             $table->text('images')->nullable();
             $table->bigInteger('events_categories_id')->unsigned()->nullable();
@@ -31,7 +31,7 @@ class CreateEventsTable extends Migration
             $table->string('ephone')->nullable();
             $table->string('website')->nullable();
             $table->string('ticket')->nullable();
-            $table->string('enddate')->after('eventdate')->default(DB::raw('CURRENT_DATE'));
+            $table->dateTime('enddate')->after('eventdate')->default(DB::raw('CURRENT_DATE'));
             $table->timestamps();
             $table->foreign('events_categories_id')->references('id')->on('events_categories')->onDelete('cascade');
             $table->foreign('etype_id')->references('id')->on('event_types')->onDelete('cascade');

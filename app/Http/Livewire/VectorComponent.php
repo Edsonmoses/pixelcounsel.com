@@ -47,6 +47,16 @@ class VectorComponent extends Component
         //$this->contributor = Auth::user()->name;
         $this->vectors_status = 'published';
     }
+    public function searchTerm()
+    {
+        $searchTerm = '%'.$this->searchTerm . '%';
+        $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
+                ->orWhere('name','LIKE',$searchTerm)
+                ->orWhere('slug','LIKE',$searchTerm)
+                ->orWhere('description','LIKE',$searchTerm)
+                ->orWhere('designer','LIKE',$searchTerm)
+                ->orderBy('name','ASC',$searchTerm)->paginate(12);
+    }
 
     public function generateSlug()
     {

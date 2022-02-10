@@ -24,11 +24,13 @@ class AdminAddVectorComponent extends Component
     public $images;
     public $image;
     public $vector_categories_id;
+    public $postedby;
 
     public function mount()
     {
         $this->vector_status = 'unpublished';
         $this->contributor = Auth::user()->name;
+        $this->postedby = Auth::user()->name;
     }
 
     public function generateSlug()
@@ -83,6 +85,7 @@ class AdminAddVectorComponent extends Component
         $this->image->storeAs('vectors',$imgName);
         $vector->image = $imgName;
         $vector->vector_categories_id = $this->vector_categories_id;
+        $vector->postedby = $this->postedby;
         $vector->save();
         session()->flash('message','Vector file has been created successfully!');
     }

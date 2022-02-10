@@ -143,7 +143,7 @@
 
                             <div class="row">
                                 <div class="col-lg-12 mt-2">
-                                    <a href="#" class="btn btn-primary">Post a vector</a>
+                                    <button type="submit" class="btn btn-primary">Post a vector</button>
                                 </div>
                             </div>
                         </form>
@@ -153,3 +153,31 @@
         </div>
     </div>
 </div>
+@push('scripts')
+<script type= text/javascript>
+  $(function() {
+      tinymce.init({
+          selector:'#short_description',
+          setup:function(editor) {
+              editor.on('Change',function(e) {
+                  tinyMCE.triggerSave();
+                  var sd_data = $('#short_description').val();
+                  @this.set('short_description',sd_data);
+              });
+          }
+      });
+
+      tinymce.init({
+          selector:'#description',
+          setup:function(editor) {
+              editor.on('Change',function(e) {
+                  tinyMCE.triggerSave();
+                  var sd_data = $('#description').val();
+                  @this.set('description',sd_data);
+              });
+          }
+      });
+  });
+  
+</script>
+@endpush 

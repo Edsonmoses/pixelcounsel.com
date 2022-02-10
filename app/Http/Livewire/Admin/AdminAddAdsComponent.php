@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Ads;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -15,6 +16,12 @@ class AdminAddAdsComponent extends Component
     public $image;
     public $startdate;
     public $endate;
+    public $postedby;
+
+    public function mount()
+    {
+        $this->postedby = Auth::user()->name;
+    }
 
     public function updated($fields)
     {
@@ -45,6 +52,7 @@ class AdminAddAdsComponent extends Component
         $ads->image = $imageName;
         $ads->startdate = $this->startdate;
         $ads->endate = $this->endate;
+        $ads->postedby = $this->postedby;
         $ads->save();
         session()->flash('message','Ad has been created successfully!');
     }

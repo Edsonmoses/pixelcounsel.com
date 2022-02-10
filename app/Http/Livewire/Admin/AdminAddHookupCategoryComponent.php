@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\HookupCategory;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -10,6 +11,13 @@ class AdminAddHookupCategoryComponent extends Component
 {
     public $name;
     public $slug;
+    public $postedby;
+
+    public function mount()
+    {
+        $this->events_status = 'unpublished';
+        $this->postedby = Auth::user()->name;
+    }
 
     public function generateslug()
     {
@@ -21,6 +29,7 @@ class AdminAddHookupCategoryComponent extends Component
         $hookup = new HookupCategory();
         $hookup->name = $this->name;
         $hookup->slug = $this->slug;
+        $hookup->postedby = $this->postedby;
         $hookup->save();
         session()->flash('message','Hookup Category has been created successfully!');
     }

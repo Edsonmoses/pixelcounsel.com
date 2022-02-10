@@ -26,6 +26,15 @@
     <script src="{{ asset('assets/user/js/ajax.googleapis.js') }}"></script>
     <link rel="shortcut icon" href="{{ asset('assets/admin/assets/images/favicon.png')}}" />
     <script src="https://cdn.tiny.cloud/1/k8q9tgside9eky8q9awxina5c3fwpwso4mslw3530tjl39hj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-217785215-1"></script>
+     <script>
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+ 
+       gtag('config', 'UA-217785215-1');
+     </script>
     @livewireStyles
 </head>
 

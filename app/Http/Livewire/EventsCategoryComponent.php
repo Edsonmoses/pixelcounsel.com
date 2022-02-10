@@ -6,6 +6,7 @@ use App\Models\Events;
 use App\Models\EventsCategory;
 use App\Models\EventType;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Str;
@@ -30,6 +31,7 @@ class EventsCategoryComponent extends Component
     public $website;
     public $ticket;
     public $enddate;
+    public $postedby;
 
     public $sorting;
     public $pagesize;
@@ -41,6 +43,7 @@ class EventsCategoryComponent extends Component
         $this->sorting = "default";
         $this->pagesize = 12;
         $this->$category_slug = $category_slug;
+        $this->postedby = Auth::user()->name;
     }
     public function generateSlug()
     {
@@ -68,6 +71,7 @@ class EventsCategoryComponent extends Component
         $event->website = $this->website;
         $event->ticket = $this->ticket;
         $event->enddate = $this->enddate;
+        $event->postedby = $this->postedby;
         $event->save();
         session()->flash('message','Event has been created successfully!');
     }

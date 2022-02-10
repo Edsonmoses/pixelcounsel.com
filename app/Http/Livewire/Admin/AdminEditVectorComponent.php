@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\VectorCategory;
 use App\Models\Vectorlogos;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
@@ -26,6 +27,7 @@ class AdminEditVectorComponent extends Component
     public $newimage;
     public $newimages;
     public $vector_id;
+    public $postedby;
 
     public function mount($vector_slug)
     {
@@ -42,6 +44,7 @@ class AdminEditVectorComponent extends Component
         $this->image = $vecor->image;
         $this->vector_categories_id = $vecor->vector_categories_id;
         $this->vector_id = $vecor->id;
+        $this->postedby = Auth::user()->name;
     }
 
     public function generateSlug()
@@ -73,6 +76,7 @@ class AdminEditVectorComponent extends Component
         $vector->image = $imageName;
         }
         $vector->vector_categories_id = $this->vector_categories_id;
+        $vector->postedby = $this->postedby;
         $vector->save();
         session()->flash('message','Vector file has been updated successfully!');
     }

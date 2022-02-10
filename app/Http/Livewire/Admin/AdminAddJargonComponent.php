@@ -6,6 +6,7 @@ use App\Models\AlpFilters;
 use App\Models\JargonCategory;
 use App\Models\Jargons;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
@@ -21,10 +22,12 @@ class AdminAddJargonComponent extends Component
     public $images;
     public $jargon_categories_id;
     public $afid;
+    public $postedby;
 
     public function mount()
     {
-        $this->jargons_status = 'published';
+        $this->jargons_status = 'unpublished';
+        $this->postedby = Auth::user()->name;
         $this->afid = 0;
     }
 
@@ -67,6 +70,7 @@ class AdminAddJargonComponent extends Component
         $jargon->images = $imageName;
         $jargon->jargon_categories_id = $this->jargon_categories_id;
         $jargon->afid = $this->afid;
+        $jargon->postedby = $this->postedby;
         $jargon->save();
         session()->flash('message','Jargon has been created successfully!');
     }

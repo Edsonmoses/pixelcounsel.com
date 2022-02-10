@@ -15,6 +15,7 @@ class AtributesComponent extends Component
     public $pagesize;
     public $atributes_name;
     public $searchTerm;
+    public $postedby;
 
     public function mount($atributes_name)
     {

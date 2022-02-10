@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -10,6 +11,12 @@ class AdminAddCategoryComponent extends Component
 {
     public $name;
     public $slug;
+    public $postedby;
+
+    public function mount()
+    {
+        $this->postedby = Auth::user()->name;
+    }
 
     public function generateslug()
     {
@@ -34,6 +41,7 @@ class AdminAddCategoryComponent extends Component
         $category = new Category();
         $category->name = $this->name;
         $category->slug = $this->slug;
+        $category->postedby = $this->postedby;
         $category->save();
         session()->flash('message','Category has been created successfully!');
     }

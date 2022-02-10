@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\VectorCategory;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -12,6 +13,7 @@ class AdminEditVectorCategoryComponent extends Component
     public $vectorcategory_id;
     public $name;
     public $slug;
+    public $postedby;
 
     public function mount($vectorcategory_slug)
     {
@@ -20,6 +22,7 @@ class AdminEditVectorCategoryComponent extends Component
         $this->vectorcategory_id = $vectorcategory->id;
         $this->name = $vectorcategory->name;
         $this->slug = $vectorcategory->slug;
+        $this->postedby = Auth::user()->name;
     }
 
     public function generateslug()
@@ -32,6 +35,7 @@ class AdminEditVectorCategoryComponent extends Component
         $vectorcategory = VectorCategory::find($this->vectorcategory_id);
         $vectorcategory->name = $this->name;
         $vectorcategory->slug = $this->slug;
+        $vectorcategory->postedby = $this->postedby;
         $vectorcategory->save();
         session()->flash('message','Vector Category has been updated successfully!');
     }

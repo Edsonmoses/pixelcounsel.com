@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Hookup;
 use App\Models\HookupCategory;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
@@ -33,6 +34,7 @@ class AdminEditHookupComponent extends Component
     public $phone;
     public $email;
     public $web;
+    public $postedby;
 
     public function mount($hookup_slug)
     {
@@ -56,6 +58,7 @@ class AdminEditHookupComponent extends Component
         $this->phone = $hookup->phone;
         $this->email = $hookup->email;
         $this->web = $hookup->web;
+        $this->postedby = Auth::user()->name;
     }
 
     public function generateSlug()
@@ -89,6 +92,7 @@ class AdminEditHookupComponent extends Component
         $hookup->phone = $this->phone;
         $hookup->email = $this->email;
         $hookup->web = $this->web;
+        $hookup->postedby = $this->postedby;
         $hookup->save();
         session()->flash('message','Hookup has been updated successfully!');
     }

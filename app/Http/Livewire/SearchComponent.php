@@ -45,7 +45,7 @@ class SearchComponent extends Component
         $this->totalRecords = Vectorlogos::count();
         $this->vector_status = 'unpublished';
         $this->contributor = Auth::user()->name;
-        $this->vectors_status = 'published';
+        $this->vectors_status = 'unpublished';
     }
 
     public function generateSlug()

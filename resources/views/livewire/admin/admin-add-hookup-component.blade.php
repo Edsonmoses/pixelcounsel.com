@@ -87,7 +87,11 @@
                 <div class="form-group">
                     <label class="col-md-6 control-label">Salary</label>
                     <div class="col-md-12">
-                        <input type="text" placeholder="Salary" class="form-control input-md" wire:model="price">
+                            <select class="form-control" wire:model="price">
+                                <option value="">Add Salary</option>
+                                    <option value="n/a">N/A</option>
+                                    <option value="yes">Yes</option>
+                            </select>
                         @error('price')<p class="text-danger">{{ $message }}</p>@enderror 
                     </div>
                 </div>
@@ -161,9 +165,17 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="col-md-6 control-label">Hookup Category</label>
+                    <label class="col-md-6 control-label">Apply Url</label>
                     <div class="col-md-12">
-                        <select class="form-control" wire:model="hookup_categories_id">
+                        <input type="text" placeholder="Apply here or from another site link" class="form-control input-md" wire:model="jobUrl">
+                        @error('jobUrl')<p class="text-danger">{{ $message }}</p>@enderror 
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-md-6 control-label">Hookup Category</label>
+                    <div class="col-md-12"><select class="form-control" wire:model="hookup_categories_id">
                             <option value="">Select Hookup Category</option>
                             @foreach ( $hookupcategories as $category )
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -172,7 +184,7 @@
                         @error('hookup_categories_id')<p class="text-danger">{{ $message }}</p>@enderror
                     </div>
                 </div>
-            </div>
+            </div>--}}
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="col-md-6 control-label">Job Category</label>
@@ -184,6 +196,15 @@
                         </select>
                         @error('fjob')<p class="text-danger">{{ $message }}</p>@enderror
                     </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group app-label mt-2 mr-2">
+                    <label class="text-muted"> End Date </label>
+                    <input wire:model="open"
+                    type="text" class="form-control input-md datepicker" placeholder="End Date" autocomplete="off"
+                    data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
+                    onchange="this.dispatchEvent(new InputEvent('input'))">
                 </div>
             </div>
             <div class="col-md-12">

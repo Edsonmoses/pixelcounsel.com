@@ -19,8 +19,8 @@ class CreateAdsTable extends Migration
             $table->string('name');
             $table->string('position');
             $table->string('image');
-            $table->string('startdate')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->string('endate')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->dateTime('startdate')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->dateTime('endate')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
     }

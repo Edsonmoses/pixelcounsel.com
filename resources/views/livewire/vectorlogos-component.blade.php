@@ -23,15 +23,23 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6">
-              <div id="custom-search-input" style="margin-top: 33px">
-                <div class="input-group col-md-12">
-                    <input type="text" class="  search-query form-control" placeholder="Find a logo"  wire:model="searchTerm"/>
+              <div id="custom-search-input" style="margin-top: 83px">
+                {{--<div class="input-group col-md-12">
+                    <input type="text" class="search-query form-control" placeholder="Find a logo"  wire:model="searchTerm"/>
                     <span class="input-group-btn">
                         <button class="btn btn-danger" type="button">
                             <span class=" glyphicon glyphicon-search"></span>
                         </button>
                     </span>
-                </div>
+                </div>--}}
+                @livewire('home-search-component')
+                @if ($searchTerm)
+                <ul class="hmsearch">
+                    @foreach($vector as $vector)
+                        <li><a href="{{ route('vector.vectors',['slug'=>$vector->slug]) }}">{{ $vector->name }}</a></li>
+                    @endforeach
+                </ul>
+                @endif
             </div>
             </div>
             <div class="col-lg-6 col-md-6 vector-s-btn text-right">

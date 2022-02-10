@@ -6,6 +6,7 @@ use App\Models\Events;
 use App\Models\EventsCategory;
 use App\Models\EventType;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
@@ -32,6 +33,7 @@ class AdminEditEventsComponent extends Component
     public $enddate;
     public $newimage;
     public $event_id;
+    public $postedby;
 
     public function mount($event_slug)
     {
@@ -53,6 +55,7 @@ class AdminEditEventsComponent extends Component
         $this->ticket = $event->ticket;
         $this->enddate = $event->enddate;
         $this->event_id = $event->id;
+        $this->postedby = Auth::user()->name;
     }
 
     public function generateSlug()
@@ -84,6 +87,7 @@ class AdminEditEventsComponent extends Component
         $event->website = $this->website;
         $event->ticket = $this->ticket;
         $event->enddate = $this->enddate;
+        $event->postedby = $this->postedby;
         $event->save();
         session()->flash('message','Event has been updated successfully!');
     }

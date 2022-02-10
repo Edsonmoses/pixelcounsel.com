@@ -6,6 +6,7 @@ use App\Models\Events;
 use App\Models\EventsCategory;
 use App\Models\EventType;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
@@ -32,14 +33,16 @@ class EventsComponent extends Component
     public $website;
     public $ticket;
     public $enddate;
+    public $postedby;
 
     public $sorting;
     public $pagesize;
 
     public function mount()
     {
-        $this->events_status = 'published';
+        $this->events_status = 'unpublished';
         $this->sorting = "default";
+        $this->postedby = Auth::user()->name;
         $this->pagesize = 12;
     }
 
@@ -69,6 +72,7 @@ class EventsComponent extends Component
         $event->website = $this->website;
         $event->ticket = $this->ticket;
         $event->enddate = $this->enddate;
+        $event->postedby = $this->postedby;
         $event->save();
         session()->flash('message','Event has been created successfully!');
     }

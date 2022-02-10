@@ -8,6 +8,12 @@ use Livewire\Component;
 class AdminAddAlpFilterComponent extends Component
 {
     public $name;
+    public $postedby;
+
+    public function mount()
+    {
+        $this->postedby = Auth::user()->name;
+    }
 
     public function updated($fields)
     {
@@ -24,6 +30,7 @@ class AdminAddAlpFilterComponent extends Component
 
         $alpfilter = new AlpFilters();
         $alpfilter->name = $this->name;
+        $alpfilter->postedby = $this->postedby;
         $alpfilter->save();
         session()->flash('message','Atribute has been created successfully!');
     }
