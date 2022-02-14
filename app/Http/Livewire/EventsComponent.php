@@ -42,7 +42,7 @@ class EventsComponent extends Component
     {
         $this->events_status = 'unpublished';
         $this->sorting = "default";
-        $this->postedby = Auth::user()->name;
+        //$this->postedby = Auth::user()->name;
         $this->pagesize = 12;
     }
 
@@ -72,7 +72,7 @@ class EventsComponent extends Component
         $event->website = $this->website;
         $event->ticket = $this->ticket;
         $event->enddate = $this->enddate;
-        $event->postedby = $this->postedby;
+        //$event->postedby = $this->postedby;
         $event->save();
         session()->flash('message','Event has been created successfully!');
     }

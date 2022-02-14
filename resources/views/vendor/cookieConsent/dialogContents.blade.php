@@ -20,7 +20,7 @@
                 <button class="js-cookie-consent-agree cookie-consent__agree">
                     {{ trans('cookieConsent::texts.agree') }}
                 </button>
-                <button type="button" onclick="close_window()"  data-dismiss="modal">I don't agree</button>
+                <button class="js-cookie-consent-agree" type="button" onclick="close_window()"  data-dismiss="modal">I don't agree</button>
             </div>
         </div>
       </div>

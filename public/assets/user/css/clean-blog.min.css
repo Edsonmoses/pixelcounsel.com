@@ -2455,15 +2455,15 @@ ul{
   border-radius: .25rem;
 }
 
-a {
-  color: #7D7D7D;
+.nav > li > a {
+  color: #7D7D7D !important;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
-a:hover {
-  color: #7D7D7D;
+.nav > li > a:hover {
+  color: #7D7D7D !important;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
