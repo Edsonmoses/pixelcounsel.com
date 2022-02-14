@@ -2358,6 +2358,9 @@ ul{
   float: right;
   margin-right: 105px;
 }
+.custom-form img{
+  text-align: center !important;
+}
 .avatar.avatar-medium {
   height: 110px;
 }

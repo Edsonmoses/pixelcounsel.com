@@ -28,7 +28,6 @@
                             <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                         @endif
                       <form class="form-horizontal" wire:submit.prevent="addEvent">
-                          <div class="row">
                         <div class="form-group">
                             <label class="col-md-6 control-label">Event Venue</label>
                             <div class="col-md-6">
@@ -36,11 +35,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                        <label class="col-md-6 control-label">Event Name</label>
-                        <div class="col-md-6">
-                            <input type="text" placeholder="Event Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug"/>
+                            <label class="col-md-6 control-label">Event Name</label>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Event Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug"/>
+                            </div>
                         </div>
-                    </div>
                     <div class="form-group">
                         <label class="col-md-6 control-label">Event Slug</label>
                         <div class="col-md-6">
@@ -108,11 +107,9 @@
                     <div class="form-group">
                         <label class="col-md-6 control-label">Event Poster</label>
                         <div class="col-md-6">
-                            <input type="file" class="form-control input-file" wire:model="newimage">
-                            @if($newimage)
-                                <img src="{{ $newimage->temporaryUrl() }}" width="120"/>
-                            @else
-                                <img src="{{ asset('assets/images/events')}}/{{ $images }}" width="120"/>
+                            <input type="file" class="form-control input-file" wire:model="images">
+                            @if($images)
+                                <img src="{{ $images->temporaryUrl() }}" width="120"/>
                             @endif
                         </div>
                     </div>
@@ -147,7 +144,6 @@
                             </div>
                         </div>
                       </form>
-          </div>
         </div>
       </div>
     </div> <!-- row -->

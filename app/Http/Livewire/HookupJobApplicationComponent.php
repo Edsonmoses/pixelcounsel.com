@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class HookupApplyjobComponent extends Component
+class HookupJobApplicationComponent extends Component
 {
     use WithFileUploads;
     public $name;
@@ -139,10 +139,8 @@ class HookupApplyjobComponent extends Component
 
         session()->flash('message','Your Resume has been created successfully!');
     }
-
-
     public function render()
     {
-        return view('livewire.hookup-applyjob-component')->layout('layouts.baseapp');
+        return view('livewire.hookup-job-application-component')->layout('layouts.baseapp');
     }
 }

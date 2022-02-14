@@ -3,7 +3,7 @@
         
         <div class="row">
             <div class="col-lg-12" style="margin-top: 50px;">
-                <h4 class="text-dark mb-3">{{$hookup->jobtitle }}</h4>
+                <h4 class="text-dark mb-3">{{$hookup->name }}</h4>
             </div>
         </div>
 
@@ -13,7 +13,7 @@
                     <div class="job-detail-content">
                         <img src="{{ asset('assets/images/featured-job/img-4.png') }}" alt="" class="img-fluid float-left mr-md-3 mr-2 mx-auto d-block">
                         <div class="job-detail-com-desc overflow-hidden d-block">
-                            <h4 class="mb-2"><a href="#" class="text-dark">{{$hookup->jobtitle}}</a></h4>
+                            <h4 class="mb-2"><a href="#" class="text-dark">{{$hookup->name}}</a></h4>
                             <p class="text-muted mb-0"><i class="fa fa-link mr-2"></i>{{$hookup->company}}</p>
                             <p class="text-muted mb-0"><i class="fa fa-map-marker mr-2"></i>{{$hookup->location}}</p>
                         </div>
@@ -256,8 +256,8 @@
                 </div>
 
                 <div class="job-detail rounded mt-3">
-                    @if ($hookup->jobUrl) 
-                        <a href="{{ $hookup->jobUrl }}" class="btn btn-primary btn-block rounded" target="_blank">Apply For Job</a>
+                    @if ($hookup->jobUrl  == 'example.com') 
+                        <a href="{{ route('hookup.applyjob') }}" class="btn btn-primary btn-block rounded" target="_blank">Apply For Job</a>
                         <h6 class="text-dark f-17 mt-4 mb-0">Share Job :</h6>
                         <ul class="social-icon list-inline mt-3 mb-0">
                             <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-facebook"></i></a></li>
@@ -267,7 +267,7 @@
                             <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-linkedin"></i></a></li>
                         </ul>
                     @else
-                        <a href="#apply-job" class="btn btn-primary btn-block rounded">Apply For Job</a>
+                        <a href="{{ $hookup->jobUrl }}" class="btn btn-primary btn-block rounded">Apply For Job</a>
                         <h6 class="text-dark f-17 mt-4 mb-0">Share Job :</h6>
                         <ul class="social-icon list-inline mt-3 mb-0">
                             <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-facebook"></i></a></li>

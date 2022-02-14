@@ -54,6 +54,7 @@ use App\Http\Livewire\HookupApplyjobComponent;
 use App\Http\Livewire\HookupCategoryComponent;
 use App\Http\Livewire\HookupComponent;
 use App\Http\Livewire\HookupDedailsComponent;
+use App\Http\Livewire\HookupJobApplicationComponent;
 use App\Http\Livewire\JargonbusterComponent;
 use App\Http\Livewire\JargonCategoryComponent;
 use App\Http\Livewire\SearchComponent;
@@ -94,7 +95,7 @@ Route::get('/hookup', HookupComponent::class);
 Route::get('/hookup-category/{category_slug}', HookupCategoryComponent::class)->name('hookup.category');
 Route::get('/hookup-details/{hookup_slug}', HookupDedailsComponent::class)->name('hookup.details');
 Route::get('/hookup/add', HookupAddComponent::class)->name('hookup.addhookup');
-Route::get('/hookup/apply-job', HookupApplyjobComponent::class)->name('hookup.applyjob');
+Route::get('/job-application', HookupJobApplicationComponent::class)->name('hookup.applyjob');
 
 Route::get('/events', EventsComponent::class);
 Route::get('/events-category/{category_slug}', EventsCategoryComponent::class)->name('events.category');
