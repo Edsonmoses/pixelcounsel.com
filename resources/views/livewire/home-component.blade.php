@@ -13,9 +13,10 @@
 	</section>
 	<section class="main">
 		<div class="container-fluid">
+			<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-lg-7 vectorl">
-					<img src="{{asset('assets/uploads/img/vector logos of brands in africa.svg')}}" class="img-fluid" alt="Pixel Counsel Logo">
+				<div class="col-md-12 col-lg-7 col-sm-12 vectorl">
+					<a href="/vector"><img src="{{asset('assets/uploads/img/vector logos of brands in africa.svg')}}" class="img-fluid" alt="Pixel Counsel Logo"></a>
 					@livewire('home-search-component')
 				</div>
 				<div class="col-lg-5 col-md-12 col-sm-12 ads">
@@ -29,13 +30,13 @@
 							<p></p>
 							<p>Daily posts of what's trending in the creative field in Africa at large</p>
 						</div>--}}
-						<div class="col-md-8 col-sm-12 h-events" style="border-left: none !important;">
+						<div class="col-lg-8 col-md-8 col-sm-12 h-events" style="border-left: none !important;">
 							<div style="margin-top:47px;"></div>
 							
 							<div class="m-hookup">
 								<h3><a href="/hookup">Hook Up 
 									@if (!empty($hookup))
-									<span class="fa-stack fa-1x" data-count="{{ $hookup->id }}">
+									<span class="fa-stack fa-1x" data-count="{{ $hookup }}">
 									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-bell fa-stack-1x fa-inverse"></i>
 								  </span>
@@ -64,6 +65,7 @@
 				</div><!--inner row end here-->
 				</div><!--col-5 end here-->
 			</div><!--row end here-->
+			</div><!--inner container end here-->
 		</div><!--container end here-->
 	</section>
 </div>

@@ -2309,6 +2309,10 @@ ul{
   color: #fff;
   text-decoration: none;
 }
+.m-hookup a:hover{
+  color: #fff100;
+  text-decoration: none;
+}
 .m-hookup .fa-stack-1x, .m-hookup .fa-stack-2x
 {
   color: #000 !important;

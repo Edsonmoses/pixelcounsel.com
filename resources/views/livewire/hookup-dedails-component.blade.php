@@ -11,7 +11,7 @@
             <div class="col-lg-8 col-md-7">
                 <div class="job-detail border rounded p-4">
                     <div class="job-detail-content">
-                        <img src="{{ asset('assets/images/featured-job/img-4.png') }}" alt="" class="img-fluid float-left mr-md-3 mr-2 mx-auto d-block">
+                        <img src="{{ asset('assets/images/hookups') }}/{{$hookup->images}}" alt="{{$hookup->name}}" class="img-fluid float-left mr-md-3 mr-2 mx-auto d-block" width="84" height="84">
                         <div class="job-detail-com-desc overflow-hidden d-block">
                             <h4 class="mb-2"><a href="#" class="text-dark">{{$hookup->name}}</a></h4>
                             <p class="text-muted mb-0"><i class="fa fa-link mr-2"></i>{{$hookup->company}}</p>
@@ -39,127 +39,6 @@
                         </div>
                     </div>
                 </div>
-                {{--@if ($Qualification)
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h5 class="text-dark mt-4 h5">Qualification :</h5>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="job-detail border rounded mt-2 p-4">
-                            <div class="job-detail-desc">
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-2">Morbi mattis ullamcorper velit. Phasellus gravida semper nisi nullam vel sem.</p>
-                                </div>
-
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-2">Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
-                                </div>
-
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-2">Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>
-                                </div>
-
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-2">Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis.</p>
-                                </div>
-
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-2">Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu.</p>
-                                </div>
-
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-2">Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis.</p>
-                                </div>
-
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-2">Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi.</p>
-                                </div>
-
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-0">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endif  --}}
-                {{-- @if ($responsibilities)
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h5 class="text-dark mt-4 h5">Primary Responsibilities :</h5>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="job-detail border rounded mt-2 p-4">
-                            <div class="job-detail-desc">
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-2">HTML, CSS &amp; Scss</p>
-                                </div>
-
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-2">Javascript</p>
-                                </div>
-
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-2">PHP</p>
-                                </div>
-
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-2">Photoshop</p>
-                                </div>
-
-                                <div class="job-details-desc-item">
-                                    <div class="float-left mr-3">
-                                        <i class="fa fa-send text-primary"></i>
-                                    </div>
-                                    <p class="text-muted mb-0">Illustrator</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endif  --}}
             </div>
 
             <div class="col-lg-4 col-md-5 mt-4 mt-sm-0 job-detailed">
@@ -173,28 +52,33 @@
                             </div>
                             <p class="text-muted mb-2">: {{$hookup->company}}</p>
                         </div>
-
+                        @if ($hookup->email  == 'hookup@example.com') 
+                        @else
                         <div class="job-details-desc-item">
                             <div class="float-left mr-2">
                                 <i class="fa fa-envelope text-muted"></i>
                             </div>
                             <p class="text-muted mb-2">: {{$hookup->email}}</p>
                         </div>
-
+                        @endif
+                        @if ($hookup->jobUrl  == 'example.com') 
+                        @else
                         <div class="job-details-desc-item">
                             <div class="float-left mr-2">
                                 <i class="fa fa-globe text-muted"></i>
                             </div>
                             <p class="text-muted mb-2">: {{$hookup->web}}</p>
                         </div>
-
+                        @endif
+                        @if ($hookup->phone  == '+254 700 000 000') 
+                        @else
                         <div class="job-details-desc-item">
                             <div class="float-left mr-2">
                                 <i class="fa fa-mobile text-muted"></i>
                             </div>
                             <p class="text-muted mb-2">: {{$hookup->phone}}</p>
                         </div>
-
+                        @endif
                         <div class="job-details-desc-item">
                             <div class="float-left mr-2">
                                 <i class="fa fa-usd text-muted"></i>
