@@ -13,7 +13,7 @@ class UserEditProfileComponent extends Component
 {
     use WithFileUploads;
 
-    public $user_profile_id;
+    public $user_id;
     public $image;
     public $about;
     public $city;
@@ -23,7 +23,7 @@ class UserEditProfileComponent extends Component
     public function mount()
     {
         $uprofile = UserProfile::where('user_id',Auth::user()->id)->first();
-        $this->user_profile_id = $uprofile->id;
+        $this->user_id = Auth::user()->id;
         $this->image = $uprofile->image;
         $this->about = $uprofile->about;
         $this->city = $uprofile->city;
@@ -41,7 +41,7 @@ class UserEditProfileComponent extends Component
         }
         $uprofile->about = $this->about;
         $uprofile->city = $this->city;
-        $uprofile->user_profile_id = $this->id;
+        $uprofile->user_id = $this->id;
         $uprofile->locations = $this->locations;
         $uprofile->save();
         session()->flash('message','Profile has been updated successfully!');

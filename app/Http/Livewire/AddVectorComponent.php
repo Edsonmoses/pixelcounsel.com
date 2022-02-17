@@ -25,12 +25,14 @@ class AddVectorComponent extends Component
     public $image;
     public $vector_categories_id;
     public $postedby;
+    public $downloads;
 
     public function mount()
     {
         $this->vector_status = 'unpublished';
         $this->contributor = Auth::user()->name;
         $this->postedby = Auth::user()->name;
+        $this->downloads = 0;
     }
 
     public function generateSlug()
@@ -86,8 +88,10 @@ class AddVectorComponent extends Component
         $vector->image = $imgName;
         $vector->vector_categories_id = $this->vector_categories_id;
         $vector->postedby = $this->postedby;
+        $vector->downloads = $this->downloads;
         $vector->save();
         session()->flash('message','Vector file has been created successfully!');
+        return redirect()->back();
     }
 
     public function render()

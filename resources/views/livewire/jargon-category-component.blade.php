@@ -45,7 +45,7 @@
                 <p style="margin: 20px 0 0 0; tra">Glossary of {{ $category_name }} Terms</p>
             <ul class="nav navbar-nav">
                 @foreach ($atributes as $atribute )
-                <li class="nav-link {{ route('jargon.atributes', ['atributes_name'=>$atribute->name]) == url()->current() ? 'active' : '' }}">
+                <li class="nav-link{{ route('jargon.atributes', ['atributes_name'=>$atribute->name]) == url()->current('') ? 'active' : '' }} {{ $loop->first ? 'active' : '' }}">
                     <a href="{{ route('jargon.atributes',['atributes_name'=>$atribute->name]) }}">
                         {{ $atribute->name}}
                     </a>
@@ -61,22 +61,10 @@
             </div>
             <br/>
 	    <div class="row" id="jargon">
-             {{--<select name="orderby" wire:model="sorting">
-                <option value="default">Default sorting</option>
-                <option value="date">Sort by newness</option>
-                <option value="price">Sort by price: low to high</option>
-                <option value="price-desc">Sort by price: high to low</option>
-            </select>
-            <select name="post-per-page" wire:model="pagesize">
-                <option value="12">12 per page</option>
-                <option value="3">3 per page</option>
-                <option value="2">2 per page</option>
-                <option value="1">1 per page</option>
-            </select>--}}
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    @foreach ( $jargons  as $jargon )
-                      <p><strong>{{$jargon->name}} :</strong> {{$jargon->short_description}}</p>
-                    @endforeach
+                    @foreach ( $af_jargons  as $jargon )
+                    <p><strong>{{$jargon->name}} :</strong> {{$jargon->description}}</p>
+                @endforeach
                 </div>
 	    </div>
 	</div>

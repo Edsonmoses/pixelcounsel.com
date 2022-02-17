@@ -13,6 +13,6 @@ class UserDashboardComponent extends Component
     {
         $vectors = Vectorlogos::where('contributor',Auth::user()->name)->orderBy('vector_status','ASC')->get();
         $count = Vectorlogos::where('contributor','=',Auth::user()->name)->count();
-        return view('livewire.user.user-dashboard-component',['vectors'=>$vectors,'count'=>$count])->layout('layouts.backend');
+        return view('livewire.user.user-dashboard-component',['vectors'=>$vectors,'count'=>$count])->layout('layouts.userbackend');
     }
 }

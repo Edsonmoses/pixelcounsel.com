@@ -1,4 +1,5 @@
 <div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <div class="container">
         
         <div class="row">
@@ -143,23 +144,24 @@
                     @if ($hookup->jobUrl  == 'example.com') 
                         <a href="{{ route('hookup.applyjob') }}" class="btn btn-primary btn-block rounded" target="_blank">Apply For Job</a>
                         <h6 class="text-dark f-17 mt-4 mb-0">Share Job :</h6>
-                        <ul class="social-icon list-inline mt-3 mb-0">
-                            <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-google-plus"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-whatsapp"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
+                       {{-- <ul class="social-icon list-inline mt-3 mb-0">
+                            <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://jorenvanhocht.be" class="rounded" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?text=my share text&amp;url=http://jorenvanhocht.be" class="rounded" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="https://wa.me/?text=http://jorenvanhocht.be" class="rounded" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+                            <li class="list-inline-item"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://jorenvanhocht.be&amp;title=my share text&amp;summary=dit is de linkedin summary" class="rounded" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                        </ul> --}} 
+                        {!! Share::page(url('/hookup-details/'. $hookup->slug))->facebook()->twitter()->whatsapp()->linkedin() !!}
                     @else
                         <a href="{{ $hookup->jobUrl }}" class="btn btn-primary btn-block rounded">Apply For Job</a>
                         <h6 class="text-dark f-17 mt-4 mb-0">Share Job :</h6>
-                        <ul class="social-icon list-inline mt-3 mb-0">
+                        {!! Share::page(url('/hookup-details/'. $hookup->slug))->facebook()->twitter()->whatsapp()->linkedin()  !!}
+                       {{-- <ul class="social-icon list-inline mt-3 mb-0">
                             <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-facebook"></i></a></li>
                             <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-twitter"></i></a></li>
                             <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-google-plus"></i></a></li>
                             <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-whatsapp"></i></a></li>
                             <li class="list-inline-item"><a href="#" class="rounded"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
+                        </ul> --}} 
                     @endif
                 </div>
             </div>
@@ -257,3 +259,58 @@ return $time;
     1000
     );
     </script>
+ <style>
+    .social-btn-sp #social-links {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    .social-btn-sp #social-links ul li {
+        display: inline-block;
+    }          
+    .social-btn-sp #social-links ul li a {
+        color: #3c4858;
+        border: 1px solid #3c4858;
+        border-top-color: rgb(60, 72, 88);
+        border-right-color: rgb(60, 72, 88);
+        border-bottom-color: rgb(60, 72, 88);
+        border-left-color: rgb(60, 72, 88);
+        display: inline-block;
+        height: 32px;
+        text-align: center;
+        font-size: 15px;
+        width: 32px;
+        line-height: 30px;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        overflow: hidden;
+        position: relative;
+        border-radius: 50% !important;
+        padding: 15px;
+    }
+    #social-links{
+        display: inline-table;
+    }
+   #social-links ul li{
+        display: inline;
+    }
+  #social-links ul li a{
+         color: #3c4858;
+        border: 1px solid #3c4858;
+        border-top-color: rgb(60, 72, 88);
+        border-right-color: rgb(60, 72, 88);
+        border-bottom-color: rgb(60, 72, 88);
+        border-left-color: rgb(60, 72, 88);
+        display: inline-block;
+        height: 32px;
+        text-align: center;
+        font-size: 15px;
+        width: 32px;
+        line-height: 30px;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        overflow: hidden;
+        position: relative;
+        border-radius: 50% !important;
+        margin: 5px;
+    }
+</style>

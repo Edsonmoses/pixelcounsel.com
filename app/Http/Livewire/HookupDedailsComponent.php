@@ -15,7 +15,18 @@ class HookupDedailsComponent extends Component
     }
     public function render()
     {
+        $shareComponent = \Share::page(
+            'https://pixelcounsel.com',
+            'Online vector logo collection of brands in Africa',
+        )
+        ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp()        
+        ->reddit();
+
         $hookup = Hookup::where('slug',$this->hookup_slug)->orderBy('name','ASC')->first();
-        return view('livewire.hookup-dedails-component',['hookup'=>$hookup])->layout('layouts.baseapp');
+        return view('livewire.hookup-dedails-component',['hookup'=>$hookup,'shareComponent'=>$shareComponent])->layout('layouts.baseapp');
     }
 }

@@ -40,6 +40,10 @@ class HookupAddComponent extends Component
         $this->hookup_status = 'unpublished';
         $this->featured = '0';
         $this->postedby = Auth::user()->name;
+        $this->phone = '+254 700 000 000';
+        $this->web = 'example.com';
+        $this->email = 'hookup@example.com';
+        $this->jobUrl = 'example.com';
     }
 
     public function generateSlug()
@@ -47,56 +51,8 @@ class HookupAddComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
-    public function updated($fields)
+    public function storeJobs()
     {
-        $this->validateOnly($fields,[
-            'name' => 'required',
-            'short_description' => 'required',
-            'description' => 'required',
-            'company' => 'required',
-            'jobtitle' => 'required',
-            'location'  => 'required',
-            'hookup_status'  => 'required',
-            'image' => 'required|mimes:png,jpg,jpeg',
-            'hookup_categories_id'  => 'required',
-            'experience'  => 'required',
-            'price'  => 'required',
-            'schedule'  => 'required',
-            'fjob'  => 'required',
-            'featured'  => 'required',
-            'phone'  => 'required',
-            'email'  => 'required',
-            'web'  => 'required',
-            'jobUrl'  => 'required',
-            'open'  => 'required',
-            'postedby'  => 'required',
-        ]);
-    }
-
-    public function storeHookup()
-    {
-        $this->validate([
-            'name' => 'required',
-            'short_description' => 'required',
-            'description' => 'required',
-            'company' => 'required',
-            'jobtitle' => 'required',
-            'location'  => 'required',
-            'hookup_status'  => 'required',
-            'image' => 'required|mimes:png,jpg,jpeg',
-            'hookup_categories_id'  => 'required',
-            'experience'  => 'required',
-            'price'  => 'required',
-            'schedule'  => 'required',
-            'fjob'  => 'required',
-            'featured'  => 'required',
-            'phone'  => 'required',
-            'email'  => 'required',
-            'web'  => 'required',
-            'jobUrl'  => 'required',
-            'open'  => 'required',
-            'postedby'  => 'required',
-        ]);
         $hookup = new Hookup();
         $hookup->name = $this->name;
         $hookup->slug = $this->slug;

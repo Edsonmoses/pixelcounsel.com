@@ -33,9 +33,7 @@
                             <th>Id</th>
                             <th>Image</th>
                             <th>Name</th>
-                            <th>Designer</th>
                             <th>Status</th>
-                            <th>Category</th>
                             <th>Date</th>
                             <th>Action</th>
                         </tr>
@@ -46,9 +44,7 @@
                                 <td>{{$vector->id}}</td>
                                 <td><img src="{{ asset('assets/images/vectors') }}/{{ $vector->image }}" width="60"/></td>
                                 <td>{{$vector->name}}</td>
-                                <td>{{$vector->designer}}</td>
                                 <td>{{$vector->vector_status}}</td>
-                                <td>{{$vector->name}}</td>
                                 <td>{{$vector->created_at}}</td>
                                 <td>
                                     <a href="{{ route('admin.editvectorlogos',['vector_slug'=>$vector->slug]) }}"><i  class="fa fa-edit fa-1x"></i></a>
