@@ -135,7 +135,7 @@
                                         <label class="text-muted">Event Start Date & Time</label>
                                         <input wire:model="eventdate"
                                         type="text" class="form-control input-md datepicker" placeholder="Event Start Date & Time" autocomplete="off"
-                                        data-provide="datepicker" data-datetime-autoclose="true" data-date-format="yyy-mm-dd" data-date-today-highlight="true"                        
+                                        data-provide="datepicker" data-datetime-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
                                         onchange="this.dispatchEvent(new InputEvent('input'))">
                                     </div>
                                 </div>
@@ -144,7 +144,7 @@
                                         <label class="text-muted">Event End Date & Time</label>
                                         <input wire:model="enddate"
                                         type="text" class="form-control input-md datepicker" placeholder="Event End Date & Time" autocomplete="off"
-                                        data-provide="datepicker" data-date-autoclose="true" data-date-format="yyy-mm-dd" data-date-today-highlight="true"                        
+                                        data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
                                         onchange="this.dispatchEvent(new InputEvent('input'))">
                                     </div>
                                 </div>
