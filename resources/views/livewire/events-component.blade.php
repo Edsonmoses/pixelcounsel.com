@@ -36,7 +36,7 @@
                             <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                         @endif
       <div class="row" id="app">
-        @foreach ($ads_events as $event )
+       {{-- @foreach ($ads_events as $event )
         <a href="{{ route('events.details',['event_slug'=>$event->slug]) }}">
               <div class="col-md-3 mb-4">
                 <div class="card mb-4 shadow-sms">
@@ -44,7 +44,7 @@
                   <div class="card-body">
                     <div class="row  col-bb">
                         <div class="col-sm-8 col-infos">
-                          <a href="#" role="button" data-toggle="modal" data-target="#eventModal_{{$event->id}}"><h2 class="card-title" >{{$event->name}}</h2></a>
+                          <a href="#" role="button" data-toggle="modal" data-target="#eventModal_{{$event->id}}"><h2 class="card-title" >{{substr($event->name,0,24)}}</h2></a>
                             <p class="card-text">{{substr($event->short_description,0,51)}}</p>
                         </div>
                         <div class="col-sm-2 col-dates">
@@ -68,12 +68,12 @@
               </div>
             </div>
           </div>
-    </a>
+    </a>--}}
        
         @foreach ($events as $event )
-        @if ($event->id == $loop->first || $event->id == 1 || $event->id == 2)
+        {{-- @if ($event->id == $loop->first || $event->id == 1 || $event->id == 2)
 
-        @else
+        @else--}}
         <a href="{{ route('events.details',['event_slug'=>$event->slug]) }}">
               <div class="col-md-3 mb-4">
                 <div class="card mb-4 shadow-sm">
@@ -81,7 +81,7 @@
                   <div class="card-body">
                     <div class="row  col-bb">
                         <div class="col-sm-8 col-infos">
-                          <a href="#" role="button" data-toggle="modal" data-target="#eventModal_{{$event->id}}"><h2 class="card-title" >{{$event->name}}</h2></a>
+                          <a href="#" role="button" data-toggle="modal" data-target="#eventModal_{{$event->id}}"><h2 class="card-title" >{{substr($event->name,0,24)}}</h2></a>
                             <p class="card-text">{{substr($event->short_description,0,51)}}</p>
                         </div>
                         <div class="col-sm-2 col-dates">
@@ -96,7 +96,7 @@
                 </div>
               </div>
         </a>
-        @endif
+        {{--@endif--}}
         @endforeach
         
         </div>

@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2">
+                                    <div class="form-group app-label mt-2 {{ $errors->get('slug') ? 'has-error' : '' }}">
                                         <label class="text-muted">Event Slug</label>
                                         <input type="text" placeholder="Event Slug" class="form-control input-md" wire:model="slug"/>
                                     </div>
