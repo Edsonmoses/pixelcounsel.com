@@ -43,7 +43,7 @@ class EventsComponent extends Component
         $this->events_status = 'unpublished';
         $this->sorting = "default";
         //$this->postedby = Auth::user()->name;
-        $this->pagesize = 12;
+        $this->pagesize = 120;
     }
 
     public function generateSlug()
