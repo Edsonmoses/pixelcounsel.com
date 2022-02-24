@@ -75,6 +75,16 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="col-md-6 control-label">Event Status</label>
+                <div class="col-md-6">
+                    <select class="form-control" wire:model="events_status">
+                        <option value="">Select Event Status</option>
+                        <option value="published">Published</option>
+                        <option value="unpublished">Unpublished</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="col-md-6 control-label">Event Contact Person's Name</label>
                 <div class="col-md-6">
                     <input type="text" placeholder="Event Contact Person's Name" class="form-control input-md" wire:model="econtact">
@@ -120,7 +130,7 @@
                 <div class="col-md-6">
                     <input wire:model="eventdate"
                     type="text" class="form-control input-md datepicker" placeholder="Event Start Date & Time" autocomplete="off"
-                    data-provide="datepicker" data-date-autoclose="true" data-date-format="dd-mm-yyyy" data-date-today-highlight="true"                        
+                    data-provide="datepicker" data-datetime-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
                     onchange="this.dispatchEvent(new InputEvent('input'))">
                 </div>
             </div>
@@ -129,7 +139,7 @@
                 <div class="col-md-6">
                     <input wire:model="enddate"
                     type="text" class="form-control input-md datepicker" placeholder="Event End Date & Time" autocomplete="off"
-                    data-provide="datepicker" data-date-autoclose="true" data-date-format="dd-mm-yyyy" data-date-today-highlight="true"                        
+                    data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
                     onchange="this.dispatchEvent(new InputEvent('input'))">
                 </div>
             </div>

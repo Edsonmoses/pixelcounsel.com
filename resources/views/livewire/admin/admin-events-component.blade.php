@@ -33,7 +33,6 @@
                             <th>Id</th>
                             <th>Image</th>
                             <th>Name</th>
-                            <th>Exhibition</th>
                             <th>Status</th>
                             <th>Event Date</th>
                             <th>Date</th>
@@ -46,7 +45,6 @@
                                 <td>{{$event->id}}</td>
                                 <td><img src="{{ asset('assets/images/events') }}/{{ $event->images }}" width="60"/></td>
                                 <td>{{$event->name}}</td>
-                                <td>{{$event->exhibition}}</td>
                                 <td>{{$event->events_status}}</td>
                                 <td>{{$event->eventdate}}</td>
                                 <td>{{$event->created_at}}</td>

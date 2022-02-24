@@ -82,15 +82,15 @@
                     <div class="row  col-bb">
                         <div class="col-sm-8 col-infos">
                           <a href="#" role="button" data-toggle="modal" data-target="#eventModal_{{$event->id}}"><h2 class="card-title" >{{substr($event->name,0,24)}}</h2></a>
-                            <p class="card-text">{{substr($event->short_description,0,51)}}</p>
+                            <p class="card-text">{{substr($event->description,0,51)}}</p>
                         </div>
                         <div class="col-sm-2 col-dates">
-                            <p class="dates">{{\Carbon\Carbon::parse($event->eventdate)->isoFormat('D') }}</p>
-                            <p class="months">{{Str::upper(\Carbon\Carbon::parse($event->eventdate)->isoFormat('MMMM')) }}</p>
+                            <p class="dates">{{\Carbon\Carbon::parse($event->enddate)->isoFormat('D') }}</p>
+                            <p class="months">{{Str::upper(\Carbon\Carbon::parse($event->enddate)->isoFormat('MMMM')) }}</p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                    <p class="footer-title" style="margin-bottom: 5px !important">{{$event->exhibition}}</p>
+                    <p class="footer-title" style="margin-bottom: 5px !important">{{substr($event->exhibition,0,29)}}</p>
                     </div>
                   </div>
                 </div>
