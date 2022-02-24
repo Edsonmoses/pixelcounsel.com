@@ -74,7 +74,12 @@
                 {{ session('status') }}
             </div>
         @endif
-            <button id="login-toggle" onclick="toggleLogin()">sign up</button>
+        @if (session('error'))
+        <div class="alert alert-danger">
+                {{ session('error') }}
+        </div>
+        @endif
+                    <button id="login-toggle" onclick="toggleLogin()">sign up</button>
             <button id="signup-toggle" onclick="toggleSignup()">log in</button>
         </div>
     

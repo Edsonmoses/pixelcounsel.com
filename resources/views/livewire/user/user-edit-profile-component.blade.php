@@ -28,15 +28,21 @@
                         <label for="newimage" class="control-label col-md-3">Profile Image: </label>
                         <div class="col-md-9">
                             <input type="file" class="form-control input-file" name="newimage" wire:model="newimage"/>
-                            @if ($newimage)
-                                <img scr="{{ $newimage->temporaryUrl() }}" width="220"/>
-                            @elseif ($image)
-                                <img scr="{{ asset('images/profiles')}}/{{ $image }}" width="220"/>
+                            @if ($newimage) 
+                               <img src="{{ $newimage->temporaryUrl() }}" width="20%"/>
+                             @elseif ($image) 
+                                <img src="{{ asset('assets/images/profiles')}}/{{ $user->profile->image }}" width="20%"/>
                             @else
-                            <img scr="{{ asset('assests/images/profiles/default.jpg')}}" width="220"/>
+                                <img src="{{ asset('assets/images/profiles/default.jpg')}}" width="20%"/>
                             @endif
                         </div>
                     </div>
+                    <div class="form-group">
+                      <label for="phone" class="control-label col-md-3">Phone: </label>
+                      <div class="col-md-9">
+                          <textarea class="form-control" name="phone" wire:model="phone"></textarea>
+                      </div>
+                  </div>
                     <div class="form-group">
                         <label for="about" class="control-label col-md-3">About: </label>
                         <div class="col-md-9">

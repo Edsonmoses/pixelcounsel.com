@@ -72,6 +72,11 @@
                     {{ session('status') }}
                 </div>
             @endif
+            @if (session('error'))
+            <div class="alert alert-danger">
+                    {{ session('error') }}
+            </div>
+            @endif
             <form name="frm-login" method="POST" action="{{route('login')}}">
                 @csrf
                 <input type="email" name="email" class="form-input" placeholder="Email Address" :value="old('email')" required autofocus>

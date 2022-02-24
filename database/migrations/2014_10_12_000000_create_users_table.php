@@ -23,6 +23,9 @@ class CreateUsersTable extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->string('utype')->default('USR')->comment('ADM for Admin and USR for User or Customer');
+            $table->boolean('two_factor_confirmed')
+            ->after('two_factor_recovery_codes')
+            ->default(false);
             $table->timestamps();
         });
     }

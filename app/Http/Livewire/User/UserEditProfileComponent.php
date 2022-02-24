@@ -13,8 +13,10 @@ class UserEditProfileComponent extends Component
 {
     use WithFileUploads;
 
-    public $user_id;
+    public $name;
+    public $email;
     public $image;
+    public $phone;
     public $about;
     public $city;
     public $locations;
@@ -22,33 +24,43 @@ class UserEditProfileComponent extends Component
 
     public function mount()
     {
-        $uprofile = UserProfile::where('user_id',Auth::user()->id)->first();
-        $this->user_id = Auth::user()->id;
-        $this->image = $uprofile->image;
-        $this->about = $uprofile->about;
-        $this->city = $uprofile->city;
-        $this->locations = $uprofile->locations;
+        $user = User::find(Auth::user()->id);
+       $this->name = $user->name;
+       $this->email = $user->email;
+       $this->image = $user->profile->image;
+       $this->phone = $user->profile->phone;
+       $this->about = $user->profile->about;
+       $this->city = $user->profile->city;
+       $this->locations = $user->profile->locations;
     }
 
     public function updateProfile()
     {
-        $uprofile = UserProfile::where('user_id',Auth::user()->id)->first();
+        $user = User::find(Auth::user()->id);
+        $user->name = $this->name;
+        $user->save();
+
         if($this->newimage)
         {
+            if($this->image)
+            {
+                unlink('assets/images/profiles/'.$this->image);
+            }
             $imageName = Carbon::now()->timestamp.'.'.$this->newimage->extension();
             $this->newimage->storeAs('profiles',$imageName);
-            $uprofile->image = $imageName;
+            $user->profile->image = $imageName;
         }
-        $uprofile->about = $this->about;
-        $uprofile->city = $this->city;
-        $uprofile->user_id = $this->id;
-        $uprofile->locations = $this->locations;
-        $uprofile->save();
+        $user->profile->phone = $this->phone;
+        $user->profile->about = $this->about;
+        $user->profile->city = $this->city;
+        $user->profile->locations = $this->locations;
+        $user->profile->save();
         session()->flash('message','Profile has been updated successfully!');
     }
 
     public function render()
     {
-        return view('livewire.user.user-edit-profile-component')->layout('layouts.backend');
+        $user= User::find(Auth::user()->id);
+        return view('livewire.user.user-edit-profile-component',['user'=>$user])->layout('layouts.backend');
     }
 }

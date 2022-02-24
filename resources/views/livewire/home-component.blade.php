@@ -1,4 +1,6 @@
 <div class="home-page" style="overflow: hidden !important">
+	<!-- icons -->
+	<link href="{{ asset('assets/user/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
 	<section class="header">
 		<div class="container">
 			<div class="row">
@@ -34,12 +36,12 @@
 							<div style="margin-top:47px;"></div>
 							
 							<div class="m-hookup">
-								<h3><a href="/hookup">Hook Up 
+								<h3 class="notification-list">
+									<a class="nav-link dropdown-toggle waves-effect waves-light" href="/hookup">Hook Up 
+									
 									@if (!empty($hookup))
-									<span class="fa-stack fa-1x" data-count="{{ $hookup }}">
-									<i class="fa fa-circle fa-stack-2x"></i>
-									<i class="fa fa-bell fa-stack-1x fa-inverse"></i>
-								  </span>
+										<i class="fe-bell noti-icon"></i>
+										<span class="badge bg-danger rounded-circle noti-icon-badge">{{ $hookup }}</span>
 								@endif</a></h3>
 								<p><a href="/hookup">Collection of career changing jobs in Africa for your picking</a></p>
 								<hr>

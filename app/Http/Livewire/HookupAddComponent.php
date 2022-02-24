@@ -10,6 +10,7 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 
+
 class HookupAddComponent extends Component
 {
     use WithFileUploads;
@@ -40,7 +41,7 @@ class HookupAddComponent extends Component
         $this->hookup_status = 'unpublished';
         $this->featured = '0';
         $this->postedby = Auth::user()->name;
-        $this->phone = '+254 700 000 000';
+        $this->phone = '254 700 000 000';
         $this->web = 'example.com';
         $this->email = 'hookup@example.com';
         $this->jobUrl = 'example.com';
@@ -51,8 +52,58 @@ class HookupAddComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
-    public function storeJobs()
+    public function updated($fields)
     {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug' => 'required',
+            'short_description' => 'required',
+            'description' => 'required',
+            'company' => 'required',
+            'jobtitle' => 'required',
+            'location' => 'required',
+            'hookup_status' => 'required',
+            'images' => 'required|mimes:png,jpg,jpeg',
+            'hookup_categories_id' => 'required',
+            'experience' => 'required',
+            'price' => 'required',
+            'schedule' => 'required',
+            'fjob' => 'required',
+            'featured' => 'required',
+            'phone' => 'required|digits:12',
+            'email' => 'required|email',
+            'web' => 'required',
+            'jobUrl' => 'required',
+            'open' => 'required',
+            'postedby' => 'required',
+        ]);
+    }
+
+    public function jobStored()
+    {
+        $this->validate([
+           'name' => 'required',
+           'slug' => 'required',
+           'short_description' => 'required',
+           'description' => 'required',
+           'company' => 'required',
+           'jobtitle' => 'required',
+           'location' => 'required',
+           'hookup_status' => 'required',
+           'images' => 'required|mimes:png,jpg,jpeg',
+           'hookup_categories_id' => 'required',
+           'experience' => 'required',
+           'price' => 'required',
+           'schedule' => 'required',
+           'fjob' => 'required',
+           'featured' => 'required',
+           'phone' => 'required|digits:12',
+           'email' => 'required|email',
+           'web' => 'required',
+           'jobUrl' => 'required',
+           'open' => 'required',
+           'postedby' => 'required',
+        ]);
         $hookup = new Hookup();
         $hookup->name = $this->name;
         $hookup->slug = $this->slug;

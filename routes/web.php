@@ -63,6 +63,7 @@ use App\Http\Livewire\TermsOfUseComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\User\UserEditProfileComponent;
 use App\Http\Livewire\User\UserProfileComponent;
+use App\Http\Livewire\User\UserSettingComponent;
 use App\Http\Livewire\VectorComponent;
 use App\Http\Livewire\VectorlogosComponent;
 use Illuminate\Support\Facades\Route;
@@ -131,6 +132,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
     Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
     Route::get('/user/profile/edit',UserEditProfileComponent::class)->name('user.edit_profile');
+    Route::get('/user/setting',UserSettingComponent::class)->name('user.setting');
 });
 
 //For Admin

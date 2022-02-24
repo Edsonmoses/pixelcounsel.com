@@ -28,7 +28,6 @@
                 </div>
         </div>
         </div>
-    </div>
     </header>
     <div class="container">
         <!--General Information:-->
@@ -78,7 +77,9 @@
                                 <div class="col-md-4">
                                     <div class="form-group app-label mt-2 mr-2">
                                         <label class="text-muted">Date Of Birth<span class="text-danger">*</span> :</label>
-                                        <input id="date-of-birth" type="text" class="form-control input-md resume" name="dbirth" placeholder="13-02-1999" wire:model="dbirth">
+                                        <input wire:model="dbirth" type="text" class="form-control input-md datepicker" placeholder="Date From" autocomplete="off"
+                                        data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
+                                        onchange="this.dispatchEvent(new InputEvent('input'))">
                                         @error('dbirth')<p class="text-danger">{{ $message }}</p>@enderror
                                     </div>
                                 </div>
@@ -325,14 +326,18 @@
                                 <div class="col-md-4">
                                     <div class="form-group app-label mt-2 mr-2">
                                         <label class="text-muted">Date From</label>
-                                        <input id="date-from" type="text" class="form-control input-md resume" name="datefrom" placeholder="01-Jan-2018" wire:model="datefrom">
+                                        <input wire:model="datefrom" type="text" class="form-control input-md datepicker" placeholder="Date From" autocomplete="off"
+                                        data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
+                                        onchange="this.dispatchEvent(new InputEvent('input'))">
                                         @error('datefrom')<p class="text-danger">{{ $message }}</p>@enderror
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group app-label mt-2 mr-2">
                                         <label class="text-muted">Date To</label>
-                                        <input id="date-to" type="text" class="form-control input-md resume" name="dateto" placeholder="31-March-2019" wire:model="dateto">
+                                        <input wire:model="dateto" type="text" class="form-control input-md datepicker" placeholder="Date To" autocomplete="off"
+                                        data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
+                                        onchange="this.dispatchEvent(new InputEvent('input'))">
                                         @error('dateto')<p class="text-danger">{{ $message }}</p>@enderror
                                     </div>
                                 </div>

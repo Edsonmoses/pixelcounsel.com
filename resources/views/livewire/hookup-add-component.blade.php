@@ -1,31 +1,30 @@
 <div>
     <div class="hookup-actives"><div class="hookup-arrows"></div></div>
-<header class="intro-header intro-hookup">
-  <div class="container">
-      <div class="row hookup">
-          <div class="col-lg-7 col-md-7 col-sm-7">
-              <div class="heading-style">
-                  <h1>NEW HOOK UP</h1>
-                  <span class="sub-heading">Collection of career changing jobs in Africa for your picking</span>
+    <header class="intro-header intro-hookup">
+      <div class="container">
+          <div class="row hookup">
+              <div class="col-lg-7 col-md-7 col-sm-7">
+                  <div class="heading-style">
+                      <h1>NEW HOOK UP</h1>
+                      <span class="sub-heading">Collection of career changing jobs in Africa for your picking</span>
+                  </div>
               </div>
-          </div>
-          <div class="col-lg-5 col-md-5 col-sm-5 hook-search heading-mt">
-            
-            <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                    <input type="text" class="  search-query form-control" placeholder="Find a job"  wire:model="searchTerm"/>
-                    <span class="input-group-btn">
-                        <button class="btn btn-danger" type="button">
-                            <span class=" glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
+              <div class="col-lg-5 col-md-5 col-sm-5 hook-search heading-mt">
+                
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="  search-query form-control" placeholder="Find a job"  wire:model="searchTerm"/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button">
+                                <span class=" glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            </div>
-      </div>
-      </div>
-  </div>
-</header>
+                </div>
+          </div>
+          </div>
+    </header>
 	<!-- Main Content -->
 	<div class="container">
         <div class="row">
@@ -35,7 +34,7 @@
                   @if (Session::has('message'))
                   <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
               @endif
-            <form class="form-horizontal" wire:submit.prevent="storeJobs">
+            <form class="form-horizontal" wire:submit.prevent="jobStored">
               <div class="row">
                   <div class="col-md-6">
                       <div class="form-group">
@@ -205,19 +204,20 @@
                       </div>
                   </div>
                   <div class="col-md-6">
-                      <div class="form-group app-label mt-2 mr-2">
-                          <label class="text-muted"> End Date </label>
-                          <input wire:model="open"
-                          type="text" class="form-control input-md datepicker" placeholder="End Date" autocomplete="off"
-                          data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
-                          onchange="this.dispatchEvent(new InputEvent('input'))">
-                      </div>
-                  </div>
+                    <div class="form-group">
+                        <label class="col-md-6 control-label">End Date</label>
+                        <div class="col-md-12">
+                            <input wire:model="open"
+                            type="text" class="form-control input-md datepicker" placeholder="End Date" autocomplete="off"
+                            data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
+                            onchange="this.dispatchEvent(new InputEvent('input'))">
+                        </div>
+                    </div>
+                </div><br/>
                   <div class="col-md-12">
                       <div class="form-group">
-                          <label class="col-md-6 control-label"></label>
                           <div class="col-md-6">
-                              <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                           </div>
                       </div>
                   </div>
@@ -231,6 +231,7 @@
   </div>
   <div style="height: 50px"></div>
 </div>
+@livewireScripts
 @push('scripts')
 <script type= text/javascript>
   $(function() {
@@ -260,7 +261,7 @@
 </script>
 @endpush
 <style>
-    .form-horizontal .control-label {text-align: left !important;
+    .form-horizontal .control-label {text-align: left !important;}
 </style>
 
 
