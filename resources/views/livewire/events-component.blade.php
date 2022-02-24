@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                    <p class="footer-title" style="margin-bottom: 5px !important">{{substr($event->exhibition,0,29)}}</p>
+                    <p class="footer-title" style="margin-bottom: 5px !important">{{substr($event->exhibition,0,26)}}</p>
                     </div>
                   </div>
                 </div>
