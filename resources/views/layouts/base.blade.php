@@ -81,7 +81,7 @@
     <footer class="footer-bs-dark">
       <div class="container">
         <div class="row">
-        	<div class="col-md-3 col-sm-12 footer-brand animated fadeInDown">
+        	<div class="col-lg-3 col-md-3 col-sm-12 footer-brand animated fadeInDown">
             	<a class="pull-left footer-brands" href="{{ url('/') }}"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'pixelcounsel') }}"> </a>
                 
             </div>
@@ -97,7 +97,7 @@
                       <li><a href="#">Shop</a></li>
                   </ul>
               </div> --}}
-        <div class="col-md-2 footer-nav animated fadeInDown">
+        <div class="col-lg-2 col-md-2 col-sm-12 footer-nav md animated fadeInLeft">
             <ul class="list h-100 mt-10">
               <li>
                 <a href="/vector">VECTOR LOGOS
@@ -154,7 +154,7 @@
             </div>
         </div>
         <div class="row b-footer">
-          <div class="col-md-8">
+          <div class="col-md-8 b-mt">
             <ul>
               <li><a href="/terms-of-use" class="text-muted">Terms of use</a></li>|
               <li><a href="#" class="text-muted">Privacy Terms</a></li>

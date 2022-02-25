@@ -113,12 +113,12 @@ margin: -34px -10px 0 0;
   height: 200px;
 }
 .home-page .main{
-   background: linear-gradient(to left, #333333 43%, #fff100 43%);
+   background: linear-gradient(to left, #333333 42%, #fff100 42%);
    height: 100%;
 }
 .home-page .vectorl
 {
-  height: 362px;
+  height: auto;
   background: #fff100 !important;
   padding-left: 95px;
 }
@@ -787,12 +787,12 @@ margin: 5px 0 -50px 0;
   width: 94% !important;
 }
 .home-page .main {
-  background: linear-gradient(to top, #333 64%, #fff100 43%);
+  background: linear-gradient(to top, #333 61%, #fff100 61%);
 }
 .home-page .ads {
   background: #333333;
   height: auto;
-  max-height: 615px;
+  max-height: 366px;
 }
 .h-updates {
   width: 100%;
@@ -853,7 +853,7 @@ margin: 5px 0 -50px 0;
       padding: 48px 0 0 0;
     }
   .home-page .vectorl {
-      height: 317px !important;
+      height: auto !important;
       background: #fff100 !important;
       padding: 15px;
   }
@@ -1064,7 +1064,15 @@ padding-top: 80px !important;
    margin-top: -67px;
  }
  .mt-9{
-  margin-top: -42px;
+  margin-top: -50%;
+}
+.b-mt{
+  margin-top: -35%;
+}
+.footer-ns ul {
+  float: left !important;
+  margin-top: -50%;
+  margin-left: -18%;
 }
 body{
   overscroll-behavior: contain;
@@ -1713,7 +1721,7 @@ min-height: 48vh !important;
     display: none !important;
   }
    .home-page .main{
-    background:linear-gradient(to bottom, #fff100 37%, #333 37%);
+    background:linear-gradient(to bottom, #fff100 52%, #333 52%);
   }
   .home-page .vectorl img {
     width: 100%;
@@ -1750,10 +1758,10 @@ min-height: 48vh !important;
   height: 218px !important;
 }
 .mt-10{
-  margin-top: -56px !important;
+  margin-top: 0px !important;
 }
 .mt-9{
-  margin-top: -26px !important;
+  margin-top: -27% !important;
 }
 .ml-4{
   margin-left: 15px;
@@ -1778,12 +1786,26 @@ min-height: 48vh !important;
   border-right: 16px solid transparent;
   border-top: 16px solid #fff;
 }
-
+.footer-ns ul li {
+  display: inline;
+  float: left !important;
+  padding-right: 11px;
+  color: #999999 !important;
+}
+.footer-ns ul {
+  margin: -15% 0 0 -8%;
+}
+.b-mt{
+  margin-top: -7%;
+}
+.b-logo img {
+  float: left !important;
+}
 }
 @media(min-width: 992px) and (max-width: 1199px){
   .home-page .main{
-    background:linear-gradient(to bottom, #fff100 37%, #333 37%);
-    height: 230vh;
+    background:linear-gradient(to bottom, #fff100 58%, #333 58%);
+    height: auto;
   }
   .d-md-none img{
     display: none !important;
@@ -2113,19 +2135,19 @@ ul{
 }
 
 @media (max-width: 1200px){
-  .home-page .main {
-    background: linear-gradient(to left, #333333 0%, #fff100 0%);
+  /*.home-page .main {
+    background: linear-gradient(to left, #333333 41.8%, #fff100 41.8%);
     height: 100%;
 
-}
+}*/
 .home-page .search-hm{
   margin: -36px 0 33px 0 !important;
 }
 .h-events{
-  margin-left: 2.5rem;
+  margin-left: -2.5rem;
 }
 .home-page .vectorl {
-  height: 504px;
+  height: auto;
   background: #fff100 !important;
   padding: 15px;
 }
@@ -2315,7 +2337,17 @@ ul{
 }
 .m-hookup .fa-stack-1x, .m-hookup .fa-stack-2x
 {
-  color: #000 !important;
+  font-size: 27px !important;
+  vertical-align: middle;
+  color: #6c757d;
+}
+.m-hookup .fa-stack {
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1.5em;
+  vertical-align: baseline;
 }
 .m-hookup .fa-bell
 {
@@ -2335,6 +2367,7 @@ ul{
   text-align:center;
   min-width:2em;
   font-weight:bold;
+  margin:6px -2px 0 0 !important;
 }
 .b-footer{
   color: #333;
@@ -2965,7 +2998,7 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
   float: left;
   padding-right: 5px;
 }
-.noti-icon {
+/*.noti-icon {
   font-size: 27px !important;
   vertical-align: middle;
   color: #6c757d;
@@ -2997,4 +3030,4 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
 }
 .bg-danger {
   background-color: #ff5b5b !important;
-}
+}*/

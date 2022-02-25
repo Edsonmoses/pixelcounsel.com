@@ -1,6 +1,4 @@
 <div class="home-page" style="overflow: hidden !important">
-	<!-- icons -->
-	<link href="{{ asset('assets/user/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
 	<section class="header">
 		<div class="container">
 			<div class="row">
@@ -32,16 +30,15 @@
 							<p></p>
 							<p>Daily posts of what's trending in the creative field in Africa at large</p>
 						</div>--}}
-						<div class="col-lg-8 col-md-8 col-sm-12 h-events" style="border-left: none !important;">
+						<div class="col-lg-8 col-md-12 col-sm-12 h-events" style="border-left: none !important;">
 							<div style="margin-top:47px;"></div>
 							
 							<div class="m-hookup">
-								<h3 class="notification-list">
-									<a class="nav-link dropdown-toggle waves-effect waves-light" href="/hookup">Hook Up 
-									
+								<h3><a href="/hookup">Hook Up 
 									@if (!empty($hookup))
-										<i class="fe-bell noti-icon"></i>
-										<span class="badge bg-danger rounded-circle noti-icon-badge">{{ $hookup }}</span>
+									<span class="fa-stack fa-2x" data-count="{{ $hookup }}">
+									<i class="fa fa-bell-o fa-stack-1x fa-inverse"></i>
+								  </span>
 								@endif</a></h3>
 								<p><a href="/hookup">Collection of career changing jobs in Africa for your picking</a></p>
 								<hr>
