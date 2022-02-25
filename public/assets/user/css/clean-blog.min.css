@@ -787,12 +787,12 @@ margin: 5px 0 -50px 0;
   width: 94% !important;
 }
 .home-page .main {
-  background: linear-gradient(to top, #333 61%, #fff100 61%);
+  background: linear-gradient(to top, #333 58%, #fff100 58%);
 }
 .home-page .ads {
   background: #333333;
   height: auto;
-  max-height: 366px;
+  max-height: 364px;
 }
 .h-updates {
   width: 100%;
@@ -1061,13 +1061,19 @@ padding-top: 80px !important;
    margin-left: 15px;
  }
  .mt-10{
-   margin-top: -67px;
+   margin-top: 10px;
  }
  .mt-9{
   margin-top: -50%;
 }
 .b-mt{
   margin-top: -35%;
+}
+.b-logo img {
+  object-fit: cover;
+  width: 51% !important;
+  height: auto;
+  float: left !important;
 }
 .footer-ns ul {
   float: left !important;
