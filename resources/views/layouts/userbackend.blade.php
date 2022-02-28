@@ -22,6 +22,12 @@
         <!-- icons -->
         <link href="{{ asset('assets/user/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         @livewireStyles
+        <style>
+        .tox:not([dir=rtl]) .tox-statusbar__branding {
+                margin-left: 1ch;
+                display: none !important;
+            }
+        </style>
     </head>
 
     <!-- body start -->

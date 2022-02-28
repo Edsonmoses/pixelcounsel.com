@@ -22,6 +22,12 @@
   <link rel="shortcut icon" href="{{ asset('assets/admin/assets/images/favicon.png')}}" />
 
   <script src="https://cdn.tiny.cloud/1/k8q9tgside9eky8q9awxina5c3fwpwso4mslw3530tjl39hj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <style>
+    .tox:not([dir=rtl]) .tox-statusbar__branding {
+            margin-left: 1ch;
+            display: none !important;
+        }
+    </style>
   @livewireStyles
 </head>
 <body>

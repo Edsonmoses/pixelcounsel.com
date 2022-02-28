@@ -34,7 +34,12 @@
 
       gtag('config', 'UA-217785215-1');
     </script>
-
+ <style>
+  .tox:not([dir=rtl]) .tox-statusbar__branding {
+          margin-left: 1ch;
+          display: none !important;
+      }
+  </style>
     @livewireStyles
 </head>
 
