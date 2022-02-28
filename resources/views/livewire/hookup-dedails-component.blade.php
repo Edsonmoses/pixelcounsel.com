@@ -14,9 +14,10 @@
                     <div class="job-detail-content">
                         <img src="{{ asset('assets/images/hookups') }}/{{$hookup->images}}" alt="{{$hookup->name}}" class="img-fluid float-left mr-md-3 mr-2 mx-auto d-block" width="84" height="84">
                         <div class="job-detail-com-desc overflow-hidden d-block">
-                            <h4 class="mb-2"><a href="#" class="text-dark">{{$hookup->name}}</a></h4>
+                            <h4 class="mb-2"><a href="#" class="text-dark">{{$hookup->schedule}}</a></h4>
                             <p class="text-muted mb-0"><i class="fa fa-link mr-2"></i>{{$hookup->company}}</p>
-                            <p class="text-muted mb-0"><i class="fa fa-map-marker mr-2"></i>{{$hookup->location}}</p>
+                            <p class="text-muted mb-0"><i class="fa fa-map-marker mr-2"></i>{{$hookup->location}} | {{$hookup->fjob}}</p>
+                            <p class="text-muted mb-0"><i class="fa fa-link mr-2"></i>{{$hookup->jobtitle}}</p>
                         </div>
                     </div>
 

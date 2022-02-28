@@ -38,9 +38,9 @@ class HomeComponent extends Component
                 ->orderBy('id','DESC',$searchTerm)->paginate(12);
 
         $vectorcategories = VectorCategory::all();
-        $hookup = Hookup::whereDate('open','>=',Carbon::now())->get()->count();
-        $jargon = Jargons::orderBy('name','ASC')->first();
-        $event = Events::orderBy('name','ASC')->latest('updated_at')->first();
+        $hookup = Hookup::whereDate('open','>=',Carbon::now())->where('hookup_status','published')->get()->count();
+        $jargon = Jargons::orderBy('name','ASC')->where('jargons_status','published')->first();
+        $event = Events::orderBy('name','ASC')->latest('updated_at')->where('events_status','published')->first();
         return view('livewire.home-component',['vector'=>$vector, 'vectorcategories'=>$vectorcategories,'hookup'=>$hookup,'jargon'=>$jargon,'event'=>$event])->layout('layouts.base');
     }
 }

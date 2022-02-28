@@ -38,7 +38,7 @@
               <div class="row">
                   <div class="col-md-6">
                       <div class="form-group">
-                          <label class="col-md-6 control-label text-left">Hookup Name</label>
+                          <label class="col-md-6 control-label text-left">Job Name</label>
                           <div class="col-md-12">
                               <input type="text" placeholder="Hookup Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug"/>
                               @error('name')<p class="text-danger">{{ $message }}</p>@enderror
@@ -47,7 +47,7 @@
                   </div>
                   <div class="col-md-6" style="display: none">
                       <div class="form-group">
-                          <label class="col-md-6 control-label">Hookup Slug</label>
+                          <label class="col-md-6 control-label">Job Slug</label>
                           <div class="col-md-12">
                               <input type="text" placeholder="Hookup Slug" class="form-control input-md" wire:model="slug"/>
                               @error('slug')<p class="text-danger">{{ $message }}</p>@enderror
@@ -96,7 +96,7 @@
                           <div class="col-md-12">
                                   <select class="form-control" wire:model="price">
                                       <option value="">Add Salary</option>
-                                          <option value="n/a">N/A</option>
+                                          <option value="Confidential">Confidential</option>
                                           <option value="yes">Yes</option>
                                   </select>
                               @error('price')<p class="text-danger">{{ $message }}</p>@enderror 
@@ -107,7 +107,7 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Job Types</label>
                           <div class="col-md-12">
-                              <input type="text" placeholder="Job Types (Full time)" class="form-control input-md" wire:model="schedule">
+                              <input type="text" placeholder="Job Types (Creative & Design)" class="form-control input-md" wire:model="schedule">
                               @error('schedule')<p class="text-danger">{{ $message }}</p>@enderror 
                           </div>
                       </div>
