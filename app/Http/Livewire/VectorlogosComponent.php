@@ -55,9 +55,9 @@ class VectorlogosComponent extends Component
                 ->orWhere('designer','LIKE',$searchTerm)
                 ->orderBy('id','DESC',$searchTerm)->paginate(12);
                 
-        $vector = Vectorlogos::where('slug',$this->slug)->orderBy('name','ASC')->first();
-        $popular_vectors = Vectorlogos::inRandomOrder()->limit(4)->get();
-        $related_vectors = Vectorlogos::where('vector_categories_id',$vector->vector_categories_id)->inRandomOrder()->limit(5)->get();
+        $vector = Vectorlogos::where('slug',$this->slug)->orderBy('name','ASC')->where('vector_status','published')->first();
+        $popular_vectors = Vectorlogos::inRandomOrder()->where('vector_status','published')->limit(4)->get();
+        $related_vectors = Vectorlogos::where('vector_categories_id',$vector->vector_categories_id)->where('vector_status','published')->inRandomOrder()->limit(5)->get();
         $vectorcategories = VectorCategory::all();
         $vectorAds = Ads::all();
         return view('livewire.vectorlogos-component',['vector'=>$vector,'popular_vectors'=>$popular_vectors,'related_vectors'=>$related_vectors,'vectorcategories'=>$vectorcategories,'vectorAds'=>$vectorAds])->layout('layouts.baseapp');

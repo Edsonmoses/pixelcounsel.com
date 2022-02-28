@@ -64,10 +64,10 @@ class HookupComponent extends Component
         }
         else
         {
-            $hookups = Hookup::latest()->paginate($this->pagesize);
-            $f_hookups = Hookup::where('featured',1)->inRandomOrder()->take($this->pagesize)->get();
-            $pt_hookups = Hookup::whereIn('fjob',['Part Time'])->inRandomOrder()->get();
-            $ft_hookups = Hookup::whereIn('fjob',['Full Time'])->inRandomOrder()->get();
+            $hookups = Hookup::latest()->where('hookup_status','published')->paginate($this->pagesize);
+            $f_hookups = Hookup::where('featured',1)->where('hookup_status','published')->inRandomOrder()->take($this->pagesize)->get();
+            $pt_hookups = Hookup::whereIn('fjob',['Part Time'])->where('hookup_status','published')->inRandomOrder()->get();
+            $ft_hookups = Hookup::whereIn('fjob',['Full Time'])->where('hookup_status','published')->inRandomOrder()->get();
         }
         $hookupcategories = HookupCategory::all();
         return view('livewire.hookup-component',['hookups'=>$hookups,'hookupcategories'=>$hookupcategories,'f_hookups'=>$f_hookups,'pt_hookups'=>$pt_hookups,'ft_hookups'=>$ft_hookups])->layout('layouts.baseapp');

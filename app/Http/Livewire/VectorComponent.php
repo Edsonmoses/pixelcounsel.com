@@ -50,7 +50,8 @@ class VectorComponent extends Component
     public function searchTerm()
     {
         $searchTerm = '%'.$this->searchTerm . '%';
-        $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
+        $vectorlogos = Vectorlogos::where('vector_status','published')
+                ->orwhere('name','LIKE',$searchTerm)
                 ->orWhere('name','LIKE',$searchTerm)
                 ->orWhere('slug','LIKE',$searchTerm)
                 ->orWhere('description','LIKE',$searchTerm)
@@ -87,7 +88,8 @@ class VectorComponent extends Component
     public function render()
     {
         $searchTerm = '%'.$this->searchTerm . '%';
-        $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
+        $vectorlogos = Vectorlogos::where('vector_status','published')
+                ->orwhere('name','LIKE',$searchTerm)
                 ->orWhere('name','LIKE',$searchTerm)
                 ->orWhere('slug','LIKE',$searchTerm)
                 ->orWhere('description','LIKE',$searchTerm)

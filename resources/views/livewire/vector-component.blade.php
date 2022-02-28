@@ -52,9 +52,11 @@
               @endif
               
               @foreach ($vectorlogos as $vector)
-                <div class="col-md-2 col-sm-2 col-lg-2 vector-img" @if ($loop->last) id="last_record" @endif>
-                  <a href="{{ route('vector.vectors',['slug'=>$vector->slug]) }}"><img class="bd-placeholder-img" src="{{ asset('assets/images/vectors') }}/{{ $vector->image }}" alt="{{ $vector->name }}"  width="100%" height="144"></a>
-                </div>
+                    @if ($vector->vector_status == 'published')
+                        <div class="col-md-2 col-sm-2 col-lg-2 vector-img" @if ($loop->last) id="last_record" @endif>
+                            <a href="{{ route('vector.vectors',['slug'=>$vector->slug]) }}"><img class="bd-placeholder-img" src="{{ asset('assets/images/vectors') }}/{{ $vector->image }}" alt="{{ $vector->name }}"  width="100%" height="144"></a>
+                        </div> 
+                    @endif
                 @endforeach
             </div>
             @if ($loadAmount >= $totalRecords)

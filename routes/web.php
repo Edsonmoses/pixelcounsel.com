@@ -133,6 +133,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
     Route::get('/user/profile/edit',UserEditProfileComponent::class)->name('user.edit_profile');
     Route::get('/user/setting',UserSettingComponent::class)->name('user.setting');
+    Route::get('/user/2fa',UserSettingComponent::class)->name('user.2faenable');
+    Route::get('/user/delete-account',UserSettingComponent::class)->name('user.daccount');
 });
 
 //For Admin

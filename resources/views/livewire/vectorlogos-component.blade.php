@@ -69,7 +69,7 @@
                     <p class="p-border"></p>
                     <small>Date uploaded: <span class="pulls">{{\Carbon\Carbon::parse($vector->created_at)->isoFormat('MMM Do YYYY') }}<span></small><br/>
                       <p class="p-border"></p>
-                      <small>Downloads: <span class="pulls">{{ $vector->downloads }}<span></small><br/>
+                      <small><span style="padding-right: 22px;">Downloads:</span> <span class="pulls">{{ $vector->downloads }}<span></small><br/>
                     <p>TAGS:</p>
                        <!--<a href="#"><small class="pull-left" style="margin-right: 20px;border-radius: 5px;border: 1px solid gray;padding: 5px;">  
                                     
