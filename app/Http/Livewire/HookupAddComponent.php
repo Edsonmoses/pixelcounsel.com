@@ -36,6 +36,8 @@ class HookupAddComponent extends Component
     public $open;
     public $postedby;
 
+    public $yes;
+
     public function mount()
     {
         $this->hookup_status = 'unpublished';
@@ -45,6 +47,7 @@ class HookupAddComponent extends Component
         $this->web = 'example.com';
         $this->email = 'hookup@example.com';
         $this->jobUrl = 'example.com';
+        
     }
 
     public function generateSlug()
@@ -63,7 +66,7 @@ class HookupAddComponent extends Component
             'jobtitle' => 'required',
             'location' => 'required',
             'hookup_status' => 'required',
-            'images' => 'required|mimes:png,jpg,jpeg',
+            'images' => 'mimes:png,jpg,jpeg',
             'experience' => 'required',
             'price' => 'required',
             'schedule' => 'required',
@@ -72,6 +75,12 @@ class HookupAddComponent extends Component
             'email' => 'required|email',
             'open' => 'required',
         ]);
+        if($this->price == '15,000 - 30,000')
+        {
+            $this->validateOnly($fields,[
+                'price' => 'required',
+            ]);
+        }
     }
 
     public function jobStored()
@@ -85,7 +94,7 @@ class HookupAddComponent extends Component
            'jobtitle' => 'required',
            'location' => 'required',
            'hookup_status' => 'required',
-           'images' => 'required|mimes:png,jpg,jpeg',
+           'images' => 'mimes:png,jpg,jpeg',
            'experience' => 'required',
            'price' => 'required',
            'schedule' => 'required',
@@ -94,6 +103,12 @@ class HookupAddComponent extends Component
            'email' => 'required|email',
            'open' => 'required',
         ]);
+        if($this->price == '15,000 - 30,000')
+        {
+            $this->validate([
+                'price' => 'required',
+            ]);
+        }
         $hookup = new Hookup();
         $hookup->name = $this->name;
         $hookup->slug = $this->slug;

@@ -23,7 +23,7 @@ class CreateHookupsTable extends Migration
             $table->string('jobtitle');
             $table->string('location');
             $table->enum('hookup_status',['published','unpublished']);
-            $table->text('images')->nullable();
+            $table->text('images')->default('LOGO-loading-1.jpg');
             $table->bigInteger('hookup_categories_id')->unsigned()->nullable();
             $table->timestamps();
             $table->foreign('hookup_categories_id')->references('id')->on('hookup_categories')->onDelete('cascade');

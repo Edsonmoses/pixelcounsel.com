@@ -97,8 +97,11 @@
                                   <select class="form-control" wire:model="price">
                                       <option value="">Add Salary</option>
                                           <option value="Confidential">Confidential</option>
-                                          <option value="yes">Yes</option>
+                                          <option value="15,000 - 30,000">Yes</option>
                                   </select>
+                                  @if($price)
+                                       <input type="text" placeholder="15,000 - 30,000" class="form-control input-md mt-3" wire:model="price">
+                                  @endif
                               @error('price')<p class="text-danger">{{ $message }}</p>@enderror 
                           </div>
                       </div>

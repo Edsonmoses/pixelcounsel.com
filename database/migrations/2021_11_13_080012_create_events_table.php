@@ -23,7 +23,7 @@ class CreateEventsTable extends Migration
             $table->string('exhibition')->default(false);
             $table->dateTime('eventdate')->default(DB::raw('CURRENT_DATE'));
             $table->enum('events_status',['published','unpublished']);
-            $table->text('images')->nullable();
+            $table->text('images')->default('placesholder.jpg');
             $table->bigInteger('events_categories_id')->unsigned()->nullable();
             $table->bigInteger('etype_id')->unique()->nullable();
             $table->string('econtact')->nullable();

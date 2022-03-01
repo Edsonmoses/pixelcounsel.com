@@ -23,7 +23,7 @@ class CreateVectorlogosTable extends Migration
             $table->string('format');
             $table->string('contributor');
             $table->enum('vector_status',['published','unpublished']);
-            $table->text('images')->nullable();
+            $table->text('images')->default('placesholder.jpg');
             $table->bigInteger('vector_categories_id')->unsigned()->nullable();
             $table->string('image')->default('aidefault.png');
             $table->timestamps();

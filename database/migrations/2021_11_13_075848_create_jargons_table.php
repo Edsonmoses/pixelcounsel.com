@@ -20,7 +20,7 @@ class CreateJargonsTable extends Migration
             $table->string('short_description');
             $table->text('description');
             $table->enum('jargons_status',['published','unpublished']);
-            $table->text('images')->nullable();
+            $table->text('images')->default('placesholder.jpg');
             $table->bigInteger('jargon_categories_id')->unsigned()->nullable();
             $table->string('afid')->after('jargon_categories_id')->nullable();
             $table->timestamps();
