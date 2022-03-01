@@ -73,7 +73,7 @@ class EventsCategoryComponent extends Component
         $event->enddate = $this->enddate;
         $event->postedby = $this->postedby;
         $event->save();
-        session()->flash('message','Event has been created successfully!');
+        session()->flash('message','Event has been submited successfully!');
     }
     public function render()
     {

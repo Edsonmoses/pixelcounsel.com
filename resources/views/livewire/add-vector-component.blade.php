@@ -44,10 +44,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="rounded shadow bg-white p-4">
+                <div class="rounded shadows bg-white p-4">
                     <div class="custom-form" style="margin: 0 35px 0 15px !important">
                         @if (Session::has('message'))
-                                <div class="alert alert-success" id="message3" role="alert">{{ Session::get('message') }}</div>
+                                <div class="alert alert-success float-left" id="message3" role="alert">{{ Session::get('message') }}</div>
                              @endif
                         <form class="form-horizontal" wire:submit.prevent="addVector" files="true" enctype="multipart/form-data">
                             {{ csrf_field() }}
@@ -55,15 +55,15 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2 mr-2">
-                                        <label class="text-muted">Vector Name</label>
-                                        <input type="text" placeholder="Vector Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug"/>
+                                        <label class="text-muted">Logo Name</label>
+                                        <input type="text" placeholder="Logo Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug"/>
                                          @error('name')<p class="text-danger">{{ $message }}</p>@enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Vector Slug</label>
-                                        <input type="text" placeholder="Vector Slug" class="form-control input-md" wire:model="slug"/>
+                                        <label class="text-muted">Logo Slug</label>
+                                        <input type="text" placeholder="Logo Slug (url)" class="form-control input-md" wire:model="slug"/>
                                         @error('slug')<p class="text-danger">{{ $message }}</p>@enderror
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2 mr-2">
-                                        <label class="text-muted">Vector Format</label>
+                                        <label class="text-muted">Logo Format</label>
                                         <select class="form-control" wire:model="format">
                                             <option value="ai">AI</option>
                                             <option value="eps">EPS</option>
@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Vector Preview</label>
+                                        <label class="text-muted">Logo Preview</label>
                                         <input type="file" class="form-control input-file" wire:model="image">
                                         @if($image)
                                             <img src="{{ $image->temporaryUrl() }}" width="120"/>
@@ -119,9 +119,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Vector Category</label>
+                                        <label class="text-muted">Company Business Category</label>
                                         <select class="form-control" wire:model="vector_categories_id">
-                                            <option value="">Select Vector Category</option>
+                                            <option value="">Select company business category</option>
                                             @foreach ( $vectorcategories as $category )
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach

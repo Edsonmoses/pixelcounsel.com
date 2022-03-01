@@ -72,7 +72,8 @@
                             <p class="text-muted mb-2">: {{$hookup->web}}</p>
                         </div>
                         @endif
-                        @if ($hookup->phone  == '+254 700 000 000') 
+                        @if ($hookup->phone  == '254700000000') 
+                        @elseif ($hookup->phone  == '254700 000 000') 
                         @else
                         <div class="job-details-desc-item">
                             <div class="float-left mr-2">

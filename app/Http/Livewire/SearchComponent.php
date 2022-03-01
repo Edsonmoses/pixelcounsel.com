@@ -72,7 +72,7 @@ class SearchComponent extends Component
         $vector->image = $imgName;
         $vector->vector_categories_id = $this->vector_categories_id;
         $vector->save();
-        session()->flash('message','Vector file has been created successfully!');
+        session()->flash('message','Logo has been submited successfully!');
     }
     public function render()
     {

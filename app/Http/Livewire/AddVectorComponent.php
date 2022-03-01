@@ -90,7 +90,7 @@ class AddVectorComponent extends Component
         $vector->postedby = $this->postedby;
         $vector->downloads = $this->downloads;
         $vector->save();
-        session()->flash('message','Vector file has been created successfully!');
+        session()->flash('message','Logo has been submites successfully!');
         return redirect()->back();
     }
 

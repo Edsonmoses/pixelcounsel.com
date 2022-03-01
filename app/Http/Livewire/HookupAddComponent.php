@@ -71,7 +71,7 @@ class HookupAddComponent extends Component
             'price' => 'required',
             'schedule' => 'required',
             'fjob' => 'required',
-            'phone' => 'required|digits:12',
+            'phone' => 'digits:12',
             'email' => 'required|email',
             'open' => 'required',
         ]);
@@ -99,7 +99,7 @@ class HookupAddComponent extends Component
            'price' => 'required',
            'schedule' => 'required',
            'fjob' => 'required',
-           'phone' => 'required|digits:12',
+           'phone' => 'digits:12',
            'email' => 'required|email',
            'open' => 'required',
         ]);
@@ -134,7 +134,7 @@ class HookupAddComponent extends Component
         $hookup->open = $this->open;
         $hookup->postedby = $this->postedby;
         $hookup->save();
-        session()->flash('message','Hookup has been created successfully!');
+        session()->flash('message','Job has been submited successfully!');
     }
     public function render()
     {

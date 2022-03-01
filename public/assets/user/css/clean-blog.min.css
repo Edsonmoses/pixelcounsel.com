@@ -91,12 +91,12 @@ margin: -34px -10px 0 0;
 }
 .home-page .logo{
    background: #333333;
-   height: 200px;
+   height: 178px;
 }
 .home-page .logo img{
   width: 50%;
   object-fit: cover;
-  height: 98px;
+  height: 90px;
   top: 50%;
     left: 50%;
     transform: translate(-85% , -50%);
@@ -105,12 +105,12 @@ margin: -34px -10px 0 0;
 
 .home-page .banner{
    background: #333333;
-   height: 200px;
+   height: 178px;
 }
 .home-page .banner img{
   width: 100%;
   object-fit: cover;
-  height: 200px;
+  height: 178px;
 }
 .home-page .main{
    background: linear-gradient(to left, #333333 42%, #fff100 42%);
@@ -118,7 +118,7 @@ margin: -34px -10px 0 0;
 }
 .home-page .vectorl
 {
-  height: auto;
+  height: 362px;
   background: #fff100 !important;
   padding-left: 95px;
 }
@@ -1765,9 +1765,11 @@ min-height: 48vh !important;
 }
 .mt-10{
   margin-top: 0px !important;
+  height: 100px !important;
 }
 .mt-9{
   margin-top: -27% !important;
+  clear: both;
 }
 .ml-4{
   margin-left: 15px;
@@ -2149,9 +2151,7 @@ ul{
 .home-page .search-hm{
   margin: -36px 0 33px 0 !important;
 }
-.h-events{
-  margin-left: -2.5rem;
-}
+
 .home-page .vectorl {
   height: auto;
   background: #fff100 !important;

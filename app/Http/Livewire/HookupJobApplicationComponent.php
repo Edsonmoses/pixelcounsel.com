@@ -137,7 +137,7 @@ class HookupJobApplicationComponent extends Component
         $resume->skill_proficiency= $this->skill_proficiency;
         $resume->save();
 
-        session()->flash('message','Your Resume has been created successfully!');
+        session()->flash('message','Your Resume has been submited successfully!');
     }
     public function render()
     {
