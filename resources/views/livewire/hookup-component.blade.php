@@ -8,19 +8,29 @@
                     <h1>HOOK UP</h1>
                     <span class="sub-heading">Collection of career changing jobs in Africa for your picking</span>
                 </div>
-            </div>
-            <div class="col-lg-5 col-md-5 col-sm-5 hook-search heading-mt">
                 @if (Auth::check())
-                <div class="hook-searchs">
+                <div class="hook-searchs hidden-md hidden-lg">
                     <a class="btn btn-events" href="{{ route('hookup.addhookup') }}" role="button" style="margin-top: -43px;">SUBMIT A JOB</a>
                 </div>
                 @else
-                <div class="hook-searchs">
+                <div class="hook-searchs hidden-md hidden-lg">
+                    <a class="btn btn-events" href="{{route('login')}}" title="Login" role="button" style="margin-top: -43px;">SUBMIT A JOB</a>
+                </div>
+                @endif
+                <div style="clear: both"></div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-12 hook-search heading-mt">
+                @if (Auth::check())
+                <div class="hook-searchs hidden-xs hidden-sm">
+                    <a class="btn btn-events" href="{{ route('hookup.addhookup') }}" role="button" style="margin-top: -43px;">SUBMIT A JOB</a>
+                </div>
+                @else
+                <div class="hook-searchs hidden-xs hidden-sm">
                     <a class="btn btn-events" href="{{route('login')}}" title="Login" role="button" style="margin-top: -43px;">SUBMIT A JOB</a>
                 </div>
                 @endif
                 <div id="custom-search-input">
-                    <div class="input-group col-md-12">
+                    <div class="input-group col-md-12 col-sm-12">
                         <input type="text" class="  search-query form-control" placeholder="Find a job"  wire:model="searchTerm"/>
                         <span class="input-group-btn">
                             <button class="btn btn-danger" type="button">

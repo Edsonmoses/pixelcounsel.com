@@ -97,6 +97,7 @@ Route::get('/hookup', HookupComponent::class);
 Route::get('/hookup-category/{category_slug}', HookupCategoryComponent::class)->name('hookup.category');
 Route::get('/hookup-details/{hookup_slug}', HookupDedailsComponent::class)->name('hookup.details');
 Route::get('/hookup/add', HookupAddComponent::class)->name('hookup.addhookup');
+Route::get('/hookup/fetch', HookupAddComponent::class)->name('hookup.fetch');
 Route::get('/job-application', HookupJobApplicationComponent::class)->name('hookup.applyjob');
 
 Route::get('/events', EventsComponent::class);
