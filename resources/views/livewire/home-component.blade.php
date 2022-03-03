@@ -18,6 +18,9 @@
 						  <div class="item">
 							<a href="/vector"><img src="{{asset('assets/user/img/Webp.net-resizeimage (1).jpg')}}" alt="vector" style="width:100%;" height="200"></a>
 						  </div>
+						  <div class="item">
+							<a href="/hookup"><img src="{{asset('assets/user/img/hookup-.jpg')}}" alt="vector" style="width:100%;" height="200"></a>
+						  </div>
 					  
 						</div>
 					  </div>
