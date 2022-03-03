@@ -58,7 +58,8 @@
             <span class="sr-only">Toggle navigation</span>
            <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand" href="/"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'PixelCounsel') }}"></a>
+        <a class="navbar-brand brand-md-none" href="/"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'PixelCounsel') }}"></a>
+      <a class="navbar-brand brand-sm-none" href="/"><img src="{{asset('assets/uploads/img/PC Logo.svg')}}" class="img-responsive" alt="{{ config('app.name', 'PixelCounsel') }}"></a>
       </div>
       <div class="collapse navbar-collapse d-sm-none d-xm-none" id="bs-example-navbar-collapse-1">
         <div class="m-menu">
@@ -189,71 +190,57 @@
                   <span class="{{ (request()->is('blog*')) ? 'blog-arrows' : '' }}"></span>
                 </a>
               </li>--}}
-            </ul>
-          </div>
-          @if (Route::has('login'))
+              @if (Route::has('login'))
             @auth
                 @if (Auth::user()->utype === 'ADM')
-                  <!--//Admin-->
-                  <ul class="nav navbar-nav">
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="My Account">My Account ({{Auth::user()->name}}) <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="{{route('admin.dashboard')}}" title="dashboard">Dashboard</a></li>
-                      <li><a href="{{route('admin.categories')}}" title="blog categories">Blog Categories</a></li>
-                      <li><a href="{{route('admin.vectors')}}" title="vector categories">Vector Categories</a></li>
-                      <li><a href="{{route('admin.events')}}" title="event categories">Event Categories</a></li>
-                      <li><a href="{{route('admin.hookups')}}" title="hookup categories">Hookup Categories</a></li>
-                      <li><a href="{{route('admin.jargons')}}" title="jargon categories">Jargon Categories</a></li>
-                      <li><a href="{{route('admin.vectorlogos')}}" title="Vector Logos">All Vectors</a></li>
-                      <li><a href="{{route('admin.hookup')}}" title="Hookup">All Hookups</a></li>
-                      <li><a href="{{route('admin.jargon')}}" title="Jargon">All Jargons</a></li>
-                      <li><a href="{{route('admin.event')}}" title="Event">All Events</a></li>
-                      <li role="separator" class="divider"></li>
-                      <li><a href="{{route('logout')}}" onclick="event.preventDefault();  document.getElementById('logout-form') .submit();">Logout</a></li>
-                      <form id="logout-form" method="POST" action="{{route('logout')}}">
-                        @csrf
-                        
-                      </form>
-                    </ul>
-                  </li>
-                  </ul>
+                <li> 
+                  <hr/>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="My Account">My Account ({{Auth::user()->name}}) <span class="caret"></span></a></li>
+                <li><a href="{{route('admin.dashboard')}}" title="dashboard">Dashboard</a></li>
                 @else
-                <!--//user-->
-                <ul class="nav navbar-nav" style="position: absolute; z-index:9999">
-                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="My Account">My Account ({{Auth::user()->name}}) <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="{{route('user.dashboard')}}" title="dashboard">Dashboard</a></li>
-                      <li role="separator" class="divider"></li>
-                      <li><a href="{{route('logout')}}" onclick="event.preventDefault();  document.getElementById('logout-form') .submit();">Logout</a></li>
-                      <form id="logout-form" method="POST" action="{{route('logout')}}">
-                        @csrf
-                      </form>
-                    </ul>
-                  </li>
-                </ul>
+                <li>
+                   <hr/>
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="My Account">My Account ({{Auth::user()->name}}) <span class="caret"></span></a></li>
+                <li><a href="{{route('user.dashboard')}}" title="dashboard">Dashboard</a></li>
                 @endif
-            @else
-                <ul class="nav navbar-nav navbar-right right-menu">
+              @else
+                <li>
+                  <hr/>
+                    <a href="{{route('login')}}" title="Login">Login</a>
+                  </li>
+                  <li class="d-none d-sm-block d-sm-none d-md-block">
+                  </li>
                   <li>
-                      <a href="{{route('login')}}" title="Login">Login</a>
-                    </li>
-                    <li class="d-none d-sm-block d-sm-none d-md-block">
-                      <a href="#">|</a>
-                    </li>
-                    <li>
-                      <a href="{{route('register')}}" title="Join us">Join Us</a>
-                    </li>
-                    {{-- <li  class="d-none d-sm-block d-sm-none d-md-block">
-                      <a href="#">|</a>
-                    </li>
-                    {{-- <li>
-                      <a href="{{ route('facebook.login') }}"><i class="fa fa-facebook-square" aria-hidden="true"></i>  Login with facebook</a>
-                    </li>--}}
-                 </ul>
-            @endauth
-          @endif
+                    <a href="{{route('register')}}" title="Join us">Join Us</a>
+                  </li>
+                  {{-- <li  class="d-none d-sm-block d-sm-none d-md-block">
+                    <a href="#">|</a>
+                  </li>
+                  {{-- <li>
+                    <a href="{{ route('facebook.login') }}"><i class="fa fa-facebook-square" aria-hidden="true"></i>  Login with facebook</a>
+                  </li>--}}
+              @endauth
+              @endif
+             <li>
+                <hr/>
+                <a href="#">Advertise</a></li>
+                <li><a href="/hookup">Find A Creative's Job</a></li>
+                @if (Auth::check())
+                <li><a href="{{route('hookup.addhookup')}}">Post A Creative's Job</a></li>
+                @else
+                <li><a href="{{route('login')}}" title="Login">Post A Creative's Job</a></li>
+                @endif
+                <li><a href="#">Find Creative Teams</a></li>
+                <div class="m-footer">
+                  <li>
+                    <hr/>
+                    <a href="https://www.facebook.com/pixelcounsel" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                  <a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                  <a href="https://twitter.com/pixelcounsel" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+                  <a href="https://www.linkedin.com/in/pixel-counsel-14358a16/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                </div>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

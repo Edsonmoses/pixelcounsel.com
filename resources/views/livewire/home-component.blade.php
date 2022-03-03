@@ -32,7 +32,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 col-lg-7 col-sm-12 vectorl">
-							<a href="/vector"><img src="{{asset('assets/uploads/img/vector logos of brands in africa.svg')}}" class="img-fluid" alt="Pixel Counsel Logo"></a>
+							<a href="/vector"><img src="{{asset('assets/uploads/img/vector logos of brands in africa.svg')}}" class="img-fluid" alt="Pixel Counsel Logo">	
+							</a>
+							<p class="vtagline">Online vector logo collection of brands in Africa</p><br/>
 							@livewire('home-search-component')
 						</div>
 					</div>
@@ -67,14 +69,20 @@
 							@if (!empty($jargon))
 							<div class="m-hookup">
 								<h3  style="width:50px; line-height: 1;"><a href="/jargon">Jargon Buster</a></h3>
-								<p><a href="/jargon-category/architecture">{!! Str::words("Online vector logo collection of brands in Africa", 100,'') !!}</a></p>
+								<p><a href="/jargon-category/architecture">{!! Str::words("A comprehensive dictionary of web, architecture, design and printing terms", 100,'') !!}</a></p>
 								<hr>
 							</div>
 							@endif
 							<!--Jargon end here-->
 							@if (!empty($event))
 							<div class="m-hookup"style="margin-bottom: 30px;">
-								<h3><a href="/events">Events</a></h3>
+								<h3><a href="/events">Events
+									@if (!empty($event))
+									<span class="fa-stack fa-2x" data-count="{{ $event }}">
+									<i class="fa fa-bell-o fa-stack-1x fa-inverse"></i>
+								  </span>
+								@endif
+								</a></h3>
 								<p><a href="/events">What’s happening where and when</a></p>
 						</div>
 						@endif

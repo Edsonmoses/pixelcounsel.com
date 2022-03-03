@@ -40,7 +40,7 @@ class HomeComponent extends Component
         $vectorcategories = VectorCategory::all();
         $hookup = Hookup::whereDate('open','>=',Carbon::now())->where('hookup_status','published')->get()->count();
         $jargon = Jargons::orderBy('name','ASC')->where('jargons_status','published')->first();
-        $event = Events::orderBy('name','ASC')->latest('updated_at')->where('events_status','published')->first();
+        $event = Events::whereDate('enddate','>=',Carbon::now())->where('events_status','published')->get()->count();
         return view('livewire.home-component',['vector'=>$vector, 'vectorcategories'=>$vectorcategories,'hookup'=>$hookup,'jargon'=>$jargon,'event'=>$event])->layout('layouts.base');
     }
 }

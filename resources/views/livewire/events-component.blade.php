@@ -84,9 +84,9 @@
                           <a href="#" role="button" data-toggle="modal" data-target="#eventModal_{{$event->id}}"><h2 class="card-title" >{{substr($event->name,0,24)}}</h2></a>
                             <p class="card-text">{{substr($event->description,0,51)}}</p>
                         </div>
-                        <div class="col-sm-2 col-dates">
-                            <p class="dates">{{\Carbon\Carbon::parse($event->enddate)->isoFormat('D') }}</p>
-                            <p class="months">{{Str::upper(\Carbon\Carbon::parse($event->enddate)->isoFormat('MMMM')) }}</p>
+                        <div class="col-sm-2 col-dates text-center">
+                            <p class="dates">{{\Carbon\Carbon::parse($event->enddate)->isoFormat('DD') }}</p>
+                            <p class="months d-xs-non d-md-non">{{Str::upper(\Carbon\Carbon::parse($event->enddate)->isoFormat('MMM')) }}</p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">

@@ -723,6 +723,13 @@ margin-top: 0;
 .col-dates{
   border-left: 1px solid #ffffff5e;
   height: 85px;
+  text-align: center !important;
+}
+.col-dates p{
+  text-align: center !important;
+}
+.experience{
+  margin: 10px 0 10px 0;
 }
 .col-dates .dates{
   color: #444;
@@ -731,7 +738,7 @@ margin: 5px 0 -50px 0;
 }
 .col-dates .months{
   color:#444;
-  font-size: 8px;
+  font-size: 21px;
   padding: 4px;
 }
 .col-dates .years{
@@ -1017,7 +1024,28 @@ padding-top: 80px !important;
 }
 .fl{ margin-left:-40px;}
 
+.brand-sm-none{
+  display: none;
+}
+.brand-md-none{
+  display: block !important;
+}
 @media screen and (max-width: 600px) {
+  .brand-sm-none{
+    display: block !important;
+  }
+  .brand-md-none{
+    display: none !important;
+  }
+  .navbar-brand img {
+    width: 25px;
+    margin-left: 0px;
+  }
+  .home-page .vtagline{
+    margin-top: -78px !important;
+  font-size: 11px !important;
+  width: 50%;
+  }
     .menu2{
         display: none !important;
     }
@@ -1039,17 +1067,30 @@ padding-top: 80px !important;
         margin-left: 45% !important;
     }
     .bottom-menu, .bottom-menu-2{
-      display: none !important;
+      display: block !important;
+    }
+    .m-scroll{
+      overflow-x: scroll !important;   
+      overflow-y: hidden !important;   
+      white-space: nowrap;
+      scrollbar-color:yellow red;
     }
     .bottom-menu .navbar-nav, .bottom-menu-2 .navbar-nav {
       display: ruby-base-container !important;
       width: 300px !important;
+      background: transparent !important;
     }
     .bottom-menu .nav > li > a, .bottom-menu-2 .nav > li > a  {
       font-size: 14px !important;
       text-decoration: none !important;
       padding-left: 0px !important;
       padding-right: 0px !important;
+  }
+  .nav > li > a {
+    background-color: transparent !important;
+  }
+  .nav > li > a:focus, .nav > li > a:hover {
+    background-color: transparent !important;
   }
   .home-page .logo img{
     display: none;
@@ -1067,7 +1108,7 @@ padding-top: 80px !important;
    height: 185px !important;
  }
  .mt-9{
-  margin-top: -40%;
+  margin-top: -26%;
   height: 185px !important;
 }
 .b-mt{
@@ -1077,8 +1118,8 @@ padding-top: 80px !important;
   color: #333;
   font-weight: 300;
   font-size: 12px;
-  margin-top: -43%;
-  margin-left: -6px;
+  margin-top: -30%;
+  margin-left: -15px;
 }
 .b-logo img {
   object-fit: cover;
@@ -1088,9 +1129,23 @@ padding-top: 80px !important;
 }
 .footer-ns ul {
   float: left !important;
-  margin-top: -50%;
-  margin-left: -22% !important;
+  margin-top: -31%;
+  margin-left: -15% !important;
   height: auto !important;
+}
+.col-dates .months {
+  float: left !important;
+  margin-top: 6px !important;
+  font-size: 32px;
+}
+.applyN{
+  margin: 0 0 15px 15px !important;
+}
+.experience{
+  margin: 10px 0 10px 15px !important;
+}
+.timers{
+  margin: 15px 0 0 15px !important;
 }
 .vector-img {
   width: 100% !important;
@@ -1101,6 +1156,13 @@ padding-top: 80px !important;
   object-fit: scale-down;
   object-position: top;
   cursor: pointer !important;
+}
+.footer-bs-light, .footer-bs-dark {
+  padding: 60px 0px !important;
+}
+.footer-bs-light .footer-brand, .footer-bs-light .footer-nav, .footer-bs-light .footer-social, .footer-bs-light .footer-ns
+{
+  padding: 10px 15px !important;
 }
 body{
   overscroll-behavior: contain;
@@ -3082,7 +3144,7 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
 
 .overlay-content {
   position: relative;
-  top: 9%;
+  top: 5%;
   width: 100%;
   text-align: left;
   margin-left: 15px;
@@ -3103,7 +3165,7 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
 
 .overlay .closebtn {
   position: absolute;
-  top: 20px;
+  top: -9px;
   right: 45px;
   font-size: 35px;
 }
@@ -3124,4 +3186,18 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
   width: 35%;
   object-fit: cover;
   height: auto;
+}
+.m-menu hr{
+  margin-top: 1.75rem !important;
+  margin-bottom: 1.75rem !important;
+}
+.m-footer a{
+  padding: 0 60px 0 0;
+  float: left !important;
+  font-size: 26px;
+}
+.home-page .vtagline{
+  margin-top: -110px;
+font-size: 20px;
+width: 50%;
 }

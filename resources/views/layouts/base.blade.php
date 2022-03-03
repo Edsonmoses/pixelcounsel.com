@@ -58,6 +58,7 @@
          <i class="fa fa-bars"></i>
       </button>
       <a class="navbar-brand brand-md-none" href="/"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'PixelCounsel') }}"></a>
+      <a class="navbar-brand brand-sm-none" href="/"><img src="{{asset('assets/uploads/img/PC Logo.svg')}}" class="img-responsive" alt="{{ config('app.name', 'PixelCounsel') }}"></a>
     </div>
     <div class="collapse navbar-collapse d-sm-none" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 ml-2 navbar-right">
@@ -86,43 +87,85 @@
       <div class="overlay-content">
         <a href="/">Home</a>
         <hr/>
-        @if (Route::has('login'))
+        <div class="m-menu">
+          <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 ml-2 menu-actives">
+            <li class="nav-item">
+              <a class="nav-link" href="/vector">VECTOR LOGOS
+                <span class="{{ (request()->is('vector*')) ? 'vector-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
+              </a>
+            </li>
+            <li>
+              <a href="/hookup">HOOKUP
+                <span class="{{ (request()->is('hookup*')) ? 'hookup-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
+              </a>
+            </li>
+            <li>
+              <a href="/jargon">JARGON BUSTER
+                <span class="{{ (request()->is('jargon*')) ? 'jargon-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
+              </a>
+            </li>
+            <li>
+              <a href="/events">EVENTS
+                <span class="{{ (request()->is('events*')) ? 'events-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
+              </a>
+            </li>
+            {{-- <li>
+              <a href="/blog">BLOG
+                <i class="fa fa-comments" aria-hidden="true"></i>
+                <span class="{{ (request()->is('blog*')) ? 'blog-arrows' : '' }}"></span>
+              </a>
+            </li>--}}
+            @if (Route::has('login'))
           @auth
-          <div class="m-menu">
-            <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 ml-2 menu-actives">
-              <li class="nav-item">
-                <a class="nav-link" href="/vector">VECTOR LOGOS
-                  <span class="{{ (request()->is('vector*')) ? 'vector-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
-                </a>
-              </li>
+              @if (Auth::user()->utype === 'ADM')
+              <li> 
+                <hr/>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="My Account">My Account ({{Auth::user()->name}}) <span class="caret"></span></a></li>
+              <li><a href="{{route('admin.dashboard')}}" title="dashboard">Dashboard</a></li>
+              @else
               <li>
-                <a href="/hookup">HOOKUP
-                  <span class="{{ (request()->is('hookup*')) ? 'hookup-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
-                </a>
-              </li>
+                 <hr/>
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="My Account">My Account ({{Auth::user()->name}}) <span class="caret"></span></a></li>
+              <li><a href="{{route('user.dashboard')}}" title="dashboard">Dashboard</a></li>
+              @endif
+            @else
               <li>
-                <a href="/jargon">JARGON BUSTER
-                  <span class="{{ (request()->is('jargon*')) ? 'jargon-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
-                </a>
-              </li>
-              <li>
-                <a href="/events">EVENTS
-                  <span class="{{ (request()->is('events*')) ? 'events-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
-                </a>
-              </li>
-              {{-- <li>
-                <a href="/blog">BLOG
-                  <i class="fa fa-comments" aria-hidden="true"></i>
-                  <span class="{{ (request()->is('blog*')) ? 'blog-arrows' : '' }}"></span>
-                </a>
-              </li>--}}
-            </ul>
-          </div>
-          @else
-              <a href="{{route('login')}}" title="Login">Login</a>
-              <a href="{{route('register')}}" title="Join us">Join Us</a>
-          @endauth
-        @endif
+                <hr/>
+                  <a href="{{route('login')}}" title="Login">Login</a>
+                </li>
+                <li class="d-none d-sm-block d-sm-none d-md-block">
+                </li>
+                <li>
+                  <a href="{{route('register')}}" title="Join us">Join Us</a>
+                </li>
+                {{-- <li  class="d-none d-sm-block d-sm-none d-md-block">
+                  <a href="#">|</a>
+                </li>
+                {{-- <li>
+                  <a href="{{ route('facebook.login') }}"><i class="fa fa-facebook-square" aria-hidden="true"></i>  Login with facebook</a>
+                </li>--}}
+            @endauth
+            @endif
+           <li>
+              <hr/>
+              <a href="#">Advertise</a></li>
+              <li><a href="/hookup">Find A Creative's Job</a></li>
+              @if (Auth::check())
+              <li><a href="{{route('hookup.addhookup')}}">Post A Creative's Job</a></li>
+              @else
+              <li><a href="{{route('login')}}" title="Login">Post A Creative's Job</a></li>
+              @endif
+              <li><a href="#">Find Creative Teams</a></li>
+              <div class="m-footer">
+                <li>
+                  <hr/>
+                  <a href="https://www.facebook.com/pixelcounsel" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                <a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/pixelcounsel" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/pixel-counsel-14358a16/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+              </div>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -207,7 +250,7 @@
             </div>
         </div>
         <div class="row b-footer">
-          <div class="col-md-8 b-mt">
+          <div class="col-md-8">
             <ul>
               <li><a href="/terms-of-use" class="text-muted">Terms of use</a></li>|
               <li><a href="#" class="text-muted">Privacy Terms</a></li>
