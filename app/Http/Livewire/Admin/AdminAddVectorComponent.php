@@ -25,6 +25,7 @@ class AdminAddVectorComponent extends Component
     public $image;
     public $vector_categories_id;
     public $postedby;
+    public $vtag;
 
     public function mount()
     {
@@ -86,6 +87,7 @@ class AdminAddVectorComponent extends Component
         $vector->image = $imgName;
         $vector->vector_categories_id = $this->vector_categories_id;
         $vector->postedby = $this->postedby;
+        $vector->vtag = str_replace("\n",',',trim($this->vtag));
         $vector->save();
         session()->flash('message','Vector file has been created successfully!');
     }

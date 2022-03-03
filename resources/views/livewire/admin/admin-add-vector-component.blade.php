@@ -30,17 +30,23 @@
             <form class="form-horizontal" wire:submit.prevent="addVector" files="true" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label class="col-md-6 control-label">Vector Name</label>
+                    <label class="col-md-6 control-label">Logo Name</label>
                     <div class="col-md-6">
                         <input type="text" placeholder="Vector Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug"/>
                         @error('name')<p class="text-danger">{{ $message }}</p>@enderror
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-6 control-label">Vector Slug</label>
+                    <label class="col-md-6 control-label">logo Slug</label>
                     <div class="col-md-6">
                         <input type="text" placeholder="Vector Slug" class="form-control input-md" wire:model="slug"/>
                         @error('slug')<p class="text-danger">{{ $message }}</p>@enderror
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label class="col-md-6 control-label">Tags</label>
+                    <div class="col-md-6">
+                        <input type="text" placeholder="Tags (to add more tags you need to separate them with a comma)" class="form-control input-md" wire:model="vtag">
                     </div>
                 </div>
                 <div class="form-group">

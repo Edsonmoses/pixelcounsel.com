@@ -49,13 +49,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="navbar-toggle d-md-none d-lg-none" onclick="openNav()">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="fa fa-bars"></i>
+      </span>
+      <button type="button" class="navbar-toggle d-sm-none" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
          <i class="fa fa-bars"></i>
       </button>
       <a class="navbar-brand brand-md-none" href="/"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'PixelCounsel') }}"></a>
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse d-sm-none" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 ml-2 navbar-right">
          @if (Route::has('login'))
             <li>
@@ -77,6 +81,50 @@
            @endif
       </ul>
     </div>
+    <div id="myNav" class="overlay d-md-none d-lg-none">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <a href="/">Home</a>
+        <hr/>
+        @if (Route::has('login'))
+          @auth
+          <div class="m-menu">
+            <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 ml-2 menu-actives">
+              <li class="nav-item">
+                <a class="nav-link" href="/vector">VECTOR LOGOS
+                  <span class="{{ (request()->is('vector*')) ? 'vector-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
+                </a>
+              </li>
+              <li>
+                <a href="/hookup">HOOKUP
+                  <span class="{{ (request()->is('hookup*')) ? 'hookup-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
+                </a>
+              </li>
+              <li>
+                <a href="/jargon">JARGON BUSTER
+                  <span class="{{ (request()->is('jargon*')) ? 'jargon-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
+                </a>
+              </li>
+              <li>
+                <a href="/events">EVENTS
+                  <span class="{{ (request()->is('events*')) ? 'events-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
+                </a>
+              </li>
+              {{-- <li>
+                <a href="/blog">BLOG
+                  <i class="fa fa-comments" aria-hidden="true"></i>
+                  <span class="{{ (request()->is('blog*')) ? 'blog-arrows' : '' }}"></span>
+                </a>
+              </li>--}}
+            </ul>
+          </div>
+          @else
+              <a href="{{route('login')}}" title="Login">Login</a>
+              <a href="{{route('register')}}" title="Join us">Join Us</a>
+          @endauth
+        @endif
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -87,7 +135,7 @@
       <div class="container">
         <div class="row">
         	<div class="col-lg-3 col-md-3 col-sm-12 footer-brand animated fadeInDown">
-            	<a class="pull-left footer-brands" href="{{ url('/') }}"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'pixelcounsel') }}"> </a>
+            	<a class="pull-left footer-brands" href="{{ url('/') }}"><img src="{{asset('assets/uploads/img/PC footer.svg')}}" class="img-responsive" alt="{{ config('app.name', 'pixelcounsel') }}"> </a>
                 
             </div>
             {{--<div class="col-md-3 footer-brand md animated fadeInLeft">
@@ -191,7 +239,14 @@
          $(window).load(function(){        
    $('#myModal').modal('show');
     }); 
-    </script>
+    function openNav() {
+      document.getElementById("myNav").style.display = "block";
+    }
+
+    function closeNav() {
+      document.getElementById("myNav").style.display = "none";
+    }
+</script>
     @stack('scripts')
 
     @livewireScripts

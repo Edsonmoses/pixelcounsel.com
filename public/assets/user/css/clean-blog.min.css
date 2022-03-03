@@ -772,8 +772,8 @@ margin: 5px 0 -50px 0;
 }
 .home-page .banner {
   background: #333333;
-  height: 200px;
-  margin-left: -15px !important;
+  height: auto;
+  margin: 0 -15px !important;
 }
 .home-page .banner img {
   width: 106%;
@@ -1063,12 +1063,22 @@ padding-top: 80px !important;
  .mt-10{
    margin-top: 10px;
    clear: both;
+   padding-top: 18px !important;
+   height: 185px !important;
  }
  .mt-9{
-  margin-top: -50%;
+  margin-top: -40%;
+  height: 185px !important;
 }
 .b-mt{
   margin-top: -35%;
+}
+.b-footer {
+  color: #333;
+  font-weight: 300;
+  font-size: 12px;
+  margin-top: -43%;
+  margin-left: -6px;
 }
 .b-logo img {
   object-fit: cover;
@@ -1079,7 +1089,18 @@ padding-top: 80px !important;
 .footer-ns ul {
   float: left !important;
   margin-top: -50%;
-  margin-left: -18%;
+  margin-left: -22% !important;
+  height: auto !important;
+}
+.vector-img {
+  width: 100% !important;
+}
+.vector-img img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: scale-down;
+  object-position: top;
+  cursor: pointer !important;
 }
 body{
   overscroll-behavior: contain;
@@ -3045,3 +3066,62 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
 .bg-danger {
   background-color: #ff5b5b !important;
 }*/
+
+/*modified manu*/
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  background-color: rgb(38,38,37);
+  background-color: rgba(38,38,37, 100);
+}
+
+.overlay-content {
+  position: relative;
+  top: 9%;
+  width: 100%;
+  text-align: left;
+  margin-left: 15px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 16;
+  color: #7D7D7D;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus{
+  color: #f1f1f1 !important;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 35px;
+}
+
+@media screen and (max-height: 500px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 16px;
+  top: 15px;
+  right: 35px;
+  }
+}
+.mfloats{
+  position: fixed; 
+  z-index:9999;
+}
+.footer-brands img{
+  width: 35%;
+  object-fit: cover;
+  height: auto;
+}

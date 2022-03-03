@@ -88,6 +88,7 @@ Route::get('/',HomeComponent::class);
 Route::get('/vector', VectorComponent::class)->name('vector');
 Route::get('/vectors/{slug}', VectorlogosComponent::class)->name('vector.vectors');
 Route::get('/add-vectors/add', AddVectorComponent::class)->name('vector.addvectors');
+Route::get('/vector/{vtag}', VectorComponent::class)->name('vector.vtag');
 
 Route::get('/jargon', JargonbusterComponent::class);
 Route::get('/jargon-category/{category_slug}', JargonCategoryComponent::class)->name('jargon.category');

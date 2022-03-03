@@ -26,6 +26,7 @@ class AddVectorComponent extends Component
     public $vector_categories_id;
     public $postedby;
     public $downloads;
+    public $vtag;
 
     public function mount()
     {
@@ -128,6 +129,7 @@ class AddVectorComponent extends Component
         $vector->vector_categories_id = $this->vector_categories_id;
         $vector->postedby = $this->postedby;
         $vector->downloads = $this->downloads;
+        $vector->vtag = str_replace("\n",',',trim($this->vtag));
         $vector->save();
         session()->flash('message','Logo has been submites successfully!');
         return redirect()->back();

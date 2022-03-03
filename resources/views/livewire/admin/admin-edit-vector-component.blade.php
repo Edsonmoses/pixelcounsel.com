@@ -9,14 +9,14 @@
     </style>
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
       <div>
-        <h4 class="mb-3 mb-md-0"> Edit Vector</h4>
+        <h4 class="mb-3 mb-md-0"> Edit Logo</h4>
       </div>
       <div class="d-flex align-items-center flex-wrap text-nowrap">
         <div class="input-group date datepicker dashboard-date mr-2 mb-2 mb-md-0 d-md-none d-xl-flex" id="dashboardDate">
           <span class="input-group-addon bg-transparent"><i data-feather="calendar" class=" text-primary"></i></span>
           <input type="text" class="form-control">
         </div>
-        <a href="{{route('admin.vectorlogos')}}" class="btn btn-success pull-right">All Vectors</a>
+        <a href="{{route('admin.vectorlogos')}}" class="btn btn-success pull-right">All Logos</a>
       </div>
     </div>
     
@@ -30,17 +30,23 @@
             <form class="form-horizontal" wire:submit.prevent="updateVector"  files="true" enctype="multipart/form-data">
             {{ csrf_field() }}
                 <div class="form-group">
-                    <label class="col-md-6 control-label">Vector Name</label>
+                    <label class="col-md-6 control-label">Logo Name</label>
                     <div class="col-md-6">
                         <input type="text" placeholder="Vector Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug"/>
                     </div>
                 </div>
                 <div class="form-group">
-                <label class="col-md-6 control-label">Vector Slug</label>
+                <label class="col-md-6 control-label">Logo Slug</label>
                 <div class="col-md-6">
                     <input type="text" placeholder="Vector Slug" class="form-control input-md" wire:model="slug"/>
                 </div>
             </div>
+            <div class="form-group">
+                <label class="col-md-6 control-label">Tags</label>
+            <div class="col-md-6">
+                <input type="text" placeholder="Tags (to add more tags you need to separate them with a comma)" class="form-control input-md" wire:model="vtag">
+            </div>
+        </div>
             <div class="form-group">
                 <label class="col-md-6 control-label">Short Description</label>
                 <div class="col-md-6" wire:ignore>

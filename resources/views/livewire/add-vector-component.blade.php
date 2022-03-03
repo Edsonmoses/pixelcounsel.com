@@ -95,7 +95,13 @@
                                         <input type="text" placeholder="Designer" class="form-control input-md" wire:model="designer">
                                     </div>
                                 </div>
+                            <div class="col-md-6">
+                                <div class="form-group app-label mt-2">
+                                    <label class="text-muted">Tags</label>
+                                    <input type="text" placeholder="Tags (to add more tags you need to separate them with a comma)" class="form-control input-md" wire:model="vtag">
+                                </div>
                             </div>
+                        </div>
 
                             <div class="row">
                                 <div class="col-md-6">
