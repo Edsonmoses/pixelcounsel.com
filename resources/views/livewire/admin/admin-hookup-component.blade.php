@@ -32,8 +32,6 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Description</th>
-                        <th>Job</th>
                         <th>Location</th>
                         <th>Status</th>
                         <th>Image</th>
@@ -46,8 +44,6 @@
                         <tr>
                             <td>{{$hookup->id}}</td>
                             <td>{{$hookup->name}}</td>
-                            <td>{!! Str::limit($hookup->short_description,'10')!!}</td>
-                            <td>{{$hookup->jobtitle}}</td>
                             <td>{{$hookup->location}}</td>
                             <td>{{$hookup->hookup_status}}</td>
                             <td><img src="{{ asset('assets/images/hookups') }}/{{ $hookup->images }}" width="60"/></td>

@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -289,6 +290,18 @@
     function closeNav() {
       document.getElementById("myNav").style.display = "none";
     }
+    preventLongPressMenu(document.querySelectorAll('body img'));
+
+function preventLongPressMenu(nodes) {
+  for(var i=0; i<nodes.length; i++){
+     nodes[i].ontouchstart = absorbEvent_;
+     nodes[i].ontouchmove = absorbEvent_;
+     nodes[i].ontouchend = absorbEvent_;
+     nodes[i].ontouchcancel = absorbEvent_;
+  }
+}
+javascriptwindow.ontouchstart = function(e) { e.preventDefault(); };
+
 </script>
     @stack('scripts')
 

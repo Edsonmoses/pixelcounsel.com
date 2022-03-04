@@ -216,6 +216,17 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
+                    <label class="col-md-6 control-label">End Date</label>
+                    <div class="col-md-12">
+                        <input wire:model="open"
+                        type="text" class="form-control input-md datepicker" placeholder="End Date" autocomplete="off"
+                        data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
+                        onchange="this.dispatchEvent(new InputEvent('input'))">
+                    </div>
+                </div>
+            </div><br/>
+            <div class="col-md-6">
+                <div class="form-group">
                     <label class="col-md-6 control-label"></label>
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-primary">Update</button>
