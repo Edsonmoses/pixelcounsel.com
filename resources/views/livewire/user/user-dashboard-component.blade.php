@@ -127,6 +127,7 @@
                                           <th>Created Date</th>
                                           <th>Format</th>
                                           <th>Status</th>
+                                          <th>Action</th>
                                       </tr>
                                       </thead>
                                       <tbody>
@@ -140,6 +141,10 @@
                                                 <td><span class="badge bg-success">Approved</span></td>
                                                 @else
                                                 <td><span class="badge bg-pink">Pending</span></td>
+                                                <td>
+                                                    <a href="#"><i  class="fas fa-edit"></i></a>
+                                                    <a href="#" onclick="confirm('Ara you sure, You want to delete this logo') || event.stopImmediatePropagation()" wire:click.prevent="deleteLogo({{ $vector->id }})" style="margin-left: 10px"><i class="fas fa-trash fa-1x text-danger"></i></a>
+                                                </td>
                                                 @endif
                                             </tr>
                                           @endforeach
@@ -166,6 +171,7 @@
                                         <th>Created Date</th>
                                         <th>Format</th>
                                         <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -179,6 +185,10 @@
                                               <td><span class="badge bg-success">Approved</span></td>
                                               @else
                                               <td><span class="badge bg-pink">Pending</span></td>
+                                              <td>
+                                                <a href="#"><i  class="fa fa-edit"></i></a>
+                                                <a href="#" onclick="confirm('Ara you sure, You want to delete this job') || event.stopImmediatePropagation()" wire:click.prevent="deleteJob({{ $job->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>
+                                            </td>
                                               @endif
                                           </tr>
                                         @endforeach
@@ -205,6 +215,7 @@
                                         <th>Closing Date</th>
                                         <th>Format</th>
                                         <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -218,6 +229,10 @@
                                               <td><span class="badge bg-success">Approved</span></td>
                                               @else
                                               <td><span class="badge bg-pink">Pending</span></td>
+                                              <td>
+                                                <a href="#"><i  class="fa fa-edit fa-1x"></i></a>
+                                                <a href="#" onclick="confirm('Ara you sure, You want to delete this event') || event.stopImmediatePropagation()" wire:click.prevent="deleteEvent({{ $event->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>
+                                            </td>
                                               @endif
                                           </tr>
                                         @endforeach

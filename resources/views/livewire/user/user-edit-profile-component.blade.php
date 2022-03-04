@@ -29,6 +29,12 @@
                                       </div>
                                   </div>
                                   <div class="form-group mt-3">
+                                    <label for="name" class="control-label col-md-3">Name: </label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="name" wire:model="name"/>
+                                    </div>
+                                </div>
+                                  <div class="form-group mt-3">
                                     <label for="phone" class="control-label col-md-3">Phone: </label>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control" name="phone" wire:model="phone"/>

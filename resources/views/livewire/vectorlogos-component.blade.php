@@ -72,9 +72,11 @@
                       <small><span style="padding-right: 22px;">Downloads:</span> <span class="pulls">{{ $vector->downloads }}<span></small><br/>
                     <p>TAGS:</p>
                     @foreach (explode(",",$vector->vtag) as $tags)
-                    <a href="{{ route('vector.vtag',['vtag'=>$tags]) }} "><small class="pull-left" style="margin-top: -23px; margin-right: 5px;border-radius: 5px;border: 1px solid gray;padding: 5px;"> 
-                        {{ $tags }}     
-                    </small></a>
+                        @if (!empty($tags))
+                            <a href="{{ route('vector.vtag',['vtag'=>$tags]) }} "><small class="pull-left" style="margin-top: -23px; margin-right: 5px;border-radius: 5px;border: 1px solid gray;padding: 5px;"> 
+                                {{ $tags }}     
+                            </small></a>
+                        @endif
                     @endforeach
                         @livewire('right-ads-component')
                 </div>
