@@ -155,7 +155,7 @@
                   </div>
                   <div class="col-md-12">
                       <div class="form-group">
-                          <label class="col-md-6 control-label">Short Description</label>
+                          <label class="col-md-6 control-label">About the company</label>
                           <div class="col-md-12" wire:ignore>
                               <textarea style="height: 100px" placeholder="Short Description" id="short_description" class="form-control" wire:model="short_description"></textarea>
                               @error('short_description')<p class="text-danger">{{ $message }}</p>@enderror
@@ -164,7 +164,7 @@
                   </div>
                   <div class="col-md-12">
                       <div class="form-group">
-                          <label class="col-md-6 control-label">Description</label>
+                          <label class="col-md-6 control-label">About the job </label>
                           <div class="col-md-12" wire:ignore>
                               <textarea style="height: 100px" placeholder="Description" id="description" class="form-control" wire:model="description"></textarea>
                               @error('short_description')<p class="text-danger">{{ $message }}</p>@enderror

@@ -45,6 +45,7 @@
                                         <!--<option value="2">Left</option>-->
                                         <option value="3">Right</option>
                                         <option value="4">Bottom</option>
+                                        <option value="5">Home Section</option>
                                 </select>
                                 @error('position')<p class="text-danger">{{ $message }}</p>@enderror
                             </div>

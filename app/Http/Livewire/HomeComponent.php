@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Ads;
 use App\Models\Events;
 use App\Models\Hookup;
 use App\Models\Jargons;
@@ -41,6 +42,7 @@ class HomeComponent extends Component
         $hookup = Hookup::whereDate('open','>=',Carbon::now())->where('hookup_status','published')->get()->count();
         $jargon = Jargons::orderBy('name','ASC')->where('jargons_status','published')->first();
         $event = Events::whereDate('enddate','>=',Carbon::now())->where('events_status','published')->get()->count();
-        return view('livewire.home-component',['vector'=>$vector, 'vectorcategories'=>$vectorcategories,'hookup'=>$hookup,'jargon'=>$jargon,'event'=>$event])->layout('layouts.base');
+        $tophomeAds = Ads::where('position',5)->where('endate','>=',Carbon::today())->where('status',1)->get();
+        return view('livewire.home-component',['vector'=>$vector, 'vectorcategories'=>$vectorcategories,'hookup'=>$hookup,'jargon'=>$jargon,'event'=>$event,'tophomeAds'=>$tophomeAds])->layout('layouts.base');
     }
 }

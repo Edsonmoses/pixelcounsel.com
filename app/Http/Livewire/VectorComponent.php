@@ -83,7 +83,7 @@ class VectorComponent extends Component
         $vector->image = $imgName;
         $vector->vector_categories_id = $this->vector_categories_id;
         $vector->save();
-        session()->flash('message','Logo has been submited successfully!');
+        session()->flash('message','Logo has been submitted successfully!');
     }
     public function render()
     {

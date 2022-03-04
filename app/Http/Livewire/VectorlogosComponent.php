@@ -54,7 +54,7 @@ class VectorlogosComponent extends Component
                 ->orWhere('description','LIKE',$searchTerm)
                 ->orWhere('designer','LIKE',$searchTerm)
                 ->orWhere('vtag','LIKE',$searchTerm)
-                ->orderBy('id','DESC',$searchTerm)->paginate(12);
+                ->orderBy('name','ASC',$searchTerm)->paginate(12);
                 
         $vector = Vectorlogos::where('slug',$this->slug)->orderBy('name','ASC')->where('vector_status','published')->first();
         $popular_vectors = Vectorlogos::inRandomOrder()->where('vector_status','published')->limit(4)->get();

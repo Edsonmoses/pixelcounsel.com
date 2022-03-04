@@ -42,24 +42,40 @@
                                 <select class="form-control" wire:model="position">
                                     <option value="">Select Ad Position</option>
                                         <option value="1">Top</option>
-                                        <option value="2">Right</option>
-                                        <option value="3">Bottom</option>
+                                       <!-- <option value="2">Left</option>-->
+                                        <option value="3">Right</option>
+                                        <option value="4">Bottom</option>
+                                        <option value="5">Home Section</option>
                                 </select>
                                 @error('position')<p class="text-danger">{{ $message }}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-6 control-label">Ad Start Date</label>
+                            <label class="col-md-6 control-label">Url</label>
                             <div class="col-md-6">
-                                <input type="text" placeholder="Start date" class="form-control input-md" wire:model="startdate"/>
+                                <input type="text" placeholder="Open to " class="form-control input-md" wire:model="startdate"/>
                                 @error('startdate')<p class="text-danger">{{ $message }}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-6 control-label">Ad End Date</label>
                             <div class="col-md-6">
-                                <input type="text" placeholder="End date" class="form-control input-md" wire:model="endate"/>
+                                <input wire:model="endate"
+                            type="text" class="form-control input-md datepicker" placeholder="End Date" autocomplete="off"
+                            data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
+                            onchange="this.dispatchEvent(new InputEvent('input'))">
                                 @error('endate')<p class="text-danger">{{ $message }}</p>@enderror
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label">Ad Status</label>
+                            <div class="col-md-6">
+                                <select class="form-control" wire:model="status">
+                                    <option value="">Select status</option>
+                                        <option value="0">Off</option>
+                                        <option value="1">On</option>
+                                </select>
+                                @error('status')<p class="text-danger">{{ $message }}</p>@enderror
                             </div>
                         </div>
                         <div class="form-group">

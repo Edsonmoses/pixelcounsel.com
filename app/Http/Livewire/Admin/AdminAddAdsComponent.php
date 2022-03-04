@@ -17,6 +17,7 @@ class AdminAddAdsComponent extends Component
     public $startdate;
     public $endate;
     public $postedby;
+    public $status;
 
     public function mount()
     {
@@ -52,6 +53,7 @@ class AdminAddAdsComponent extends Component
         $ads->image = $imageName;
         $ads->startdate = $this->startdate;
         $ads->endate = $this->endate;
+        $ads->status = $this->status;
         $ads->postedby = $this->postedby;
         $ads->save();
         session()->flash('message','Ad has been created successfully!');

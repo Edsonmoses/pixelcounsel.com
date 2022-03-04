@@ -174,7 +174,7 @@ class HookupAddComponent extends Component
         $hookup->open = $this->open;
         $hookup->postedby = $this->postedby;
         $hookup->save();
-        session()->flash('message','Job has been submited successfully!');
+        session()->flash('message','Job has been submitted successfully!');
     }
     public function render()
     {

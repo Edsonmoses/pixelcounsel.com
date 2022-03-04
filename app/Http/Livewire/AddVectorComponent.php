@@ -131,7 +131,7 @@ class AddVectorComponent extends Component
         $vector->downloads = $this->downloads;
         $vector->vtag = str_replace("\n",',',trim($this->vtag));
         $vector->save();
-        session()->flash('message','Logo has been submites successfully!');
+        session()->flash('message','Logo has been submitted successfully!');
         return redirect()->back();
     }
 
