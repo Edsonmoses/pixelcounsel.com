@@ -387,17 +387,20 @@
     function closeNav() {
       document.getElementById("myNav").style.display = "none";
     }
-    preventLongPressMenu(document.querySelectorAll('body img'));
-
-function preventLongPressMenu(nodes) {
-  for(var i=0; i<nodes.length; i++){
-     nodes[i].ontouchstart = absorbEvent_;
-     nodes[i].ontouchmove = absorbEvent_;
-     nodes[i].ontouchend = absorbEvent_;
-     nodes[i].ontouchcancel = absorbEvent_;
-  }
-}
-javascriptwindow.ontouchstart = function(e) { e.preventDefault(); };
+    document.onmousedown=function() { return false; }
+    document.onselectstart = function() { return false; }
+    //disable right click
+    window.addEventListener("contextmenu", function(e) { e.preventDefault(); })
+    //disable multi touch touch stuff
+    window.addEventListener("touchstart", touchHandler, { passive: false, capture: false, once: false });
+    function touchHandler(event) {
+    if (event.touches.length > 1) {
+    //the event is multi-touch
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    return false;
+    }
+    }
 
     </script>
 
