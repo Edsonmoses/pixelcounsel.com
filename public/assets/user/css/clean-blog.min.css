@@ -1069,6 +1069,12 @@ padding-top: 80px !important;
     .bottom-menu, .bottom-menu-2{
       display: block !important;
     }
+    .related-image img{
+      width:100%;
+      height: auto;
+      margin-left: 15px !important;
+    
+    }
     .m-scroll{
       overflow-x: scroll !important;   
       overflow-y: hidden !important;   
@@ -1135,8 +1141,12 @@ padding-top: 80px !important;
 }
 .col-dates .months {
   float: left !important;
-  margin-top: 6px !important;
+  margin-top: 22px !important;
   font-size: 32px;
+}
+.mb-img{
+padding: 0px !important;
+margin-top: 0px !important;
 }
 .applyN{
   margin: 0 0 15px 15px !important;
@@ -3201,3 +3211,7 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
 font-size: 20px;
 width: 50%;
 }
+.mb-img{
+  padding: 0px !important;
+  margin-top: 0px !important;
+  }

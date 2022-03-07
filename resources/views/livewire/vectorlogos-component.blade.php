@@ -113,7 +113,7 @@
       <h4 class="related-title">Related</h4>
         <div class="row">
           @foreach ($related_vectors as $r_vectors)
-            <div class="col-lg-2 col-md-2 related-image">
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 related-image">
               <a href="{{ route('vector.vectors',['slug'=>$r_vectors->slug]) }}" title="{{ $r_vectors->name }}">
                 <img src= "{{ asset('assets/images/vectors') }}/{{ $r_vectors->image }}" alt="{{ $r_vectors->name }}">
               </a>

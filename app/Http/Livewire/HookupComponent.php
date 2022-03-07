@@ -22,54 +22,15 @@ class HookupComponent extends Component
 
     public function render()
     {
-        if($this->sorting =='date')
-        {
-            $hookups = Hookup::orderBy('created_at','DESC')->paginate($this->pagesize); 
-        }
-        elseif($this->sorting =='price')
-        {
-            $hookups = Hookup::orderBy('name','DESC')->paginate($this->pagesize); 
-        }
-        elseif($this->sorting =='price-desc')
-        {
-            $hookups = Hookup::orderBy('name','DESC')->paginate($this->pagesize); 
-        }
-        elseif($this->searchTerm)
-        {
-            $searchTerm = '%'.$this->searchTerm . '%';
-            $hookups = Hookup::where('name','LIKE',$searchTerm)
-                    ->orWhere('name','LIKE',$searchTerm)
-                    ->orWhere('company','LIKE',$searchTerm)
-                    ->orWhere('jobtitle','LIKE',$searchTerm)
-                    ->orWhere('location','LIKE',$searchTerm)
-                    ->orderBy('id','DESC',$searchTerm)->paginate($this->pagesize);
-            $f_hookups = Hookup::where('name','LIKE',$searchTerm)
-                    ->orWhere('name','LIKE',$searchTerm)
-                    ->orWhere('company','LIKE',$searchTerm)
-                    ->orWhere('jobtitle','LIKE',$searchTerm)
-                    ->orWhere('location','LIKE',$searchTerm)
-                    ->orderBy('id','DESC',$searchTerm)->paginate($this->pagesize);
-            $pt_hookups = Hookup::where('name','LIKE',$searchTerm)
-                    ->orWhere('name','LIKE',$searchTerm)
-                    ->orWhere('company','LIKE',$searchTerm)
-                    ->orWhere('jobtitle','LIKE',$searchTerm)
-                    ->orWhere('location','LIKE',$searchTerm)
-                    ->orderBy('id','DESC',$searchTerm)->paginate($this->pagesize);
-            $ft_hookups = Hookup::where('name','LIKE',$searchTerm)
-                    ->orWhere('name','LIKE',$searchTerm)
-                    ->orWhere('company','LIKE',$searchTerm)
-                    ->orWhere('jobtitle','LIKE',$searchTerm)
-                    ->orWhere('location','LIKE',$searchTerm)
-                    ->orderBy('id','DESC',$searchTerm)->paginate($this->pagesize);
-        }
-        else
-        {
-            $hookups = Hookup::latest()->where('hookup_status','published')->paginate($this->pagesize);
-            $f_hookups = Hookup::where('featured',1)->where('hookup_status','published')->inRandomOrder()->take($this->pagesize)->get();
-            $pt_hookups = Hookup::whereIn('fjob',['Part Time'])->where('hookup_status','published')->inRandomOrder()->get();
-            $ft_hookups = Hookup::whereIn('fjob',['Full Time'])->where('hookup_status','published')->inRandomOrder()->get();
-        }
+        $searchTerm = '%'.$this->searchTerm . '%';
+        $hookups = Hookup::where('name','LIKE',$searchTerm)
+                ->orWhere('name','LIKE',$searchTerm)
+                ->orWhere('company','LIKE',$searchTerm)
+                ->orWhere('jobtitle','LIKE',$searchTerm)
+                ->orWhere('location','LIKE',$searchTerm)
+                ->latest('updated_at','ASC',$searchTerm)->latest()->where('hookup_status','published')->paginate(10);
+      
         $hookupcategories = HookupCategory::all();
-        return view('livewire.hookup-component',['hookups'=>$hookups,'hookupcategories'=>$hookupcategories,'f_hookups'=>$f_hookups,'pt_hookups'=>$pt_hookups,'ft_hookups'=>$ft_hookups])->layout('layouts.baseapp');
+        return view('livewire.hookup-component',['hookups'=>$hookups,'hookupcategories'=>$hookupcategories])->layout('layouts.baseapp');
     }
 }
