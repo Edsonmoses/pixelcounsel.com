@@ -28,7 +28,6 @@ class VectorlogosComponent extends Component
 
     public function export($id)
     {
-        set_time_limit(0);
         $vector = Vectorlogos::where('id', $id)->firstOrFail();
 
         $vector = Vectorlogos::find($id);
