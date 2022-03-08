@@ -58,7 +58,7 @@
           <span class="sr-only">Toggle navigation</span>
          <i class="fa fa-bars"></i>
       </button>
-      <a class="navbar-brand brand-md-none" href="/"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'PixelCounsel') }}"></a>
+      {{-- <a class="navbar-brand brand-md-none" href="/"><img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" class="img-responsive" alt="{{ config('app.name', 'PixelCounsel') }}"></a>--}}
       <a class="navbar-brand brand-sm-none" href="/"><img src="{{asset('assets/uploads/img/PC Logo.svg')}}" class="img-responsive" alt="{{ config('app.name', 'PixelCounsel') }}"></a>
     </div>
     <div class="collapse navbar-collapse d-sm-none" id="bs-example-navbar-collapse-1">

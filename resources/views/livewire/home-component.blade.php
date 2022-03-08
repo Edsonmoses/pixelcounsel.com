@@ -37,7 +37,7 @@
 						<div class="col-md-12 col-lg-7 col-sm-12 vectorl">
 							<a href="/vector"><img src="{{asset('assets/uploads/img/vector logos of brands in africa.svg')}}" class="img-fluid" alt="Pixel Counsel Logo">	
 							</a>
-							<p class="vtagline">Online vector logo collection of brands in Africa</p><br/>
+							<p class="vtagline">Shared by creatives everywhere.</p><br/><br/><br/>
 							@livewire('home-search-component')
 						</div>
 					</div>

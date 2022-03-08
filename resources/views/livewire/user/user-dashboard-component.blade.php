@@ -11,7 +11,7 @@
                       <div class="card">
                           <div class="card-body">
 
-                              <h4 class="header-title mt-0 mb-4">Total Revenue</h4>
+                              <h4 class="header-title mt-0 mb-4">Approved Items</h4>
 
                               <div class="widget-chart-1">
                                   <div class="widget-chart-box-1 float-start" dir="ltr">
@@ -22,7 +22,7 @@
                                   </div>
 
                                   <div class="widget-detail-1 text-end">
-                                      <h2 class="fw-normal pt-2 mb-1"> 256 </h2>
+                                      <h2 class="fw-normal pt-2 mb-1"> {{ $approved }} </h2>
                                       <p class="text-muted mb-1">Revenue today</p>
                                   </div>
                               </div>
@@ -34,12 +34,12 @@
                       <div class="card">
                           <div class="card-body">
 
-                              <h4 class="header-title mt-0 mb-3">Sales Analytics</h4>
+                              <h4 class="header-title mt-0 mb-3">Pending Items</h4>
 
                               <div class="widget-box-2">
                                   <div class="widget-detail-2 text-end">
                                       <span class="badge bg-success rounded-pill float-start mt-3">32% <i class="mdi mdi-trending-up"></i> </span>
-                                      <h2 class="fw-normal mb-1"> 8451 </h2>
+                                      <h2 class="fw-normal mb-1"> {{$pending}} </h2>
                                       <p class="text-muted mb-3">Revenue today</p>
                                   </div>
                                   <div class="progress progress-bar-alt-success progress-sm">
@@ -58,7 +58,7 @@
                       <div class="card">
                           <div class="card-body">
 
-                              <h4 class="header-title mt-0 mb-4">Most downloaded Logo </h4>
+                              <h4 class="header-title mt-0 mb-4">Your most downloaded Logo </h4>
 
                               <div class="widget-chart-1">
                                   <div class="widget-chart-box-1 float-start" dir="ltr">
@@ -139,6 +139,9 @@
                                                 <td>{{ $vector->format }}</td>
                                                 @if ($vector->vector_status == 'published')
                                                 <td><span class="badge bg-success">Approved</span></td>
+                                                <td>
+                                                    <a href="#"><i  class="fas fa-edit"></i></a>
+                                                </td>
                                                 @else
                                                 <td><span class="badge bg-pink">Pending</span></td>
                                                 <td>
@@ -183,6 +186,9 @@
                                               <td>{{ $job->company }}</td>
                                               @if ($job->hookup_status == 'published')
                                               <td><span class="badge bg-success">Approved</span></td>
+                                              <td>
+                                                <a href="#"><i  class="fas fa-edit"></i></a>
+                                            </td>
                                               @else
                                               <td><span class="badge bg-pink">Pending</span></td>
                                               <td>
@@ -227,6 +233,9 @@
                                               <td>{{ $event->format }}</td>
                                               @if ($event->events_status == 'published')
                                               <td><span class="badge bg-success">Approved</span></td>
+                                              <td>
+                                                <a href="#"><i  class="fas fa-edit"></i></a>
+                                            </td>
                                               @else
                                               <td><span class="badge bg-pink">Pending</span></td>
                                               <td>

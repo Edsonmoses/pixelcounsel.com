@@ -262,7 +262,7 @@
     
                     <!-- LOGO -->
                     <div class="logo-box">
-                        <a href="{{route('user.dashboard')}}" class="logo logo-light text-center">
+                        <a href="/" class="logo logo-light text-center">
                             <span class="logo-sm">
                                 <img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" alt="{{ config('app.name', 'PixelCounsel') }}" height="88">
                             </span>
@@ -270,7 +270,7 @@
                                 <img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" alt="{{ config('app.name', 'PixelCounsel') }}" height="60">
                             </span>
                         </a>
-                        <a href="{{route('user.dashboard')}}" class="logo logo-dark text-center">
+                        <a href="/" class="logo logo-dark text-center">
                             <span class="logo-sm">
                                 <img src="{{asset('assets/uploads/img/Pixel Counsel--09.svg')}}" alt="{{ config('app.name', 'PixelCounsel') }}" height="88">
                             </span>
@@ -288,7 +288,7 @@
                         </li>
     
                         <li>
-                            <h4 class="page-title-main">Dashboard</h4>
+                           <a href="{{route('user.dashboard')}}" <h4 class="page-title-main">Dashboard</h4></a>
                         </li>
             
                     </ul>

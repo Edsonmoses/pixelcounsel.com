@@ -112,6 +112,7 @@ Route::get('/search', SearchComponent::class)->name('vector.search');
 Route::get('/terms-of-use', TermsOfUseComponent::class);
 
 
+
 // Facebook Login URL
 Route::prefix('facebook')->name('facebook.')->group( function(){
     Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
@@ -128,6 +129,10 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 
 Route::get('lang/home', 'LangController@index');
 Route::get('lang/change', 'LangController@change')->name('changeLang');
+
+Route::get('newsletter',[NewsletterController::class, 'create']);
+Route::post('newsletter',[NewsletterController::class,'store']);
+
 
 //For Users or Customer
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

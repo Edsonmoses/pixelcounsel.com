@@ -12,13 +12,14 @@
         "laravel/fortify": "^1.8",
         "laravel/framework": "^8.65",
         "laravel/jetstream": "^2.4",
-        "laravel/sanctum": "^2.11",
+        "laravel/sanctum": "^2.14",
         "laravel/socialite": "^5.4",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
         "mailchimp/mailchimp": "^2.0",
         "spatie/laravel-analytics": "^3.11",
         "spatie/laravel-cookie-consent": "^2.12",
+        "spatie/laravel-newsletter": "^4.11",
         "the42coders/eu-cookie-consent": "^1.0",
         "twilio/sdk": "^6.34"
     },
@@ -48,7 +49,7 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

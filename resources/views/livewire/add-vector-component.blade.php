@@ -161,7 +161,7 @@
 </div>
 @push('scripts')
 <script type= text/javascript>
-  $(function() {
+ /* $(function() {
       tinymce.init({
           selector:'#short_description',
           setup:function(editor) {
@@ -183,7 +183,7 @@
               });
           }
       });
-  });
+  });*/
   
 </script>
 @endpush 

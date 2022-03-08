@@ -29,7 +29,14 @@ class UserDashboardComponent extends Component
         $mvectors = $newestCliente->downloads;
         $jobs = Hookup::where('postedby',Auth::user()->name)->orderBy('hookup_status','ASC')->get();
         $events = Events::where('postedby',Auth::user()->name)->orderBy('events_status','ASC')->get();
+        $eventsA = Events::where('postedby',Auth::user()->name)->where('events_status','published')->count();
+        $pevents = Events::where('postedby',Auth::user()->name)->where('events_status','unpublished')->count();
         $count = Hookup::where('hookup_status','published')->whereDate('open','>=',Carbon::now())->count();
-        return view('livewire.user.user-dashboard-component',['vectors'=>$vectors,'count'=>$count,'profile'=>$profile,'user'=>$user,'jobs'=>$jobs,'events'=>$events,'mvectors'=>$mvectors])->layout('layouts.userbackend');
+        $pcount = Hookup::where('hookup_status','unpublished')->whereDate('open','>=',Carbon::now())->count();
+        $pendings = Vectorlogos::where('contributor',Auth::user()->name)->where('vector_status','unpublished')->count();
+        $approveds = Vectorlogos::where('contributor',Auth::user()->name)->where('vector_status','published')->count();
+        $approved = $approveds + $count + $eventsA;
+        $pending = $pendings + $pcount + $pevents;
+        return view('livewire.user.user-dashboard-component',['vectors'=>$vectors,'count'=>$count,'profile'=>$profile,'user'=>$user,'jobs'=>$jobs,'events'=>$events,'mvectors'=>$mvectors,'pending'=>$pending,'approved'=>$approved])->layout('layouts.userbackend');
     }
 }
