@@ -60,10 +60,19 @@ use App\Http\Livewire\JargonbusterComponent;
 use App\Http\Livewire\JargonCategoryComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\TermsOfUseComponent;
+use App\Http\Livewire\User\UserAddEventComponent;
+use App\Http\Livewire\User\UserAddHookComponent;
+use App\Http\Livewire\User\UserAddVectorsComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\UserEditEventComponent;
+use App\Http\Livewire\User\UsereditHookupComponent;
 use App\Http\Livewire\User\UserEditProfileComponent;
+use App\Http\Livewire\User\UserEditVectorComponent;
+use App\Http\Livewire\User\UserEventComponent;
+use App\Http\Livewire\User\UserHookupComponent;
 use App\Http\Livewire\User\UserProfileComponent;
 use App\Http\Livewire\User\UserSettingComponent;
+use App\Http\Livewire\User\UserVectorComponent;
 use App\Http\Livewire\VectorComponent;
 use App\Http\Livewire\VectorlogosComponent;
 use Illuminate\Support\Facades\Route;
@@ -142,6 +151,23 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/setting',UserSettingComponent::class)->name('user.setting');
     Route::get('/user/2fa',UserSettingComponent::class)->name('user.2faenable');
     Route::get('/user/delete-account',UserSettingComponent::class)->name('user.daccount');
+
+    //for vectors
+    Route::get('/user/vectors', UserVectorComponent::class)->name('user.vectors');
+    Route::get('/user/vector/add', UserAddVectorsComponent::class)->name('user.vecadd');
+    Route::get('/user/vector/edit/{vector_slug}', UserEditVectorComponent::class)->name('user.vecedit');
+    Route::get('/user/vectors/edit', UserVectorComponent::class)->name('user.vecedits');
+    
+    //for events
+    Route::get('/user/events', UserEventComponent::class)->name('user.events');
+    Route::get('/user/event/add', UserAddEventComponent::class)->name('user.evadd');
+    Route::get('/user/event/edit/{event_slug}', UserEditEventComponent::class)->name('user.evedit');
+    Route::get('/user/events/edit', UserEventComponent::class)->name('user.evedits');
+    //for hookups
+    Route::get('/user/hookups', UserHookupComponent::class)->name('user.hookups');
+    Route::get('/user/hookup/add', UserAddHookComponent::class)->name('user.hookadd');
+    Route::get('/user/hookup/edit/{hookup_slug}', UsereditHookupComponent::class)->name('user.hookedit');
+    Route::get('/user/hookups/edit', UserHookupComponent::class)->name('user.hookedits');
 });
 
 //For Admin

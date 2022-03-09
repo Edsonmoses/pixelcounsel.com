@@ -9,4 +9,9 @@ class EventsCategory extends Model
 {
     use HasFactory;
     protected $table = "events_categories";
+
+    public function event()
+    {
+        return $this->hasOne(Events::class,'events_categories_id');
+    }
 }

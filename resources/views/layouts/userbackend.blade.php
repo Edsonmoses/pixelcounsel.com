@@ -11,9 +11,18 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('assets/admin/assets/images/favicon.png')}}">
 
+         <!-- Plugins css -->
+         <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
+         <link href="{{ asset('assets/admin/assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" rel="stylesheet" />
+ 
+         <link href="{{ asset('assets/admin/assets/libs/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
+         <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+         <link href="{{ asset('assets/admin/assets/libs/selectize/css/selectize.bootstrap3.css')}}" rel="stylesheet" type="text/css" />
+
         <!-- App css -->
         <link href="{{ asset('assets/user/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
         <link href="{{ asset('assets/user/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+        <link href="assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
 
         <!-- App-dark css -->
         <link href="{{ asset('assets/user/assets/css/bootstrap-dark.min.css')}}" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" disabled="disabled"/>
@@ -375,6 +384,66 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="#vectors" data-bs-toggle="collapse">
+                                    <i class="fa fa-vector-square"></i>
+                                    <span> Vectors </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="vectors">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{route('user.vectors')}}">All Vectors</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('user.vecadd')}}">Add vector</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('user.vecedits')}}">Edit Vector</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#hookups" data-bs-toggle="collapse">
+                                    <i class="fa fa-tasks"></i>
+                                    <span> Hookup </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="hookups">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{route('user.hookups')}}">All Hookups</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('user.hookadd')}}">Add Hookup</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('user.hookedits')}}">Edit Hookup</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#events" data-bs-toggle="collapse">
+                                    <i class="fa fa-calendar-check"></i>
+                                    <span> Events </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="events">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{route('user.events')}}">All Events</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('user.evadd')}}">Add Event</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('user.evedits')}}">Edit Event</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
                                 <a href="{{ route('user.profile') }}">
                                     <i class="fe-user me-1"></i>
                                     <span> My Account </span>
@@ -607,6 +676,10 @@
 
         <!-- knob plugin -->
         <script src="{{ asset('assets/user/assets/libs/jquery-knob/jquery.knob.min.js')}}"></script>
+        <script src="{{ asset('assets/user/assets/libs/selectize/js/standalone/selectize.min.js')}}"></script>
+        <script src="{{ asset('assets/user/assets/libs/dropzone/min/dropzone.min.js')}}"></script>
+        <script src="{{ asset('assets/user/assets/libs/multiselect/js/jquery.multi-select.js')}}"></script>
+        <script src="{{ asset('assets/user/assets/libs/select2/js/select2.min.js')}}"></script>
 
         <!--Morris Chart-->
         <script src="{{ asset('assets/user/assets/libs/morris.js06/morris.min.js')}}"></script>

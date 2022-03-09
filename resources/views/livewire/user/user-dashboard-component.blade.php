@@ -1,4 +1,13 @@
 <div>
+    <div class="page-content">
+        <style>
+            nav svg{
+                height: 10px;
+            }
+            nav .hidden{
+                display: block !important;
+            }
+        </style>
   <div class="content-page">
       <div class="content">
 
@@ -123,6 +132,7 @@
                                       <thead>
                                       <tr>
                                           <th>#</th>
+                                          <th>Logo</th>
                                           <th>Logo Name</th>
                                           <th>Created Date</th>
                                           <th>Format</th>
@@ -134,19 +144,20 @@
                                         @foreach ($vectors as $vector )
                                             <tr>
                                                 <td>{{ $vector->id }}</td>
-                                                <td>A{{ $vector->name }}</td>
+                                                <td><img src="{{ asset('assets/images/vectors') }}/{{ $vector->image }}" class="rounded-circle" width="30" height="30"/></td>
+                                                <td>{{ $vector->name }}</td>
                                                 <td>{{ $vector->created_at }}</td>
                                                 <td>{{ $vector->format }}</td>
                                                 @if ($vector->vector_status == 'published')
                                                 <td><span class="badge bg-success">Approved</span></td>
                                                 <td>
-                                                    <a href="#"><i  class="fas fa-edit"></i></a>
+                                                    <a href="{{ route('user.vecedit',['vector_slug'=>$vector->slug]) }}"><i  class="fas fa-edit"></i></a>
                                                 </td>
                                                 @else
                                                 <td><span class="badge bg-pink">Pending</span></td>
                                                 <td>
-                                                    <a href="#"><i  class="fas fa-edit"></i></a>
-                                                    <a href="#" onclick="confirm('Ara you sure, You want to delete this logo') || event.stopImmediatePropagation()" wire:click.prevent="deleteLogo({{ $vector->id }})" style="margin-left: 10px"><i class="fas fa-trash fa-1x text-danger"></i></a>
+                                                    <a href="{{ route('user.vecedit',['vector_slug'=>$vector->slug]) }}"><i  class="fas fa-edit"></i></a>
+                                                    <a href="#" onclick="confirm('Ara you sure, You want to delete this logo') || event.stopImmediatePropagation()" wire:click.prevent="deleteVector({{ $vector->id }})" style="margin-left: 10px"><i class="fas fa-trash fa-1x text-danger"></i></a>
                                                 </td>
                                                 @endif
                                             </tr>
@@ -154,6 +165,7 @@
 
                                       </tbody>
                                   </table>
+                                  {{$vectors->links()}}
                               </div>
                           </div> 
                       </div>
@@ -170,9 +182,9 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Logo Name</th>
+                                        <th>Company Logo</th>
+                                        <th>Job Name</th>
                                         <th>Created Date</th>
-                                        <th>Format</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -181,19 +193,20 @@
                                       @foreach ($jobs as $job )
                                           <tr>
                                               <td>{{ $job->id }}</td>
-                                              <td>A{{ $job->name }}</td>
+                                              <td><img src="{{ asset('assets/images/hookups') }}/{{ $job->images }}" class="rounded-circle" width="30" height="30"/></td>
+                                              <td>{{ $job->name }}</td>
                                               <td>{{ $job->created_at }}</td>
                                               <td>{{ $job->company }}</td>
                                               @if ($job->hookup_status == 'published')
                                               <td><span class="badge bg-success">Approved</span></td>
                                               <td>
-                                                <a href="#"><i  class="fas fa-edit"></i></a>
+                                                <a href="{{ route('user.hookedit',['hookup_slug'=>$job->slug]) }}"><i  class="fas fa-edit"></i></a>
                                             </td>
                                               @else
                                               <td><span class="badge bg-pink">Pending</span></td>
                                               <td>
-                                                <a href="#"><i  class="fa fa-edit"></i></a>
-                                                <a href="#" onclick="confirm('Ara you sure, You want to delete this job') || event.stopImmediatePropagation()" wire:click.prevent="deleteJob({{ $job->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>
+                                                <a href="{{ route('user.hookedit',['hookup_slug'=>$job->slug]) }}"><i  class="fas fa-edit"></i></a>
+                                                <a href="#" onclick="confirm('Ara you sure, You want to delete this job') || event.stopImmediatePropagation()" wire:click.prevent="deleteVector({{ $job->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>
                                             </td>
                                               @endif
                                           </tr>
@@ -201,6 +214,7 @@
 
                                     </tbody>
                                 </table>
+                                {{$jobs->links()}}
                             </div>
                         </div> 
                     </div>
@@ -217,9 +231,9 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Logo Name</th>
+                                        <th>Event Image</th>
+                                        <th>Event Name</th>
                                         <th>Closing Date</th>
-                                        <th>Format</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -228,18 +242,19 @@
                                       @foreach ($events as $event )
                                           <tr>
                                               <td>{{ $event->id }}</td>
-                                              <td>A{{ $event->name }}</td>
+                                              <td><img src="{{ asset('assets/images/events') }}/{{ $event->images }}" class="rounded-circle" width="30" height="30"/></td>
+                                              <td>{{ $event->name }}</td>
                                               <td>{{ $event->enddate }}</td>
                                               <td>{{ $event->format }}</td>
                                               @if ($event->events_status == 'published')
                                               <td><span class="badge bg-success">Approved</span></td>
                                               <td>
-                                                <a href="#"><i  class="fas fa-edit"></i></a>
+                                                <a href="{{ route('user.evedit',['event_slug'=>$event->slug]) }}"><i  class="fas fa-edit"></i></a>
                                             </td>
                                               @else
                                               <td><span class="badge bg-pink">Pending</span></td>
                                               <td>
-                                                <a href="#"><i  class="fa fa-edit fa-1x"></i></a>
+                                                <a href="{{ route('user.evedit',['event_slug'=>$event->slug]) }}"><i  class="fas fa-edit"></i></a>
                                                 <a href="#" onclick="confirm('Ara you sure, You want to delete this event') || event.stopImmediatePropagation()" wire:click.prevent="deleteEvent({{ $event->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>
                                             </td>
                                               @endif
@@ -248,6 +263,7 @@
 
                                     </tbody>
                                 </table>
+                                {{$events->links()}}
                             </div>
                         </div> 
                     </div>

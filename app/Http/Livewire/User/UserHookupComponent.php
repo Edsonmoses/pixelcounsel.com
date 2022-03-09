@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\User;
 
 use App\Models\Hookup;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class AdminHookupComponent extends Component
+class UserHookupComponent extends Component
 {
     public function deleteVector($id)
     {
@@ -21,10 +22,9 @@ class AdminHookupComponent extends Component
         $hookup->delete();
         session()->flash('message','Hookup file has been deleted successfully!');
     }
-
     public function render()
     {
-        $hookups = Hookup::paginate(10);
-        return view('livewire.admin.admin-hookup-component',['hookups'=>$hookups])->layout('layouts.backend');
+        $jobs = Hookup::where('postedby',Auth::user()->name)->orderBy('hookup_status','ASC')->paginate(10);
+        return view('livewire.user.user-hookup-component',['jobs'=>$jobs])->layout('layouts.userbackend');
     }
 }

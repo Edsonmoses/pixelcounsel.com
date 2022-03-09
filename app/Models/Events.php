@@ -9,4 +9,11 @@ class Events extends Model
 {
     use HasFactory;
     protected $table="events";
+
+    protected $fillable = ['events_categories_id'];
+
+    public function Category() 
+{
+    return $this->belongsTo(EventsCategory::class);
+}
 }

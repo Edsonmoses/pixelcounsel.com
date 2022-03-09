@@ -92,7 +92,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2">
                                         <label class="text-muted">Designer</label>
-                                        <input type="text" placeholder="Designer" class="form-control input-md" wire:model="designer">
+                                        <input type="text" placeholder="{{ Auth::user()->name }}" class="form-control input-md" wire:model="designer">
                                     </div>
                                 </div>
                             <div class="col-md-6">
