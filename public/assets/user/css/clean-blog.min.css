@@ -3208,8 +3208,9 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
 }
 .home-page .vtagline{
   margin-top: -110px;
-font-size: 20px;
-width: 60%;
+  font-size: 13px;
+  font-weight: 300;
+  width: 60%;
 }
 .mb-img{
   padding: 0px !important;
