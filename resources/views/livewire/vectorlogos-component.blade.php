@@ -73,7 +73,7 @@
                     <p>TAGS:</p>
                     @foreach (explode(",",$vector->vtag) as $tags)
                         @if (!empty($tags))
-                            <a href="{{ route('vector.vtag',['vtag'=>$tags]) }} " class="mb-3"><small class="pull-left" style="margin-top: -9px; margin-right: 5px;border-radius: 5px;border: 1px solid gray;padding: 5px;"> 
+                            <a href="{{ route('vector.vtag',['vtag'=>$tags]) }} " class="mb-3"><small class="pull-left" style="margin-top: 10px; margin-right: 5px;border-radius: 5px;border: 1px solid gray;padding: 5px;"> 
                                 {{ $tags }}     
                             </small></a>
                         @endif
