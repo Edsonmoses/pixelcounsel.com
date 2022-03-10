@@ -81,16 +81,19 @@
                   <div class="card-body">
                     <div class="row  col-bb">
                         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-infos">
-                          <a href="#" role="button" data-toggle="modal" data-target="#eventModal_{{$event->id}}"><h2 class="card-title" >{{substr($event->name,0,24)}}</h2></a>
+                          <a href="{{ route('events.details',['event_slug'=>$event->slug]) }}" role="button"><h2 class="card-title" >
+                            {{substr($event->name,0,24)}}</h2></a>
                             <p class="card-text">{{ substr($event->description,0,51) }}</p>
                         </div>
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-dates text-center">
+                          <a href="{{ route('events.details',['event_slug'=>$event->slug]) }}">
                             <p class="dates">{{\Carbon\Carbon::parse($event->enddate)->isoFormat('DD') }}</p>
                             <p class="months d-xs-non d-md-non">{{Str::upper(\Carbon\Carbon::parse($event->enddate)->isoFormat('MMM')) }}</p>
+                          </a>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                    <p class="footer-title" style="margin-bottom: 5px !important">{{substr($event->exhibition,0,26)}}</p>
+                      <a href="{{ route('events.details',['event_slug'=>$event->slug]) }}"><p class="footer-title" style="margin-bottom: 5px !important">{{substr($event->eventeype->name,0,26)}}</p></a>
                     </div>
                   </div>
                 </div>

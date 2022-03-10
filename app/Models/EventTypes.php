@@ -9,4 +9,7 @@ class EventTypes extends Model
 {
     use HasFactory;
     protected $table = "event_types";
+    public function events() {
+        return $this->hasMany('App\Models\Events', 'etype_id');    
+    }
 }

@@ -10,6 +10,10 @@ class Jargons extends Model
     use HasFactory;
     protected $table="jargons";
 
+    public function categories () {
+        return $this->belongsTo('App\Models\JargonCategory', 'jargon_categories_id', 'id');   
+    }
+
     public function atributes()
     {
         return $this->hasMany(AlpFilter::class,'afid');

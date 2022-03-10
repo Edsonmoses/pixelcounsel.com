@@ -10,10 +10,15 @@ class Events extends Model
     use HasFactory;
     protected $table="events";
 
-    protected $fillable = ['events_categories_id'];
+    public function categories() {
+        return $this->belongsTo('App\Models\EventsCategory', 'events_categories_id', 'id');   
+    }
 
-    public function Category() 
-{
-    return $this->belongsTo(EventsCategory::class);
-}
+    public function eventtypes() {
+        return $this->belongsTo('App\Models\EventType', 'etype_id', 'id');   
+    }
+
+    public function eventeype() {
+        return $this->belongsTo('App\Models\EventType', 'etype_id', 'id');   
+    }
 }

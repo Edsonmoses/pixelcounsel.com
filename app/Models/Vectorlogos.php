@@ -12,6 +12,6 @@ class Vectorlogos extends Model
     
     public function vectorcategory()
     {
-        return $this->belongsTo(VectorCategory::class,'vector_categories_id');
+        return $this->belongsTo(VectorCategory::class,'vector_categories_id', 'id');
     }
 }

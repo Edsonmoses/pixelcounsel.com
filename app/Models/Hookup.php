@@ -9,4 +9,8 @@ class Hookup extends Model
 {
     use HasFactory;
     protected $table="hookups";
+
+    public function categories () {
+        return $this->belongsTo('App\Models\HookupCategory', 'hookup_categories_id', 'id');   
+    }
 }
