@@ -39,11 +39,11 @@
         @if (Route::has('login'))
           @auth
               @if (Auth::user()->utype === 'ADM')
-              <a href="{{route('admin.dashboard')}}" class="sidebar-brand">
+              <a href="/" class="sidebar-brand">
                   Pixel<span>Counsel</span>
               </a>
               @else
-              <a href="{{route('user.dashboard')}}" class="sidebar-brand">
+              <a href="/" class="sidebar-brand">
                 Pixel<span>Counsel</span>
             </a>
           @endif
