@@ -18,7 +18,7 @@ class AdminVectorCategoryComponent extends Component
     }
     public function render()
     {
-        $vectors = VectorCategory::paginate(5);
+        $vectors = VectorCategory::paginate(20);
         return view('livewire.admin.admin-vector-category-component',['vectors'=>$vectors])->layout('layouts.backend');
     }
 }

@@ -9,16 +9,16 @@ use Illuminate\Support\Str;
 
 class AdminEditVectorCategoryComponent extends Component
 {
-    public $vectorcategory_slug;
+    public $vector_slug;
     public $vectorcategory_id;
     public $name;
     public $slug;
     public $postedby;
 
-    public function mount($vectorcategory_slug)
+    public function mount($vector_slug)
     {
-        $this->vectorcategory_slug = $vectorcategory_slug;
-        $vectorcategory = VectorCategory::where('slug',$vectorcategory_slug)->first();
+        $this->vector_slug = $vector_slug;
+        $vectorcategory = VectorCategory::where('slug',$vector_slug)->first();
         $this->vectorcategory_id = $vectorcategory->id;
         $this->name = $vectorcategory->name;
         $this->slug = $vectorcategory->slug;

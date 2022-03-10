@@ -17,8 +17,8 @@ class CreateVectorlogosTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('short_description');
-            $table->text('description');
+            $table->text('short_description');
+            $table->longText('description');
             $table->string('designer');
             $table->string('format');
             $table->string('contributor');

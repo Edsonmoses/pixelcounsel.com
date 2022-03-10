@@ -17,8 +17,8 @@ class CreateJargonsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('short_description');
-            $table->text('description');
+            $table->text('short_description');
+            $table->longText('description');
             $table->enum('jargons_status',['published','unpublished']);
             $table->text('images')->default('placesholder.jpg');
             $table->bigInteger('jargon_categories_id')->unsigned()->nullable();

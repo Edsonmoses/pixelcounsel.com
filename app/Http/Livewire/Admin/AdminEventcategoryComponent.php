@@ -19,7 +19,7 @@ class AdminEventcategoryComponent extends Component
 
     public function render()
     {
-        $events = EventsCategory::paginate(10);
+        $events = EventsCategory::paginate(20);
         return view('livewire.admin.admin-eventcategory-component',['events'=>$events])->layout('layouts.backend');
     }
 }

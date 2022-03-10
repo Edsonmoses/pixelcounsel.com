@@ -27,7 +27,7 @@
           @if (Session::has('message'))
               <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
           @endif
-          <form class="form-horizontal" wire:submit.prevent="storeCategory">
+          <form class="form-horizontal" wire:submit.prevent="updateVector">
               <div class="form-group">
                   <label class="col-md-6 control-label">Category Name</label>
                   <div class="col-md-6">
