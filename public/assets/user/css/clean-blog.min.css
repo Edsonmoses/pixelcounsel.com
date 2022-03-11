@@ -3229,3 +3229,8 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
   .mb-3{
     padding-top: 1em;
   }
+  .modal-open .modal {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    overflow-y: scroll;
+}

@@ -14,7 +14,7 @@
                                 <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                             @endif
                               <div class="flex-grow-1 overflow-hidden">
-                                <form class="form-horizontal" wire:submit.prevent="addVector">
+                                <form class="form-horizontal" id="updated-form" wire:submit.prevent="addVector">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="mb-3">
@@ -162,4 +162,46 @@
       </div> <!-- content -->
   </div>
      
-  
+    <!-- Modal event created successfully!-->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <a href="{{route('user.hookups')}}" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </a>
+            </div>
+            <div class="modal-body text-center">
+                <h2>Success!</h2>
+                <p>Everything went well,<br/>
+                Your job has been submitted successfully!</p>
+                <a href="{{route('user.hookadd')}}" class="btn btn-success">Add another job</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Modal event created successfully! end here-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type='text/javascript'>
+        $('#updated-form').submit(function (e) {
+              $('#exampleModalLong').modal('show');
+              return false;
+          });
+        </script>
+        <style>
+        .modal-header .close {
+                margin: 0;
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                width: 23px;
+                height: 23px;
+                border-radius: 23px;
+                background-color: #313844;
+                color: #fff;
+                font-size: 16px;
+                opacity: 1;
+                z-index: 10;
+                text-align: center;
+            } 
+        </style>

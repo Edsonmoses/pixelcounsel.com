@@ -66,7 +66,6 @@ class UserAddEventComponent extends Component
         $event->ticket = $this->ticket;
         $event->enddate = $this->enddate;
         $event->postedby = $this->postedby;
-        $event->user->notify(new Pending($event));
         $event->save();
         session()->flash('message','Event has been submitted successfully!');
     }

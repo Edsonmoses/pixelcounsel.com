@@ -93,8 +93,8 @@ class UserEditEventComponent extends Component
     }
     public function render()
     {
-        $eventcategories = EventsCategory::all()->orderBy('name', 'ASC');
-        $eventtypes = EventType::all()->orderBy('name', 'ASC');
+        $eventcategories = EventsCategory::all()->sortBy('name');
+        $eventtypes = EventType::all()->sortBy('name');
         return view('livewire.user.user-edit-event-component',['eventcategories'=>$eventcategories,'eventtypes'=>$eventtypes])->layout('layouts.userbackend');
     }
 }
