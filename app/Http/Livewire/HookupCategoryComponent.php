@@ -74,7 +74,7 @@ class HookupCategoryComponent extends Component
             $pt_hookups = Hookup::whereIn('fjob',['Part Time'])->inRandomOrder()->get();
             $ft_hookups = Hookup::whereIn('fjob',['Full Time'])->inRandomOrder()->get();
         }
-        $hookupcategories = HookupCategory::all();
+        $hookupcategories = HookupCategory::all()->sortBy('name');
         return view('livewire.hookup-category-component',['hookups'=>$hookups,'hookupcategories'=>$hookupcategories,'category_name'=>$category_name,'f_hookups'=>$f_hookups,'pt_hookups'=>$pt_hookups,'ft_hookups'=>$ft_hookups])->layout('layouts.baseapp');
     }
 }

@@ -31,10 +31,10 @@
 	</section>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-7 col-md-12 col-sm-12" style="background-color: #fff100">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-7" style="background-color: #fff100">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-12 col-lg-7 col-sm-12 vectorl">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 col-lg-offset-1 vectorl">
 							<a href="/vector"><img src="{{asset('assets/uploads/img/vector logos of brands in africa.svg')}}" class="img-fluid" alt="Pixel Counsel Logo">	
 							</a>
 							<p class="vtagline">Shared by creatives everywhere.</p><br/><br/><br/>
@@ -43,7 +43,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-5 col-md-12 col-sm-12" style="background-color: #333333">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-5" style="background-color: #333333">
 				<div class="container">
 					<div class="row">
 						{{--<div class="col-md-4 h-updates">

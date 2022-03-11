@@ -88,9 +88,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
-});*/
+});
 
 Route::get('/',HomeComponent::class);
 
@@ -119,8 +119,10 @@ Route::get('/blog', BlogComponent::class);
 
 Route::get('/search', SearchComponent::class)->name('vector.search');
 Route::get('/terms-of-use', TermsOfUseComponent::class);
-
-
+Route::get('test', function () {
+    event(new App\Events\StatusLiked('Someone'));
+    return "Event has been sent!";
+});
 
 // Facebook Login URL
 Route::prefix('facebook')->name('facebook.')->group( function(){

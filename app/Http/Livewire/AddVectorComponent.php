@@ -137,7 +137,7 @@ class AddVectorComponent extends Component
 
     public function render()
     {
-        $vectorcategories = VectorCategory::all();
+        $vectorcategories = VectorCategory::all()->sortBy('name');
         return view('livewire.add-vector-component',['vectorcategories'=>$vectorcategories])->layout('layouts.baseapp');
     }
 }

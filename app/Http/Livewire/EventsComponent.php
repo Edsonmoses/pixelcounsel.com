@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Events;
 use App\Models\EventsCategory;
 use App\Models\EventType;
+use App\Notifications\Pending;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -73,6 +74,7 @@ class EventsComponent extends Component
         $event->ticket = $this->ticket;
         $event->enddate = $this->enddate;
         //$event->postedby = $this->postedby;
+        $event->user->notify(new Pending($event));
         $event->save();
         session()->flash('message','Event has been created successfully!');
     }
@@ -95,8 +97,8 @@ class EventsComponent extends Component
             $events = Events::with('eventeype')->whereDate('enddate','>=',Carbon::now())->orderBy('enddate','ASC')->where('events_status','published')->paginate($this->pagesize);
             $ads_events = Events::whereDate('enddate','>=',Carbon::now())->orderBy('enddate','ASC')->where('events_status','published')->take(3)->get();
         }
-        $eventcategories = EventsCategory::all();
-        $eventtypes = EventType::all();
+        $eventcategories = EventsCategory::all()->sortBy('name');
+        $eventtypes = EventType::all()->sortBy('name');
         return view('livewire.events-component',['events'=>$events,'eventcategories'=>$eventcategories, 'eventtypes'=>$eventtypes,'ads_events'=>$ads_events])->layout('layouts.baseapp');
     }
 }

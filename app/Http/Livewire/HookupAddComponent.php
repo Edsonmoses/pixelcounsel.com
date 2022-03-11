@@ -178,7 +178,7 @@ class HookupAddComponent extends Component
     }
     public function render()
     {
-        $hookupcategories = HookupCategory::all();
+        $hookupcategories = HookupCategory::all()->sortBy('name');
         return view('livewire.hookup-add-component',['hookupcategories'=>$hookupcategories])->layout('layouts.baseapp');
     }
 }

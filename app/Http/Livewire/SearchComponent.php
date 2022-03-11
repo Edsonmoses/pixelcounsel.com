@@ -88,7 +88,7 @@ class SearchComponent extends Component
         //->limit($this->loadAmount)
         //->get();
 
-        $vectorcategories = VectorCategory::all();
+        $vectorcategories = VectorCategory::all()->sortBy('name');
         return view('livewire.search-component',['vectorlogos'=>$vectorlogos,'vectorcategories'=>$vectorcategories])->layout('layouts.baseapp');
     }
 }

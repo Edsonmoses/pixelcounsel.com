@@ -2239,6 +2239,16 @@ padding-right: 10px;
 ul{
   list-style: none !important;
 }
+@media (min-width: 1920px){
+  /*.home-page .main {
+    background: linear-gradient(to left, #333333 41.8%, #fff100 41.8%);
+    height: 100%;
+
+}*/
+.col-lg-offset-1 {
+  margin-left: 25.333% !important;
+}
+}
 
 @media (max-width: 1200px){
   /*.home-page .main {

@@ -99,7 +99,7 @@ class VectorComponent extends Component
         //$vectorlogos = Vectorlogos::where('vector_status',$this->vectors_status)->orderBy('name', 'ASC')
         //->limit($this->loadAmount)
         //->get();
-        $vectorcategories = VectorCategory::all();
+        $vectorcategories = VectorCategory::all()->sortBy('name');
         return view('livewire.vector-component',['vectorlogos'=>$vectorlogos,'vectorcategories'=>$vectorcategories])->layout('layouts.baseapp');
     }
 }

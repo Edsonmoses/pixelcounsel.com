@@ -98,8 +98,8 @@ class EventsCategoryComponent extends Component
             $events = Events::whereDate('enddate','>=',Carbon::now())->orderBy('name','ASC')->paginate($this->pagesize);
             $ads_events = Events::whereDate('enddate','>=',Carbon::now())->orderBy('name','ASC')->take(3)->get();
         }
-        $eventcategories = EventsCategory::all();
-        $eventtypes = EventType::all();
+        $eventcategories = EventsCategory::all()->sortBy('name');
+        $eventtypes = EventType::all()->sortBy('name');
         return view('livewire.events-category-component',['events'=>$events,'eventcategories'=>$eventcategories,'category_name'=>$category_name, 'eventtypes'=>$eventtypes,'ads_events'=>$ads_events])->layout('layouts.baseapp');
     }
 }

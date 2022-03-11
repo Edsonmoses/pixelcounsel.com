@@ -70,8 +70,8 @@ class EventAddComponent extends Component
     }
     public function render()
     {
-        $eventcategories = EventsCategory::all();
-        $eventtypes = EventType::all();
+        $eventcategories = EventsCategory::all()->sortBy('name');
+        $eventtypes = EventType::all()->sortBy('name');
         return view('livewire.event-add-component',['eventcategories'=>$eventcategories,'eventtypes'=>$eventtypes])->layout('layouts.baseapp');
     }
 }

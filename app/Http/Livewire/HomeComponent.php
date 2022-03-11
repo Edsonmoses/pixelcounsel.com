@@ -38,7 +38,7 @@ class HomeComponent extends Component
                 ->orWhere('designer','LIKE',$searchTerm)
                 ->orderBy('id','DESC',$searchTerm)->paginate(12);
 
-        $vectorcategories = VectorCategory::all();
+        $vectorcategories = VectorCategory::all()->sortBy('name');
         $hookup = Hookup::whereDate('open','>=',Carbon::now())->where('hookup_status','published')->get()->count();
         $jargon = Jargons::orderBy('name','ASC')->where('jargons_status','published')->first();
         $event = Events::whereDate('enddate','>=',Carbon::now())->where('events_status','published')->get()->count();

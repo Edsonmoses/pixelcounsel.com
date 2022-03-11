@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use App\Models\Events;
 use App\Models\EventsCategory;
 use App\Models\EventType;
+use App\Notifications\Pending;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -65,13 +66,14 @@ class UserAddEventComponent extends Component
         $event->ticket = $this->ticket;
         $event->enddate = $this->enddate;
         $event->postedby = $this->postedby;
+        $event->user->notify(new Pending($event));
         $event->save();
         session()->flash('message','Event has been submitted successfully!');
     }
     public function render()
     {
-        $eventcategories = EventsCategory::all();
-        $eventtypes = EventType::all();
+        $eventcategories = EventsCategory::all()->sortBy('name');
+        $eventtypes = EventType::all()->sortBy('name');
         return view('livewire.user.user-add-event-component',['eventcategories'=>$eventcategories,'eventtypes'=>$eventtypes])->layout('layouts.userbackend');
     }
 }

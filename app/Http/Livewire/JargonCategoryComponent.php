@@ -55,8 +55,8 @@ class JargonCategoryComponent extends Component
             $jargons = Jargons::where('jargon_categories_id',$category_id)->paginate($this->pagesize);
             $af_jargons = Jargons::where('afid',1)->where('jargon_categories_id',$category_id)->paginate($this->pagesize); 
         }
-        $jargoncategories = JargonCategory::all();
-        $atributes = AlpFilters::all();
+        $jargoncategories = JargonCategory::all()->sortBy('name');
+        $atributes = AlpFilters::all()->sortBy('name');
         return view('livewire.jargon-category-component',['jargons'=>$jargons, 'jargoncategories'=>$jargoncategories,'category_name'=>$category_name,'atributes'=>$atributes,'af_jargons'=>$af_jargons])->layout('layouts.baseapp');
     }
 }

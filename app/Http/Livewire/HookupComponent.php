@@ -30,7 +30,7 @@ class HookupComponent extends Component
                 ->orWhere('location','LIKE',$searchTerm)
                 ->latest('updated_at','ASC',$searchTerm)->latest()->where('hookup_status','published')->paginate(10);
       
-        $hookupcategories = HookupCategory::all();
+        $hookupcategories = HookupCategory::all()->sortBy('name');
         return view('livewire.hookup-component',['hookups'=>$hookups,'hookupcategories'=>$hookupcategories])->layout('layouts.baseapp');
     }
 }

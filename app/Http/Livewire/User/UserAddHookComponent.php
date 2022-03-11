@@ -174,7 +174,7 @@ class UserAddHookComponent extends Component
     }
     public function render()
     {
-        $hookupcategories = HookupCategory::all();
-        return view('livewire.user.user-add-hook-component')->layout('layouts.userbackend');
+        $hookupcategories = HookupCategory::all()->sortBy('name');
+        return view('livewire.user.user-add-hook-component',['hookupcategories'=>$hookupcategories])->layout('layouts.userbackend');
     }
 }

@@ -85,7 +85,7 @@ class UserEditVectorComponent extends Component
     }
     public function render()
     {
-        $vectorcategories = VectorCategory::all();
+        $vectorcategories = VectorCategory::all()->sortBy('name');
         return view('livewire.user.user-edit-vector-component',['vectorcategories'=>$vectorcategories])->layout('layouts.userbackend');
     }
 }

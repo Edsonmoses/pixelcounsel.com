@@ -136,7 +136,7 @@ class UserAddVectorsComponent extends Component
     }
     public function render()
     {
-        $vectorcategories = VectorCategory::all();
+        $vectorcategories = VectorCategory::all()->sortBy('name');
         return view('livewire.user.user-add-vectors-component',['vectorcategories'=>$vectorcategories])->layout('layouts.userbackend');
     }
 }
