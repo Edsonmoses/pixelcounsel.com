@@ -5,6 +5,9 @@ namespace App\Http\Livewire;
 use App\Models\Country;
 use App\Models\Hookup;
 use App\Models\HookupCategory;
+use App\Models\User;
+use App\Models\VectorCategory;
+use App\Models\Vectorlogos;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -37,8 +40,18 @@ class HookupAddComponent extends Component
     public $jobUrl;
     public $open;
     public $postedby;
+    public $confirm_status_at;
 
     public $yes;
+
+    public $searchTerm;
+    public $totalRecords;
+    public $loadAmount = 24;
+
+    public function loadMore()
+    {
+        $this->loadAmount += 12;
+    }
 
     public function mount()
     {
@@ -176,9 +189,31 @@ class HookupAddComponent extends Component
         $hookup->save();
         session()->flash('message','Job has been submitted successfully!');
     }
+
+    public function updateStatus()
+    {
+        $user = User::find(Auth::user()->id);
+        $user->confirm_status_at = $this->confirm_status_at;
+        $user->save();
+    }
+
+
     public function render()
     {
+        if (Auth::user()->confirm_status_at === null) {
+            $searchTerm = '%'.$this->searchTerm . '%';
+            $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
+                    ->orWhere('name','LIKE',$searchTerm)
+                    ->orWhere('slug','LIKE',$searchTerm)
+                    ->orWhere('description','LIKE',$searchTerm)
+                    ->orWhere('designer','LIKE',$searchTerm)
+                    ->orWhere('vtag','LIKE',$searchTerm)
+                    ->orderBy('updated_at','ASC',$searchTerm)->paginate(15);
+        $vectorcategories = VectorCategory::all()->sortBy('name');
+            return view('livewire.user.account-status-component',['vectorcategories'=>$vectorcategories,'vectorlogos'=>$vectorlogos])->layout('layouts.baseapp');
+        }else{
         $hookupcategories = HookupCategory::all()->sortBy('name');
         return view('livewire.hookup-add-component',['hookupcategories'=>$hookupcategories])->layout('layouts.baseapp');
+        }
     }
 }

@@ -5,6 +5,9 @@ namespace App\Http\Livewire;
 use App\Models\Events;
 use App\Models\EventsCategory;
 use App\Models\EventType;
+use App\Models\User;
+use App\Models\VectorCategory;
+use App\Models\Vectorlogos;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -31,6 +34,16 @@ class EventAddComponent extends Component
     public $ticket;
     public $enddate;
     public $postedby;
+    public $confirm_status_at;
+
+    public $searchTerm;
+    public $totalRecords;
+    public $loadAmount = 24;
+
+    public function loadMore()
+    {
+        $this->loadAmount += 12;
+    }
 
     public function mount()
     {
@@ -68,10 +81,32 @@ class EventAddComponent extends Component
         $event->save();
         session()->flash('message','Event has been submitted successfully!');
     }
+
+    public function updateStatus()
+    {
+        $user = User::find(Auth::user()->id);
+        $user->confirm_status_at = $this->confirm_status_at;
+        $user->save();
+    }
+
+
     public function render()
     {
+        if (Auth::user()->confirm_status_at === null) {
+            $searchTerm = '%'.$this->searchTerm . '%';
+            $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
+                    ->orWhere('name','LIKE',$searchTerm)
+                    ->orWhere('slug','LIKE',$searchTerm)
+                    ->orWhere('description','LIKE',$searchTerm)
+                    ->orWhere('designer','LIKE',$searchTerm)
+                    ->orWhere('vtag','LIKE',$searchTerm)
+                    ->orderBy('updated_at','ASC',$searchTerm)->paginate(15);
+        $vectorcategories = VectorCategory::all()->sortBy('name');
+            return view('livewire.user.account-status-component',['vectorcategories'=>$vectorcategories,'vectorlogos'=>$vectorlogos])->layout('layouts.baseapp');
+        }else{
         $eventcategories = EventsCategory::all()->sortBy('name');
         $eventtypes = EventType::all()->sortBy('name');
         return view('livewire.event-add-component',['eventcategories'=>$eventcategories,'eventtypes'=>$eventtypes])->layout('layouts.baseapp');
+        }
     }
 }

@@ -60,6 +60,7 @@ use App\Http\Livewire\JargonbusterComponent;
 use App\Http\Livewire\JargonCategoryComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\TermsOfUseComponent;
+use App\Http\Livewire\User\AccountStatusComponent;
 use App\Http\Livewire\User\UserAddEventComponent;
 use App\Http\Livewire\User\UserAddHookComponent;
 use App\Http\Livewire\User\UserAddVectorsComponent;
@@ -170,6 +171,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/hookup/add', UserAddHookComponent::class)->name('user.hookadd');
     Route::get('/user/hookup/edit/{hookup_slug}', UsereditHookupComponent::class)->name('user.hookedit');
     Route::get('/user/hookups/edit', UserHookupComponent::class)->name('user.hookedits');
+
+    //conformation
+    Route::get('/user/account_status/confirmation', AccountStatusComponent::class)->name('user.confirmation');
 });
 
 //For Admin

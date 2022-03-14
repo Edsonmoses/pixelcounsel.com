@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use App\Models\VectorCategory;
 use App\Models\Vectorlogos;
 use Carbon\Carbon;
@@ -27,6 +28,17 @@ class AddVectorComponent extends Component
     public $postedby;
     public $downloads;
     public $vtag;
+    public $confirm_status_at;
+    
+
+    public $searchTerm;
+    public $totalRecords;
+    public $loadAmount = 24;
+
+    public function loadMore()
+    {
+        $this->loadAmount += 12;
+    }
 
     public function mount()
     {
@@ -34,6 +46,8 @@ class AddVectorComponent extends Component
         $this->contributor = Auth::user()->name;
         $this->postedby = Auth::user()->name;
         $this->downloads = 0;
+        $this->totalRecords = Vectorlogos::count();
+        $this->last_login_at = 1;
     }
 
     public function generateSlug()
@@ -134,10 +148,29 @@ class AddVectorComponent extends Component
         session()->flash('message','Logo has been submitted successfully!');
         return redirect()->back();
     }
+    public function updateStatus()
+    {
+        $user = User::find(Auth::user()->id);
+        $user->confirm_status_at = $this->confirm_status_at;
+        $user->save();
+    }
 
     public function render()
     {
+        if (Auth::user()->confirm_status_at === null) {
+            $searchTerm = '%'.$this->searchTerm . '%';
+            $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
+                    ->orWhere('name','LIKE',$searchTerm)
+                    ->orWhere('slug','LIKE',$searchTerm)
+                    ->orWhere('description','LIKE',$searchTerm)
+                    ->orWhere('designer','LIKE',$searchTerm)
+                    ->orWhere('vtag','LIKE',$searchTerm)
+                    ->orderBy('updated_at','ASC',$searchTerm)->paginate(15);
+        $vectorcategories = VectorCategory::all()->sortBy('name');
+            return view('livewire.user.account-status-component',['vectorcategories'=>$vectorcategories,'vectorlogos'=>$vectorlogos])->layout('layouts.baseapp');
+        }else{
         $vectorcategories = VectorCategory::all()->sortBy('name');
         return view('livewire.add-vector-component',['vectorcategories'=>$vectorcategories])->layout('layouts.baseapp');
+       }
     }
 }
