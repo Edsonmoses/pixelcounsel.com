@@ -10,10 +10,14 @@
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5 vector-s-btn">
-              @if (Auth::check())
-                  <a class="btn btn-vector v-single" href="{{route('vector.addvectors')}}" role="button">SUBMIT A LOGO</a>
-                  @else
-                  <a class="btn btn-vector v-single" href="{{route('login')}}" title="Login" role="button">SUBMIT A LOGO</a>
+                @if (is_null(Auth::user()->confirm_status_at))
+                   <a class="btn btn-vector v-single" href="{{route('user.confirmation')}}" title="confirmation" role="button">SUBMIT A LOGO</a>
+                @else
+                      @if (Auth::check())
+                        <a class="btn btn-vector v-single" href="{{route('vector.addvectors')}}" role="button">SUBMIT A LOGO</a>
+                        @else
+                        <a class="btn btn-vector v-single" href="{{route('login')}}" title="Login" role="button">SUBMIT A LOGO</a>
+                        @endif
                   @endif
             </div>
         </div>

@@ -5,7 +5,6 @@
             <div class="modal-body">
                 <div class="container">
                     <div class="row">
-                        <form wire:submit.prevent="updateStatus" onsubmit="window.location.reload();">
                         <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11 terms-page"  id="terms-page">
                             <h1>Hi {{ Auth::user()->name }}</h1><br/><br/>
                             <h4> INTRODUCTION</h4>
@@ -276,14 +275,13 @@
                         </div>
                         
                         <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 text-right">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" name="confirm_status_at" id="boxChecked"  value="1" disabled wire:model="confirm_status_at">
-                                <label class="custom-control-label" for="last_login_at">I understand and agree</label>
-                               
-                                 <!-- <button type="button" class="btn btn-light" style="margin-left: 10px; display:none" disabled id="btnCheck">Start uploading</button>-->
-                                  <button type="submit" class="btn btn-success" style="margin-left: 10px;" id="btnChecked" disabled>Start uploading</button>
-                               
-                              </div>
+                                 
+                                    
+                                    <a type="button" href="/vector" class="btn btn-light" style="margin-left: 10px;" disabled id="btnCheck">I disagree</a>
+                                   <button type="submit" class="btn btn-success" style="margin-left: 10px;" id="btnChecked" onclick="event.preventDefault();  document.getElementById('agree-form') .submit();">I Agree</button>
+                                 <form id="agree-form" wire:submit.prevent="updateStatus">
+                                    
+                                 </form>
                         </div>
                         </form>
                     </div>
@@ -387,17 +385,6 @@
                 $(this).attr('checked', false);
             });
             });
-            $(function () {
-                    $("#last_login_at").click(function () {
-                        if ($(this).is(":checked")) {
-                            $("#btnChecked").show();
-                            $("#btnCheck").hide();
-                        } else {
-                            $("#btnChecked").hide();
-                            $("#btnCheck").show();
-                        }
-                    });
-                });
                 $("#terms-page").scroll(function () {
                 var ele = document.getElementById('terms-page');
                 if (ele.scrollHeight - ele.scrollTop === ele.clientHeight)
