@@ -281,8 +281,8 @@
                                  
                             <form id="agree-form" wire:submit.prevent="updateConfirmation">
                                 <input type="hidden"  id="confirm_status_at" class="form-control" value="1"  wire:model="confirm_status_at">
-                                    <a role="button"  href="/vector" class="btn btn-outline-success" style="margin-left: 10px;" id="btnCheck">I disagree</a>
-                                   <button type="submit" class="btn btn-success" style="margin-left: 10px;" id="btnChecked">I Agree</button>
+                                    <a role="button"  href="/vector" class="btn btn-outline-success" style="margin-left: 10px;" disabled id="btnCheck">I disagree</a>
+                                   <button type="submit" class="btn btn-success" style="margin-left: 10px;" disabled id="btnChecked">I Agree</button>
                             </form>
                         </div>
                     </div>
