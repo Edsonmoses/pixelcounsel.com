@@ -31,6 +31,7 @@ class AdminAddVectorComponent extends Component
     {
         $this->vector_status = 'unpublished';
         $this->contributor = Auth::user()->name;
+        $this->designer = 'Unknown';
         $this->postedby = Auth::user()->name;
     }
 

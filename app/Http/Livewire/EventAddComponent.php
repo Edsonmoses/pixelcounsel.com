@@ -49,6 +49,8 @@ class EventAddComponent extends Component
     {
         $this->events_status = 'unpublished';
         $this->postedby = Auth::user()->name;
+        //use with account status
+        $this->confirm_status_at = 1;
     }
 
     public function generateSlug()
@@ -82,17 +84,18 @@ class EventAddComponent extends Component
         session()->flash('message','Event has been submitted successfully!');
     }
 
-    public function updateStatus()
+    public function updateConfirmation()
     {
         $user = User::find(Auth::user()->id);
         $user->confirm_status_at = $this->confirm_status_at;
         $user->save();
+        return redirect('/vector');
     }
 
 
     public function render()
     {
-        if (Auth::user()->confirm_status_at === null) {
+        if (is_null(Auth::user()->confirm_status_at)) {
             $searchTerm = '%'.$this->searchTerm . '%';
             $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
                     ->orWhere('name','LIKE',$searchTerm)

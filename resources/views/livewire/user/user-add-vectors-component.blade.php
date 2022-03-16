@@ -43,8 +43,8 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="designer" class="form-label">Designer</label>
-                                                    <input type="text" placeholder="{{ Auth::user()->name }}" id="designer" disabled=""  class="form-control" wire:model="designer">
+                                                    <label for="designer" class="form-label">Logo Designer</label>
+                                                    <input type="text" placeholder="Unknown" id="designer" disabled=""  class="form-control" wire:model="designer">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">

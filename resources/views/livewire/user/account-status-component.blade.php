@@ -5,6 +5,9 @@
             <div class="modal-body">
                 <div class="container">
                     <div class="row">
+                        @if (Session::has('message'))
+                        <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
+                    @endif
                         <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11 terms-page"  id="terms-page">
                             <h1>Hi {{ Auth::user()->name }}</h1><br/><br/>
                             <h4> INTRODUCTION</h4>
@@ -276,62 +279,19 @@
                         
                         <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 text-right">
                                  
-                                    
-                                    <a type="button" href="/vector" class="btn btn-light" style="margin-left: 10px;" disabled id="btnCheck">I disagree</a>
-                                   <button type="submit" class="btn btn-success" style="margin-left: 10px;" id="btnChecked" onclick="event.preventDefault();  document.getElementById('agree-form') .submit();">I Agree</button>
-                                 <form id="agree-form" wire:submit.prevent="updateStatus">
-                                    
-                                 </form>
+                            <form id="agree-form" wire:submit.prevent="updateConfirmation">
+                                <input type="hidden"  id="confirm_status_at" class="form-control" value="1"  wire:model="confirm_status_at">
+                                    <a role="button"  href="/vector" class="btn btn-outline-success" style="margin-left: 10px;" id="btnCheck">I disagree</a>
+                                   <button type="submit" class="btn btn-success" style="margin-left: 10px;" id="btnChecked">I Agree</button>
+                            </form>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>
           </div>
         </div>
       </div>
-    <div class="vector-active"><div class="arrows"></div></div>
-    <header class="intro-header intro-header-vector">
-        <div class="container">
-            <div class="row  header-0">
-                <div class="col-lg-7 col-md-7 col-sm-7">
-                    <div class="heading-style">
-                        <h1>VECTOR LOGOS</h1>
-                        <span class="sub-heading">Online vector logo collection of brands in Africa</span>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-5 col-sm-5 vector-s-btn">
-                  @if (Auth::check())
-                  <a class="btn btn-vector v-single" href="{{route('vector.addvectors')}}" role="button">SUBMIT A LOGO</a>
-                  @else
-                  <a class="btn btn-vector v-single" href="{{route('login')}}" title="Login" role="button">SUBMIT A LOGO</a>
-                  @endif
-                </div>
-            </div>
-        </div>
-    </header>
-    <header class="intro-header intro-header-vector-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                  <div id="custom-search-input" style="margin-top: 33px">
-                    <div class="input-group col-md-12">
-                        <input type="text" class="  search-query form-control" placeholder="Find a logo"  wire:model="searchTerm" wire:keydown.enter="searchTerm"/>
-                        <span class="input-group-btn">
-                            <button class="btn btn-danger" type="button">
-                                <span class=" glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    
-                </div>
-                
-            </div>
-        </div>
-    </header>
+    
         <!-- Main Content -->
         <div class="container">
             <div class="row" id="vector" wire:loading.delay.class="opacity-50">

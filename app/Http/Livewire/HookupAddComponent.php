@@ -62,6 +62,8 @@ class HookupAddComponent extends Component
         $this->web = 'example.com';
         $this->email = 'hookup@example.com';
         $this->jobUrl = 'example.com';
+        //use with account status
+        $this->confirm_status_at = 1;
         
     }
 
@@ -190,17 +192,18 @@ class HookupAddComponent extends Component
         session()->flash('message','Job has been submitted successfully!');
     }
 
-    public function updateStatus()
+    public function updateConfirmation()
     {
         $user = User::find(Auth::user()->id);
         $user->confirm_status_at = $this->confirm_status_at;
         $user->save();
+        return redirect('/vector');
     }
 
 
     public function render()
     {
-        if (Auth::user()->confirm_status_at === null) {
+        if (is_null(Auth::user()->confirm_status_at)) {
             $searchTerm = '%'.$this->searchTerm . '%';
             $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
                     ->orWhere('name','LIKE',$searchTerm)
