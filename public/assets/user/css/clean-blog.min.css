@@ -1246,6 +1246,10 @@ body{
   margin-left: 15px !important;
   margin-right: 15px !important;
 }
+.date-as-calendar.size1_75x {
+  font-size: 28px;
+  display: none !important;
+}
 }
 /**@@media screen and (max-width: 600px) endhere*/
 
