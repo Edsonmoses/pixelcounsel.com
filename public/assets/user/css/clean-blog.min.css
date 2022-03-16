@@ -1222,8 +1222,8 @@ body{
   margin-left: -23px !important;
 }
 .event-img-top {
-  width: 374px !important;
-  height: 374px !important;
+  width: 100% !important;
+  height: auto !important;
   object-fit: cover;
 }
 .b-footer .text-muted {
@@ -1244,6 +1244,7 @@ body{
 }
 .event-ml{
   margin-left: 15px !important;
+  margin-right: 15px !important;
 }
 }
 /**@@media screen and (max-width: 600px) endhere*/
