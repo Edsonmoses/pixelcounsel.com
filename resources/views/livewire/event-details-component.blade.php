@@ -20,7 +20,7 @@
       </header>
     <div class="container" style="margin-top: 50px">
         <div class="row align-items-center rounded job-box">
-            <div class="col-lg-5 col-md-4" style="margin-left: -15px">
+            <div class="col-lg-5 col-md-4 event-ml">
                 <img src="{{ asset('assets/images/events') }}/{{ $event->images }}" class="img-fluid rounded event-img-top" alt="" width="100%" height="400">
             </div>
 
