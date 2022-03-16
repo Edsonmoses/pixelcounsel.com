@@ -8,7 +8,7 @@
                         @if (Session::has('message'))
                         <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                     @endif
-                        <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11 terms-page"  id="terms-page">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 terms-page"  id="terms-page">
                             <h1>Hi {{ Auth::user()->name }}</h1><br/><br/>
                             <h4> INTRODUCTION</h4>
 
