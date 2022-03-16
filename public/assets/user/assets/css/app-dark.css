@@ -6162,3 +6162,60 @@ span.flatpickr-weekday,
   border-radius: 3px;
   font-weight: 500;
 }
+/**successful submition popup**/
+.popups .modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #333 !important;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  border-radius: 1.2rem !important;
+  outline: 0;
+  }
+  .popups .modal-content h1{
+      font-size: 4.25rem;
+  }
+  .popups .modal-content p{
+      margin-bottom: 3rem;
+      font-size: 1.75rem;
+  }
+  .popups .modal-header .close {
+      margin: 0;
+      position: absolute;
+      top: -7px;
+      right: -26px;
+      width: 23px;
+      height: 23px;
+      border-radius: 23px;
+      background-color: transparent;
+      color: #fff;
+      font-size: 35px;
+      opacity: 1;
+      z-index: 10;
+      text-align: center;
+  } 
+  .popups .modal-header{
+      border-bottom: 1px solid #333 !important;
+  }
+  .popups .btn-successfully{
+     width: 110px;
+     height: 110px;
+     background: #fff100;
+     border-radius: 55px;
+     color: #222 !important;
+      font-size: 17px;
+      text-transform: uppercase;
+      line-height: 1.2em;
+ }
+ .popups .btn-successfully i{
+     font-size: 41px;
+     -webkit-text-stroke: 2px #fff100;
+ }
+ .popups .popup_logo{
+     width: 80px !important;
+     margin-top: 3em;
+     margin-bottom: 2em;
+ }

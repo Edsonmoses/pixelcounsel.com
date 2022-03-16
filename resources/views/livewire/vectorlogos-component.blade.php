@@ -3,13 +3,13 @@
 <header class="intro-header intro-header-vector">
     <div class="container">
         <div class="row  header-0">
-            <div class="col-lg-7 col-md-7">
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
                 <div class="heading-style">
                     <h1>VECTOR LOGOS</h1>
                     <span class="sub-heading">Online vector logo collection of brands in Africa</span>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-5 col-sm-5 vector-s-btn">
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 vector-s-btn">
               @if (Auth::check())
                   <a class="btn btn-vector v-single" href="{{route('vector.addvectors')}}" role="button">SUBMIT A LOGO</a>
                   @else

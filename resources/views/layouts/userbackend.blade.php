@@ -131,7 +131,7 @@
                         <li class="dropdown notification-list topbar-dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <i class="fe-bell noti-icon"></i>
-                                <span class="badge bg-danger rounded-circle noti-icon-badge"></span>
+                                <span class="badge bg-danger rounded-circle noti-icon-badge">1</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-lg">
     
@@ -713,6 +713,70 @@
             });
             $(window).on('resize', centerModals);
         </script>
+        <style>
+            /**successful submition popup**/
+            .popups .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #333 !important;
+            background-clip: padding-box;
+            border: 1px solid transparent;
+            border-radius: 1.2rem !important;
+            outline: 0;
+            }
+            .popups .modal-content h1{
+                font-size: 4.25rem;
+            }
+            .popups .modal-content p{
+                margin-bottom: 3rem;
+                font-size: 1.75rem;
+            }
+            .popups .modal-header .close {
+                margin: 0;
+                position: absolute;
+                top: -7px;
+                right: -26px;
+                width: 23px;
+                height: 23px;
+                border-radius: 23px;
+                background-color: transparent;
+                color: #222;
+                font-size: 35px;
+                opacity: 1;
+                z-index: 10;
+                text-align: center;
+            } 
+            .popups .modal-header{
+                border-bottom: 1px solid #333 !important;
+            }
+            .popups .btn-successfully{
+                width: 110px;
+                height: 110px;
+                background: #fff100;
+                border-radius: 55px;
+                color: #222 !important;
+                font-size: 17px;
+                text-transform: uppercase;
+                line-height: 1.2em;
+            }
+            .popups .btn-successfully i{
+                font-size: 41px;
+                -webkit-text-stroke: 2px #fff100;
+            }
+            .popups .popup_logo{
+                width: 80px !important;
+                margin-top: 3em;
+                margin-bottom: 2em;
+            }
+            .modal-backdrop.show {
+            background-color: #fff;
+            opacity: 0.95;
+            }
+
+        </style>
         @livewireScripts
     </body>
 </html>

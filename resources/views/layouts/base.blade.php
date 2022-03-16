@@ -86,7 +86,7 @@
     <div id="myNav" class="overlay d-md-none d-lg-none">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <div class="overlay-content">
-        <a href="/">Home</a>
+        <a href="/" style="font-weight: 800">HOME</a>
         <hr/>
         <div class="m-menu">
           <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 ml-2 menu-actives">

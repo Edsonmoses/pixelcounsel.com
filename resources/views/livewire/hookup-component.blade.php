@@ -3,7 +3,7 @@
    <header class="intro-header intro-hookup">
     <div class="container">
         <div class="row hookup">
-            <div class="col-lg-7 col-md-7 col-sm-7">
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
                 <div class="heading-style">
                     <h1>HOOK UP</h1>
                     <span class="sub-heading">Collection of career changing jobs in Africa for your picking</span>
@@ -19,7 +19,7 @@
                 @endif
                 <div style="clear: both"></div>
             </div>
-            <div class="col-lg-5 col-md-5 col-sm-12 hook-search heading-mt">
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 hook-search heading-mt">
                 @if (Auth::check())
                 <div class="hook-searchs hidden-xs hidden-sm">
                     <a class="btn btn-events" href="{{ route('hookup.addhookup') }}" role="button" style="margin-top: -43px;">SUBMIT A JOB</a>

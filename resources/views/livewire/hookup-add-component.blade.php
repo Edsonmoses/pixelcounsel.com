@@ -3,13 +3,13 @@
     <header class="intro-header intro-hookup">
       <div class="container">
           <div class="row hookup">
-              <div class="col-lg-7 col-md-7 col-sm-7">
+              <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
                   <div class="heading-style">
                       <h1>NEW HOOK UP</h1>
                       <span class="sub-heading">Collection of career changing jobs in Africa for your picking</span>
                   </div>
               </div>
-              <div class="col-lg-5 col-md-5 col-sm-5 hook-search heading-mt">
+              <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 hook-search heading-mt">
                 
                 <div id="custom-search-input">
                     <div class="input-group col-md-12">

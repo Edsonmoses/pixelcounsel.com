@@ -3,14 +3,14 @@
   <header class="intro-header intro-jargon">
     <div class="container">
         <div class="row">
-            <div class="col-lg-7 col-md-7 col-sm-7">
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
                 <div class="heading-style">
                     <h1>JARGON BUSTER</h1>
                     <span class="sub-heading">A comprehensive dictionary of web, architecture, design and printing terms</span>
                 </div>
             </div>
             <!--header title-->
-            <div class="col-lg-4 col-md-4 col-sm-5 heading-mr">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 heading-mr">
                 <div id="custom-search-input">
                     <div class="input-group col-md-12">
                         <input type="text" class="  search-query form-control" placeholder="Search a term"  wire:model="searchTerm"/>

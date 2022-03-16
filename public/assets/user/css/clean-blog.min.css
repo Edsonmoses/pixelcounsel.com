@@ -822,7 +822,7 @@ margin: 5px 0 -50px 0;
   margin-top: 6px;
 }
 .intro-jargon .heading-mr {
-  margin-top: -1% !important;
+  margin-top: 2% !important;
 }
 .d-sm-none{
   display: none !important;
@@ -1221,7 +1221,29 @@ body{
 .m-menu .nav > li > a {
   margin-left: -23px !important;
 }
+.event-img-top {
+  width: 374px !important;
+  height: 374px !important;
+  object-fit: cover;
 }
+.b-footer .text-muted {
+  text-align: left !important;
+}
+.vector-s-btn .btn,.hook-searchs .btn {
+  float: left !important;
+}
+.btn-events {
+  margin-top: 10px !important;
+  margin-left: 0% !important;
+}
+.hookup .heading-mt {
+  margin-top: 1% !important;
+}
+.intro-hookup {
+  height: 230px !important;
+}
+}
+/**@@media screen and (max-width: 600px) endhere*/
 
 .topnav .form-group {
     margin:0;
@@ -3173,6 +3195,7 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
   width: 100%;
   text-align: left;
   margin-left: 15px;
+  padding-right: 15px !important;
 }
 
 .overlay a {
@@ -3190,9 +3213,13 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
 
 .overlay .closebtn {
   position: absolute;
-  top: -9px;
+  top: -32px;
   right: 45px;
-  font-size: 35px;
+  font-size: 60px;
+  -webkit-text-stroke: 4px rgb(38,38,37);
+}
+.overlay-content hr{
+border-top: 1px solid #eeeeee1a !important;
 }
 
 @media screen and (max-height: 500px) {
@@ -3252,3 +3279,60 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
   height: auto;
   color: #fff;
 }
+/**successful submition popup**/
+.popups .modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #333 !important;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  border-radius: 1.2rem !important;
+  outline: 0;
+  }
+  .popups .modal-content h1{
+      font-size: 4.25rem;
+  }
+  .popups .modal-content p{
+      margin-bottom: 3rem;
+      font-size: 1.75rem;
+  }
+  .popups .modal-header .close {
+      margin: 0;
+      position: absolute;
+      top: -7px;
+      right: -26px;
+      width: 23px;
+      height: 23px;
+      border-radius: 23px;
+      background-color: transparent;
+      color: #fff;
+      font-size: 35px;
+      opacity: 1;
+      z-index: 10;
+      text-align: center;
+  } 
+  .popups .modal-header{
+      border-bottom: 1px solid #333 !important;
+  }
+  .popups .btn-successfully{
+     width: 110px;
+     height: 110px;
+     background: #fff100;
+     border-radius: 55px;
+     color: #222 !important;
+      font-size: 17px;
+      text-transform: uppercase;
+      line-height: 1.2em;
+ }
+ .popups .btn-successfully i{
+     font-size: 41px;
+     -webkit-text-stroke: 2px #fff100;
+ }
+ .popups .popup_logo{
+     width: 80px !important;
+     margin-top: 3em;
+     margin-bottom: 2em;
+ }

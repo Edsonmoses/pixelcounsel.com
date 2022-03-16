@@ -3,13 +3,13 @@
 <header class="intro-header intro-blog">
   <div class="container">
       <div class="row">
-          <div class="col-lg-7 col-md-7">
+          <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
               <div class="heading-style">
                   <h1>Blog</h1>
                   <span class="sub-heading">A comprehensive dictionary of web, architecture, design and printing terms</span>
               </div>
           </div>
-          <div class="col-lg-5 col-md-5">
+          <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
           
           </div>
       </div>

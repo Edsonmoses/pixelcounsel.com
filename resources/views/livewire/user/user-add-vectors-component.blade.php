@@ -114,7 +114,7 @@
   </div>
           
     <!-- Modal event created successfully!-->
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal fade  popups" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -123,10 +123,13 @@
               </a>
             </div>
             <div class="modal-body text-center">
-                <h2>Success!</h2>
-                <p>Everything went well,<br/>
-                Your Vector has been submitted successfully!</p>
-                <a href="{{route('user.vecadd')}}" class="btn btn-success">Add another vector</a>
+                <h1>AWESOME!</h1>
+                <p >Your logo has been<br/>
+                 successfully submitted.</p>
+                <a href="{{route('user.vecadd')}}" class="btn btn-successfully">
+                    <i class="fa fa-plus" aria-hidden="true"></i><br/>
+                    Add another</a><br/>
+                <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
             </div>
           </div>
         </div>
@@ -134,26 +137,9 @@
     <!-- Modal event created successfully! end here-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type='text/javascript'>
-        $('#updated-form').submit(function (e) {
+       $('#updated-form').submit(function (e) {
               $('#exampleModalLong').modal('show');
               return false;
           });
         </script>
-        <style>
-        .modal-header .close {
-                margin: 0;
-                position: absolute;
-                top: -10px;
-                right: -10px;
-                width: 23px;
-                height: 23px;
-                border-radius: 23px;
-                background-color: #313844;
-                color: #fff;
-                font-size: 16px;
-                opacity: 1;
-                z-index: 10;
-                text-align: center;
-            } 
-        </style>
   
