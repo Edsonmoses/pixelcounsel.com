@@ -11,12 +11,7 @@ class AdminAddEventcategoryComponent extends Component
 {
     public $name;
     public $slug;
-    public $postedby;
-
-    public function mount()
-    {
-        $this->postedby = Auth::user()->name;
-    }
+   
 
     public function generateslug()
     {
@@ -28,7 +23,6 @@ class AdminAddEventcategoryComponent extends Component
         $events = new EventsCategory();
         $events->name = $this->name;
         $events->slug = $this->slug;
-        $events->postedby = $this->postedby;
         $events->save();
         session()->flash('message','Event Category has been created successfully!');
     }

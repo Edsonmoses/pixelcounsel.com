@@ -33,13 +33,11 @@ class AdminAddHookupComponent extends Component
     public $web;
     public $jobUrl;
     public $open;
-    public $postedby;
 
     public function mount()
     {
         $this->hookup_status = 'unpublished';
         $this->featured = '0';
-        $this->postedby = Auth::user()->name;
         $this->phone = '+254 700 000 000';
         $this->web = 'example.com';
         $this->email = 'hookup@example.com';
@@ -76,7 +74,6 @@ class AdminAddHookupComponent extends Component
         $hookup->web = $this->web;
         $hookup->jobUrl = $this->jobUrl;
         $hookup->open = $this->open;
-        $hookup->postedby = $this->postedby;
         $hookup->save();
         session()->flash('message','Hookup has been created successfully!');
     }

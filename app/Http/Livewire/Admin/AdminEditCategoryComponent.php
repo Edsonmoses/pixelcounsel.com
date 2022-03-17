@@ -13,7 +13,6 @@ class AdminEditCategoryComponent extends Component
     public $category_id;
     public $name;
     public $slug;
-    public $postedby;
 
     public function mount($category_slug)
     {
@@ -22,7 +21,6 @@ class AdminEditCategoryComponent extends Component
         $this->category_id = $category->id;
         $this->name = $category->name;
         $this->slug = $category->slug;
-        $this->postedby = Auth::user()->name;
     }
 
     public function generateslug()

@@ -91,8 +91,8 @@ class UserAddVectorsComponent extends Component
             'designer' => 'required',
             'format' => 'required',
             'vector_status' => 'required',
-            'images' => 'required|mimes:png,jpg,jpeg,ai,eps,pdf',
-            'image' => 'required|mimes:png,jpg,jpeg',
+            'images' => 'required|mimes:ai,eps,pdf',
+            'image' => 'required|mimes:png,jpg,jpeg,webp',
             'vector_categories_id' => 'required',
         ]);
     }
@@ -107,8 +107,8 @@ class UserAddVectorsComponent extends Component
             'designer' => 'required',
             'format' => 'required',
             'vector_status' => 'required',
-            'images' => 'required|mimes:png,jpg,jpeg,ai,eps,pdf',
-            'image' => 'required|mimes:png,jpg,jpeg',
+            'images' => 'required|mimes:ai,eps,pdf',
+            'image' => 'required|mimes:png,jpg,jpeg,webp',
             'vector_categories_id' => 'required',
         ]);
 

@@ -97,8 +97,8 @@
                                         </div>
                                          <div class="col-lg-6">
                                             <div class="mb-3">
-                                                <label for="images" class="form-label">Event Poster or Image</label>
-                                                <input type="file" class="form-control input-file" wire:model="images">
+                                                <label for="newimage" class="form-label">Event Poster or Image</label>
+                                                <input type="file" class="form-control input-file" wire:model="newimage">
                                                 @if($newimage)
                                                     <img src="{{ $newimage->temporaryUrl() }}" width="120"/>
                                                 @else

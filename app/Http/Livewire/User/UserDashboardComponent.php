@@ -29,8 +29,8 @@ class UserDashboardComponent extends Component
         $vectors = Vectorlogos::where('contributor',Auth::user()->name)->orderBy('vector_status','ASC')->paginate(10);
         $newestCliente = Vectorlogos::orderBy('downloads', 'desc')->first();
         $mvectors = $newestCliente->downloads;
-        $jobs = Hookup::where('postedby',Auth::user()->name)->orderBy('hookup_status','ASC')->paginate(10);
-        $events = Events::where('postedby',Auth::user()->name)->orderBy('events_status','ASC')->paginate(10);
+        $jobs = Hookup::where('postedby',Auth::user()->name)->orderBy('name','ASC')->paginate(10);
+        $events = Events::where('postedby',Auth::user()->name)->orderBy('name','ASC')->paginate(10);
         $eventsA = Events::where('postedby',Auth::user()->name)->where('events_status','published')->count();
         $pevents = Events::where('postedby',Auth::user()->name)->where('events_status','unpublished')->count();
         $count = Hookup::where('hookup_status','published')->whereDate('open','>=',Carbon::now())->count();

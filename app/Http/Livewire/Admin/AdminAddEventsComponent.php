@@ -30,12 +30,10 @@ class AdminAddEventsComponent extends Component
     public $website;
     public $ticket;
     public $enddate;
-    public $postedby;
 
     public function mount()
     {
         $this->events_status = 'unpublished';
-        $this->postedby = Auth::user()->name;
     }
 
     public function generateSlug()
@@ -64,7 +62,6 @@ class AdminAddEventsComponent extends Component
         $event->website = $this->website;
         $event->ticket = $this->ticket;
         $event->enddate = $this->enddate;
-        $event->postedby = $this->postedby;
         $event->save();
         session()->flash('message','Event has been created successfully!');
     }

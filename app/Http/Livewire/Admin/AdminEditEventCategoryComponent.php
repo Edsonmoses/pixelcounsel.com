@@ -13,7 +13,6 @@ class AdminEditEventCategoryComponent extends Component
     public $event_id;
     public $name;
     public $slug;
-    public $postedby;
 
     public function mount($event_slug)
     {
@@ -22,7 +21,6 @@ class AdminEditEventCategoryComponent extends Component
         $this->event_id = $event->id;
         $this->name = $event->name;
         $this->slug = $event->slug;
-        $this->postedby = Auth::user()->name;
     }
 
     public function generateslug()

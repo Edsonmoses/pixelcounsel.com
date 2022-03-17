@@ -27,7 +27,6 @@ class AdminEditVectorComponent extends Component
     public $newimage;
     public $newimages;
     public $vector_id;
-    public $postedby;
     public $vtag;
 
     public function mount($vector_slug)
@@ -45,7 +44,6 @@ class AdminEditVectorComponent extends Component
         $this->image = $vecor->image;
         $this->vector_categories_id = $vecor->vector_categories_id;
         $this->vector_id = $vecor->id;
-        $this->postedby = Auth::user()->name;
         $this->vtag = str_replace("\n",',',trim($vecor->vtag));
     }
 
@@ -78,7 +76,6 @@ class AdminEditVectorComponent extends Component
         $vector->image = $imageName;
         }
         $vector->vector_categories_id = $this->vector_categories_id;
-        $vector->postedby = $this->postedby;
         $vector->vtag = str_replace("\n",',',trim($this->vtag));
         $vector->save();
         session()->flash('message','Vector file has been updated successfully!');

@@ -34,7 +34,6 @@ class AdminEditHookupComponent extends Component
     public $phone;
     public $email;
     public $web;
-    public $postedby;
     public $open;
 
     public function mount($hookup_slug)
@@ -60,7 +59,6 @@ class AdminEditHookupComponent extends Component
         $this->email = $hookup->email;
         $this->web = $hookup->web;
         $this->open = $hookup->open;
-        $this->postedby = Auth::user()->name;
     }
 
     public function generateSlug()
@@ -94,7 +92,6 @@ class AdminEditHookupComponent extends Component
         $hookup->phone = $this->phone;
         $hookup->email = $this->email;
         $hookup->web = $this->web;
-        $hookup->postedby = $this->postedby;
         $hookup->open = $this->open;
         $hookup->save();
         session()->flash('message','Hookup has been updated successfully!');

@@ -19,7 +19,6 @@ class AdminEditAdsComponent extends Component
     public $endate;
     public $status;
     public $newimage;
-    public $postedby;
 
     public function mount($name)
     {
@@ -31,7 +30,6 @@ class AdminEditAdsComponent extends Component
         $this->startdate = $ads->startdate;
         $this->endate = $ads->endate;
         $this->status = $ads->status;
-        $this->postedby = Auth::user()->name;
     }
 
     public function updated($fields)
@@ -46,7 +44,7 @@ class AdminEditAdsComponent extends Component
         if($this->newimage)
         {
             $this->validateOnly($fields,[
-                'newimage' => 'required|mimes:jpeg,png,jpg',
+                'newimage' => 'required|mimes:jpeg,png,jpg,webp',
             ]);
         }
     }
@@ -63,7 +61,7 @@ class AdminEditAdsComponent extends Component
         if($this->newimage)
         {
             $this->validate([
-                'newimage' => 'required|mimes:jpeg,png,jpg',
+                'newimage' => 'required|mimes:jpeg,png,jpg,webp',
             ]);
         }
 
@@ -83,7 +81,6 @@ class AdminEditAdsComponent extends Component
         $ads->startdate = $this->startdate;
         $ads->endate = $this->endate;
         $ads->status = $this->status;
-        $ads->postedby = $this->postedby;
         $ads->save();
         session()->flash('message','Ad has been updated successfully!');
     }

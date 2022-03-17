@@ -11,12 +11,10 @@ class AdminAddEventTypeComponent extends Component
 {
     public $name;
     public $slug;
-    public $postedby;
 
     public function mount()
     {
         $this->events_status = 'unpublished';
-        $this->postedby = Auth::user()->name;
     }
 
     public function generateslug()
@@ -29,7 +27,6 @@ class AdminAddEventTypeComponent extends Component
         $etype = new EventType();
         $etype->name = $this->name;
         $etype->slug = $this->slug;
-        $etype->postedby = $this->postedby;
         $etype->save();
         session()->flash('message','Event Type has been created successfully!');
     }

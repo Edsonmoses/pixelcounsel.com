@@ -40,7 +40,7 @@
                                                   @else
                                                   <td><span class="badge bg-pink">Pending</span></td>
                                                   <td>
-                                                      <a href="{{ route('user.vecedit',['vector_slug'=>$vector->slug]) }}"><i  class="fas fa-edit"></i> 2</a>
+                                                      <a href="{{ route('user.vecedit',['vector_slug'=>$vector->slug]) }}"><i  class="fas fa-edit"></i></a>
                                                       <a href="#" onclick="confirm('Ara you sure, You want to delete this logo') || event.stopImmediatePropagation()" wire:click.prevent="deleteVector({{ $vector->id }})" style="margin-left: 10px"><i class="fas fa-trash fa-1x text-danger"></i></a>
                                                   </td>
                                                   @endif

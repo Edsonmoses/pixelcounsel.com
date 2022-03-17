@@ -68,21 +68,18 @@
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="images" class="form-label">Vector File</label>
-                                                    <input type="file" id="images" class="form-control" wire:model="images">
-                                                    @error('images')<p class="text-danger">{{ $message }}</p>@enderror
+                                                    <input type="file" id="images" class="form-control"  wire:model="newimage">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="image" class="form-label">Logo Preview</label>
-                                                    <input type="file" id="mage" class="form-control" wire:model="image">
+                                                    <input type="file" id="mage" class="form-control" wire:model="newimages">
                                                     @if($newimages)
                                                         <img src="{{ $newimages->temporaryUrl() }}" width="120"/>
                                                     @else
                                                         <img src="{{ asset('assets/images/vectors')}}/{{ $image}}" width="120"/>
                                                     @endif
-                                                @error('image')<p class="text-danger">{{ $message }}</p>@enderror
-                                                </div>
                                             </div>
                                           <div class="col-lg-12">
                                             <div class="mb-3">

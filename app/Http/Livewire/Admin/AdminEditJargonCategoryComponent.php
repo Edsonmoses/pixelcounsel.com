@@ -13,7 +13,6 @@ class AdminEditJargonCategoryComponent extends Component
     public $jargon_id;
     public $name;
     public $slug;
-    public $postedby;
 
     public function mount($jargon_slug)
     {
@@ -22,7 +21,6 @@ class AdminEditJargonCategoryComponent extends Component
         $this->jargon_id = $jargon->id;
         $this->name = $jargon->name;
         $this->slug = $jargon->slug;
-        $this->postedby = Auth::user()->name;
     }
 
     public function generateslug()
@@ -35,7 +33,6 @@ class AdminEditJargonCategoryComponent extends Component
         $jargon = JargonCategory::find($this->jargon_id);
         $jargon->name = $this->name;
         $jargon->slug = $this->slug;
-        $jargon->postedby = $this->postedby;
         $jargon->save();
         session()->flash('message','Jargon Category has been updated successfully!');
     }
