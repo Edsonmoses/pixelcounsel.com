@@ -780,7 +780,9 @@
             background-color: #fff;
             opacity: 0.95;
             }
-
+            nav .hidden {
+            display: none !important;
+            }
         </style>
         @livewireScripts
     </body>
