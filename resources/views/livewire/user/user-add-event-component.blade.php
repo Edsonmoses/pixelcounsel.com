@@ -152,7 +152,7 @@
   
       </div> <!-- content -->
   </div>
-      <!-- Modal event created successfully!-->
+    {{--   <!-- Modal event created successfully!-->
     <div class="modal fade  popups" id="exampleModalLong" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -182,21 +182,4 @@
               return false;
           });
         });
-        </script>
-        <style>
-        .modal-header .close {
-                margin: 0;
-                position: absolute;
-                top: -10px;
-                right: -10px;
-                width: 23px;
-                height: 23px;
-                border-radius: 23px;
-                background-color: #313844;
-                color: #fff;
-                font-size: 16px;
-                opacity: 1;
-                z-index: 10;
-                text-align: center;
-            } 
-        </style>
+        </script>--}}

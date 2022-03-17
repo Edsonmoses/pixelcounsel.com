@@ -145,7 +145,7 @@ class AddVectorComponent extends Component
         $vector->vtag = str_replace("\n",',',trim($this->vtag));
         $vector->save();
         session()->flash('message','Logo has been submitted successfully!');
-        return redirect()->back();
+        return redirect('/add-vectors/add');
     }
 
     public function updateConfirmation()

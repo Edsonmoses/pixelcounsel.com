@@ -190,6 +190,7 @@ class HookupAddComponent extends Component
         $hookup->postedby = $this->postedby;
         $hookup->save();
         session()->flash('message','Job has been submitted successfully!');
+        return redirect('/hookup/add');
     }
 
     public function updateConfirmation()

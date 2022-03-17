@@ -82,6 +82,7 @@ class EventAddComponent extends Component
         $event->postedby = $this->postedby;
         $event->save();
         session()->flash('message','Event has been submitted successfully!');
+        return redirect('/events/add');
     }
 
     public function updateConfirmation()

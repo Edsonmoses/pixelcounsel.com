@@ -712,6 +712,11 @@
                 centerModals($(this));
             });
             $(window).on('resize', centerModals);
+
+            $('#updated-form').submit(function (e) {
+              $('#exampleModalLong').modal('show');
+              return false;
+          });
         </script>
         <style>
             /**successful submition popup**/

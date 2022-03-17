@@ -252,13 +252,13 @@
                     <i class="fa fa-plus" aria-hidden="true"></i><br/>
                     Add another</a><br/>
                 <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
-            @else
+               {{-- @else
             <h1 style="color:firebrick !important;">oooh!</h1>
                <p style="color:firebrick !important;">Something went wrong.</p>
                 <a href="{{route('hookup.addhookup')}}" class="btn btn-successfully">
                     <i class="fa fa-plus" aria-hidden="true"></i><br/>
                     Add<br/> another</a><br/>
-                <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
+                <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>--}}
             @endif
         </div>
       </div>
