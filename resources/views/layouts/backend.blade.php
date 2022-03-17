@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="{{ asset('assets/admin/assets/css/demo_1/style.css')}}">
   <link href="{{ asset('assets/user/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="{{ asset('assets/admin/assets/images/favicon.png')}}" />
+  <link rel="shortcut icon" href="{{ asset('assets/uploads/img/PC Logo.png')}}" />
 
   <script src="https://cdn.tiny.cloud/1/k8q9tgside9eky8q9awxina5c3fwpwso4mslw3530tjl39hj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   <style>

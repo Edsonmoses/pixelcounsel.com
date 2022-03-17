@@ -25,7 +25,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
   
     <script src="{{ asset('assets/user/js/ajax.googleapis.js') }}"></script>
-    <link rel="shortcut icon" href="{{ asset('assets/admin/assets/images/favicon.png')}}" />
+    <link rel="shortcut icon" href="{{ asset('assets/uploads/img/PC Logo.png')}}" />
     <script src="https://cdn.tiny.cloud/1/k8q9tgside9eky8q9awxina5c3fwpwso4mslw3530tjl39hj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
      <!-- Global site tag (gtag.js) - Google Analytics -->
      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-217785215-1"></script>
