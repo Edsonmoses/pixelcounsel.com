@@ -83,7 +83,7 @@
                         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-infos">
                           <a href="{{ route('events.details',['event_slug'=>$event->slug]) }}" role="button"><h2 class="card-title" >
                             {{substr($event->name,0,24)}}</h2></a>
-                            <p class="card-text">{{ substr($event->description,0,51) }}</p>
+                            <p class="card-text">{{ substr($event->exhibition,0,51) }}</p>
                         </div>
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-dates text-center">
                           <a href="{{ route('events.details',['event_slug'=>$event->slug]) }}">

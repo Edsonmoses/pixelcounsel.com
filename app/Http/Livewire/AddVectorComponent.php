@@ -168,10 +168,10 @@ class AddVectorComponent extends Component
                 ->orWhere('vtag','LIKE',$searchTerm)
                 ->orderBy('updated_at','ASC',$searchTerm)->paginate(15);
 
-        $vectorcategories = VectorCategory::all()->sortBy('name');
+        $vectorcategories = VectorCategory::all();
         return view('livewire.user.account-status-component',['vectorlogos'=>$vectorlogos,'vectorcategories'=>$vectorcategories])->layout('layouts.baseapp');
         }else{
-        $vectorcategories = VectorCategory::all()->sortBy('name');
+        $vectorcategories = VectorCategory::all();
         return view('livewire.add-vector-component',['vectorcategories'=>$vectorcategories])->layout('layouts.baseapp');
         }
     }
