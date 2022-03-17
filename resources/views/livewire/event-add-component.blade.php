@@ -181,6 +181,7 @@
           </a>
         </div>
         <div class="modal-body text-center">
+            @if (Session::has('message'))
             <h1>AWESOME!</h1>
             <p >Your event has been<br/>
              successfully submitted.</p>
@@ -188,6 +189,14 @@
                 <i class="fa fa-plus" aria-hidden="true"></i><br/>
                 Add another</a><br/>
             <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
+            @else
+            <h1 style="color:firebrick !important;">oooh!</h1>
+                <p style="color:firebrick !important;">Something went wrong.</p>
+                <a href="{{route('hookup.addhookup')}}" class="btn btn-successfully">
+                    <i class="fa fa-plus" aria-hidden="true"></i><br/>
+                    Add<br/> another</a><br/>
+                <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
+            @endif
         </div>
       </div>
     </div>
@@ -201,19 +210,63 @@
       });
     </script>
     <style>
-    .modal-header .close {
-            margin: 0;
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            width: 23px;
-            height: 23px;
-            border-radius: 23px;
-            background-color: #313844;
-            color: #fff;
-            font-size: 16px;
-            opacity: 1;
-            z-index: 10;
-            text-align: center;
-        } 
+   .popups .modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #333 !important;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  border-radius: 1.2rem !important;
+  outline: 0;
+  }
+  .popups .modal-content h1{
+      font-size: 5.25rem !important;
+      color: #fff;
+  }
+  .popups .modal-content p{
+      margin-bottom: 3rem !important;
+      font-size: 2.75rem !important;
+      color: #fff;
+  }
+  .popups .modal-header .close {
+      margin: 0;
+      position: absolute;
+      top: -7px;
+      right: -26px;
+      width: 23px;
+      height: 23px;
+      border-radius: 23px;
+      background-color: transparent !important;
+      background: transparent !important;
+      color: #fff;
+      font-size: 35px;
+      opacity: 1;
+      z-index: 10;
+      text-align: center;
+  } 
+  .popups .modal-header{
+      border-bottom: 1px solid #333 !important;
+  }
+  .popups .btn-successfully{
+     width: 150px;
+     height: 150px;
+     background: #fff100;
+     border-radius: 75px;
+     color: #222 !important;
+      font-size: 17px;
+      text-transform: uppercase;
+      line-height: 1.2em;
+ }
+ .popups .btn-successfully i{
+     font-size: 58px;
+     -webkit-text-stroke: 7px #fff100 !important;
+ }
+ .popups .popup_logo{
+     width: 80px !important;
+     margin-top: 3em;
+     margin-bottom: 2em;
+ }
     </style>
