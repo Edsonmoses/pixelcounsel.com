@@ -168,7 +168,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <a href="{{route('"/vector')}}" class="close" data-dismiss="modal" aria-label="Close">
+              <a href="/vector" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </a>
             </div>

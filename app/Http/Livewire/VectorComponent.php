@@ -92,12 +92,12 @@ class VectorComponent extends Component
                 ->orWhere('description','LIKE',$searchTerm)
                 ->orWhere('designer','LIKE',$searchTerm)
                 ->orWhere('vtag','LIKE',$searchTerm)
-                ->orderBy('updated_at','ASC',$searchTerm)->paginate(15);
+                ->latest('updated_at')->paginate(15);
 
         //$vectorlogos = Vectorlogos::where('vector_status',$this->vectors_status)->orderBy('name', 'ASC')
         //->limit($this->loadAmount)
         //->get();
-        $vectorcategories = VectorCategory::all()->sortBy('name');
+        $vectorcategories = VectorCategory::all();
         return view('livewire.vector-component',['vectorlogos'=>$vectorlogos,'vectorcategories'=>$vectorcategories])->layout('layouts.baseapp');
     }
 }

@@ -239,7 +239,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <a href="{{route('"/hookup')}}" class="close" data-dismiss="modal" aria-label="Close">
+          <a href="/hookup" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </a>
         </div>
