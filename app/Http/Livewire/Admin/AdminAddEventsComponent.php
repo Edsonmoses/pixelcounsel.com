@@ -41,8 +41,48 @@ class AdminAddEventsComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug' => 'required',
+            'short_description' => 'required',
+            'description' => 'required',
+            'exhibition' => 'required',
+            'eventdate' => 'required',
+            'events_status' => 'required',
+            'images' => 'required|mimes:png,jpg,jpeg,webp',
+            'events_categories_id' => 'required',
+            'etype_id' => 'required',
+            'econtact' => 'required',
+            'eventemail' => 'required',
+            'ephone' => 'required',
+            'website' => 'required',
+            'ticket' => 'required',
+            'enddate' => 'required',
+        ]);
+    }
+
     public function addEvent()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'short_description' => 'required',
+            'description' => 'required',
+            'exhibition' => 'required',
+            'eventdate' => 'required',
+            'events_status' => 'required',
+            'images' => 'required|mimes:png,jpg,jpeg,webp',
+            'events_categories_id' => 'required',
+            'etype_id' => 'required',
+            'econtact' => 'required',
+            'eventemail' => 'required',
+            'ephone' => 'required',
+            'website' => 'required',
+            'ticket' => 'required',
+            'enddate' => 'required',
+        ]);
         $event = new Events();
         $event->name = $this->name;
         $event->slug = $this->slug;

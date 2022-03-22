@@ -23,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;500;700&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
-    <link rel="shortcut icon" href="{{ asset('assets/uploads/img/PC Logo.png')}}" />
+    <link rel="shortcut icon" href="{{ asset('assets/uploads/img/PCl-Fav.png')}}" />
     <script src="{{ asset('assets/user/js/ajax.googleapis.js') }}"></script>
     <script src="https://cdn.tiny.cloud/1/k8q9tgside9eky8q9awxina5c3fwpwso4mslw3530tjl39hj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->

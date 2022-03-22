@@ -25,16 +25,16 @@
                             
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-group app-label mt-2">
+                                    <div class="form-group app-label mt-2 {{ $errors->get('exhibition') ? 'has-error' : '' }}">
                                         <label class="text-muted">Event Venue</label>
-                                        <input type="text" placeholder="Event Venue" class="form-control input-md" wire:model="exhibition">
+                                        <input type="text" placeholder="Event Venue" id="exhibition" class="form-control input-md" wire:model="exhibition">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2 mr-2">
+                                    <div class="form-group app-label mt-2 mr-2 {{ $errors->get('name') ? 'has-error' : '' }}">
                                         <label class="text-muted">Event Name</label>
                                         <input type="text" placeholder="Event Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug"/>
                                     </div>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-group app-label mt-2">
+                                    <div class="form-group app-label mt-2 {{ $errors->get('description') ? 'has-error' : '' }}">
                                         <label class="text-muted">Event Description</label>
                                         <textarea id="description" rows="6" class="form-control resume" placeholder="Event Description" wire:model="description"></textarea>
                                     </div>
@@ -56,7 +56,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2 mr-2">
+                                    <div class="form-group app-label mt-2 mr-2 {{ $errors->get('events_categories_id') ? 'has-error' : '' }}">
                                         <label class="text-muted">Event Category</label>
                                         <select class="form-control" wire:model="events_categories_id">
                                             <option value="">Select Event Category</option>
@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2">
+                                    <div class="form-group app-label mt-2 {{ $errors->get('etype_id') ? 'has-error' : '' }}">
                                         <label class="text-muted">Event Type</label>
                                         <select class="form-control" wire:model="etype_id">
                                             <option value="">Select Event Type</option>
@@ -112,13 +112,13 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2  mr-2">
+                                    <div class="form-group app-label mt-2  mr-2 {{ $errors->get('ticket') ? 'has-error' : '' }}">
                                         <label class="text-muted">Ticket Price</label>
                                         <input type="text" placeholder="Ticket Price" class="form-control input-md" wire:model="ticket">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2">
+                                    <div class="form-group app-label mt-2 {{ $errors->get('images') ? 'has-error' : '' }}">
                                         <label class="text-muted">Event Poster or Image</label>
                                         <input type="file" class="form-control input-file" wire:model="images">
                                         @if($images)
@@ -131,7 +131,7 @@
                             <div class="row">
                                
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2">
+                                    <div class="form-group app-label mt-2 mr-2 {{ $errors->get('eventdate') ? 'has-error' : '' }}">
                                         <label class="text-muted">Event Start Date & Time</label>
                                         <input wire:model="eventdate"
                                         type="text" class="form-control input-md datepicker" placeholder="Event Start Date & Time" autocomplete="off"
@@ -140,7 +140,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2 mr-2">
+                                    <div class="form-group app-label mt-2 {{ $errors->get('enddate') ? 'has-error' : '' }}">
                                         <label class="text-muted">Event End Date & Time</label>
                                         <input wire:model="enddate"
                                         type="text" class="form-control input-md datepicker" placeholder="Event End Date & Time" autocomplete="off"
@@ -152,7 +152,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-group app-label mt-2">
+                                    <div class="form-group app-label mt-2 {{ $errors->get('short_description') ? 'has-error' : '' }}">
                                         <label class="text-muted">Event Ticketing Details</label>
                                         <textarea id="short_description" rows="6" class="form-control resume" placeholder="Ticket Details:for each ticket type include name, start & end date for sale max ticket if inclusive and cost" wire:model="short_description"></textarea>
                                     </div>
@@ -181,22 +181,13 @@
           </a>
         </div>
         <div class="modal-body text-center">
-            @if (Session::has('message'))
             <h1>AWESOME!</h1>
             <p >Your event has been<br/>
              successfully submitted.</p>
             <a href="{{route('events.addevent')}}" class="btn btn-successfully">
                 <i class="fa fa-plus" aria-hidden="true"></i><br/>
-                Add another</a><br/>
+                Add <br/>another</a><br/>
             <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
-            {{--  @else
-            <h1 style="color:firebrick !important;">oooh!</h1>
-                <p style="color:firebrick !important;">Something went wrong.</p>
-                <a href="{{route('hookup.addhookup')}}" class="btn btn-successfully">
-                    <i class="fa fa-plus" aria-hidden="true"></i><br/>
-                    Add<br/> another</a><br/>
-                <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>--}}
-            @endif
         </div>
       </div>
     </div>

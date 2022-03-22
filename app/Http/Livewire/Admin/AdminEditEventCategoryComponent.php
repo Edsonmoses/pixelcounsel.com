@@ -28,8 +28,20 @@ class AdminEditEventCategoryComponent extends Component
         $this->slug = Str::slug($this->name);
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug'=>'required|unique:categories'
+        ]);
+    }
+
     public function updateCategory()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug'=>'required|unique:categories'
+        ]);
         $event = EventsCategory::find($this->event_id);
         $event->name = $this->name;
         $event->slug = $this->slug;

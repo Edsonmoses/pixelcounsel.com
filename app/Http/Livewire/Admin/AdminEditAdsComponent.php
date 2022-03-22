@@ -44,7 +44,7 @@ class AdminEditAdsComponent extends Component
         if($this->newimage)
         {
             $this->validateOnly($fields,[
-                'newimage' => 'required|mimes:jpeg,png,jpg,webp',
+                'newimage' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
         }
     }

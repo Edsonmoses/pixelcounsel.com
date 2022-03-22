@@ -49,8 +49,56 @@ class AdminAddHookupComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+           'name' => 'required',
+           'slug' => 'required',
+           'short_description' => 'required',
+           'description' => 'required',
+           'company' => 'required',
+           'jobtitle' => 'required',
+           'location' => 'required',
+           'hookup_status' => 'required',
+           'images' => 'required|mimes:png,jpg,jpeg,webp',
+           'hookup_categories_id' => 'required',
+           'experience' => 'required',
+           'price' => 'required',
+           'schedule' => 'required',
+           'fjob' => 'required',
+           'featured' => 'required',
+           'phone' => 'required',
+           'email' => 'required',
+           'web' => 'required',
+           'jobUrl' => 'required',
+           'open' => 'required',
+        ]);
+    }
+
     public function addHookup()
     {
+        $this->validate([
+            'name' => 'required',
+           'slug' => 'required',
+           'short_description' => 'required',
+           'description' => 'required',
+           'company' => 'required',
+           'jobtitle' => 'required',
+           'location' => 'required',
+           'hookup_status' => 'required',
+           'images' => 'required|mimes:png,jpg,jpeg,webp',
+           'hookup_categories_id' => 'required',
+           'experience' => 'required',
+           'price' => 'required',
+           'schedule' => 'required',
+           'fjob' => 'required',
+           'featured' => 'required',
+           'phone' => 'required',
+           'email' => 'required',
+           'web' => 'required',
+           'jobUrl' => 'required',
+           'open' => 'required',
+        ]);
         $hookup = new Hookup();
         $hookup->name = $this->name;
         $hookup->slug = $this->slug;

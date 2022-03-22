@@ -102,7 +102,6 @@ class UserAddHookComponent extends Component
             'jobtitle' => 'required',
             'location' => 'required',
             'hookup_status' => 'required',
-            'images' => 'mimes:png,jpg,jpeg,webp',
             'experience' => 'required',
             'price' => 'required',
             'schedule' => 'required',
@@ -115,6 +114,12 @@ class UserAddHookComponent extends Component
         {
             $this->validateOnly($fields,[
                 'price' => 'required',
+            ]);
+        }
+        if($this->images)
+        {
+            $this->validateOnly($fields,[
+                'images' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
         }
     }
@@ -130,7 +135,6 @@ class UserAddHookComponent extends Component
            'jobtitle' => 'required',
            'location' => 'required',
            'hookup_status' => 'required',
-           'images' => 'mimes:png,jpg,jpeg,webp',
            'experience' => 'required',
            'price' => 'required',
            'schedule' => 'required',
@@ -143,6 +147,12 @@ class UserAddHookComponent extends Component
         {
             $this->validate([
                 'price' => 'required',
+            ]);
+        }
+        if($this->images)
+        {
+            $this->validate([
+                'images' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
         }
         $hookup = new Hookup();

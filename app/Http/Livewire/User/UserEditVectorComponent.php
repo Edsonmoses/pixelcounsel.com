@@ -54,8 +54,62 @@ class UserEditVectorComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug' => 'required|unique:vectorlogos',
+            'short_description' => 'required',
+            'description' => 'required',
+            'designer' => 'required',
+            'format' => 'required',
+            'vector_status' => 'required',
+            'images' => 'required|mimes:ai,eps,pdf,svg,CDR',
+            'image' => 'required|mimes:png,jpg,jpeg,webp',
+            'vector_categories_id' => 'required',
+        ]);
+        if($this->newimage)
+        {
+            $this->validateOnly($fields,[
+                'newimage' => 'required|mimes:ai,eps,pdf,svg,CDR',
+            ]);
+        }
+
+        if($this->newimages)
+        {
+            $this->validateOnly($fields,[
+                'newimages' => 'required|mimes:png,jpg,jpeg,webp',
+            ]);
+        }
+    }
+
     public function updateVector()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:vectorlogos',
+            'short_description' => 'required',
+            'description' => 'required',
+            'designer' => 'required',
+            'format' => 'required',
+            'vector_status' => 'required',
+            'images' => 'required|mimes:ai,eps,pdf,svg,CDR',
+            'image' => 'required|mimes:png,jpg,jpeg,webp',
+            'vector_categories_id' => 'required',
+        ]);
+        if($this->newimage)
+        {
+            $this->validate([
+                'newimage' => 'required|mimes:ai,eps,pdf,svg,CDR',
+            ]);
+        }
+
+        if($this->newimages)
+        {
+            $this->validate([
+                'newimages' => 'required|mimes:png,jpg,jpeg,webp',
+            ]);
+        }
         $vector = Vectorlogos::find($this->vector_id);
         $vector->name = $this->name;
         $vector->slug = $this->slug;

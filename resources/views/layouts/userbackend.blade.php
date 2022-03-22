@@ -9,7 +9,7 @@
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('assets/uploads/img/PC Logo.png')}}">
+        <link rel="shortcut icon" href="{{ asset('assets/uploads/img/PCl-Fav.png')}}">
 
          <!-- Plugins css -->
          <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />

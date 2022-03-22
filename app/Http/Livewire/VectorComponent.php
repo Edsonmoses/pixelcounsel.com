@@ -92,7 +92,7 @@ class VectorComponent extends Component
                 ->orWhere('description','LIKE',$searchTerm)
                 ->orWhere('designer','LIKE',$searchTerm)
                 ->orWhere('vtag','LIKE',$searchTerm)
-                ->latest('updated_at')->paginate(15);
+                ->orderBy('created_at','DESC')->paginate(15);
 
         //$vectorlogos = Vectorlogos::where('vector_status',$this->vectors_status)->orderBy('name', 'ASC')
         //->limit($this->loadAmount)

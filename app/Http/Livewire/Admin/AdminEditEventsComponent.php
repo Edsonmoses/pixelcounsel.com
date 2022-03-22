@@ -61,8 +61,59 @@ class AdminEditEventsComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug' => 'required',
+            'short_description' => 'required',
+            'description' => 'required',
+            'exhibition' => 'required',
+            'eventdate' => 'required',
+            'events_status' => 'required',
+            'images' => 'required|mimes:png,jpg,jpeg,webp',
+            'events_categories_id' => 'required',
+            'etype_id' => 'required',
+            'econtact' => 'required',
+            'eventemail' => 'required',
+            'ephone' => 'required',
+            'website' => 'required',
+            'ticket' => 'required',
+            'enddate' => 'required',
+        ]);
+        if($this->newimage)
+        {
+            $this->validateOnly($fields,[
+                'newimage' => 'required|mimes:jpeg,png,jpg,webp',
+            ]);
+        }
+    }
+
     public function updateEvent()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'short_description' => 'required',
+            'description' => 'required',
+            'exhibition' => 'required',
+            'eventdate' => 'required',
+            'events_status' => 'required',
+            'events_categories_id' => 'required',
+            'etype_id' => 'required',
+            'econtact' => 'required',
+            'eventemail' => 'required',
+            'ephone' => 'required',
+            'website' => 'required',
+            'ticket' => 'required',
+            'enddate' => 'required',
+        ]);
+        if($this->newimage)
+        {
+            $this->validate([
+                'newimage' => 'required|mimes:jpeg,png,jpg,webp',
+            ]);
+        }
         $event = Events::find($this->event_id);
         $event->name = $this->name;
         $event->slug = $this->slug;

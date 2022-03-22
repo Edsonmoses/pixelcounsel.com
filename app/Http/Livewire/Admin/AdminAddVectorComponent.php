@@ -50,9 +50,10 @@ class AdminAddVectorComponent extends Component
             'designer' => 'required',
             'format' => 'required',
             'vector_status' => 'required',
-            'images' => 'required|mimes:png,jpg,jpeg,ai,eps,pdf',
-            'image' => 'required|mimes:png,jpg,jpeg',
+            'images' => 'required|mimes:ai,eps,pdf,svg,CDR',
+            'image' => 'required|mimes:png,jpg,jpeg,webp',
             'vector_categories_id' => 'required',
+            'vtag' => 'required',
         ]);
     }
 
@@ -66,9 +67,10 @@ class AdminAddVectorComponent extends Component
             'designer' => 'required',
             'format' => 'required',
             'vector_status' => 'required',
-            'images' => 'required|mimes:ai,eps,pdf',
+            'images' => 'required|mimes:ai,eps,pdf,svg,CDR',
             'image' => 'required|mimes:png,jpg,jpeg,webp',
             'vector_categories_id' => 'required',
+            'vtag' => 'required',
         ]);
 
         $vector = new Vectorlogos();

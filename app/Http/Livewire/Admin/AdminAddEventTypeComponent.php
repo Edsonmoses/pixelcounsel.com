@@ -21,9 +21,20 @@ class AdminAddEventTypeComponent extends Component
     {
         $this->slug = Str::slug($this->name);
     }
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug'=>'required'
+        ]);
+    }
 
     public function storeType()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug'=>'required'
+        ]);
         $etype = new EventType();
         $etype->name = $this->name;
         $etype->slug = $this->slug;

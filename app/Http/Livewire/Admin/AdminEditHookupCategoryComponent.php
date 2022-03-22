@@ -28,8 +28,20 @@ class AdminEditHookupCategoryComponent extends Component
         $this->slug = Str::slug($this->name);
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug'=>'required|unique:categories'
+        ]);
+    }
+
     public function updateCategory()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug'=>'required|unique:categories'
+        ]);
         $hookup = HookupCategory::find($this->hookup_id);
         $hookup->name = $this->name;
         $hookup->slug = $this->slug;

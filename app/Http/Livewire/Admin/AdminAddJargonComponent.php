@@ -40,11 +40,13 @@ class AdminAddJargonComponent extends Component
     {
         $this->validateOnly($fields,[
             'name' => 'required',
-            'slug'=>'required|unique:categories',
+            'slug'=>'required',
             'short_description' => 'required',
             'description' => 'required',
             'jargons_status' => 'required',
             'jargon_categories_id' => 'required',
+            'images' => 'required|mimes:png,jpg,jpeg,webp',
+            'afid' => 'required',
         ]);
     }
 
@@ -57,6 +59,8 @@ class AdminAddJargonComponent extends Component
             'description' => 'required',
             'jargons_status' => 'required',
             'jargon_categories_id' => 'required',
+            'images' => 'required|mimes:png,jpg,jpeg,webp',
+            'afid' => 'required',
         ]);
 
         $jargon = new Jargons();

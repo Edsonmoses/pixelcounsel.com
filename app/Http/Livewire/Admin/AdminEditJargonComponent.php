@@ -44,8 +44,43 @@ class AdminEditJargonComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug'=>'required',
+            'short_description' => 'required',
+            'description' => 'required',
+            'jargons_status' => 'required',
+            'jargon_categories_id' => 'required',
+            'afid' => 'required',
+        ]);
+        if($this->newimage)
+        {
+            $this->validateOnly($fields,[
+                'newimage' => 'required|mimes:png,jpg,jpeg,webp',
+            ]);
+        }
+    }
+
     public function updateJargon()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug'=>'required|unique:categories',
+            'short_description' => 'required',
+            'description' => 'required',
+            'jargons_status' => 'required',
+            'jargon_categories_id' => 'required',
+            'afid' => 'required',
+        ]);
+        if($this->newimage)
+        {
+            $this->validate([
+                'newimage' => 'required|mimes:png,jpg,jpeg,webp',
+            ]);
+        }
+
         $jargon = Jargons::find($this->jargon_id);
         $jargon->name = $this->name;
         $jargon->slug = $this->slug;

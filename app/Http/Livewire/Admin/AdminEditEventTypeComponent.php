@@ -28,8 +28,20 @@ class AdminEditEventTypeComponent extends Component
         $this->slug = Str::slug($this->name);
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug'=>'required|unique:categories'
+        ]);
+    }
+
     public function updateType()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug'=>'required|unique:categories'
+        ]);
         $etype = EventType::find($this->etype_id);
         $etype->name = $this->name;
         $etype->slug = $this->slug;

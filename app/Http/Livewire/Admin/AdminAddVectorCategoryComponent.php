@@ -23,8 +23,20 @@ class AdminAddVectorCategoryComponent extends Component
         $this->slug = Str::slug($this->name);
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug'=>'required'
+        ]);
+    }
+
     public function storeCategory()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug'=>'required'
+        ]);
         $vector = new VectorCategory();
         $vector->name = $this->name;
         $vector->slug = $this->slug;

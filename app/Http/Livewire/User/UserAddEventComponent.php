@@ -43,9 +43,58 @@ class UserAddEventComponent extends Component
     {
         $this->slug = Str::slug($this->name,'-');
     }
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug' => 'required|unique:events',
+            'short_description' => 'required',
+            'description' => 'required',
+            'exhibition' => 'required',
+            'eventdate' => 'required',
+            'events_status' => 'required',
+            'events_categories_id' => 'required',
+            'etype_id' => 'required',
+            'econtact' => 'required',
+            'eventemail' => 'required',
+            'ephone' => 'required',
+            'website' => 'required',
+            'ticket' => 'required',
+            'enddate' => 'required',
+        ]);
+        if($this->images)
+        {
+            $this->validateOnly($fields,[
+                'images' => 'required|mimes:png,jpg,jpeg,webp',
+            ]);
+        }
+    }
 
     public function storeEvent()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:events',
+            'short_description' => 'required',
+            'description' => 'required',
+            'exhibition' => 'required',
+            'eventdate' => 'required',
+            'events_status' => 'required',
+            'events_categories_id' => 'required',
+            'etype_id' => 'required',
+            'econtact' => 'required',
+            'eventemail' => 'required',
+            'ephone' => 'required',
+            'website' => 'required',
+            'ticket' => 'required',
+            'enddate' => 'required',
+        ]);
+        if($this->images)
+        {
+            $this->validate([
+                'images' => 'required|mimes:png,jpg,jpeg,webp',
+            ]);
+        }
         $event = new Events();
         $event->name = $this->name;
         $event->slug = $this->slug;
@@ -68,6 +117,7 @@ class UserAddEventComponent extends Component
         $event->postedby = $this->postedby;
         $event->save();
         session()->flash('message','Event has been submitted successfully!');
+        return redirect()->back();
     }
     public function render()
     {

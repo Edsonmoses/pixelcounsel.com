@@ -23,8 +23,20 @@ class AdminAddJargonCategoryComponent extends Component
         $this->slug = Str::slug($this->name);
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug'=>'required'
+        ]);
+    }
+
     public function storeCategory()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug'=>'required'
+        ]);
         $jargon = new JargonCategory();
         $jargon->name = $this->name;
         $jargon->slug = $this->slug;

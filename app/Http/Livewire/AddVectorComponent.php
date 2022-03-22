@@ -103,10 +103,21 @@ class AddVectorComponent extends Component
             'designer' => 'required',
             'format' => 'required',
             'vector_status' => 'required',
-            'images' => 'required|mimes:png,jpg,jpeg,ai,eps,pdf',
-            'image' => 'required|mimes:png,jpg,jpeg',
             'vector_categories_id' => 'required',
         ]);
+        if($this->images)
+        {
+            $this->validateOnly($fields,[
+                'images' => 'required|mimes:ai,eps,pdf,svg,CDR',
+            ]);
+        }
+
+        if($this->image)
+        {
+            $this->validateOnly($fields,[
+                'image' => 'required|mimes:png,jpg,jpeg,webp',
+            ]);
+        }
     }
 
     public function addVector()
@@ -119,10 +130,23 @@ class AddVectorComponent extends Component
             'designer' => 'required',
             'format' => 'required',
             'vector_status' => 'required',
-            'images' => 'required|mimes:png,jpg,jpeg,ai,eps,pdf',
-            'image' => 'required|mimes:png,jpg,jpeg',
+            'images' => 'required|mimes:ai,eps,pdf,svg,CDR',
+            'image' => 'required|mimes:png,jpg,jpeg,webp',
             'vector_categories_id' => 'required',
         ]);
+        if($this->images)
+        {
+            $this->validate([
+                'images' => 'required|mimes:ai,eps,pdf,svg,CDR',
+            ]);
+        }
+
+        if($this->image)
+        {
+            $this->validate([
+                'image' => 'required|mimes:png,jpg,jpeg,webp',
+            ]);
+        }
 
         $vector = new Vectorlogos();
         $vector->name = $this->name;

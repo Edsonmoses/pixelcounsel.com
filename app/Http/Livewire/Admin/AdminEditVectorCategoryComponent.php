@@ -27,9 +27,21 @@ class AdminEditVectorCategoryComponent extends Component
     {
         $this->slug = Str::slug($this->name);
     }
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug'=>'required|unique:categories'
+        ]);
+    }
 
     public function updateVector()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug'=>'required|unique:categories'
+        ]);
+        
         $vectorcategory = VectorCategory::find($this->vectorcategory_id);
         $vectorcategory->name = $this->name;
         $vectorcategory->slug = $this->slug;

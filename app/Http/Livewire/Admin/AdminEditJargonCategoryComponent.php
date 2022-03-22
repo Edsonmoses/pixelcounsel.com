@@ -28,8 +28,20 @@ class AdminEditJargonCategoryComponent extends Component
         $this->slug = Str::slug($this->name);
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug'=>'required|unique:categories'
+        ]);
+    }
+
     public function updateCategory()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug'=>'required|unique:categories'
+        ]);
         $jargon = JargonCategory::find($this->jargon_id);
         $jargon->name = $this->name;
         $jargon->slug = $this->slug;

@@ -58,14 +58,14 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2 mr-2">
+                                    <div class="form-group app-label mt-2 mr-2 {{ $errors->get('name') ? 'has-error' : '' }}">
                                         <label class="text-muted">Logo Name</label>
                                         <input type="text" placeholder="Logo Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug"/>
                                          @error('name')<p class="text-danger">{{ $message }}</p>@enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2">
+                                    <div class="form-group app-label mt-2 {{ $errors->get('slug') ? 'has-error' : '' }}">
                                         <label class="text-muted">Logo Slug</label>
                                         <input type="text" placeholder="Logo Slug (url)" class="form-control input-md" wire:model="slug"/>
                                         @error('slug')<p class="text-danger">{{ $message }}</p>@enderror
@@ -74,7 +74,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-group app-label mt-2">
+                                    <div class="form-group app-label mt-2 {{ $errors->get('short_description') ? 'has-error' : '' }}">
                                         <label class="text-muted">Short Description</label>
                                         <textarea placeholder="Short Description" id="short_description" class="form-control" wire:model="short_description"></textarea>
                                         @error('short_description')<p class="text-danger">{{ $message }}</p>@enderror
@@ -83,12 +83,14 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2 mr-2">
+                                    <div class="form-group app-label mt-2 mr-2 {{ $errors->get('format') ? 'has-error' : '' }}">
                                         <label class="text-muted">Logo Format</label>
                                         <select class="form-control" wire:model="format">
                                             <option value="ai">AI</option>
                                             <option value="eps">EPS</option>
                                             <option value="pdf">PDF</option>
+                                            <option value="svg">SVG</option>
+                                            <option value="cdr">CDR</option>
                                         </select>
                                         @error('format')<p class="text-danger">{{ $message }}</p>@enderror
                                     </div>
@@ -100,7 +102,7 @@
                                     </div>
                                 </div>
                             <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
+                                <div class="form-group app-label mt-2 {{ $errors->get('vtag') ? 'has-error' : '' }}">
                                     <label class="text-muted">Tags</label>
                                     <input type="text" placeholder="Tags (to add more tags you need to separate them with a comma)" class="form-control input-md" wire:model="vtag">
                                 </div>
@@ -109,14 +111,14 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2 mr-2">
+                                    <div class="form-group app-label mt-2 mr-2 {{ $errors->get('images') ? 'has-error' : '' }}">
                                         <label class="text-muted">Vector File</label>
                                         <input type="file" class="form-control input-file" wire:model="images">
                                         @error('images')<p class="text-danger">{{ $message }}</p>@enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group app-label mt-2">
+                                    <div class="form-group app-label mt-2 {{ $errors->get('image') ? 'has-error' : '' }}">
                                         <label class="text-muted">Logo Preview</label>
                                         <input type="file" class="form-control input-file" wire:model="image">
                                         @if($image)
@@ -128,7 +130,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-group app-label mt-2">
+                                    <div class="form-group app-label mt-2 {{ $errors->get('vector_categories_id') ? 'has-error' : '' }}">
                                         <label class="text-muted">Company Business Category</label>
                                         <select class="form-control" wire:model="vector_categories_id">
                                             <option value="">Select company business category</option>
@@ -143,7 +145,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-group app-label mt-2">
+                                    <div class="form-group app-label mt-2 {{ $errors->get('description') ? 'has-error' : '' }}">
                                         <label class="text-muted">Vector Description</label>
                                         <textarea placeholder="Vector Description" id="description" class="form-control" wire:model="description"></textarea>
                                         @error('description')<p class="text-danger">{{ $message }}</p>@enderror
@@ -173,22 +175,13 @@
               </a>
             </div>
             <div class="modal-body text-center">
-                @if (Session::has('message'))
                 <h1>AWESOME!</h1>
                 <p >Your logo has been<br/>
                  successfully submitted.</p>
                 <a href="{{route('vector.addvectors')}}" class="btn btn-successfully">
                     <i class="fa fa-plus" aria-hidden="true"></i><br/>
-                    Add another</a><br/>
+                    Add <br/>another</a><br/>
                 <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
-               {{-- @else
-            <h1 style="color:firebrick !important;">oooh!</h1>
-                <p style="color:firebrick !important;">Something went wrong.</p>
-                <a href="{{route('vector.addvectors')}}" class="btn btn-successfully">
-                    <i class="fa fa-plus" aria-hidden="true"></i><br/>
-                    Add<br/> another</a><br/>
-                <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>--}}
-            @endif
             </div>
           </div>
         </div>

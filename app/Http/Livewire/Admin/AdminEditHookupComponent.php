@@ -66,8 +66,66 @@ class AdminEditHookupComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+           'name' => 'required',
+           'slug' => 'required',
+           'short_description' => 'required',
+           'description' => 'required',
+           'company' => 'required',
+           'jobtitle' => 'required',
+           'location' => 'required',
+           'hookup_status' => 'required',
+           'hookup_categories_id' => 'required',
+           'experience' => 'required',
+           'price' => 'required',
+           'schedule' => 'required',
+           'fjob' => 'required',
+           'featured' => 'required',
+           'phone' => 'required',
+           'email' => 'required',
+           'web' => 'required',
+           'jobUrl' => 'required',
+           'open' => 'required',
+        ]);
+        if($this->newimage)
+        {
+            $this->validateOnly($fields,[
+                'newimage' => 'required|mimes:png,jpg,jpeg,webp',
+            ]);
+        }
+    }
+
     public function updateHookup()
     {
+        $this->validate([
+            'name' => 'required',
+           'slug' => 'required',
+           'short_description' => 'required',
+           'description' => 'required',
+           'company' => 'required',
+           'jobtitle' => 'required',
+           'location' => 'required',
+           'hookup_status' => 'required',
+           'hookup_categories_id' => 'required',
+           'experience' => 'required',
+           'price' => 'required',
+           'schedule' => 'required',
+           'fjob' => 'required',
+           'featured' => 'required',
+           'phone' => 'required',
+           'email' => 'required',
+           'web' => 'required',
+           'jobUrl' => 'required',
+           'open' => 'required',
+        ]);
+        if($this->newimage)
+        {
+            $this->validate([
+                'newimage' => 'required|mimes:png,jpg,jpeg,webp',
+            ]);
+        }
         $hookup = Hookup::find($this->hookup_id);
         $hookup->name = $this->name;
         $hookup->slug = $this->slug;
