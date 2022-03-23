@@ -1243,8 +1243,12 @@ body{
   height: 230px !important;
 }
 .event-ml{
-  margin-left: 15px !important;
-  margin-right: 15px !important;
+  margin-left: -15px !important;
+  margin-right: -15px !important;
+  margin-top: -50px !important;
+}
+.event-ml .rounded {
+  border-radius: 0 0 10px 10px !important;
 }
 .date-as-calendar.size1_75x {
   font-size: 28px;
@@ -3221,10 +3225,11 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
 
 .overlay .closebtn {
   position: absolute;
-  top: -32px;
+  top: 0px;
   right: 45px;
   font-size: 60px;
   -webkit-text-stroke: 4px rgb(38,38,37);
+  z-index: 999;
 }
 .overlay-content hr{
 border-top: 1px solid #eeeeee1a !important;
@@ -3250,6 +3255,7 @@ border-top: 1px solid #eeeeee1a !important;
 .m-menu hr{
   margin-top: 1.75rem !important;
   margin-bottom: 1.75rem !important;
+  margin-right: 25px;
 }
 .m-footer a{
   padding: 0 60px 0 0;

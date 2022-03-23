@@ -49,7 +49,7 @@
 
 <body>
   @include('cookieConsent::index')
-<!-- Navigation -->
+<!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <div class="navbar-header">
@@ -163,10 +163,12 @@
       <div id="myNav" class="overlay d-md-none d-lg-none">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
-          <a href="/" style="font-weight: 800">HOME</a>
-          <hr/>
           <div class="m-menu">
             <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 ml-2 menu-actives">
+              <li class="nav-item">
+                <a class="nav-link" href="/">HOME</a>
+                <hr/>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="/vector">VECTOR LOGOS
                   <span class="{{ (request()->is('vector*')) ? 'vector-arrows' : '' }} d-none d-sm-block d-sm-none d-md-block"></span>
@@ -369,14 +371,20 @@
           }); 
 
           function openNav() {
-      document.getElementById("myNav").style.display = "block";
-    }
+            document.getElementById("myNav").style.display = "block";
+            document.body.classList.toggle('lock-scroll');
+          }
 
-    function closeNav() {
-      document.getElementById("myNav").style.display = "none";
-    }
+          function closeNav() {
+            document.getElementById("myNav").style.display = "none";
+          }
    
     </script>
+    <style>
+      .lock-scroll {
+            overflow: hidden;
+        }
+    </style>
 
     @stack('scripts')
 
