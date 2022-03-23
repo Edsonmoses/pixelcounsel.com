@@ -32,7 +32,7 @@ class AdminEditAdsComponent extends Component
         $this->status = $ads->status;
     }
 
-    public function updated($fields)
+    /*public function updated($fields)
     {
         $this->validateOnly($fields,[
             'name' => 'required',
@@ -47,11 +47,11 @@ class AdminEditAdsComponent extends Component
                 'newimage' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
         }
-    }
+    }*/
 
     public function updateAds()
     {
-        $this->validate([
+        /*$this->validate([
             'name' => 'required',
             'position' => 'required',
             'startdate' => 'required',
@@ -63,7 +63,7 @@ class AdminEditAdsComponent extends Component
             $this->validate([
                 'newimage' => 'required|mimes:jpeg,png,jpg,webp',
             ]);
-        }
+        }*/
 
         $ads = Ads::find($this->ads_id);
         $ads->name = $this->name;

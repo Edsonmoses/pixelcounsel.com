@@ -52,7 +52,7 @@ class AdminEditVectorComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
-    public function updated($fields)
+   /* public function updated($fields)
     {
         $this->validateOnly($fields,[
             'name' => 'required',
@@ -79,11 +79,11 @@ class AdminEditVectorComponent extends Component
                 'newimages' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
         }
-    }
+    }*/
 
     public function updateVector()
     {
-        $this->validate([
+       /* $this->validate([
             'name' => 'required',
             'slug' => 'required|unique:vectorlogos',
             'short_description' => 'required',
@@ -106,7 +106,7 @@ class AdminEditVectorComponent extends Component
             $this->validate([
                 'newimages' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
-        }
+        }*/
         $vector = Vectorlogos::find($this->vector_id);
         $vector->name = $this->name;
         $vector->slug = $this->slug;

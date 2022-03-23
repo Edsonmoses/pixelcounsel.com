@@ -61,7 +61,7 @@ class AdminEditEventsComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
-    public function updated($fields)
+    /*public function updated($fields)
     {
         $this->validateOnly($fields,[
             'name' => 'required',
@@ -87,11 +87,11 @@ class AdminEditEventsComponent extends Component
                 'newimage' => 'required|mimes:jpeg,png,jpg,webp',
             ]);
         }
-    }
+    }*/
 
     public function updateEvent()
     {
-        $this->validate([
+       /* $this->validate([
             'name' => 'required',
             'slug' => 'required',
             'short_description' => 'required',
@@ -113,7 +113,7 @@ class AdminEditEventsComponent extends Component
             $this->validate([
                 'newimage' => 'required|mimes:jpeg,png,jpg,webp',
             ]);
-        }
+        }*/
         $event = Events::find($this->event_id);
         $event->name = $this->name;
         $event->slug = $this->slug;

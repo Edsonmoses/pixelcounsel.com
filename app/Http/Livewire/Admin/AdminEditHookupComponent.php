@@ -66,7 +66,7 @@ class AdminEditHookupComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
-    public function updated($fields)
+    /*public function updated($fields)
     {
         $this->validateOnly($fields,[
            'name' => 'required',
@@ -95,11 +95,11 @@ class AdminEditHookupComponent extends Component
                 'newimage' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
         }
-    }
+    }*/
 
     public function updateHookup()
     {
-        $this->validate([
+        /*$this->validate([
             'name' => 'required',
            'slug' => 'required',
            'short_description' => 'required',
@@ -125,7 +125,7 @@ class AdminEditHookupComponent extends Component
             $this->validate([
                 'newimage' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
-        }
+        }*/
         $hookup = Hookup::find($this->hookup_id);
         $hookup->name = $this->name;
         $hookup->slug = $this->slug;

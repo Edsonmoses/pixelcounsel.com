@@ -44,7 +44,7 @@ class AdminEditJargonComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
-    public function updated($fields)
+    /*public function updated($fields)
     {
         $this->validateOnly($fields,[
             'name' => 'required',
@@ -61,11 +61,11 @@ class AdminEditJargonComponent extends Component
                 'newimage' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
         }
-    }
+    }*/
 
     public function updateJargon()
     {
-        $this->validate([
+       /* $this->validate([
             'name' => 'required',
             'slug'=>'required|unique:categories',
             'short_description' => 'required',
@@ -79,7 +79,7 @@ class AdminEditJargonComponent extends Component
             $this->validate([
                 'newimage' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
-        }
+        }*/
 
         $jargon = Jargons::find($this->jargon_id);
         $jargon->name = $this->name;
