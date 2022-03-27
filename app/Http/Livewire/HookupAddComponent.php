@@ -114,21 +114,14 @@ class HookupAddComponent extends Component
     {
         $this->validateOnly($fields,[
             'name' => 'required',
-            'slug' => 'required',
             'short_description' => 'required',
             'description' => 'required',
             'company' => 'required',
             'jobtitle' => 'required',
             'location' => 'required',
-            'hookup_status' => 'required',
             'images' => 'mimes:png,jpg,jpeg',
             'experience' => 'required',
-            'price' => 'required',
             'schedule' => 'required',
-            'fjob' => 'required',
-            'phone' => 'digits:12',
-            'email' => 'required|email',
-            'open' => 'required',
         ]);
         if($this->price == '15,000 - 30,000')
         {
@@ -148,7 +141,6 @@ class HookupAddComponent extends Component
     {
         $this->validate([
            'name' => 'required',
-           'slug' => 'required',
            'short_description' => 'required',
            'description' => 'required',
            'company' => 'required',
@@ -158,10 +150,6 @@ class HookupAddComponent extends Component
            'experience' => 'required',
            'price' => 'required',
            'schedule' => 'required',
-           'fjob' => 'required',
-           'phone' => 'digits:12',
-           'email' => 'required|email',
-           'open' => 'required',
         ]);
         if($this->price == '15,000 - 30,000')
         {
