@@ -119,7 +119,7 @@ class HookupAddComponent extends Component
             'company' => 'required',
             'jobtitle' => 'required',
             'location' => 'required',
-            'images' => 'mimes:png,jpg,jpeg',
+            'images' => 'mimes:png,jpg,jpeg,webp',
             'experience' => 'required',
             'schedule' => 'required',
         ]);
