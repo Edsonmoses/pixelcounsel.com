@@ -26,33 +26,22 @@ class JargonCategoryComponent extends Component
     }
     public function render()
     {
-        $category_id = null;
-        $category_name = "";
-        $filter = "";
-        if($this->category_slug)
-        {
-            $atributes = AlpFilters::where('name',$this->atributes_name)->first();
-            $category_id = $atributes->id;
-            $category_name = $atributes->name;
-            $filter = "sub";
-        }else{
+    
             $category = JargonCategory::where('slug',$this->category_slug)->first();
             $category_id = $category->id;
             $category_name = $category->name;
-            $filter = "";
-        }
 
         if($this->sorting =='date')
         {
-            $jargons = Jargons::where($filter.'jargon_categories_id',$category_id)->orderBy('created_at','ASC')->paginate($this->pagesize); 
+            $jargons = Jargons::where('jargon_categories_id',$category_id)->orderBy('created_at','ASC')->paginate($this->pagesize); 
         }
         elseif($this->sorting =='price')
         {
-            $jargons = Jargons::where($filter.'jargon_categories_id',$category_id)->orderBy('name','ASC')->paginate($this->pagesize); 
+            $jargons = Jargons::where('jargon_categories_id',$category_id)->orderBy('name','ASC')->paginate($this->pagesize); 
         }
         elseif($this->sorting =='price-desc')
         {
-            $jargons = Jargons::where($filter.'jargon_categories_id',$category_id)->orderBy('name','ASC')->paginate($this->pagesize); 
+            $jargons = Jargons::where('jargon_categories_id',$category_id)->orderBy('name','ASC')->paginate($this->pagesize); 
         }
         elseif($this->searchTerm)
         {
