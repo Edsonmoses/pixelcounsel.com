@@ -16,6 +16,6 @@ class JargonCategory extends Model
     
     public function atributes()
     {
-        return $this->hasMany(AlpFilter::class,'afid');
+        return $this->hasMany('App\Models\AlpFilter','afid');
     }
 }

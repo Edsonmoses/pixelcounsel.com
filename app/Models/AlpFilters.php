@@ -16,6 +16,6 @@ class AlpFilters extends Model
     }
     public function jargonc()
     {
-        $this->belongsTo(JargonCategory::class);
+        $this->belongsTo('App\Models\JargonCategory','afid','id');
     }
 }

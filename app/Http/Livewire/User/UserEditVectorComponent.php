@@ -58,14 +58,10 @@ class UserEditVectorComponent extends Component
     {
         $this->validateOnly($fields,[
             'name' => 'required',
-            'slug' => 'required|unique:vectorlogos',
             'short_description' => 'required',
             'description' => 'required',
             'designer' => 'required',
             'format' => 'required',
-            'vector_status' => 'required',
-            'images' => 'required|mimes:ai,eps,pdf,svg,CDR',
-            'image' => 'required|mimes:png,jpg,jpeg,webp',
             'vector_categories_id' => 'required',
         ]);
         if($this->newimage)
@@ -87,13 +83,9 @@ class UserEditVectorComponent extends Component
     {
         $this->validate([
             'name' => 'required',
-            'slug' => 'required|unique:vectorlogos',
             'short_description' => 'required',
             'description' => 'required',
-            'designer' => 'required',
             'format' => 'required',
-            'vector_status' => 'required',
-            'images' => 'required|mimes:ai,eps,pdf,svg,CDR',
             'image' => 'required|mimes:png,jpg,jpeg,webp',
             'vector_categories_id' => 'required',
         ]);

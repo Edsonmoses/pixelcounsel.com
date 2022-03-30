@@ -67,7 +67,6 @@ class UserEditEventComponent extends Component
     {
         $this->validateOnly($fields,[
             'name' => 'required',
-            'slug' => 'required|unique:events',
             'short_description' => 'required',
             'description' => 'required',
             'exhibition' => 'required',
@@ -75,9 +74,6 @@ class UserEditEventComponent extends Component
             'events_status' => 'required',
             'events_categories_id' => 'required',
             'etype_id' => 'required',
-            'econtact' => 'required',
-            'eventemail' => 'required',
-            'ephone' => 'required',
             'website' => 'required',
             'ticket' => 'required',
             'enddate' => 'required',
@@ -95,7 +91,6 @@ class UserEditEventComponent extends Component
     {
         $this->validate([
             'name' => 'required',
-            'slug' => 'required|unique:events',
             'short_description' => 'required',
             'description' => 'required',
             'exhibition' => 'required',
@@ -103,10 +98,6 @@ class UserEditEventComponent extends Component
             'events_status' => 'required',
             'events_categories_id' => 'required',
             'etype_id' => 'required',
-            'econtact' => 'required',
-            'eventemail' => 'required',
-            'ephone' => 'required',
-            'website' => 'required',
             'ticket' => 'required',
             'enddate' => 'required',
         ]);

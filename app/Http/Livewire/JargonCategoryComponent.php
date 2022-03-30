@@ -14,31 +14,45 @@ class JargonCategoryComponent extends Component
     public $sorting;
     public $pagesize;
     public $category_slug;
+    public $atributes_name;
     public $searchTerm;
 
-    public function mount($category_slug)
+    public function mount($category_slug,$atributes_name=null)
     {
         $this->sorting = "default";
         $this->pagesize = 2000;
         $this->$category_slug = $category_slug;
+        $this->$atributes_name = $atributes_name;
     }
     public function render()
     {
-        $category = JargonCategory::where('slug',$this->category_slug)->first();
-        $category_id = $category->id;
-        $category_name = $category->name;
+        $category_id = null;
+        $category_name = "";
+        $filter = "";
+        if($this->category_slug)
+        {
+            $atributes = AlpFilters::where('name',$this->atributes_name)->first();
+            $category_id = $atributes->id;
+            $category_name = $atributes->name;
+            $filter = "sub";
+        }else{
+            $category = JargonCategory::where('slug',$this->category_slug)->first();
+            $category_id = $category->id;
+            $category_name = $category->name;
+            $filter = "";
+        }
 
         if($this->sorting =='date')
         {
-            $jargons = Jargons::where('jargon_categories_id',$category_id)->orderBy('created_at','ASC')->paginate($this->pagesize); 
+            $jargons = Jargons::where($filter.'jargon_categories_id',$category_id)->orderBy('created_at','ASC')->paginate($this->pagesize); 
         }
         elseif($this->sorting =='price')
         {
-            $jargons = Jargons::where('jargon_categories_id',$category_id)->orderBy('name','ASC')->paginate($this->pagesize); 
+            $jargons = Jargons::where($filter.'jargon_categories_id',$category_id)->orderBy('name','ASC')->paginate($this->pagesize); 
         }
         elseif($this->sorting =='price-desc')
         {
-            $jargons = Jargons::where('jargon_categories_id',$category_id)->orderBy('name','ASC')->paginate($this->pagesize); 
+            $jargons = Jargons::where($filter.'jargon_categories_id',$category_id)->orderBy('name','ASC')->paginate($this->pagesize); 
         }
         elseif($this->searchTerm)
         {
