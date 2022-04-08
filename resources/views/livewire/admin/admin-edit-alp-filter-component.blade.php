@@ -9,7 +9,7 @@
     </style>
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
       <div>
-        <h4 class="mb-3 mb-md-0">Edit Category</h4>
+        <h4 class="mb-3 mb-md-0">Edit atribute</h4>
       </div>
       <div class="d-flex align-items-center flex-wrap text-nowrap">
         <div class="input-group date datepicker dashboard-date mr-2 mb-2 mb-md-0 d-md-none d-xl-flex" id="dashboardDate">
@@ -35,6 +35,17 @@
                                   @error('name')<p class="text-danger">{{ $message }}</p>@enderror
                               </div>
                           </div>
+                          <div class="form-group">
+                            <label class="col-md-6 control-label">Parent Category</label>
+                            <div class="col-md-6">
+                                <select class="form-control input-md" wire:model="category_id">
+                                  <option value="">None</option>
+                                  @foreach ($categories as $category )
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                  @endforeach
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-md-6 control-label"></label>
                             <div class="col-md-6">

@@ -32,10 +32,50 @@
                           <div class="form-group">
                               <label class="col-md-6 control-label">Atribute Name</label>
                               <div class="col-md-6">
-                                  <input type="text" placeholder="Category Name" class="form-control input-md" wire:model="name"/>
+                                <select class="form-control input-md" wire:model="name">
+                                  <option value="0">None</option>
+                                  <option value="A">A</option>
+                                  <option value="B">B</option>
+                                  <option value="C">C</option>
+                                  <option value="D">D</option>
+                                  <option value="E">E</option>
+                                  <option value="F">F</option>
+                                  <option value="G">G</option>
+                                  <option value="H">H</option>
+                                  <option value="H">H</option>
+                                  <option value="I">I</option>
+                                  <option value="J">J</option>
+                                  <option value="K">K</option>
+                                  <option value="L">L</option>
+                                  <option value="M">M</option>
+                                  <option value="N">N</option>
+                                  <option value="O">O</option>
+                                  <option value="P">P</option>
+                                  <option value="Q">Q</option>
+                                  <option value="R">R</option>
+                                  <option value="S">S</option>
+                                  <option value="T">T</option>
+                                  <option value="U">U</option>
+                                  <option value="V">V</option>
+                                  <option value="W">W</option>
+                                  <option value="X">X</option>
+                                  <option value="Y">Y</option>
+                                  <option value="Z">Z</option>
+                                </select>
                                   @error('name')<p class="text-danger">{{ $message }}</p>@enderror
                               </div>
                           </div>
+                          <div class="form-group">
+                            <label class="col-md-6 control-label">Parent Category</label>
+                            <div class="col-md-6">
+                                <select class="form-control input-md" wire:model="category_id">
+                                  <option value="0">None</option>
+                                  @foreach ($categories as $category )
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                  @endforeach
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-md-6 control-label"></label>
                             <div class="col-md-6">

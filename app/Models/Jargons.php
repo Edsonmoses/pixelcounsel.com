@@ -18,4 +18,8 @@ class Jargons extends Model
     {
         return $this->hasMany(AlpFilter::class,'afid');
     }
+    public function atribut()
+    {
+        return $this->belongsTo(AlpFilter::class,'afid');
+    }
 }

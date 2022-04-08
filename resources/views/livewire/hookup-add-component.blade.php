@@ -40,7 +40,7 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label text-left">Job Name</label>
                           <div class="col-md-12  {{ $errors->get('name') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Hookup Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug"/>
+                              <input type="text" placeholder="Hookup Name" class="form-control input-md" wire:model.defer="name" wire:keyup="generateSlug"/>
                               @error('name')<p class="text-danger">{{ $message }}</p>@enderror
                           </div>
                       </div>
@@ -58,7 +58,7 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Company</label>
                           <div class="col-md-12  {{ $errors->get('company') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Company" class="form-control input-md" wire:model="company">
+                              <input type="text" placeholder="Company" class="form-control input-md" wire:model.defer="company">
                               @error('company')<p class="text-danger">{{ $message }}</p>@enderror
                           </div>
                       </div>
@@ -67,7 +67,7 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Preferred Skills</label>
                           <div class="col-md-12  {{ $errors->get('jobtitle') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Preferred Skills" class="form-control input-md" wire:model="jobtitle">
+                              <input type="text" placeholder="Preferred Skills" class="form-control input-md" wire:model.defer="jobtitle">
                               @error('jobtitle')<p class="text-danger">{{ $message }}</p>@enderror
                           </div>
                       </div>
@@ -76,7 +76,7 @@
                       <div class="form-group">
                           <label class="col-md-12 control-label">Location</label>
                           <div class="col-md-12  {{ $errors->get('location') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Location" class="form-control input-md" wire:model="location">
+                              <input type="text" placeholder="Location" class="form-control input-md" wire:model.defer="location">
                               @error('location')<p class="text-danger">{{ $message }}</p>@enderror 
                           </div>
                       </div>
@@ -85,7 +85,7 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Experience</label>
                           <div class="col-md-12 {{ $errors->get('experience') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Experience" class="form-control input-md" wire:model="experience">
+                              <input type="text" placeholder="Experience" class="form-control input-md" wire:model.defer="experience">
                               @error('experience')<p class="text-danger">{{ $message }}</p>@enderror 
                           </div>
                       </div>
@@ -94,12 +94,12 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Salary</label>
                           <div class="col-md-12 {{ $errors->get('price') ? 'has-error' : '' }}">
-                                  <select class="form-control" wire:model="price">
+                                  <select class="form-control" wire:model.defer="price">
                                       <option value="">Add Salary</option>
                                           <option value="Confidential">Confidential</option>
                                           <option value="15,000 - 30,000">Yes</option>
                                   </select>
-                                  @if($price)
+                                  @if($price == '15,000 - 30,000' )
                                        <input type="text" placeholder="15,000 - 30,000" class="form-control input-md mt-3" wire:model="price">
                                   @endif
                               @error('price')<p class="text-danger">{{ $message }}</p>@enderror 
@@ -110,7 +110,7 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Job Types</label>
                           <div class="col-md-12 {{ $errors->get('schedule') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Job Types (Creative & Design)" class="form-control input-md" wire:model="schedule">
+                              <input type="text" placeholder="Job Types (Creative & Design)" class="form-control input-md" wire:model.defer="schedule">
                               @error('schedule')<p class="text-danger">{{ $message }}</p>@enderror 
                           </div>
                       </div>
@@ -128,7 +128,7 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Image</label>
                           <div class="col-md-12 {{ $errors->get('images') ? 'has-error' : '' }}">
-                              <input type="file" class="form-control input-file" wire:model="images">
+                              <input type="file" class="form-control input-file" wire:model.defer="images">
                               @if($images)
                                   <img src="{{ $images->temporaryUrl() }}" width="120"/>
                               @endif
@@ -157,7 +157,7 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">About the company</label>
                           <div class="col-md-12 {{ $errors->get('short_description') ? 'has-error' : '' }}" wire:ignore>
-                              <textarea style="height: 100px" placeholder="Short Description" id="short_description" class="form-control" wire:model="short_description"></textarea>
+                              <textarea style="height: 100px" placeholder="Short Description" id="short_description" class="form-control" wire:model.defer="short_description"></textarea>
                               @error('short_description')<p class="text-danger">{{ $message }}</p>@enderror
                           </div>
                       </div>
@@ -166,7 +166,7 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">About the job </label>
                           <div class="col-md-12" {{ $errors->get('description') ? 'has-error' : '' }} wire:ignore>
-                              <textarea style="height: 100px" placeholder="Description" id="description" class="form-control" wire:model="description"></textarea>
+                              <textarea style="height: 100px" placeholder="Description" id="description" class="form-control" wire:model.defer="description"></textarea>
                               @error('description')<p class="text-danger">{{ $message }}</p>@enderror
                           </div>
                       </div>
@@ -197,7 +197,7 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Job Category</label>
                           <div class="col-md-12 {{ $errors->get('fjob') ? 'has-error' : '' }}">
-                              <select class="form-control" wire:model="fjob">
+                              <select class="form-control" wire:model.defer="fjob">
                                   <option value="">Select Job Category</option>
                                       <option value="Part Time">Part Time</option>
                                       <option value="Full Time">Full Time</option>
@@ -210,7 +210,7 @@
                     <div class="form-group">
                         <label class="col-md-6 control-label">End Date</label>
                         <div class="col-md-12 {{ $errors->get('open') ? 'has-error' : '' }}">
-                            <input wire:model="open"
+                            <input wire:model.defer="open"
                             type="text" class="form-control input-md datepicker" placeholder="End Date" autocomplete="off"
                             data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
                             onchange="this.dispatchEvent(new InputEvent('input'))">
@@ -244,7 +244,6 @@
           </a>
         </div>
         <div class="modal-body text-center">
-            @if (Session::has('message'))
                 <h1>AWESOME!</h1>
                 <p >Your job has been<br/>
                 successfully submitted.</p>
@@ -252,14 +251,7 @@
                     <i class="fa fa-plus" aria-hidden="true"></i><br/>
                     Add another</a><br/>
                 <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
-               {{-- @else
-            <h1 style="color:firebrick !important;">oooh!</h1>
-               <p style="color:firebrick !important;">Something went wrong.</p>
-                <a href="{{route('hookup.addhookup')}}" class="btn btn-successfully">
-                    <i class="fa fa-plus" aria-hidden="true"></i><br/>
-                    Add<br/> another</a><br/>
-                <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>--}}
-            @endif
+              
         </div>
       </div>
     </div>

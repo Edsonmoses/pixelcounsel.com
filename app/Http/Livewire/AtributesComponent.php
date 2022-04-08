@@ -57,7 +57,7 @@ class AtributesComponent extends Component
             $jargons = Jargons::where('afid',$atributes_id)->paginate($this->pagesize);
         }
         $jargoncategories = JargonCategory::all()->sortBy('name');
-        $atributes = AlpFilters::all()->sortBy('name');
-        return view('livewire.atributes-component',['jargons'=>$jargons, 'jargoncategories'=>$jargoncategories,'category_name'=>$category_name,'atributes_name'=>$atributes_name,'atributes'=>$atributes])->layout('layouts.baseapp');
+        $atributes = AlpFilters::where('category_id',$atributes_id)->orderBy('name','ASC')->paginate();
+        return view('livewire.atributes-component',['jargons'=>$jargons, 'jargoncategories'=>$jargoncategories,'atributes_name'=>$atributes_name,'atributes'=>$atributes])->layout('layouts.baseapp');
     }
 }

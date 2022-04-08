@@ -14,22 +14,19 @@ class JargonCategoryComponent extends Component
     public $sorting;
     public $pagesize;
     public $category_slug;
-    public $atributes_name;
     public $searchTerm;
 
-    public function mount($category_slug,$atributes_name=null)
+    public function mount($category_slug)
     {
         $this->sorting = "default";
         $this->pagesize = 2000;
         $this->$category_slug = $category_slug;
-        $this->$atributes_name = $atributes_name;
     }
     public function render()
     {
-    
-            $category = JargonCategory::where('slug',$this->category_slug)->first();
-            $category_id = $category->id;
-            $category_name = $category->name;
+        $category = JargonCategory::where('slug',$this->category_slug)->first();
+        $category_id = $category->id;
+        $category_name = $category->name;
 
         if($this->sorting =='date')
         {
@@ -59,7 +56,7 @@ class JargonCategoryComponent extends Component
             $af_jargons = Jargons::where('afid',1)->where('jargon_categories_id',$category_id)->paginate($this->pagesize); 
         }
         $jargoncategories = JargonCategory::all()->sortBy('name');
-        $atributes = AlpFilters::all()->sortBy('name');
+        $atributes = AlpFilters::where('category_id',$category_id)->orderBy('name','ASC')->paginate(260);
         return view('livewire.jargon-category-component',['jargons'=>$jargons, 'jargoncategories'=>$jargoncategories,'category_name'=>$category_name,'atributes'=>$atributes,'af_jargons'=>$af_jargons])->layout('layouts.baseapp');
     }
 }
