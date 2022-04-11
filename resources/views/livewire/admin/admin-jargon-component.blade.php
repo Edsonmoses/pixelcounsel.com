@@ -47,7 +47,7 @@
                                 <td>{!! Str::limit($jargon->name)!!}</td>
                                 <td>{{$jargon->jargons_status}}</td>
                                 <td>{{$jargon->jargon_categories_id}}</td>
-                                <td>{{$jargon->created_at->diffForHumans}}</td>
+                                <td>{{$jargon->created_at}}</td>
                                 <td>
                                     <a href="{{ route('admin.editjargons',['jargon_slug'=>$jargon->slug]) }}"><i  class="fa fa-edit fa-1x"></i></a>
                                     <a href="#" onclick="confirm('Ara you sure, You want to delete this jargon') || event.stopImmediatePropagation()" wire:click.prevent="deleteJargon({{ $jargon->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>
