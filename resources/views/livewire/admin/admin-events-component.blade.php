@@ -47,7 +47,7 @@
                                 <td>{{$event->name}}</td>
                                 <td>{{$event->events_status}}</td>
                                 <td>{{$event->eventdate}}</td>
-                                <td>{{$event->created_at}}</td>
+                                <td>{{$event->created_at->diffForHumans}}</td>
                                 <td>
                                     <a href="{{ route('admin.editevents',['event_slug'=>$event->slug]) }}"><i  class="fa fa-edit fa-1x"></i></a>
                                     <a href="#" onclick="confirm('Ara you sure, You want to delete this event') || event.stopImmediatePropagation()" wire:click.prevent="deleteEvent({{ $event->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>

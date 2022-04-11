@@ -10,6 +10,7 @@ class AdminVectorComponent extends Component
 {
     public $totalRecords;
     public $loadAmount = 24;
+    public $selected = [];
     
     use WithPagination;
 
@@ -21,6 +22,14 @@ class AdminVectorComponent extends Component
     public function mount()
     {
         $this->totalRecords = Vectorlogos::count();
+        $this->vector_status = 'published';
+    }
+
+   
+
+    public function activate()
+    {
+        Vectorlogos::find($this->selected);
     }
 
     public function deleteVector($id)
@@ -36,6 +45,12 @@ class AdminVectorComponent extends Component
         }
         $vector->delete();
         session()->flash('message','Vector file has been deleted successfully!');
+    }
+    public function deleteBulk()
+    {
+        $vector = Vectorlogos::find($this->selected);
+        $vector->destroy();
+        
     }
     
     public function render()

@@ -33,6 +33,7 @@
                         <th>Id</th>
                         <th>Type Name</th>
                         <th>Slug</th>
+                        <th>Date Created</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -42,6 +43,7 @@
                             <td>{{$etype->id}}</td>
                             <td>{{$etype->name}}</td>
                             <td>{{$etype->slug}}</td>
+                            <td>{{ $etype->created_at->diffForHumans }}</td>
                             <td>
                                 <a href="{{ route('admin.editetypes',['etype_slug'=>$etype->slug]) }}"><i  class="fa fa-edit fa-1x"></i></a>
                                 <a href="#" onclick="confirm('Ara you sure, You want to delete this event category') || event.stopImmediatePropagation()" wire:click.prevent="deleteEvent({{ $etype->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>

@@ -33,6 +33,7 @@
                         <th>Id</th>
                         <th>Category Name</th>
                         <th>Slug</th>
+                        <th>Date Created</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -42,6 +43,7 @@
                             <td>{{$jargon->id}}</td>
                             <td>{{$jargon->name}}</td>
                             <td>{{$jargon->slug}}</td>
+                            <td>{{$jargon->created_at->diffForHumans}}</td>
                             <td>
                                 <a href="{{ route('admin.editjargon',['jargon_slug'=>$jargon->slug]) }}"><i  class="fa fa-edit fa-1x"></i></a>
                                 <a href="#" onclick="confirm('Ara you sure, You want to delete this jargon category') || event.stopImmediatePropagation()" wire:click.prevent="deleteJargon({{ $jargon->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>

@@ -17,6 +17,8 @@
           <input type="text" class="form-control">
         </div>
         <a href="{{route('admin.addvectorlogos')}}" class="btn btn-success pull-right">Add New</a>
+        <a href="#" onclick="confirm('Ara you sure, You want to delete the selected logos') || event.stopImmediatePropagation()" wire:click.prevent="deleteBulk" class="btn btn-danger pull-right" style="margin: 0 10px 0 10px">Delete Bulk</a>
+        <a href="#" onclick="confirm('Ara you sure, You want to activate the selected logos') || event.stopImmediatePropagation()" wire:click.prevent="activate" class="btn btn-success pull-right" style="margin: 0 10px 0 10px">Activate Bulk</a>
       </div>
     </div>
     
@@ -30,17 +32,21 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                          <th></th>
                             <th>Id</th>
                             <th>Image</th>
                             <th>Name</th>
                             <th>Status</th>
-                            <th>Date</th>
+                            <th>Date Created</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($vectorlogos as $vector)
                             <tr>
+                              <td>
+                                <input wire:model="selected" value="{{$vector->id}}" type="checkbox">
+                              </td>
                                 <td>{{$vector->id}}</td>
                                 <td><img src="{{ asset('assets/images/vectors') }}/{{ $vector->image }}" width="60"/></td>
                                 <td>{{$vector->name}}</td>
@@ -48,7 +54,7 @@
                                 <td>{{$vector->created_at}}</td>
                                 <td>
                                     <a href="{{ route('admin.editvectorlogos',['vector_slug'=>$vector->slug]) }}"><i  class="fa fa-edit fa-1x"></i></a>
-                                    <a href="#" onclick="confirm('Ara you sure, You want to delete this vector') || event.stopImmediatePropagation()" wire:click.prevent="deleteVector({{ $vector->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>
+                                    <a href="#" onclick="confirm('Ara you sure, You want to delete this vector') || event.stopImmediatePropagation()" wire:click.prevent="deleteVector({{ $vector->id }})" style="margin:0 10px 0 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>
                                 </td>
                             </tr>
                         @endforeach

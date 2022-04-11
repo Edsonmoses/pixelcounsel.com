@@ -47,7 +47,7 @@
                             <td>{{$hookup->location}}</td>
                             <td>{{$hookup->hookup_status}}</td>
                             <td><img src="{{ asset('assets/images/hookups') }}/{{ $hookup->images }}" width="60"/></td>
-                            <td>{{$hookup->created_at}}</td>
+                            <td>{{$hookup->created_at->diffForHumans}}</td>
                             <td>
                                 <a href="{{ route('admin.edithookups',['hookup_slug'=>$hookup->slug]) }}"><i  class="fa fa-edit fa-1x"></i></a>
                                 <a href="#" onclick="confirm('Ara you sure, You want to delete this hookup') || event.stopImmediatePropagation()" wire:click.prevent="deleteVector({{ $hookup->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>

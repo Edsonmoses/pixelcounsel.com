@@ -110,7 +110,7 @@ class HookupAddComponent extends Component
     }
     }
 
-    public function updated($fields)
+    /*public function updated($fields)
     {
         $this->validateOnly($fields,[
             'name' => 'required',
@@ -135,11 +135,11 @@ class HookupAddComponent extends Component
                 'images' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
         }
-    }
+    }*/
 
     public function jobStored()
     {
-        $this->validate([
+       /* $this->validate([
            'name' => 'required',
            'short_description' => 'required',
            'description' => 'required',
@@ -162,7 +162,7 @@ class HookupAddComponent extends Component
             $this->validate([
                 'images' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
-        }
+        }*/
         $hookup = new Hookup();
         $hookup->name = $this->name;
         $hookup->slug = $this->slug;
