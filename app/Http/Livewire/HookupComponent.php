@@ -22,13 +22,29 @@ class HookupComponent extends Component
 
     public function render()
     {
-        $searchTerm = '%'.$this->searchTerm . '%';
-        $hookups = Hookup::where('name','LIKE',$searchTerm)
-                ->orWhere('name','LIKE',$searchTerm)
-                ->orWhere('company','LIKE',$searchTerm)
-                ->orWhere('jobtitle','LIKE',$searchTerm)
-                ->orWhere('location','LIKE',$searchTerm)
-                ->latest('updated_at','ASC',$searchTerm)->where('hookup_status','published')->paginate(10);
+        if($this->sorting =='date')
+        {
+            $hookups = Hookup::orderBy('created_at','DESC')->paginate($this->pagesize); 
+        }
+        elseif($this->sorting =='price')
+        {
+            $hookups = Hookup::orderBy('name','ASC')->paginate($this->pagesize); 
+        }
+        elseif($this->sorting =='price-desc')
+        {
+            $hookups = Hookup::orderBy('name','DESC')->paginate($this->pagesize); 
+        }
+        else
+        {
+            $searchTerm = '%'.$this->searchTerm . '%';
+            $hookups = Hookup::where('name','LIKE',$searchTerm)
+                    ->orWhere('name','LIKE',$searchTerm)
+                    ->orWhere('company','LIKE',$searchTerm)
+                    ->orWhere('jobtitle','LIKE',$searchTerm)
+                    ->orWhere('location','LIKE',$searchTerm)
+                    ->latest('updated_at','ASC',$searchTerm)->where('hookup_status','published')->paginate($this->pagesize);
+        }
+      
       
         $hookupcategories = HookupCategory::all()->sortBy('name');
         return view('livewire.hookup-component',['hookups'=>$hookups,'hookupcategories'=>$hookupcategories])->layout('layouts.baseapp');
