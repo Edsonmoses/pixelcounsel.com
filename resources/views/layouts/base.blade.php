@@ -45,7 +45,7 @@
 </head>
 
 <body>
-  @include('cookieConsent::index')
+{{-- @include('cookieConsent::index') --}}
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">

@@ -79,7 +79,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-md-2">
                                             <div class="mo-mb-2">
-                                                    <img src="{{ asset('assets/images/hookups') }}/{{$hookup->images}}" alt="{{$hookup->jobtitle}}" class="img-fluid mx-auto d-block" width="84" height="84">
+                                                    <img src="{{ asset('assets/images/hookups') }}/{{$hookup->images}}" alt="{{$hookup->jobtitle}}" class="img-fluid mx-auto d-block jobimg" width="84" height="84">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -192,7 +192,7 @@
                                                     <div class="row align-items-center">
                                                         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                                                             <div class="mo-mb-2">
-                                                                    <img src="{{ asset('assets/images/hookups') }}/{{$featured->images}}" alt="{{$featured->name}}" class="img-fluid mx-auto d-block" width="84" height="84">
+                                                                    <img src="{{ asset('assets/images/hookups') }}/{{$featured->images}}" alt="{{$featured->name}}" class="img-fluid mx-auto d-block jobimg" width="84" height="84">
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
@@ -307,7 +307,7 @@
                                                 <div class="row align-items-center">
                                                     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                                                         <div class="mo-mb-2">
-                                                                <img src="{{ asset('assets/images/hookups') }}/{{$parttime->images}}" alt="{{$parttime->name}}" class="img-fluid mx-auto d-block" width="84" height="84">
+                                                                <img src="{{ asset('assets/images/hookups') }}/{{$parttime->images}}" alt="{{$parttime->name}}" class="img-fluid mx-auto d-block jobimg" width="84" height="84">
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
@@ -422,7 +422,7 @@
                                                 <div class="row align-items-center">
                                                     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                                                         <div class="mo-mb-2">
-                                                                <img src="{{ asset('assets/images/hookups') }}/{{$fulltime->images}}" alt="{{$fulltime->name}}" class="img-fluid mx-auto d-block" width="84" height="84">
+                                                                <img src="{{ asset('assets/images/hookups') }}/{{$fulltime->images}}" alt="{{$fulltime->name}}" class="img-fluid mx-auto d-block jobimg" width="84" height="84">
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">

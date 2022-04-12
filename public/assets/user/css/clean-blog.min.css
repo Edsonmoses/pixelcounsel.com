@@ -3353,3 +3353,9 @@ border-top: 1px solid #eeeeee1a !important;
 .event-ml{
   margin-left: -15px;
 }
+.jobimg{
+  object-fit: cover;
+  object-position: center;
+  width: 84px;
+  height: 84px;
+}
