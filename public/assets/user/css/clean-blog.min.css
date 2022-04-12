@@ -3354,7 +3354,7 @@ border-top: 1px solid #eeeeee1a !important;
   margin-left: -15px;
 }
 .jobimg{
-  object-fit: cover;
+  object-fit: scale-down;
   object-position: center;
   width: 84px;
   height: 84px;
