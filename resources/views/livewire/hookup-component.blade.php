@@ -64,70 +64,72 @@
                         @if ($hookup->open <= now())
                        
                         @else
-                        <a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}" class="text-primary">
-                            <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
-                                <a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}">
-                                <div class="lable text-center pt-2 pb-2">
-                                    <ul class="list-unstyled best text-white mb-0 text-uppercase">
-                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                                </a>
-                               
-                                <div class="p-4">
+                            @if ($hookup->hookup_status == 'published')
+                            <a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}" class="text-primary">
+                                <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
                                     <a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-2">
-                                            <div class="mo-mb-2">
-                                                    <img src="{{ asset('assets/images/hookups') }}/{{$hookup->images}}" alt="{{$hookup->jobtitle}}" class="img-fluid mx-auto d-block jobimg" width="84" height="84">
+                                    <div class="lable text-center pt-2 pb-2">
+                                        <ul class="list-unstyled best text-white mb-0 text-uppercase">
+                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                        </ul>
+                                    </div>
+                                    </a>
+                                
+                                    <div class="p-4">
+                                        <a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-2">
+                                                <div class="mo-mb-2">
+                                                        <img src="{{ asset('assets/images/hookups') }}/{{$hookup->images}}" alt="{{$hookup->jobtitle}}" class="img-fluid mx-auto d-block jobimg" width="84" height="84">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div>
+                                                    <h5 class="f-18" style="margin-bottom: -25px"><a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}" class="text-dark">{{$hookup->name}}</a></h5>
+                                                    <p class="text-muted mb-0">{{$hookup->company}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div>
+                                                    <p class="text-muted mb-0"><i class="fa fa-map-marker text-primary mr-2"></i>{{$hookup->location}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <p class="text-muted mb-0">{{$hookup->schedule}}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div>
-                                                <h5 class="f-18" style="margin-bottom: -25px"><a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}" class="text-dark">{{$hookup->name}}</a></h5>
-                                                <p class="text-muted mb-0">{{$hookup->company}}</p>
+                                        </a>
+                                    </div>
+                                    
+                                    <a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}">
+                                    <div class="p-3 bg-light">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-md-offset-2">
+                                                <div>
+                                                    <p class="text-muted experience"><span class="text-dark">Experience :</span> {{$hookup->experience}}</p>
+                                                </div>
+                                            </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                            <div class="timers">
+                                                <svg class="days hide" viewBox="0 0 24 24" width="20" aria-hidden="true" focusable="false" fill="#00B55E" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 bWRyML"><path d="M13 3h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2zm19.707-5.293-1.414-1.414L18.586 7A6.937 6.937 0 0 0 15 6c-3.859 0-7 3.141-7 7s3.141 7 7 7 7-3.141 7-7a6.968 6.968 0 0 0-1.855-4.73l1.562-1.563zM16 14h-2V8.958h2V14z"></path></svg>
+                                                <svg  class="msmalltext hide" viewBox="0 0 24 24" width="20" aria-hidden="true" focusable="false" fill="#EB3737" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 bWRyML"><path d="M13 3h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2zm19.707-5.293-1.414-1.414L18.586 7A6.937 6.937 0 0 0 15 6c-3.859 0-7 3.141-7 7s3.141 7 7 7 7-3.141 7-7a6.968 6.968 0 0 0-1.855-4.73l1.562-1.563zM16 14h-2V8.958h2V14z"></path></svg>
+                                                <div id="trip_{{ $hookup->open }}" class="days hide"></div>
+                                                <div id="trip_{{ $hookup->open }}" class="msmalltext hide"></div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div>
-                                                <p class="text-muted mb-0"><i class="fa fa-map-marker text-primary mr-2"></i>{{$hookup->location}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div>
-                                                <p class="text-muted mb-0">{{$hookup->schedule}}</p>
+                                            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 applyN">
+                                                <div class="mt-4">
+                                                    <a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}" class="text-primary">Apply Now <i class="fa fa-angle-double-right"></i></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     </a>
                                 </div>
-                                
-                                <a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}">
-                                <div class="p-3 bg-light">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-md-offset-2">
-                                            <div>
-                                                <p class="text-muted experience"><span class="text-dark">Experience :</span> {{$hookup->experience}}</p>
-                                            </div>
-                                        </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                        <div class="timers">
-                                            <svg class="days hide" viewBox="0 0 24 24" width="20" aria-hidden="true" focusable="false" fill="#00B55E" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 bWRyML"><path d="M13 3h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2zm19.707-5.293-1.414-1.414L18.586 7A6.937 6.937 0 0 0 15 6c-3.859 0-7 3.141-7 7s3.141 7 7 7 7-3.141 7-7a6.968 6.968 0 0 0-1.855-4.73l1.562-1.563zM16 14h-2V8.958h2V14z"></path></svg>
-                                            <svg  class="msmalltext hide" viewBox="0 0 24 24" width="20" aria-hidden="true" focusable="false" fill="#EB3737" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 bWRyML"><path d="M13 3h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2zm19.707-5.293-1.414-1.414L18.586 7A6.937 6.937 0 0 0 15 6c-3.859 0-7 3.141-7 7s3.141 7 7 7 7-3.141 7-7a6.968 6.968 0 0 0-1.855-4.73l1.562-1.563zM16 14h-2V8.958h2V14z"></path></svg>
-                                            <div id="trip_{{ $hookup->open }}" class="days hide"></div>
-                                            <div id="trip_{{ $hookup->open }}" class="msmalltext hide"></div>
-                                        </div>
-                                    </div>
-                                        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 applyN">
-                                            <div class="mt-4">
-                                                <a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}" class="text-primary">Apply Now <i class="fa fa-angle-double-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </a>
-                            </div>
-                        </a>
+                            </a>
+                            @endif
                         @endif
                     @endforeach
                     <script>
@@ -181,7 +183,7 @@
                                 @if ($featured->open <= now())
                                 
                                     @else
-                                        @if ($featured->featured == 1)
+                                        @if ($featured->featured == 1 && $hookup->hookup_status == 'published')
                                             <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
                                                 <div class="lable text-center pt-2 pb-2">
                                                     <ul class="list-unstyled best text-white mb-0 text-uppercase">
@@ -296,7 +298,7 @@
                             @foreach ($hookups as $parttime)
                                 @if ($parttime->open <= now())
                                 @else
-                                    @if ($parttime->fjob == 'Part Time')
+                                    @if ($parttime->fjob == 'Part Time' && $hookup->hookup_status == 'published')
                                         <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
                                             <div class="lable text-center pt-2 pb-2">
                                                 <ul class="list-unstyled best text-white mb-0 text-uppercase">
@@ -411,67 +413,69 @@
                             @foreach ($hookups as $fulltime)
                                 @if ($fulltime->open <= now())
                                 @else
-                                    @if ($parttime->fjob == 'Full Time')
-                                        <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
-                                            <div class="lable text-center pt-2 pb-2">
-                                                <ul class="list-unstyled best text-white mb-0 text-uppercase">
-                                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="p-4">
-                                                <div class="row align-items-center">
-                                                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-                                                        <div class="mo-mb-2">
-                                                                <img src="{{ asset('assets/images/hookups') }}/{{$fulltime->images}}" alt="{{$fulltime->name}}" class="img-fluid mx-auto d-block jobimg" width="84" height="84">
+                                    @if ($hookup->hookup_status == 'published')
+                                        @if ($parttime->fjob == 'Full Time')
+                                            <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
+                                                <div class="lable text-center pt-2 pb-2">
+                                                    <ul class="list-unstyled best text-white mb-0 text-uppercase">
+                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="p-4">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                                                            <div class="mo-mb-2">
+                                                                    <img src="{{ asset('assets/images/hookups') }}/{{$fulltime->images}}" alt="{{$fulltime->name}}" class="img-fluid mx-auto d-block jobimg" width="84" height="84">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                                                            <div>
+                                                                <h5 class="f-18" style="margin-bottom: -25px"><a href="{{ route('hookup.details',['hookup_slug'=>$fulltime->slug]) }}" class="text-dark">{{$fulltime->name}}</a></h5>
+                                                                <p class="text-muted mb-0">{{$fulltime->company}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                                            <div>
+                                                                <p class="text-muted mb-0"><i class="fa fa-map-marker text-primary mr-2"></i>{{$fulltime->location}}</p>
+                                                            </div>
+                                                        </div>
+                                                        {{-- <div class="col-md-2">
+                                                            <div>
+                                                                <p class="text-muted mb-0 mo-mb-2"><span class="text-primary">$</span>{{$hookup->price}}</p>
+                                                            </div>
+                                                        </div>--}}
+                                                        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                                                            <div>
+                                                                <p class="text-muted mb-0">{{$fulltime->schedule}}</p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-                                                        <div>
-                                                            <h5 class="f-18" style="margin-bottom: -25px"><a href="{{ route('hookup.details',['hookup_slug'=>$fulltime->slug]) }}" class="text-dark">{{$fulltime->name}}</a></h5>
-                                                            <p class="text-muted mb-0">{{$fulltime->company}}</p>
+                                                </div>
+                                                
+                                                <div class="p-3 bg-light">
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-md-offset-2">
+                                                            <div>
+                                                                <p class="text-muted" style="margin:10px 0 10px 0"><span class="text-dark">Experience :</span> {{$fulltime->experience}}</p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                                                        <div>
-                                                            <p class="text-muted mb-0"><i class="fa fa-map-marker text-primary mr-2"></i>{{$fulltime->location}}</p>
+                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                        <div class="timers">
+                                                            <svg class="days hide" viewBox="0 0 24 24" width="20" aria-hidden="true" focusable="false" fill="#00B55E" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 bWRyML"><path d="M13 3h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2zm19.707-5.293-1.414-1.414L18.586 7A6.937 6.937 0 0 0 15 6c-3.859 0-7 3.141-7 7s3.141 7 7 7 7-3.141 7-7a6.968 6.968 0 0 0-1.855-4.73l1.562-1.563zM16 14h-2V8.958h2V14z"></path></svg>
+                                                            <svg  class="msmalltext hide" viewBox="0 0 24 24" width="20" aria-hidden="true" focusable="false" fill="#EB3737" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 bWRyML"><path d="M13 3h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2zm19.707-5.293-1.414-1.414L18.586 7A6.937 6.937 0 0 0 15 6c-3.859 0-7 3.141-7 7s3.141 7 7 7 7-3.141 7-7a6.968 6.968 0 0 0-1.855-4.73l1.562-1.563zM16 14h-2V8.958h2V14z"></path></svg>
+                                                            <div id="fltrip_{{ $fulltime->open }}" class="days hide"></div>
+                                                            <div id="fltrip_{{ $fulltime->open }}" class="msmalltext hide"></div>
                                                         </div>
-                                                    </div>
-                                                    {{-- <div class="col-md-2">
-                                                        <div>
-                                                            <p class="text-muted mb-0 mo-mb-2"><span class="text-primary">$</span>{{$hookup->price}}</p>
                                                         </div>
-                                                    </div>--}}
-                                                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-                                                        <div>
-                                                            <p class="text-muted mb-0">{{$fulltime->schedule}}</p>
+                                                        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 applyN">
+                                                            <div class="mt-4">
+                                                                <a href="{{ route('hookup.details',['hookup_slug'=>$fulltime->slug]) }}" class="text-primary">Apply Now <i class="fa fa-angle-double-right"></i></a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-                                            <div class="p-3 bg-light">
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-md-offset-2">
-                                                        <div>
-                                                            <p class="text-muted" style="margin:10px 0 10px 0"><span class="text-dark">Experience :</span> {{$fulltime->experience}}</p>
-                                                        </div>
-                                                    </div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                    <div class="timers">
-                                                        <svg class="days hide" viewBox="0 0 24 24" width="20" aria-hidden="true" focusable="false" fill="#00B55E" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 bWRyML"><path d="M13 3h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2zm19.707-5.293-1.414-1.414L18.586 7A6.937 6.937 0 0 0 15 6c-3.859 0-7 3.141-7 7s3.141 7 7 7 7-3.141 7-7a6.968 6.968 0 0 0-1.855-4.73l1.562-1.563zM16 14h-2V8.958h2V14z"></path></svg>
-                                                        <svg  class="msmalltext hide" viewBox="0 0 24 24" width="20" aria-hidden="true" focusable="false" fill="#EB3737" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-ea9ulj-0 bWRyML"><path d="M13 3h4v2h-4zM3 8h4v2H3zm0 8h4v2H3zm-1-4h3.99v2H2zm19.707-5.293-1.414-1.414L18.586 7A6.937 6.937 0 0 0 15 6c-3.859 0-7 3.141-7 7s3.141 7 7 7 7-3.141 7-7a6.968 6.968 0 0 0-1.855-4.73l1.562-1.563zM16 14h-2V8.958h2V14z"></path></svg>
-                                                        <div id="fltrip_{{ $fulltime->open }}" class="days hide"></div>
-                                                        <div id="fltrip_{{ $fulltime->open }}" class="msmalltext hide"></div>
-                                                    </div>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 applyN">
-                                                        <div class="mt-4">
-                                                            <a href="{{ route('hookup.details',['hookup_slug'=>$fulltime->slug]) }}" class="text-primary">Apply Now <i class="fa fa-angle-double-right"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endif
                                     @endif
                                 @endif
                             @endforeach
