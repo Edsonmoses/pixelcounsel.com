@@ -24,7 +24,7 @@ class UserEventComponent extends Component
     }
     public function render()
     {
-        $events = Events::where('postedby',Auth::user()->name)->orderBy('events_status','ASC')->paginate(10);
+        $events = Events::where('postedby',Auth::user()->name)->orderBy('events_status','ASC')->paginate(100,['*'],'events');
         return view('livewire.user.user-event-component',['events'=>$events])->layout('layouts.userbackend');
     }
 }

@@ -31,9 +31,9 @@ class JargonbusterComponent extends Component
                 ->orWhere('description','LIKE',$searchTerm)
                 ->orderBy('name','ASC',$searchTerm)->get();
         $jargons = Jargons::all()->sortBy('name');
-        $af_jargons = Jargons::where('afid',1)->paginate(12); 
+        $af_jargons = Jargons::where('afid',1)->paginate(12,['*'],'jargons'); 
         $jargoncategories = JargonCategory::all()->sortBy('name');
-        $atributes = AlpFilters::where('category_id',1)->orderBy('name','ASC')->paginate(26);
+        $atributes = AlpFilters::where('category_id',1)->orderBy('name','ASC')->paginate(26,['*'],'atributes');
         return view('livewire.jargonbuster-component',['jargons'=>$jargons, 'jargoncategories'=>$jargoncategories,'atributes'=>$atributes,'af_jargons'=>$af_jargons])->layout('layouts.baseapp');
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class AddPostedbyIdToHookupsTable extends Migration
@@ -14,7 +15,8 @@ class AddPostedbyIdToHookupsTable extends Migration
     public function up()
     {
         Schema::table('hookups', function (Blueprint $table) {
-            $table->string('postedby')->nullable();
+            $table->string('postedby')->nullable((DB::raw('CURRENT_TIMESTAMP')));
+            $table->string('approved')->nullable('null');
         });
     }
 
@@ -27,6 +29,7 @@ class AddPostedbyIdToHookupsTable extends Migration
     {
         Schema::table('hookups', function (Blueprint $table) {
             $table->dropColumn('postedby');
+             $table->dropColumn('approved');
         });
     }
 }

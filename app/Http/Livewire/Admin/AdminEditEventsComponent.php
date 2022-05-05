@@ -33,6 +33,7 @@ class AdminEditEventsComponent extends Component
     public $enddate;
     public $newimage;
     public $event_id;
+    public $approved;
 
     public function mount($event_slug)
     {
@@ -54,6 +55,7 @@ class AdminEditEventsComponent extends Component
         $this->ticket = $event->ticket;
         $this->enddate = $event->enddate;
         $this->event_id = $event->id;
+        $this->approved = '1';
     }
 
     public function generateSlug()
@@ -136,6 +138,7 @@ class AdminEditEventsComponent extends Component
         $event->website = $this->website;
         $event->ticket = $this->ticket;
         $event->enddate = $this->enddate;
+        $event->approved = $this->approved;
         $event->save();
         session()->flash('message','Event has been updated successfully!');
     }

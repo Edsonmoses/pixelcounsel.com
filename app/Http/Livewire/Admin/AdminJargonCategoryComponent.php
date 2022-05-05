@@ -17,7 +17,7 @@ class AdminJargonCategoryComponent extends Component
     }
     public function render()
     {
-        $jargons = JargonCategory::paginate(20);
+        $jargons = JargonCategory::paginate(20,['*'],'jargons');
         return view('livewire.admin.admin-jargon-category-component',['jargons'=>$jargons])->layout('layouts.backend');
     }
 }

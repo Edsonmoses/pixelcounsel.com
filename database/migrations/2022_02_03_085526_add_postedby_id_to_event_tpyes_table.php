@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class AddPostedbyIdToEventTpyesTable extends Migration
@@ -15,6 +16,7 @@ class AddPostedbyIdToEventTpyesTable extends Migration
     {
         Schema::table('evet_types', function (Blueprint $table) {
             $table->string('postedby')->nullable();
+             $table->string('approved')->nullable('null');
         });
     }
 
@@ -27,6 +29,7 @@ class AddPostedbyIdToEventTpyesTable extends Migration
     {
         Schema::table('evet_types', function (Blueprint $table) {
             $table->dropColumn('postedby');
+            $table->dateTime('approved')->nullable();
         });
     }
 }

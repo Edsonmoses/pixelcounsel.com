@@ -48,15 +48,15 @@ class JargonCategoryComponent extends Component
                 ->orWhere('slug','LIKE',$searchTerm)
                 ->orWhere('short_description','LIKE',$searchTerm)
                 ->orWhere('description','LIKE',$searchTerm)
-                ->orderBy('name','ASC',$searchTerm)->paginate($this->pagesize);
+                ->orderBy('name','ASC',$searchTerm)->paginate($this->pagesize,['*'],'jargons');
         }
         else
         {
-            $jargons = Jargons::where('jargon_categories_id',$category_id)->paginate($this->pagesize);
-            $af_jargons = Jargons::where('afid',1)->where('jargon_categories_id',$category_id)->paginate($this->pagesize); 
+            $jargons = Jargons::where('jargon_categories_id',$category_id)->paginate($this->pagesize,['*'],'jargons');
+            $af_jargons = Jargons::where('afid',1)->where('jargon_categories_id',$category_id)->paginate($this->pagesize,['*'],'af_jargons'); 
         }
         $jargoncategories = JargonCategory::all()->sortBy('name');
-        $atributes = AlpFilters::where('category_id',$category_id)->orderBy('name','ASC')->paginate(260);
+        $atributes = AlpFilters::where('category_id',$category_id)->orderBy('name','ASC')->paginate(260,['*'],'atributes');
         return view('livewire.jargon-category-component',['jargons'=>$jargons, 'jargoncategories'=>$jargoncategories,'category_name'=>$category_name,'atributes'=>$atributes,'af_jargons'=>$af_jargons])->layout('layouts.baseapp');
     }
 }

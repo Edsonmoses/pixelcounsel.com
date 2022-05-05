@@ -42,7 +42,7 @@ class HookupComponent extends Component
                     ->orWhere('company','LIKE',$searchTerm)
                     ->orWhere('jobtitle','LIKE',$searchTerm)
                     ->orWhere('location','LIKE',$searchTerm)
-                    ->latest('updated_at','ASC',$searchTerm)->where('hookup_status','published')->paginate($this->pagesize);
+                    ->latest('updated_at','ASC',$searchTerm)->where('hookup_status','published')->paginate($this->pagesize,['*'],'hookups');
         }
       
       

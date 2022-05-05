@@ -16,6 +16,7 @@ class AddOpenToHookupsTable extends Migration
     {
         Schema::table('hookups', function (Blueprint $table) {
             $table->dateTime('open')->nullable(DB::raw('CURRENT_TIMESTAMP'));
+            $table->string('approved')->nullable('null');
         });
     }
 
@@ -28,6 +29,7 @@ class AddOpenToHookupsTable extends Migration
     {
         Schema::table('hookups', function (Blueprint $table) {
             $table->dropColumn('open');
+            $table->dropColumn('approved');
         });
     }
 }

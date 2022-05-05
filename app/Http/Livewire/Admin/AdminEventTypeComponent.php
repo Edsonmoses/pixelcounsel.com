@@ -18,7 +18,7 @@ class AdminEventTypeComponent extends Component
     }
     public function render()
     {
-        $eventtypes = EventType::paginate(20);
+        $eventtypes = EventType::paginate(20,['*'],'eventtype');
         return view('livewire.admin.admin-event-type-component',['eventtypes'=>$eventtypes])->layout('layouts.backend');
     }
 }

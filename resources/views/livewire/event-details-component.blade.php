@@ -21,7 +21,7 @@
     <div class="container" style="margin-top: 50px">
         <div class="row align-items-center rounded job-box">
             <div class="col-lg-5 col-md-4 event-ml">
-                <img src="{{ asset('assets/images/events') }}/{{ $event->images }}" class="img-fluid rounded event-img-top" alt="" width="100%" height="400">
+                <img src="{{ asset('assets/images/events') }}/{{ $event->images }}" class="img-fluid rounded event-img-top" alt="" width="100%" height="400"  data-toggle="modal" data-target="#eventModal">
             </div>
 
             <div class="col-lg-5 col-md-6">
@@ -66,3 +66,18 @@
         </div>
     </div>
 </div>
+  <!-- Modal event created successfully!-->
+  <div class="modal fade  events" id="eventModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="eventModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a href="/events" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </a>
+        </div>
+        <div class="modal-body text-center">
+           <img src="{{ asset('assets/images/events') }}/{{ $event->images }}" class="img-fluid rounded " alt="" width="100%" height="100%">
+        </div>
+      </div>
+    </div>
+  </div>

@@ -16,7 +16,7 @@ class AdminEventsComponent extends Component
 
     public function render()
     {
-        $events = Events::paginate(20);
+        $events = Events::paginate(20,['*'],'event');
         return view('livewire.admin.admin-events-component',['events'=>$events])->layout('layouts.backend');
     }
 }

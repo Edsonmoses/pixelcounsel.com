@@ -293,6 +293,23 @@
     function closeNav() {
       document.getElementById("myNav").style.display = "none";
     }
+   document.addEventListener('contextmenu',(e) =>{
+          e.preventDefault();
+    })
+    $(document).bind({
+      dragenter:function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        var dt = e.originalEvent.dataTransfer;
+        dt.effectAllowed = dt.dropEffect = 'none';
+      },
+      dragover:function (e){
+        e.stopPropagation();
+        e.preventDefault();
+        var dt = e.originalEvent.dataTransfer;
+        dt.effectAllowed = dt.dropEffect = 'none';
+      }
+    });
 
 </script>
 <style>

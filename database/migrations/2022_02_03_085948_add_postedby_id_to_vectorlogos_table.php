@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class AddPostedbyIdToVectorlogosTable extends Migration
@@ -14,7 +15,8 @@ class AddPostedbyIdToVectorlogosTable extends Migration
     public function up()
     {
         Schema::table('vectorlogos', function (Blueprint $table) {
-            $table->string('postedby')->nullable();
+            $table->string('postedby')->nullable((DB::raw('CURRENT_TIMESTAMP')));
+             $table->dateTime('approved')->nullable((DB::raw('CURRENT_TIMESTAMP')));
         });
     }
 
@@ -27,6 +29,7 @@ class AddPostedbyIdToVectorlogosTable extends Migration
     {
         Schema::table('vectorlogos', function (Blueprint $table) {
             $table->dropColumn('postedby');
+             $table->dropColumn('approved');
         });
     }
 }

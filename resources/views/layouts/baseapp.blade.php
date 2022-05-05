@@ -365,6 +365,23 @@
   
    
       <script>
+      document.addEventListener('contextmenu',(e) =>{
+          e.preventDefault();
+        })
+         $(document).bind({
+            dragenter:function(e){
+              e.stopPropagation();
+              e.preventDefault();
+              var dt = e.originalEvent.dataTransfer;
+              dt.effectAllowed = dt.dropEffect = 'none';
+            },
+            dragover:function (e){
+              e.stopPropagation();
+              e.preventDefault();
+              var dt = e.originalEvent.dataTransfer;
+              dt.effectAllowed = dt.dropEffect = 'none';
+            }
+          });
       //myModal
         $(window).load(function(){        
         $('#myModal').modal('show');
@@ -378,6 +395,7 @@
           function closeNav() {
             document.getElementById("myNav").style.display = "none";
           }
+
    
     </script>
     <style>

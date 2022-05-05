@@ -7,6 +7,17 @@
             nav .hidden{
                 display: block !important;
             }
+            .bg-white {
+                    --bs-bg-opacity: 1;
+                    background-color: transparent !important;
+            }
+            .border {
+                border: none !important;
+            }
+            [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+                cursor: pointer;
+                color: white;
+            }
         </style>
   <div class="content-page">
       <div class="content">

@@ -36,7 +36,7 @@ class HomeComponent extends Component
                 ->orWhere('slug','LIKE',$searchTerm)
                 ->orWhere('description','LIKE',$searchTerm)
                 ->orWhere('designer','LIKE',$searchTerm)
-                ->orderBy('id','DESC',$searchTerm)->paginate(12);
+                ->orderBy('id','DESC',$searchTerm)->paginate(12,['*'],'vectors');
 
         $vectorcategories = VectorCategory::all()->sortBy('name');
         $hookup = Hookup::whereDate('open','>=',Carbon::now())->where('hookup_status','published')->get()->count();

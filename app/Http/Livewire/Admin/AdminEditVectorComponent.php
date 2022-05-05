@@ -28,6 +28,7 @@ class AdminEditVectorComponent extends Component
     public $newimages;
     public $vector_id;
     public $vtag;
+    public $approved;
 
     public function mount($vector_slug)
     {
@@ -45,6 +46,7 @@ class AdminEditVectorComponent extends Component
         $this->vector_categories_id = $vecor->vector_categories_id;
         $this->vector_id = $vecor->id;
         $this->vtag = str_replace("\n",',',trim($vecor->vtag));
+        $this->approved = '1';
     }
 
     public function generateSlug()
@@ -130,6 +132,7 @@ class AdminEditVectorComponent extends Component
         }
         $vector->vector_categories_id = $this->vector_categories_id;
         $vector->vtag = str_replace("\n",',',trim($this->vtag));
+        $vector->approved = $this->approved;
         $vector->save();
         session()->flash('message','Vector file has been updated successfully!');
     }

@@ -15,6 +15,7 @@ class AddPostedbyIdToEventsTable extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             $table->string('postedby')->nullable();
+            $table->string('approved')->nullable('null');
         });
     }
 
@@ -27,6 +28,7 @@ class AddPostedbyIdToEventsTable extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             $table->dropColumn('postedby');
+            $table->dropColumn('approved');
         });
     }
 }

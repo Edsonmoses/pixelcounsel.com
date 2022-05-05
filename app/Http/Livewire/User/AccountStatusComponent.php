@@ -42,7 +42,7 @@ class AccountStatusComponent extends Component
                 ->orWhere('description','LIKE',$searchTerm)
                 ->orWhere('designer','LIKE',$searchTerm)
                 ->orWhere('vtag','LIKE',$searchTerm)
-                ->orderBy('updated_at','ASC',$searchTerm)->paginate(15);
+                ->orderBy('updated_at','ASC',$searchTerm)->paginate(15,['*'],'vectors');
 
         $vectorcategories = VectorCategory::all()->sortBy('name');
         return view('livewire.user.account-status-component',['vectorlogos'=>$vectorlogos,'vectorcategories'=>$vectorcategories])->layout('layouts.baseapp');

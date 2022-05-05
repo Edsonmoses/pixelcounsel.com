@@ -38,7 +38,11 @@
                 {{ $slot }}
             </main>
         </div>
-
+<script>
+     document.addEventListener('contextmenu',(e) =>{
+          e.preventDefault();
+        })
+</script>
         @stack('modals')
 
         @livewireScripts

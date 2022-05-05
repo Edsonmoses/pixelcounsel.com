@@ -81,19 +81,19 @@ class EventsComponent extends Component
     {
         if($this->sorting =='date')
         {
-            $events = Events::orderBy('created_at','DESC')->paginate($this->pagesize); 
+            $events = Events::orderBy('created_at','DESC')->paginate($this->pagesize,['*'],'events'); 
         }
         elseif($this->sorting =='price')
         {
-            $events = Events::orderBy('name','ASC')->paginate($this->pagesize); 
+            $events = Events::orderBy('name','ASC')->paginate($this->pagesize,['*'],'events'); 
         }
         elseif($this->sorting =='price-desc')
         {
-            $events = Events::orderBy('name','DESC')->paginate($this->pagesize); 
+            $events = Events::orderBy('name','DESC')->paginate($this->pagesize,['*'],'events'); 
         }
         else
         {
-            $events = Events::with('eventeype')->whereDate('enddate','>=',Carbon::now())->orderBy('enddate','ASC')->where('events_status','published')->paginate($this->pagesize);
+            $events = Events::with('eventeype')->whereDate('enddate','>=',Carbon::now())->orderBy('enddate','ASC')->where('events_status','published')->paginate($this->pagesize,['*'],'events');
             $ads_events = Events::whereDate('enddate','>=',Carbon::now())->orderBy('enddate','ASC')->where('events_status','published')->take(3)->get();
         }
         $eventcategories = EventsCategory::all()->sortBy('name');
