@@ -9,9 +9,4 @@ class Vectorlogos extends Model
 {
     use HasFactory;
     protected $table="vectorlogos";
-    
-    public function vectorcategory()
-    {
-        return $this->belongsTo(VectorCategory::class,'vector_categories_id', 'id');
-    }
 }

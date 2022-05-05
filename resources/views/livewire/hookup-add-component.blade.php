@@ -244,12 +244,12 @@
           </a>
         </div>
         <div class="modal-body text-center">
-                <h1>AWESOME!</h1>
+                <h1>AWESOME! </h1>
                 <p >Your job has been<br/>
                 successfully submitted.</p>
                 <a href="{{route('hookup.addhookup')}}" class="btn btn-successfully">
                     <i class="fa fa-plus" aria-hidden="true"></i><br/>
-                    Add another</a><br/>
+                    Add<br/> another</a><br/>
                 <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
               
         </div>

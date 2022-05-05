@@ -116,6 +116,11 @@
               <a href="{{ route('vector.vectors',['slug'=>$r_vectors->slug]) }}" title="{{ $r_vectors->name }}">
                 <img src= "{{ asset('assets/images/vectors') }}/{{ $r_vectors->image }}" alt="{{ $r_vectors->name }}">
               </a>
+              <ul>
+                 @foreach($vectorcategory->vectorlogos as $customer)
+                    <li> {{ $customer->name }}</li>
+                  @endforeach
+             </ul> 
             </div>
             @endforeach
         </div>

@@ -66,7 +66,7 @@
                         @else
                             @if ($hookup->hookup_status == 'published')
                             <a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}" class="text-primary">
-                                <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
+                                <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative">
                                     <a href="{{ route('hookup.details',['hookup_slug'=>$hookup->slug]) }}">
                                     <div class="lable text-center pt-2 pb-2">
                                         <ul class="list-unstyled best text-white mb-0 text-uppercase">
@@ -184,7 +184,7 @@
                                 
                                     @else
                                         @if ($featured->featured == 1 && $hookup->hookup_status == 'published')
-                                            <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
+                                            <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative">
                                                 <div class="lable text-center pt-2 pb-2">
                                                     <ul class="list-unstyled best text-white mb-0 text-uppercase">
                                                         <li class="list-inline-item"><i class="fa fa-star"></i></li>
@@ -299,7 +299,7 @@
                                 @if ($parttime->open <= now())
                                 @else
                                     @if ($parttime->fjob == 'Part Time' && $hookup->hookup_status == 'published')
-                                        <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
+                                        <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative">
                                             <div class="lable text-center pt-2 pb-2">
                                                 <ul class="list-unstyled best text-white mb-0 text-uppercase">
                                                     <li class="list-inline-item"><i class="fa fa-star"></i></li>
@@ -415,7 +415,7 @@
                                 @else
                                     @if ($hookup->hookup_status == 'published')
                                         @if ($parttime->fjob == 'Full Time')
-                                            <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
+                                            <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative">
                                                 <div class="lable text-center pt-2 pb-2">
                                                     <ul class="list-unstyled best text-white mb-0 text-uppercase">
                                                         <li class="list-inline-item"><i class="fa fa-star"></i></li>
