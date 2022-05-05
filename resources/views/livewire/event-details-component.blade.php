@@ -45,7 +45,7 @@
                         @endif
                         @if (!empty($event->website))
                         @else
-                        TICKETS:  <a href="https://{{$event->website}}" class="text-muted" style="text-decoration: none" target="_blank">Click here</a>
+                        TICKETS:  <a href="https://{{$event->website}}" target="_blank" class="text-muted" style="text-decoration: none" target="_blank">Click here</a>
                         <br/>
                         @endif
                         @if (!empty($event->ephone))
