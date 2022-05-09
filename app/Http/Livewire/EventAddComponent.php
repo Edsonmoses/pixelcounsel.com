@@ -47,10 +47,17 @@ class EventAddComponent extends Component
 
     public function mount()
     {
+        if(Auth::check())
+        {
         $this->events_status = 'unpublished';
         $this->postedby = Auth::user()->name;
         //use with account status
         $this->confirm_status_at = 1;
+        }
+        else
+        {
+            return redirect('/events')->with('success', 'Login to post an event!');
+        }
     }
 
     public function generateSlug()

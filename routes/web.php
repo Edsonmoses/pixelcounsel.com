@@ -89,9 +89,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/index', function () {
     return view('welcome');
-});
+});*/
 
 Route::get('/',HomeComponent::class);
 
@@ -234,3 +234,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
        Route::get('/admin/ads/edit/{name}',AdminEditAdsComponent::class)->name('admin.edit_ads');
 });
 
+Route::get('test', function () {
+    event(new App\Events\MyEvent('Welcome'));
+    return "Event has been sent!";
+});

@@ -40,8 +40,8 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label text-left">Job Name</label>
                           <div class="col-md-12  {{ $errors->get('name') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Hookup Name" class="form-control input-md" wire:model.defer="name" wire:keyup="generateSlug"/>
-                              @error('name')<p class="text-danger">{{ $message }}</p>@enderror
+                              <input type="text" placeholder="Hookup Name" class="form-control input-md inputed" wire:model.defer="name" wire:keyup="generateSlug"/>
+                              
                           </div>
                       </div>
                   </div>
@@ -49,8 +49,8 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Job Slug</label>
                           <div class="col-md-12  {{ $errors->get('slug') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Hookup Slug" class="form-control input-md" wire:model="slug"/>
-                              @error('slug')<p class="text-danger">{{ $message }}</p>@enderror
+                              <input type="text" placeholder="Hookup Slug" class="form-control input-md inputed" wire:model="slug"/>
+                              
                           </div>
                       </div>
                   </div>
@@ -58,8 +58,8 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Company</label>
                           <div class="col-md-12  {{ $errors->get('company') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Company" class="form-control input-md" wire:model.defer="company">
-                              @error('company')<p class="text-danger">{{ $message }}</p>@enderror
+                              <input type="text" placeholder="Company" class="form-control input-md inputed" wire:model.defer="company">
+                             
                           </div>
                       </div>
                   </div>
@@ -67,8 +67,8 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Preferred Skills</label>
                           <div class="col-md-12  {{ $errors->get('jobtitle') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Preferred Skills" class="form-control input-md" wire:model.defer="jobtitle">
-                              @error('jobtitle')<p class="text-danger">{{ $message }}</p>@enderror
+                              <input type="text" placeholder="Preferred Skills" class="form-control input-md inputed" wire:model.defer="jobtitle">
+                              
                           </div>
                       </div>
                   </div>
@@ -76,8 +76,8 @@
                       <div class="form-group">
                           <label class="col-md-12 control-label">Location</label>
                           <div class="col-md-12  {{ $errors->get('location') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Location" class="form-control input-md" wire:model.defer="location">
-                              @error('location')<p class="text-danger">{{ $message }}</p>@enderror 
+                              <input type="text" placeholder="Location" class="form-control input-md inputed" wire:model.defer="location">
+                              
                           </div>
                       </div>
                   </div>
@@ -85,8 +85,8 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Experience</label>
                           <div class="col-md-12 {{ $errors->get('experience') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Experience" class="form-control input-md" wire:model.defer="experience">
-                              @error('experience')<p class="text-danger">{{ $message }}</p>@enderror 
+                              <input type="text" placeholder="Experience" class="form-control input-md inputed" wire:model.defer="experience">
+                              
                           </div>
                       </div>
                   </div>
@@ -100,9 +100,9 @@
                                           <option value="15,000 - 30,000">Yes</option>
                                   </select>
                                   @if($price == '15,000 - 30,000' )
-                                       <input type="text" placeholder="15,000 - 30,000" class="form-control input-md mt-3" wire:model="price">
+                                       <input type="text" placeholder="15,000 - 30,000" class="form-control input-md mt-3" wire:model.defer="price">
                                   @endif
-                              @error('price')<p class="text-danger">{{ $message }}</p>@enderror 
+                             
                           </div>
                       </div>
                   </div>
@@ -110,8 +110,8 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Job Types</label>
                           <div class="col-md-12 {{ $errors->get('schedule') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Job Types (Creative & Design)" class="form-control input-md" wire:model.defer="schedule">
-                              @error('schedule')<p class="text-danger">{{ $message }}</p>@enderror 
+                              <input type="text" placeholder="Job Types (Creative & Design)" class="form-control input-md inputed" wire:model.defer="schedule">
+                              
                           </div>
                       </div>
                   </div>
@@ -119,8 +119,8 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Phone</label>
                           <div class="col-md-12 {{ $errors->get('phone') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Phone Number" class="form-control input-md" wire:model="phone">
-                              @error('phone')<p class="text-danger">{{ $message }}</p>@enderror 
+                              <input type="text" placeholder="Phone Number" class="form-control input-md" wire:model.defer="phone">
+                              
                           </div>
                       </div>
                   </div>
@@ -139,8 +139,8 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Email</label>
                           <div class="col-md-12 {{ $errors->get('email') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Email" class="form-control input-md" wire:model="email">
-                              @error('email')<p class="text-danger">{{ $message }}</p>@enderror 
+                              <input type="text" placeholder="Email" class="form-control input-md" wire:model.defer="email">
+                             
                           </div>
                       </div>
                   </div>
@@ -148,26 +148,26 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Web site</label>
                           <div class="col-md-12 {{ $errors->get('web') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Web Site" class="form-control input-md" wire:model="web">
-                              @error('web')<p class="text-danger">{{ $message }}</p>@enderror 
+                              <input type="text" placeholder="Web Site" class="form-control input-md" wire:model.defer="web">
+                             
                           </div>
                       </div>
                   </div>
                   <div class="col-md-12">
                       <div class="form-group">
                           <label class="col-md-6 control-label">About the company</label>
-                          <div class="col-md-12 {{ $errors->get('short_description') ? 'has-error' : '' }}" wire:ignore>
-                              <textarea style="height: 100px" placeholder="Short Description" id="short_description" class="form-control" wire:model.defer="short_description"></textarea>
-                              @error('short_description')<p class="text-danger">{{ $message }}</p>@enderror
+                          <div class="col-md-12 {{ $errors->get('short_description') ? 'has-error' : '' }}">
+                              <textarea style="height: 100px" placeholder="Short Description" id="short_description" class="form-control inputed" wire:model.defer="short_description"></textarea>
+                             
                           </div>
                       </div>
                   </div>
                   <div class="col-md-12">
                       <div class="form-group">
                           <label class="col-md-6 control-label">About the job </label>
-                          <div class="col-md-12" {{ $errors->get('description') ? 'has-error' : '' }} wire:ignore>
-                              <textarea style="height: 100px" placeholder="Description" id="description" class="form-control" wire:model.defer="description"></textarea>
-                              @error('description')<p class="text-danger">{{ $message }}</p>@enderror
+                          <div class="col-md-12 {{ $errors->get('description') ? 'has-error' : '' }}">
+                              <textarea style="height: 100px" placeholder="Description" id="description" class="form-control inputed" wire:model.defer="description"></textarea>
+                             
                           </div>
                       </div>
                   </div>
@@ -175,15 +175,15 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Apply Url</label>
                           <div class="col-md-12 {{ $errors->get('jobUrl') ? 'has-error' : '' }}">
-                              <input type="text" placeholder="Apply here or from another site link" class="form-control input-md" wire:model="jobUrl">
-                              @error('jobUrl')<p class="text-danger">{{ $message }}</p>@enderror 
+                              <input type="text" placeholder="Apply here or from another site link" class="form-control input-md" wire:model.defer="jobUrl">
+                             
                           </div>
                       </div>
                   </div>
                   {{-- <div class="col-md-6">
                       <div class="form-group">
                           <label class="col-md-6 control-label">Hookup Category</label>
-                          <div class="col-md-12"><select class="form-control" wire:model="hookup_categories_id">
+                          <div class="col-md-12"><select class="form-control" wire:model.defer="hookup_categories_id">
                                   <option value="">Select Hookup Category</option>
                                   @foreach ( $hookupcategories as $category )
                                       <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -197,12 +197,12 @@
                       <div class="form-group">
                           <label class="col-md-6 control-label">Job Category</label>
                           <div class="col-md-12 {{ $errors->get('fjob') ? 'has-error' : '' }}">
-                              <select class="form-control" wire:model.defer="fjob">
+                              <select class="form-control inputed" wire:model.defer="fjob">
                                   <option value="">Select Job Category</option>
                                       <option value="Part Time">Part Time</option>
                                       <option value="Full Time">Full Time</option>
                               </select>
-                              @error('fjob')<p class="text-danger">{{ $message }}</p>@enderror
+                              
                           </div>
                       </div>
                   </div>
@@ -211,7 +211,7 @@
                         <label class="col-md-6 control-label">End Date</label>
                         <div class="col-md-12 {{ $errors->get('open') ? 'has-error' : '' }}">
                             <input wire:model.defer="open"
-                            type="text" class="form-control input-md datepicker" placeholder="End Date" autocomplete="off"
+                            type="text" class="form-control input-md datepicker inputed" placeholder="End Date" autocomplete="off"
                             data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
                             onchange="this.dispatchEvent(new InputEvent('input'))">
                         </div>
@@ -220,7 +220,7 @@
                   <div class="col-md-12">
                       <div class="form-group">
                           <div class="col-md-6">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                             <button type="submit" class="btn btn-primary buttons" {{ (!empty($name) && !empty($slug) && !empty($short_description) && !empty($description) && !empty($company) && !empty($jobtitle) && !empty($location) && !empty($experience) && !empty($schedule) && !empty($fjob) && !empty($open) && !empty($price) && !empty($images))  ? '' : '' }}>Post a job</button>
                           </div>
                       </div>
                   </div>
@@ -329,7 +329,19 @@
 @livewireScripts
 @push('scripts')
 <script type= text/javascript>
-  $(function() {
+let input = document.querySelector(".inputed");
+let button = document.querySelector(".buttons");
+button.disabled = true;
+input.addEventListener("change", stateHandle);
+
+function stateHandle() {
+    if(document.querySelector(".inputed").value === "") {
+        button.disabled = true;
+    } else {
+        button.disabled = false;
+    }
+}
+  /*$(function() {
       tinymce.init({
           selector:'#short_description',
           setup:function(editor) {
@@ -352,7 +364,7 @@
           }
       });
   });
-  
+  */
 </script>
 @endpush
 <style>

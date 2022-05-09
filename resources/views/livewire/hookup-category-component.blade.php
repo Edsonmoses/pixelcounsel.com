@@ -78,7 +78,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         @foreach ($hookups as $hookup)
-                        <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
+                        <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative">
                             <div class="lable text-center pt-2 pb-2">
                                 <ul class="list-unstyled best text-white mb-0 text-uppercase">
                                     <li class="list-inline-item"><i class="fa fa-star"></i></li>
@@ -145,7 +145,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             @foreach ($f_hookups as $featured)
-                            <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
+                            <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative">
                                 <div class="lable text-center pt-2 pb-2">
                                     <ul class="list-unstyled best text-white mb-0 text-uppercase">
                                         <li class="list-inline-item"><i class="fa fa-star"></i></li>
@@ -212,7 +212,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             @foreach ($pt_hookups as $parttime)
-                            <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
+                            <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative">
                                 <div class="lable text-center pt-2 pb-2">
                                     <ul class="list-unstyled best text-white mb-0 text-uppercase">
                                         <li class="list-inline-item"><i class="fa fa-star"></i></li>
@@ -279,7 +279,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             @foreach ($ft_hookups as $fulltime)
-                            <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
+                            <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative">
                                 <div class="lable text-center pt-2 pb-2">
                                     <ul class="list-unstyled best text-white mb-0 text-uppercase">
                                         <li class="list-inline-item"><i class="fa fa-star"></i></li>

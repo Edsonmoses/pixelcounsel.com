@@ -55,6 +55,8 @@ class HookupAddComponent extends Component
 
     public function mount()
     {
+        if(Auth::check())
+        {
         $this->hookup_status = 'unpublished';
         $this->featured = '0';
         $this->postedby = Auth::user()->name;
@@ -64,6 +66,11 @@ class HookupAddComponent extends Component
         $this->jobUrl = 'example.com';
         //use with account status
         $this->confirm_status_at = 1;
+        }
+        else
+        {
+            return redirect('/hookup')->with('success', 'Login to post a job!');
+        }
         
     }
 
@@ -110,7 +117,7 @@ class HookupAddComponent extends Component
     }
     }
 
-    /*public function updated($fields)
+    public function updated($fields)
     {
         $this->validateOnly($fields,[
             'name' => 'required',
@@ -119,9 +126,10 @@ class HookupAddComponent extends Component
             'company' => 'required',
             'jobtitle' => 'required',
             'location' => 'required',
-            'images' => 'mimes:png,jpg,jpeg,webp',
             'experience' => 'required',
             'schedule' => 'required',
+            'fjob' => 'required',
+            'open' => 'required',
         ]);
         if($this->price == '15,000 - 30,000')
         {
@@ -135,11 +143,11 @@ class HookupAddComponent extends Component
                 'images' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
         }
-    }*/
+    }
 
     public function jobStored()
     {
-       /* $this->validate([
+       $this->validate([
            'name' => 'required',
            'short_description' => 'required',
            'description' => 'required',
@@ -148,8 +156,9 @@ class HookupAddComponent extends Component
            'location' => 'required',
            'hookup_status' => 'required',
            'experience' => 'required',
-           'price' => 'required',
            'schedule' => 'required',
+           'fjob' => 'required',
+            'open' => 'required',
         ]);
         if($this->price == '15,000 - 30,000')
         {
@@ -162,7 +171,7 @@ class HookupAddComponent extends Component
             $this->validate([
                 'images' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
-        }*/
+        }
         $hookup = new Hookup();
         $hookup->name = $this->name;
         $hookup->slug = $this->slug;

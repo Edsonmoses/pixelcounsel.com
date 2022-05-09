@@ -40,6 +40,8 @@ class AddVectorComponent extends Component
 
     public function mount()
     {
+        if(Auth::check())
+        {
         $this->vector_status = 'unpublished';
         $this->contributor = Auth::user()->name;
         $this->designer = 'Unknown';
@@ -47,6 +49,11 @@ class AddVectorComponent extends Component
         $this->downloads = 0;
         //use with account status
         $this->confirm_status_at = 1;
+        }
+        else
+        {
+            return redirect('/vector')->with('success', 'Login to post a logo!');
+        }
     }
 
     public function generateSlug()
