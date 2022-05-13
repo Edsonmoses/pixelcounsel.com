@@ -10,8 +10,9 @@ class JargonCategory extends Model
     use HasFactory;
     protected $table = "jargon_categories";
 
-    public function hookup() {
-        return $this->hasMany('App\Models\Jargons', 'jargon_categories_id');    
+    public function jargons() {
+        return $this->hasMany(Jargons::class);  
+          
     }
     
     public function atributes()

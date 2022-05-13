@@ -10,8 +10,8 @@ class Jargons extends Model
     use HasFactory;
     protected $table="jargons";
 
-    public function categories () {
-        return $this->belongsTo('App\Models\JargonCategory', 'jargon_categories_id', 'id');   
+    public function jargonCategories () {
+        return $this->belongsTo(JargonCategory::class, 'jargon_categories_id');   
     }
 
     public function atributes()

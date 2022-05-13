@@ -60,7 +60,48 @@ class UserEditEventComponent extends Component
 
     public function generateSlug()
     {
-        $this->slug = Str::slug($this->name,'-');
+        $placeObj = new Events();
+
+        $string = preg_replace('/[^A-Za-z0-9\-]/', '-', $this->name); //Removed all Special Character and replace with hyphen
+        $final_slug = preg_replace('/-+/', '-', $string); //Removed double hyphen
+        $eventsNameURL = strtolower($final_slug);
+
+        $this->slug = Str::slug($eventsNameURL);
+         //Check if this Slug already exists 
+        $checkSlug = $placeObj->whereSlug($eventsNameURL)->exists();
+
+        if($checkSlug){
+            //Slug already exists.
+
+            //Add numerical prefix at the end. Starting with 1
+            $numericalPrefix = 1;
+
+            while(1){
+                //Check if Slug with final prefix exists.
+                
+                $newSlug = $eventsNameURL."-".$numericalPrefix++; //new Slug with incremented Slug Numerical Prefix
+                $newSlug = Str::slug($newSlug); //String Slug
+
+
+                $checkSlug = $placeObj->whereSlug($newSlug)->exists(); //Check if already exists in DB
+                //This returns true if exists.
+
+                if(!$checkSlug){
+
+                    //There is not more coincidence. Finally found unique slug.
+                    $this->slug = $newSlug; //New Slug 
+
+                    break; //Break Loop
+                
+                }
+
+
+            }
+
+        }else{
+            //Slug do not exists. Just use the selected Slug.
+            $this->slug = $eventsNameURL;
+        }
     }
 
     public function updated($fields)

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Models\Events;
 use App\Models\Hookup;
+use App\Models\User;
 use App\Models\Vectorlogos;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,7 @@ class UserNotification extends Component
 
     public function render()
     {
+        $user = User::find(1);
         $vectors = Vectorlogos::where('contributor',Auth::user()->name)->where('vector_status','published')->orderBy('vector_status','ASC')->where('approved','>=',1)->latest()->paginate(10,['*'],'vector');
         $hookup = Hookup::where('postedby',Auth::user()->name)->where('hookup_status','published')->orderBy('name','ASC')->where('approved','>=',1)->latest()->paginate(10,['*'],'hookup');
         $events = Events::where('postedby',Auth::user()->name)->where('events_status','published')->orderBy('name','ASC')->where('approved','>=',1)->latest()->paginate(10,['*'],'event');
@@ -44,6 +46,6 @@ class UserNotification extends Component
 
         $approve = $approveds + $hookupA + $eventsA;
 
-        return view('livewire.user.user-notification',['vectors'=>$vectors,'hookup'=>$hookup,'events'=>$events,'approve'=>$approve]);
+        return view('livewire.user.user-notification',['vectors'=>$vectors,'hookup'=>$hookup,'events'=>$events,'approve'=>$approve,'user'=>$user]);
     }
 }

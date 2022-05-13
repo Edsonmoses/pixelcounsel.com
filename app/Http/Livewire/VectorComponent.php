@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use App\Models\VectorCategory;
 use App\Models\Vectorlogos;
+use App\Notifications\TaskCompleted;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;

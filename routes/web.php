@@ -76,6 +76,8 @@ use App\Http\Livewire\User\UserSettingComponent;
 use App\Http\Livewire\User\UserVectorComponent;
 use App\Http\Livewire\VectorComponent;
 use App\Http\Livewire\VectorlogosComponent;
+use App\Models\User;
+use App\Notifications\TaskCompleted;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -95,6 +97,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',HomeComponent::class);
 
+Route::get('markAsRead',function(){
+    auth()->user()->unreadNotifications->markAsRead();
+    return redirect()->back();
+})->name('markRead');
+
+Route::get('clearAll',function(){
+   auth()->user()->notifications()->delete();
+    return redirect()->back();
+})->name('clearAll');
+
+
+//For Vectors
 Route::get('/vector', VectorComponent::class)->name('vector');
 Route::get('/vectors/{slug}', VectorlogosComponent::class)->name('vector.vectors');
 Route::get('/add-vectors/add', AddVectorComponent::class)->name('vector.addvectors');
@@ -120,15 +134,11 @@ Route::get('/blog', BlogComponent::class);
 
 Route::get('/search', SearchComponent::class)->name('vector.search');
 Route::get('/terms-of-use', TermsOfUseComponent::class);
-Route::get('test', function () {
-    event(new App\Events\StatusLiked('Someone'));
-    return "Event has been sent!";
-});
 
 // Facebook Login URL
 Route::prefix('facebook')->name('facebook.')->group( function(){
-    Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
-    Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
+    //Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
+    //Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
 });
 Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
 // Google Login URL
@@ -142,8 +152,8 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 Route::get('lang/home', 'LangController@index');
 Route::get('lang/change', 'LangController@change')->name('changeLang');
 
-Route::get('newsletter',[NewsletterController::class, 'create']);
-Route::post('newsletter',[NewsletterController::class,'store']);
+//Route::get('newsletter',[NewsletterController::class, 'create']);
+//Route::post('newsletter',[NewsletterController::class,'store']);
 
 
 //For Users or Customer
