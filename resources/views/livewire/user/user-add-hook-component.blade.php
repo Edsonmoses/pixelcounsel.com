@@ -14,7 +14,7 @@
                                 <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                             @endif
                               <div class="flex-grow-1 overflow-hidden">
-                                <form class="form-horizontal" id="updated-form" wire:submit.prevent="addVector">
+                                <form class="form-horizontal" id="updated-form" wire:submit.prevent="jobStored">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="mb-3">

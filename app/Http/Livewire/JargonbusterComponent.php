@@ -23,14 +23,20 @@ class JargonbusterComponent extends Component
 
     public function render()
     {
+         if($this->searchTerm)
+        {
             $searchTerm = '%'.$this->searchTerm . '%';
             $jargons = Jargons::where('name','LIKE',$searchTerm)
                 ->orWhere('name','LIKE',$searchTerm)
                 ->orWhere('slug','LIKE',$searchTerm)
                 ->orWhere('short_description','LIKE',$searchTerm)
                 ->orWhere('description','LIKE',$searchTerm)
-                ->orderBy('name','ASC',$searchTerm)->get();
-        $jargons = Jargons::all()->sortBy('name');
+                ->orderBy('name','ASC',$searchTerm)->paginate($this->pagesize);
+        }
+        else
+        {
+            $jargons = Jargons::where('afid',1)->where('jargon_categories_id',1)->paginate($this->pagesize);
+        }
         $af_jargons = Jargons::where('afid',1)->paginate(12,['*'],'jargons'); 
         $jargoncategories = JargonCategory::all()->sortBy('name');
         $atributes = AlpFilters::where('category_id',1)->orderBy('name','ASC')->paginate(26,['*'],'atributes');

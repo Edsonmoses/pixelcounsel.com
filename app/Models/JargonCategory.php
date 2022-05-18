@@ -10,6 +10,11 @@ class JargonCategory extends Model
     use HasFactory;
     protected $table = "jargon_categories";
 
+      protected $fillable = [
+        'name',
+        'slug',
+    ];
+
     public function jargons() {
         return $this->hasMany(Jargons::class);  
           
@@ -17,10 +22,10 @@ class JargonCategory extends Model
     
     public function atributes()
     {
-        return $this->hasMany(AlpFilter::class,'afid');
+        return $this->hasMany(AlpFilters::class,'afid');
     }
     public function atributed()
     {
-        return $this->hasMany(AlpFilter::class,'category_id');
+        return $this->hasMany(AlpFilters::class,'category_id');
     }
 }

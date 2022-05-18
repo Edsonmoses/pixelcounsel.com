@@ -115,7 +115,7 @@ Route::get('/add-vectors/add', AddVectorComponent::class)->name('vector.addvecto
 Route::get('/vector/{vtag}', VectorComponent::class)->name('vector.vtag');
 
 Route::get('/jargon', JargonbusterComponent::class);
-Route::get('/jargon-category/{category_slug}', JargonCategoryComponent::class)->name('jargon.category');
+Route::get('/jargon-category/{category_slug}/{atributes_name?}', JargonCategoryComponent::class)->name('jargon.category');
 Route::get('/jargons-category/{atributes_name}', AtributesComponent::class)->name('jargon.atributes');
 
 Route::get('/hookup', HookupComponent::class);

@@ -7,6 +7,7 @@
                 <div class="heading-style">
                     <h1>JARGON BUSTER</h1>
                     <span class="sub-heading">A comprehensive dictionary of web, architecture, design and printing terms</span>
+                    </ul>
                 </div>
             </div>
             <!--header title-->

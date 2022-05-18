@@ -29,18 +29,19 @@ class AtributesComponent extends Component
             $atributes = AlpFilters::where('name',$this->atributes_name)->first();
             $atributes_id = $atributes->id;
             $atributes_name = $atributes->name;
+            $category_id = $atributes->category_id;
 
         if($this->sorting =='date')
         {
-            $jargons = Jargons::where('afid',$atributes_id)->orderBy('created_at','ASC')->paginate($this->pagesize); 
+            $jargons = Jargons::where('afid',$atributes_id)->where('jargon_categories_id',$category_id)->orderBy('created_at','ASC')->paginate($this->pagesize); 
         }
         elseif($this->sorting =='price')
         {
-            $jargons = Jargons::where('afid',$atributes_id)->orderBy('name','ASC')->paginate($this->pagesize); 
+            $jargons = Jargons::where('afid',$atributes_id)->where('jargon_categories_id',$category_id)->orderBy('name','ASC')->paginate($this->pagesize); 
         }
         elseif($this->sorting =='price-desc')
         {
-            $jargons = Jargons::where('afid',$atributes_id)->orderBy('name','ASC')->paginate($this->pagesize); 
+            $jargons = Jargons::where('afid',$atributes_id)->where('jargon_categories_id',$category_id)->orderBy('name','ASC')->paginate($this->pagesize); 
         }
         elseif($this->searchTerm)
         {
@@ -54,7 +55,7 @@ class AtributesComponent extends Component
         }
         else
         {
-            $jargons = Jargons::where('afid',$atributes_id)->paginate($this->pagesize);
+            $jargons = Jargons::where('afid',$atributes_id)->where('jargon_categories_id',$category_id)->paginate($this->pagesize);
         }
         $jargoncategories = JargonCategory::all()->sortBy('name');
         $atributes = AlpFilters::where('category_id',$atributes_id)->orderBy('name','ASC')->paginate();

@@ -9,6 +9,11 @@ class AlpFilters extends Model
 {
     use HasFactory;
     protected $table = "alp_filters";
+    
+    protected $fillable = [
+        'name',
+        'category_id',
+    ];
 
     public function jargon()
     {

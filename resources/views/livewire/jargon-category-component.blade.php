@@ -32,8 +32,8 @@
 		<div class="bottom-menu">
             <ul class="nav navbar-nav">
                 @foreach ($jargoncategories as $j_catagory )
-                    <li class="nav-link {{ route('jargon.category',['category_slug'=>$j_catagory->slug,'atribute_name'=>$atribute->name]) == url()->current() ? 'active' : '' }}">
-                        <a href="{{ route('jargon.category',['category_slug'=>$j_catagory->slug,'atribute_name'=>$atribute->name]) }}">{{ $j_catagory->name}}
+                    <li class="nav-link {{ route('jargon.category',['category_slug'=>$j_catagory->slug]) == url()->current() ? 'active' : '' }}">
+                        <a href="{{ route('jargon.category',['category_slug'=>$j_catagory->slug]) }}">{{ $j_catagory->name}}
                         </a>
                     </li>
                 @endforeach
@@ -44,7 +44,7 @@
             <div class="bottom-menu-2">
                 <p style="margin: 20px 0 0 0; tra">Glossary of {{ $category_name }} Terms</p>
             <ul class="nav navbar-nav">
-                @foreach ($atributes as $atribute )
+                  @foreach ($atributes as $atribute )
                 <li class="nav-link{{ route('jargon.atributes', ['atributes_name'=>$atribute->name]) == url()->current('') ? 'active' : '' }} {{ $loop->first ? 'active' : '' }}">
                     <a href="{{ route('jargon.atributes',['atributes_name'=>$atribute->name]) }}">
                         {{ $atribute->name}}
