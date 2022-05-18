@@ -696,6 +696,9 @@
             nav .hidden {
             display: none !important;
             }
+            .img-thumbnail {
+    object-fit: cover !important;
+}
         </style>
         @livewireScripts
     </body>
