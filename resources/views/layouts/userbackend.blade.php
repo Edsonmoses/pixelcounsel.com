@@ -697,8 +697,11 @@
             display: none !important;
             }
             .img-thumbnail {
-    object-fit: cover !important;
-}
+                    object-fit: cover !important;
+            }
+            .nav-user img {
+            object-fit: cover !important;
+            }
         </style>
         @livewireScripts
     </body>
