@@ -4011,3 +4011,6 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
 img {
     -webkit-user-drag: none !important;
 }
+.img-thumbnail {
+    object-fit: cover !important;
+}
