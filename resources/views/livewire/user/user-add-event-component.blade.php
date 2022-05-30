@@ -90,8 +90,8 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="mb-3">
-                                                <label for="ticket" class="form-label">Ticket Pric</label>
-                                                <input type="text" placeholder="Ticket Pric" id="ticket" class="form-control" wire:model="ticket">
+                                                <label for="ticket" class="form-label">Ticket Price</label>
+                                                <input type="text" placeholder="Ticket Price" id="ticket" class="form-control" wire:model="ticket">
                                                 @error('ticket')<p class="text-danger">{{ $message }}</p>@enderror 
                                             </div>
                                         </div>
