@@ -24,7 +24,7 @@ class AdminHookupComponent extends Component
 
     public function render()
     {
-        $hookups = Hookup::paginate(20,['*'],'hookups');
+        $hookups = Hookup::orderBy('created_at','DESC')->paginate(20,['*'],'hookups');
         return view('livewire.admin.admin-hookup-component',['hookups'=>$hookups])->layout('layouts.backend');
     }
 }

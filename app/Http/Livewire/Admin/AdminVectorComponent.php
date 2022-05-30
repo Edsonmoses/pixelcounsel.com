@@ -55,7 +55,7 @@ class AdminVectorComponent extends Component
     
     public function render()
     {
-        $vectorlogos = Vectorlogos::paginate(20,['*'],'vectors');
+        $vectorlogos = Vectorlogos::orderBy('created_at','DESC')->paginate(20,['*'],'vectors');
         return view('livewire.admin.admin-vector-component',['vectorlogos'=>$vectorlogos])->layout('layouts.backend');
     }
 }
