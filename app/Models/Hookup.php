@@ -9,6 +9,7 @@ class Hookup extends Model
 {
     use HasFactory;
     protected $table="hookups";
+    protected $fillable = ['postedby'];
 
     public function categories () {
         return $this->belongsTo('App\Models\HookupCategory', 'hookup_categories_id', 'id');   

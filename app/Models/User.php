@@ -67,6 +67,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserProfile::class,'user_id');
     }
+    public function vector()
+    {
+        return $this->hasOne(Vectorlogos::class,'postedby');
+    }
+    public function hookup()
+    {
+        return $this->hasOne(hookup::class,'postedby');
+    }
     /**
      * Write code on Method
      *

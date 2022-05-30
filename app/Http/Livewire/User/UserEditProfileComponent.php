@@ -34,7 +34,7 @@ class UserEditProfileComponent extends Component
        $this->locations = $user->profile->locations;
     }
 
-   /* public function updated($fields)
+    public function updated($fields)
     {
         $this->validateOnly($fields,[
             'name' => 'required',
@@ -50,11 +50,11 @@ class UserEditProfileComponent extends Component
                 'newimage' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
         }
-    }*/
+    }
 
     public function updateProfile()
     {
-        /*$this->validate([
+        $this->validate([
            'name' => 'required',
            'email' => 'required|email',
            'image' => 'required|mimes:png,jpg,jpeg,webp',
@@ -68,7 +68,7 @@ class UserEditProfileComponent extends Component
             $this->validate([
                 'newimage' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
-        }*/
+        }
         $user = User::find(Auth::user()->id);
         $user->name = $this->name;
         $user->save();

@@ -96,17 +96,13 @@ class UserAddEventComponent extends Component
             'events_status' => 'required',
             'events_categories_id' => 'required',
             'etype_id' => 'required',
-            'econtact' => 'required',
-            'eventemail' => 'required',
-            'ephone' => 'required',
-            'website' => 'required',
             'ticket' => 'required',
             'enddate' => 'required',
         ]);
-        if($this->images)
+         if($this->images)
         {
             $this->validateOnly($fields,[
-                'images' => 'required|mimes:png,jpg,jpeg,webp',
+                'images' => 'required|mimes:png,jpg,jpeg,webp'
             ]);
         }
     }
@@ -123,17 +119,13 @@ class UserAddEventComponent extends Component
             'events_status' => 'required',
             'events_categories_id' => 'required',
             'etype_id' => 'required',
-            'econtact' => 'required',
-            'eventemail' => 'required',
-            'ephone' => 'required',
-            'website' => 'required',
             'ticket' => 'required',
             'enddate' => 'required',
         ]);
-        if($this->images)
+         if($this->images)
         {
             $this->validate([
-                'images' => 'required|mimes:png,jpg,jpeg,webp',
+                'images' => 'required|mimes:png,jpg,jpeg,webp'
             ]);
         }
         $event = new Events();
