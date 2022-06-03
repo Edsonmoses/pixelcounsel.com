@@ -220,7 +220,7 @@
                   <div class="col-md-12">
                       <div class="form-group">
                           <div class="col-md-6">
-                             <button type="submit" class="btn btn-primary buttons" {{ (!empty($name) && !empty($slug) && !empty($short_description) && !empty($description) && !empty($company) && !empty($jobtitle) && !empty($location) && !empty($experience) && !empty($schedule) && !empty($fjob) && !empty($open) && !empty($price) && !empty($images))  ? '' : '' }}>Post a job</button>
+                             <button type="submit" class="btn btn-primary buttons">Post a job</button>
                           </div>
                       </div>
                   </div>

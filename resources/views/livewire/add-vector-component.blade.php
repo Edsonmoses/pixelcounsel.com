@@ -155,7 +155,7 @@
 
                             <div class="row">
                                 <div class="col-lg-12 mt-2">
-                                    <button type="submit" class="btn btn-primary" {{ (!empty($name) && !empty($slug) && !empty($short_description) && !empty($description) && !empty($designer) && !empty($format) && !empty($vector_status) && !empty($vector_categories_id) && !empty($images) && !empty($image))  ? '' : 'disabled' }}>Post a vector</button>
+                                    <button type="submit" class="btn btn-primary">Post a vector</button>
                                 </div>
                             </div>
                         </form>

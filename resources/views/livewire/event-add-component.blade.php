@@ -161,7 +161,7 @@
 
                             <div class="row">
                                 <div class="col-lg-12 mt-2">
-                                    <button type="submit" class="btn btn-primary" {{ (!empty($name) && !empty($slug) && !empty($short_description) && !empty($description) && !empty($eventdate) && !empty($events_status) && !empty($events_categories_id) && !empty($etype_id) && !empty($ticket) && !empty($enddate) && !empty($images))  ? '' : 'disabled' }}>Post a event</button>
+                                    <button type="submit" class="btn btn-primary">Post a event</button>
                                 </div>
                             </div>
                         </form>
