@@ -188,8 +188,12 @@
                 </div>
 
                 <div class="job-detail rounded mt-3">
-                    @if ($hookup->jobUrl  == 'example.com') 
-                        <a href="{{ route('hookup.applyjob') }}" class="btn btn-primary btn-block rounded" target="_blank">Apply For Job</a>
+                    @if ($hookup->jobUrl) 
+                       @if ($hookup->email)
+                        <a href="mailto:{{ $hookup->email }}?Subject={{ $hookup->name }}&body=Dear%20{{ $hookup->company }}" class="btn btn-primary btn-block rounded" target="_blank">Apply For Job </a>
+                        @else
+                        <a href="#" class="btn btn-primary btn-block rounded disabled" target="_blank">Apply For Job </a>
+                        @endif
                         <h6 class="text-dark f-17 mt-4 mb-0">Share Job :</h6>
                        {{-- <ul class="social-icon list-inline mt-3 mb-0">
                             <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://jorenvanhocht.be" class="rounded" target="_blank"><i class="fa fa-facebook"></i></a></li>

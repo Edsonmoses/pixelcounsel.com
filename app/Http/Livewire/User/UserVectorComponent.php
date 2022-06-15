@@ -24,7 +24,7 @@ class UserVectorComponent extends Component
     }
     public function render()
     {
-        $vectors = Vectorlogos::where('contributor',Auth::user()->name)->orderBy('created_at','DESC')->paginate(100,['*'],'vectors');
+        $vectors = Vectorlogos::where('vector_status','published')->where('contributor',Auth::user()->name)->orderBy('created_at','DESC')->paginate(100,['*'],'vectors');
         return view('livewire.user.user-vector-component',['vectors'=>$vectors])->layout('layouts.userbackend');
     }
 }

@@ -24,7 +24,7 @@ class UserHookupComponent extends Component
     }
     public function render()
     {
-        $jobs = Hookup::where('postedby',Auth::user()->name)->orderBy('created_at','DESC')->paginate(100,['*'],'jobs');
+        $jobs = Hookup::where('hookup_status','published')->where('postedby',Auth::user()->name)->orderBy('created_at','DESC')->paginate(100,['*'],'jobs');
         return view('livewire.user.user-hookup-component',['jobs'=>$jobs])->layout('layouts.userbackend');
     }
 }
