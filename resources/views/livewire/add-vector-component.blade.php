@@ -51,7 +51,30 @@
                 <div class="rounded shadows bg-white p-4">
                     <div class="custom-form" style="margin: 0 35px 0 15px !important">
                         @if (Session::has('message'))
-                                <div class="alert alert-success float-left" id="message3" role="alert">{{ Session::get('message') }}</div>
+                                <div class="alert alert-success float-left" id="message3" role="alert">
+                                    <!-- Modal event created successfully!-->
+                                        <div class="modal fade  popups" id="exampleModalLong" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <a href="/vector" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </a>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    <h1>AWESOME!</h1>
+                                                    <p >Your logo has been<br/>
+                                                    successfully submitted.</p>
+                                                    <a href="{{route('vector.addvectors')}}" class="btn btn-successfully">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i><br/>
+                                                        Add <br/>another</a><br/>
+                                                    <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    <!-- Modal event created successfully! end here-->
+                                    {{ Session::get('message') }}</div>
                              @endif
                         <form class="form-horizontal" id="updated-form" wire:submit.prevent="addVector" files="true" enctype="multipart/form-data">
                             {{ csrf_field() }}
@@ -115,6 +138,7 @@
                                         <label class="text-muted">Vector File</label>
                                         <input type="file" class="form-control input-file" wire:model="images">
                                         @error('images')<p class="text-danger">{{ $message }}</p>@enderror
+                                
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -165,34 +189,16 @@
         </div>
     </div>
 </div>
-  <!-- Modal event created successfully!-->
-    <div class="modal fade  popups" id="exampleModalLong" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <a href="/vector" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </a>
-            </div>
-            <div class="modal-body text-center">
-                <h1>AWESOME!</h1>
-                <p >Your logo has been<br/>
-                 successfully submitted.</p>
-                <a href="{{route('vector.addvectors')}}" class="btn btn-successfully">
-                    <i class="fa fa-plus" aria-hidden="true"></i><br/>
-                    Add <br/>another</a><br/>
-                <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
-            </div>
-          </div>
-        </div>
-      </div>
-<!-- Modal event created successfully! end here-->
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type='text/javascript'>
-    $('#updated-form').submit(function (e) {
+ $(window).load(function(){
+         $('#exampleModalLong').modal('show');
+      });
+   /* $('#updated-form').submit(function (e) {
           $('#exampleModalLong').modal('show');
           return false;
-      });
+      });*/
     </script>
     <style>
    .popups .modal-content {

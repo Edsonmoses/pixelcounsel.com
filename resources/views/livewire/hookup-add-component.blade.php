@@ -31,8 +31,32 @@
             <div class="col-12 col-xl-12 grid-margin stretch-card">
               <div class="card overflow-hidden">
                 <div>
-                  @if (Session::has('message'))
-                  <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
+                     @if (Session::has('message'))
+                    <div class="alert alert-success float-left" id="message3" role="alert">
+                      <!-- Modal event created successfully!-->
+                        <div class="modal fade  popups" id="exampleModalLong" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <a href="/hookup" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </a>
+                                </div>
+                                <div class="modal-body text-center">
+                                        <h1>AWESOME! </h1>
+                                        <p >Your job has been<br/>
+                                        successfully submitted.</p>
+                                        <a href="{{route('hookup.addhookup')}}" class="btn btn-successfully">
+                                            <i class="fa fa-plus" aria-hidden="true"></i><br/>
+                                            Add<br/> another</a><br/>
+                                        <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
+                                    
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- Modal event created successfully! end here-->
+                    {{ Session::get('message') }}</div>
               @endif
             <form class="form-horizontal" id="updated-form" wire:submit.prevent="jobStored">
               <div class="row">
@@ -41,6 +65,7 @@
                           <label class="col-md-6 control-label text-left">Job Name</label>
                           <div class="col-md-12  {{ $errors->get('name') ? 'has-error' : '' }}">
                               <input type="text" placeholder="Hookup Name" class="form-control input-md inputed" wire:model.defer="name" wire:keyup="generateSlug"/>
+                              @error('name')<p class="text-danger">{{ $message }}</p>@enderror
                               
                           </div>
                       </div>
@@ -50,6 +75,7 @@
                           <label class="col-md-6 control-label">Job Slug</label>
                           <div class="col-md-12  {{ $errors->get('slug') ? 'has-error' : '' }}">
                               <input type="text" placeholder="Hookup Slug" class="form-control input-md inputed" wire:model="slug"/>
+                              @error('slug')<p class="text-danger">{{ $message }}</p>@enderror
                               
                           </div>
                       </div>
@@ -59,6 +85,7 @@
                           <label class="col-md-6 control-label">Company</label>
                           <div class="col-md-12  {{ $errors->get('company') ? 'has-error' : '' }}">
                               <input type="text" placeholder="Company" class="form-control input-md inputed" wire:model.defer="company">
+                              @error('company')<p class="text-danger">{{ $message }}</p>@enderror
                              
                           </div>
                       </div>
@@ -68,6 +95,7 @@
                           <label class="col-md-6 control-label">Preferred Skills</label>
                           <div class="col-md-12  {{ $errors->get('jobtitle') ? 'has-error' : '' }}">
                               <input type="text" placeholder="Preferred Skills" class="form-control input-md inputed" wire:model.defer="jobtitle">
+                              
                               
                           </div>
                       </div>
@@ -234,35 +262,16 @@
   </div>
   <div style="height: 50px"></div>
 </div>
-   <!-- Modal event created successfully!-->
-   <div class="modal fade  popups" id="exampleModalLong" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <a href="/hookup" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </a>
-        </div>
-        <div class="modal-body text-center">
-                <h1>AWESOME! </h1>
-                <p >Your job has been<br/>
-                successfully submitted.</p>
-                <a href="{{route('hookup.addhookup')}}" class="btn btn-successfully">
-                    <i class="fa fa-plus" aria-hidden="true"></i><br/>
-                    Add<br/> another</a><br/>
-                <a href="/"><img class="popup_logo" src="{{ asset('assets/uploads/img/PC footer.svg')}}" width="120"/></a>
-              
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- Modal event created successfully! end here-->
+ 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type='text/javascript'>
-    $('#updated-form').submit(function (e) {
+$(window).load(function(){
+         $('#exampleModalLong').modal('show');
+      });
+    /*$('#updated-form').submit(function (e) {
           $('#exampleModalLong').modal('show');
           return false;
-      });
+      });*/
     </script>
     <style>
     .popups .modal-content {
@@ -329,7 +338,7 @@
 @livewireScripts
 @push('scripts')
 <script type= text/javascript>
-let input = document.querySelector(".inputed");
+/*let input = document.querySelector(".inputed");
 let button = document.querySelector(".buttons");
 button.disabled = true;
 input.addEventListener("change", stateHandle);
@@ -340,7 +349,7 @@ function stateHandle() {
     } else {
         button.disabled = false;
     }
-}
+}*/
   /*$(function() {
       tinymce.init({
           selector:'#short_description',

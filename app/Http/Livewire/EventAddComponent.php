@@ -47,15 +47,12 @@ class EventAddComponent extends Component
 
     public function mount()
     {
-        if(Auth::check())
-        {
-        $this->events_status = 'unpublished';
-        $this->postedby = Auth::user()->name;
-        //use with account status
-        $this->confirm_status_at = 1;
-        }
-        else
-        {
+        if (Auth::check()) {
+            $this->events_status = 'unpublished';
+            $this->postedby = Auth::user()->name;
+            //use with account status
+            $this->confirm_status_at = 1;
+        } else {
             return redirect('/events')->with('success', 'Login to post an event!');
         }
     }
@@ -69,45 +66,42 @@ class EventAddComponent extends Component
         $eventsNameURL = strtolower($final_slug);
 
         $this->slug = Str::slug($eventsNameURL);
-         //Check if this Slug already exists 
+        //Check if this Slug already exists 
         $checkSlug = $placeObj->whereSlug($eventsNameURL)->exists();
 
-        if($checkSlug){
+        if ($checkSlug) {
             //Slug already exists.
 
             //Add numerical prefix at the end. Starting with 1
             $numericalPrefix = 1;
 
-            while(1){
+            while (1) {
                 //Check if Slug with final prefix exists.
-                
-                $newSlug = $eventsNameURL."-".$numericalPrefix++; //new Slug with incremented Slug Numerical Prefix
+
+                $newSlug = $eventsNameURL . "-" . $numericalPrefix++; //new Slug with incremented Slug Numerical Prefix
                 $newSlug = Str::slug($newSlug); //String Slug
 
 
                 $checkSlug = $placeObj->whereSlug($newSlug)->exists(); //Check if already exists in DB
                 //This returns true if exists.
 
-                if(!$checkSlug){
+                if (!$checkSlug) {
 
                     //There is not more coincidence. Finally found unique slug.
                     $this->slug = $newSlug; //New Slug 
 
                     break; //Break Loop
-                
+
                 }
-
-
             }
-
-        }else{
+        } else {
             //Slug do not exists. Just use the selected Slug.
             $this->slug = $eventsNameURL;
         }
     }
     public function updated($fields)
     {
-        $this->validateOnly($fields,[
+        $this->validateOnly($fields, [
             'name' => 'required',
             'slug' => 'required|unique:events',
             'short_description' => 'required',
@@ -120,9 +114,8 @@ class EventAddComponent extends Component
             'ticket' => 'required',
             'enddate' => 'required',
         ]);
-        if($this->images)
-        {
-            $this->validateOnly($fields,[
+        if ($this->images) {
+            $this->validateOnly($fields, [
                 'images' => 'required|mimes:png,jpg,jpeg,webp'
             ]);
         }
@@ -143,8 +136,7 @@ class EventAddComponent extends Component
             'ticket' => 'required',
             'enddate' => 'required',
         ]);
-        if($this->images)
-        {
+        if ($this->images) {
             $this->validate([
                 'images' => 'required|mimes:png,jpg,jpeg,webp'
             ]);
@@ -157,8 +149,8 @@ class EventAddComponent extends Component
         $event->exhibition = $this->exhibition;
         $event->eventdate = $this->eventdate;
         $event->events_status = $this->events_status;
-        $imageName = Carbon::now()->timestamp.'.'.$this->images->extension();
-        $this->images->storeAs('events',$imageName);
+        $imageName = Carbon::now()->timestamp . '.' . $this->images->extension();
+        $this->images->storeAs('events', $imageName);
         $event->images = $imageName;
         $event->events_categories_id = $this->events_categories_id;
         $event->etype_id = $this->etype_id;
@@ -170,8 +162,8 @@ class EventAddComponent extends Component
         $event->enddate = $this->enddate;
         $event->postedby = $this->postedby;
         $event->save();
-        //session()->flash('success','Event has been submitted successfully!');
-        //return redirect('/events/add');
+        session()->flash('message', 'Event has been submitted successfully!');
+        return redirect('/events/add_another');
     }
 
     public function updateConfirmation()
@@ -186,20 +178,20 @@ class EventAddComponent extends Component
     public function render()
     {
         if (is_null(Auth::user()->confirm_status_at)) {
-            $searchTerm = '%'.$this->searchTerm . '%';
-            $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
-                    ->orWhere('name','LIKE',$searchTerm)
-                    ->orWhere('slug','LIKE',$searchTerm)
-                    ->orWhere('description','LIKE',$searchTerm)
-                    ->orWhere('designer','LIKE',$searchTerm)
-                    ->orWhere('vtag','LIKE',$searchTerm)
-                    ->orderBy('updated_at','ASC',$searchTerm)->paginate(15);
-        $vectorcategories = VectorCategory::all()->sortBy('name');
-            return view('livewire.user.account-status-component',['vectorcategories'=>$vectorcategories,'vectorlogos'=>$vectorlogos])->layout('layouts.baseapp');
-        }else{
-        $eventcategories = EventsCategory::all()->sortBy('name');
-        $eventtypes = EventType::all()->sortBy('name');
-        return view('livewire.event-add-component',['eventcategories'=>$eventcategories,'eventtypes'=>$eventtypes])->layout('layouts.baseapp');
+            $searchTerm = '%' . $this->searchTerm . '%';
+            $vectorlogos = Vectorlogos::where('name', 'LIKE', $searchTerm)
+                ->orWhere('name', 'LIKE', $searchTerm)
+                ->orWhere('slug', 'LIKE', $searchTerm)
+                ->orWhere('description', 'LIKE', $searchTerm)
+                ->orWhere('designer', 'LIKE', $searchTerm)
+                ->orWhere('vtag', 'LIKE', $searchTerm)
+                ->orderBy('updated_at', 'ASC', $searchTerm)->paginate(15);
+            $vectorcategories = VectorCategory::all()->sortBy('name');
+            return view('livewire.user.account-status-component', ['vectorcategories' => $vectorcategories, 'vectorlogos' => $vectorlogos])->layout('layouts.baseapp');
+        } else {
+            $eventcategories = EventsCategory::all()->sortBy('name');
+            $eventtypes = EventType::all()->sortBy('name');
+            return view('livewire.event-add-component', ['eventcategories' => $eventcategories, 'eventtypes' => $eventtypes])->layout('layouts.baseapp');
         }
     }
 }

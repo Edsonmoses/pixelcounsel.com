@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\SocialShareButtonsController;
+use App\Http\Livewire\AddEvent2Component;
+use App\Http\Livewire\AddHookup2Component;
 use App\Http\Livewire\AddVectorComponent;
 use App\Http\Livewire\Admin\AdminAddAdsComponent;
 use App\Http\Livewire\Admin\AdminAddAlpFilterComponent;
@@ -95,15 +97,15 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
-Route::get('/',HomeComponent::class);
+Route::get('/', HomeComponent::class);
 
-Route::get('markAsRead',function(){
+Route::get('markAsRead', function () {
     auth()->user()->unreadNotifications->markAsRead();
     return redirect()->back();
 })->name('markRead');
 
-Route::get('clearAll',function(){
-   auth()->user()->notifications()->delete();
+Route::get('clearAll', function () {
+    auth()->user()->notifications()->delete();
     return redirect()->back();
 })->name('clearAll');
 
@@ -122,6 +124,7 @@ Route::get('/hookup', HookupComponent::class);
 Route::get('/hookup-category/{category_slug}', HookupCategoryComponent::class)->name('hookup.category');
 Route::get('/hookup-details/{hookup_slug}', HookupDedailsComponent::class)->name('hookup.details');
 Route::get('/hookup/add', HookupAddComponent::class)->name('hookup.addhookup');
+Route::get('/hookup/add_another', AddHookup2Component::class)->name('hookup.addhookups');
 Route::get('/hookup/fetch', HookupAddComponent::class)->name('hookup.fetch');
 Route::get('/job-application', HookupJobApplicationComponent::class)->name('hookup.applyjob');
 
@@ -129,6 +132,7 @@ Route::get('/events', EventsComponent::class);
 Route::get('/events-category/{category_slug}', EventsCategoryComponent::class)->name('events.category');
 Route::get('/events-details/{event_slug}', EventDetailsComponent::class)->name('events.details');
 Route::get('/events/add', EventAddComponent::class)->name('events.addevent');
+Route::get('/events/add_another', AddEvent2Component::class)->name('events.addevents');
 
 Route::get('/blog', BlogComponent::class);
 
@@ -136,17 +140,17 @@ Route::get('/search', SearchComponent::class)->name('vector.search');
 Route::get('/terms-of-use', TermsOfUseComponent::class);
 
 // Facebook Login URL
-Route::prefix('facebook')->name('facebook.')->group( function(){
+Route::prefix('facebook')->name('facebook.')->group(function () {
     //Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
     //Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
 });
-Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
+Route::get('/social-media-share', [SocialShareButtonsController::class, 'ShareWidget']);
 // Google Login URL
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    //return view('dashboard');
+//return view('dashboard');
 //})->name('dashboard');
 
 Route::get('lang/home', 'LangController@index');
@@ -160,17 +164,17 @@ Route::get('lang/change', 'LangController@change')->name('changeLang');
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
     Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
-    Route::get('/user/profile/edit',UserEditProfileComponent::class)->name('user.edit_profile');
-    Route::get('/user/setting',UserSettingComponent::class)->name('user.setting');
-    Route::get('/user/2fa',UserSettingComponent::class)->name('user.2faenable');
-    Route::get('/user/delete-account',UserSettingComponent::class)->name('user.daccount');
+    Route::get('/user/profile/edit', UserEditProfileComponent::class)->name('user.edit_profile');
+    Route::get('/user/setting', UserSettingComponent::class)->name('user.setting');
+    Route::get('/user/2fa', UserSettingComponent::class)->name('user.2faenable');
+    Route::get('/user/delete-account', UserSettingComponent::class)->name('user.daccount');
 
     //for vectors
     Route::get('/user/vectors', UserVectorComponent::class)->name('user.vectors');
     Route::get('/user/vector/add', UserAddVectorsComponent::class)->name('user.vecadd');
     Route::get('/user/vector/edit/{vector_slug}', UserEditVectorComponent::class)->name('user.vecedit');
     Route::get('/user/vectors/edit', UserVectorComponent::class)->name('user.vecedits');
-    
+
     //for events
     Route::get('/user/events', UserEventComponent::class)->name('user.events');
     Route::get('/user/event/add', UserAddEventComponent::class)->name('user.evadd');
@@ -190,58 +194,58 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
 
-      //Blog Categories
-      Route::get('admin/categories', AdminCategoryComponent::class)->name('admin.categories');
-      Route::get('admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
-      Route::get('admin/category/edit/{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
-      //Blog Categories
-      Route::get('admin/blogs',AdminBlogComponent::class)->name('admin.blog');
-      Route::get('admin/blog/add',AdminAddBlogComponent::class)->name('admin.addblog');
-      Route::get('admin/blog/edit/{blog_slug}',AdminEditBlogComponent::class)->name('admin.editblog');
-      //Vector Categories
-      Route::get('admin/vectors', AdminVectorCategoryComponent::class)->name('admin.vectors');
-      Route::get('admin/vector/add', AdminAddVectorCategoryComponent::class)->name('admin.addvector');
-      Route::get('admin/vector/edit/{vector_slug}',AdminEditVectorCategoryComponent::class)->name('admin.editvector');
-       //Vectors
-       Route::get('admin/vector/logos',AdminVectorComponent::class)->name('admin.vectorlogos');
-       Route::get('admin/vector/logos/add',AdminAddVectorComponent::class)->name('admin.addvectorlogos');
-       Route::get('admin/vector/logos/edit/{vector_slug}',AdminEditVectorComponent::class)->name('admin.editvectorlogos');
-          //Events Categories
-      Route::get('admin/events',AdminEventcategoryComponent::class)->name('admin.events');
-      Route::get('admin/event/add',AdminAddEventcategoryComponent::class)->name('admin.addevent');
-      Route::get('admin/event/edit/{event_slug}',AdminEditEventCategoryComponent::class)->name('admin.editevent');
-      //Events Types
-      Route::get('admin/etypes',AdminEventTypeComponent::class)->name('admin.etypes');
-      Route::get('admin/etypes/add',AdminAddEventTypeComponent::class)->name('admin.addetypes');
-      Route::get('admin/etypes/edit/{etype_slug}',AdminEditEventTypeComponent::class)->name('admin.editetypes');
-       //Events
-       Route::get('admin/event',AdminEventsComponent::class)->name('admin.event');
-       Route::get('admin/events/add',AdminAddEventsComponent::class)->name('admin.addevents');
-       Route::get('admin/events/edit/{event_slug}',AdminEditEventsComponent::class)->name('admin.editevents');
-       //Hookups Categories
-       Route::get('admin/hookups',AdminHookupCategoryComponent::class)->name('admin.hookups');
-       Route::get('admin/hookup/add',AdminAddHookupCategoryComponent::class)->name('admin.addhookup');
-       Route::get('admin/hookup/edit/{hookup_slug}',AdminEditHookupCategoryComponent::class)->name('admin.edithookup');
-       //Hookups
-       Route::get('admin/hookup',AdminHookupComponent::class)->name('admin.hookup');
-       Route::get('admin/hookups/add',AdminAddHookupComponent::class)->name('admin.addhookups');
-       Route::get('admin/hookups/edit/{hookup_slug}',AdminEditHookupComponent::class)->name('admin.edithookups');
-       //Jargons categories
-       Route::get('admin/jargons',AdminJargonCategoryComponent::class)->name('admin.jargons');
-       Route::get('admin/jargon/add',AdminAddJargonCategoryComponent::class)->name('admin.addjargon');
-       Route::get('admin/jargon/edit/{jargon_slug}',AdminEditHookupCategoryComponent::class)->name('admin.editjargon');
-       //Jargons
-       Route::get('admin/jargon',AdminJargonComponent::class)->name('admin.jargon');
-       Route::get('admin/jargons/add',AdminAddJargonComponent::class)->name('admin.addjargons');
-       Route::get('admin/jargons/edit/{jargon_slug}',AdminEditJargonComponent::class)->name('admin.editjargons');
-       //Atributes
-       Route::get('admin/atributes',AdminAlpFilterComponent::class)->name('admin.alpfilter');
-       Route::get('admin/atributes/add',AdminAddAlpFilterComponent::class)->name('admin.addalpfilter');
-       Route::get('admin/atributes/edit/{name}',AdminEditAlpFilterComponent::class)->name('admin.editalpfilter');
-       //Ads
-       Route::get('/admin/ads',AdminAdsComponent::class)->name('admin.ads');
-       Route::get('/admin/ads/add',AdminAddAdsComponent::class)->name('admin.add_ads');
-       Route::get('/admin/ads/edit/{name}',AdminEditAdsComponent::class)->name('admin.edit_ads');
+    //Blog Categories
+    Route::get('admin/categories', AdminCategoryComponent::class)->name('admin.categories');
+    Route::get('admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
+    Route::get('admin/category/edit/{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+    //Blog Categories
+    Route::get('admin/blogs', AdminBlogComponent::class)->name('admin.blog');
+    Route::get('admin/blog/add', AdminAddBlogComponent::class)->name('admin.addblog');
+    Route::get('admin/blog/edit/{blog_slug}', AdminEditBlogComponent::class)->name('admin.editblog');
+    //Vector Categories
+    Route::get('admin/vectors', AdminVectorCategoryComponent::class)->name('admin.vectors');
+    Route::get('admin/vector/add', AdminAddVectorCategoryComponent::class)->name('admin.addvector');
+    Route::get('admin/vector/edit/{vector_slug}', AdminEditVectorCategoryComponent::class)->name('admin.editvector');
+    //Vectors
+    Route::get('admin/vector/logos', AdminVectorComponent::class)->name('admin.vectorlogos');
+    Route::get('admin/vector/logos/add', AdminAddVectorComponent::class)->name('admin.addvectorlogos');
+    Route::get('admin/vector/logos/edit/{vector_slug}', AdminEditVectorComponent::class)->name('admin.editvectorlogos');
+    //Events Categories
+    Route::get('admin/events', AdminEventcategoryComponent::class)->name('admin.events');
+    Route::get('admin/event/add', AdminAddEventcategoryComponent::class)->name('admin.addevent');
+    Route::get('admin/event/edit/{event_slug}', AdminEditEventCategoryComponent::class)->name('admin.editevent');
+    //Events Types
+    Route::get('admin/etypes', AdminEventTypeComponent::class)->name('admin.etypes');
+    Route::get('admin/etypes/add', AdminAddEventTypeComponent::class)->name('admin.addetypes');
+    Route::get('admin/etypes/edit/{etype_slug}', AdminEditEventTypeComponent::class)->name('admin.editetypes');
+    //Events
+    Route::get('admin/event', AdminEventsComponent::class)->name('admin.event');
+    Route::get('admin/events/add', AdminAddEventsComponent::class)->name('admin.addevents');
+    Route::get('admin/events/edit/{event_slug}', AdminEditEventsComponent::class)->name('admin.editevents');
+    //Hookups Categories
+    Route::get('admin/hookups', AdminHookupCategoryComponent::class)->name('admin.hookups');
+    Route::get('admin/hookup/add', AdminAddHookupCategoryComponent::class)->name('admin.addhookup');
+    Route::get('admin/hookup/edit/{hookup_slug}', AdminEditHookupCategoryComponent::class)->name('admin.edithookup');
+    //Hookups
+    Route::get('admin/hookup', AdminHookupComponent::class)->name('admin.hookup');
+    Route::get('admin/hookups/add', AdminAddHookupComponent::class)->name('admin.addhookups');
+    Route::get('admin/hookups/edit/{hookup_slug}', AdminEditHookupComponent::class)->name('admin.edithookups');
+    //Jargons categories
+    Route::get('admin/jargons', AdminJargonCategoryComponent::class)->name('admin.jargons');
+    Route::get('admin/jargon/add', AdminAddJargonCategoryComponent::class)->name('admin.addjargon');
+    Route::get('admin/jargon/edit/{jargon_slug}', AdminEditHookupCategoryComponent::class)->name('admin.editjargon');
+    //Jargons
+    Route::get('admin/jargon', AdminJargonComponent::class)->name('admin.jargon');
+    Route::get('admin/jargons/add', AdminAddJargonComponent::class)->name('admin.addjargons');
+    Route::get('admin/jargons/edit/{jargon_slug}', AdminEditJargonComponent::class)->name('admin.editjargons');
+    //Atributes
+    Route::get('admin/atributes', AdminAlpFilterComponent::class)->name('admin.alpfilter');
+    Route::get('admin/atributes/add', AdminAddAlpFilterComponent::class)->name('admin.addalpfilter');
+    Route::get('admin/atributes/edit/{name}', AdminEditAlpFilterComponent::class)->name('admin.editalpfilter');
+    //Ads
+    Route::get('/admin/ads', AdminAdsComponent::class)->name('admin.ads');
+    Route::get('/admin/ads/add', AdminAddAdsComponent::class)->name('admin.add_ads');
+    Route::get('/admin/ads/edit/{name}', AdminEditAdsComponent::class)->name('admin.edit_ads');
 });
 
 Route::get('test', function () {

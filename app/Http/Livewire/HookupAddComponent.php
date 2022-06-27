@@ -55,66 +55,59 @@ class HookupAddComponent extends Component
 
     public function mount()
     {
-        if(Auth::check())
-        {
-        $this->hookup_status = 'unpublished';
-        $this->featured = '0';
-        $this->postedby = Auth::user()->name;
-        $this->phone = '254700000000';
-        $this->web = 'example.com';
-        $this->email = 'hookup@example.com';
-        $this->jobUrl = 'example.com';
-        //use with account status
-        $this->confirm_status_at = 1;
-        }
-        else
-        {
+        if (Auth::check()) {
+            $this->hookup_status = 'unpublished';
+            $this->featured = '0';
+            $this->postedby = Auth::user()->name;
+            $this->phone = '254700000000';
+            $this->web = 'example.com';
+            $this->email = 'hookup@example.com';
+            $this->jobUrl = 'example.com';
+            //use with account status
+            $this->confirm_status_at = 1;
+        } else {
             return redirect('/hookup')->with('success', 'Login to post a job!');
         }
-        
     }
 
     public function generateSlug()
-    { 
+    {
         $placeObj = new Hookup;
 
-         $string = preg_replace('/[^A-Za-z0-9\-]/', '-', $this->name); //Removed all Special Character and replace with hyphen
+        $string = preg_replace('/[^A-Za-z0-9\-]/', '-', $this->name); //Removed all Special Character and replace with hyphen
         $final_slug = preg_replace('/-+/', '-', $string); //Removed double hyphen
         $hookupNameURL = strtolower($final_slug);
 
         $this->slug = Str::slug($hookupNameURL);
-         //Check if this Slug already exists 
+        //Check if this Slug already exists 
         $checkSlug = $placeObj->whereSlug($hookupNameURL)->exists();
 
-        if($checkSlug){
+        if ($checkSlug) {
             //Slug already exists.
 
             //Add numerical prefix at the end. Starting with 1
             $numericalPrefix = 1;
 
-            while(1){
+            while (1) {
                 //Check if Slug with final prefix exists.
-                
-                $newSlug = $hookupNameURL."-".$numericalPrefix++; //new Slug with incremented Slug Numerical Prefix
+
+                $newSlug = $hookupNameURL . "-" . $numericalPrefix++; //new Slug with incremented Slug Numerical Prefix
                 $newSlug = Str::slug($newSlug); //String Slug
 
 
                 $checkSlug = $placeObj->whereSlug($newSlug)->exists(); //Check if already exists in DB
                 //This returns true if exists.
 
-                if(!$checkSlug){
+                if (!$checkSlug) {
 
                     //There is not more coincidence. Finally found unique slug.
                     $this->slug = $newSlug; //New Slug 
 
                     break; //Break Loop
-                
+
                 }
-
-
             }
-
-        }else{
+        } else {
             //Slug do not exists. Just use the selected Slug.
             $this->slug = $hookupNameURL;
         }
@@ -122,7 +115,7 @@ class HookupAddComponent extends Component
 
     public function updated($fields)
     {
-        $this->validateOnly($fields,[
+        $this->validateOnly($fields, [
             'name' => 'required',
             'short_description' => 'required',
             'description' => 'required',
@@ -134,15 +127,13 @@ class HookupAddComponent extends Component
             'fjob' => 'required',
             'open' => 'required',
         ]);
-        if($this->price == '15,000 - 30,000')
-        {
-            $this->validateOnly($fields,[
+        if ($this->price == '15,000 - 30,000') {
+            $this->validateOnly($fields, [
                 'price' => 'required',
             ]);
         }
-        if($this->images)
-        {
-            $this->validateOnly($fields,[
+        if ($this->images) {
+            $this->validateOnly($fields, [
                 'images' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
         }
@@ -150,27 +141,25 @@ class HookupAddComponent extends Component
 
     public function jobStored()
     {
-       $this->validate([
-           'name' => 'required',
-           'short_description' => 'required',
-           'description' => 'required',
-           'company' => 'required',
-           'jobtitle' => 'required',
-           'location' => 'required',
-           'hookup_status' => 'required',
-           'experience' => 'required',
-           'schedule' => 'required',
-           'fjob' => 'required',
+        $this->validate([
+            'name' => 'required',
+            'short_description' => 'required',
+            'description' => 'required',
+            'company' => 'required',
+            'jobtitle' => 'required',
+            'location' => 'required',
+            'hookup_status' => 'required',
+            'experience' => 'required',
+            'schedule' => 'required',
+            'fjob' => 'required',
             'open' => 'required',
         ]);
-        if($this->price == '15,000 - 30,000')
-        {
+        if ($this->price == '15,000 - 30,000') {
             $this->validate([
                 'price' => 'required',
             ]);
         }
-        if($this->images)
-        {
+        if ($this->images) {
             $this->validate([
                 'images' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
@@ -184,8 +173,8 @@ class HookupAddComponent extends Component
         $hookup->jobtitle = $this->jobtitle;
         $hookup->location = $this->location;
         $hookup->hookup_status = $this->hookup_status;
-        $imageName = Carbon::now()->timestamp.'.'.$this->images->extension();
-        $this->images->storeAs('hookups',$imageName);
+        $imageName = Carbon::now()->timestamp . '.' . $this->images->extension();
+        $this->images->storeAs('hookups', $imageName);
         $hookup->images = $imageName;
         $hookup->hookup_categories_id = $this->hookup_categories_id;
         $hookup->experience = $this->experience;
@@ -200,8 +189,8 @@ class HookupAddComponent extends Component
         $hookup->open = $this->open;
         $hookup->postedby = $this->postedby;
         $hookup->save();
-        //session()->flash('message','Job has been submitted successfully!');
-        //return redirect('/hookup/add');
+        session()->flash('message', 'Your job has been successfully submitted!');
+        return redirect('/hookup/add_another');
     }
 
     public function updateConfirmation()
@@ -216,19 +205,19 @@ class HookupAddComponent extends Component
     public function render()
     {
         if (is_null(Auth::user()->confirm_status_at)) {
-            $searchTerm = '%'.$this->searchTerm . '%';
-            $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
-                    ->orWhere('name','LIKE',$searchTerm)
-                    ->orWhere('slug','LIKE',$searchTerm)
-                    ->orWhere('description','LIKE',$searchTerm)
-                    ->orWhere('designer','LIKE',$searchTerm)
-                    ->orWhere('vtag','LIKE',$searchTerm)
-                    ->orderBy('updated_at','ASC',$searchTerm)->paginate(15);
-        $vectorcategories = VectorCategory::all()->sortBy('name');
-            return view('livewire.user.account-status-component',['vectorcategories'=>$vectorcategories,'vectorlogos'=>$vectorlogos])->layout('layouts.baseapp');
-        }else{
-        $hookupcategories = HookupCategory::all()->sortBy('name');
-        return view('livewire.hookup-add-component',['hookupcategories'=>$hookupcategories])->layout('layouts.baseapp');
+            $searchTerm = '%' . $this->searchTerm . '%';
+            $vectorlogos = Vectorlogos::where('name', 'LIKE', $searchTerm)
+                ->orWhere('name', 'LIKE', $searchTerm)
+                ->orWhere('slug', 'LIKE', $searchTerm)
+                ->orWhere('description', 'LIKE', $searchTerm)
+                ->orWhere('designer', 'LIKE', $searchTerm)
+                ->orWhere('vtag', 'LIKE', $searchTerm)
+                ->orderBy('updated_at', 'ASC', $searchTerm)->paginate(15);
+            $vectorcategories = VectorCategory::all()->sortBy('name');
+            return view('livewire.user.account-status-component', ['vectorcategories' => $vectorcategories, 'vectorlogos' => $vectorlogos])->layout('layouts.baseapp');
+        } else {
+            $hookupcategories = HookupCategory::all()->sortBy('name');
+            return view('livewire.hookup-add-component', ['hookupcategories' => $hookupcategories])->layout('layouts.baseapp');
         }
     }
 }

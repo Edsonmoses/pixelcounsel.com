@@ -30,7 +30,7 @@ class AddVectorComponent extends Component
     public $postedby;
     public $downloads;
     public $vtag;
-//use with account status
+    //use with account status
     public $totalRecords;
     public $loadAmount = 24;
     public $searchTerm;
@@ -42,18 +42,15 @@ class AddVectorComponent extends Component
 
     public function mount()
     {
-        if(Auth::check())
-        {
-        $this->vector_status = 'unpublished';
-        $this->contributor = Auth::user()->name;
-        $this->designer = 'Unknown';
-        $this->postedby = Auth::user()->name;
-        $this->downloads = 0;
-        //use with account status
-        $this->confirm_status_at = 1;
-        }
-        else
-        {
+        if (Auth::check()) {
+            $this->vector_status = 'unpublished';
+            $this->contributor = Auth::user()->name;
+            $this->designer = 'Unknown';
+            $this->postedby = Auth::user()->name;
+            $this->downloads = 0;
+            //use with account status
+            $this->confirm_status_at = 1;
+        } else {
             return redirect('/vector')->with('success', 'Login to post a logo!');
         }
     }
@@ -64,40 +61,37 @@ class AddVectorComponent extends Component
         $string = preg_replace('/[^A-Za-z0-9\-]/', '-', $this->name); //Removed all Special Character and replace with hyphen
         $final_slug = preg_replace('/-+/', '-', $string); //Removed double hyphen
         $vectorNameURL = strtolower($final_slug);
-        
+
         $this->slug =  Str::slug($vectorNameURL);
-         //Check if this Slug already exists 
+        //Check if this Slug already exists 
         $checkSlug = $placeObj->whereSlug($vectorNameURL)->exists();
 
-        if($checkSlug){
+        if ($checkSlug) {
             //Slug already exists.
 
             //Add numerical prefix at the end. Starting with 1
             $numericalPrefix = 1;
 
-            while(1){
+            while (1) {
                 //Check if Slug with final prefix exists.
-                
-                $newSlug = $vectorNameURL."-".$numericalPrefix++; //new Slug with incremented Slug Numerical Prefix
+
+                $newSlug = $vectorNameURL . "-" . $numericalPrefix++; //new Slug with incremented Slug Numerical Prefix
                 $newSlug = Str::slug($newSlug); //String Slug
 
 
                 $checkSlug = $placeObj->whereSlug($newSlug)->exists(); //Check if already exists in DB
                 //This returns true if exists.
 
-                if(!$checkSlug){
+                if (!$checkSlug) {
 
                     //There is not more coincidence. Finally found unique slug.
                     $this->slug = $newSlug; //New Slug 
 
                     break; //Break Loop
-                
+
                 }
-
-
             }
-
-        }else{
+        } else {
             //Slug do not exists. Just use the selected Slug.
             $this->slug = $vectorNameURL;
         }
@@ -105,7 +99,7 @@ class AddVectorComponent extends Component
 
     public function updated($fields)
     {
-        $this->validateOnly($fields,[
+        $this->validateOnly($fields, [
             'name' => 'required',
             'slug' => 'required|unique:vectorlogos',
             'short_description' => 'required',
@@ -115,16 +109,14 @@ class AddVectorComponent extends Component
             'vector_status' => 'required',
             'vector_categories_id' => 'required',
         ]);
-        if($this->images)
-        {
-            $this->validateOnly($fields,[
+        if ($this->images) {
+            $this->validateOnly($fields, [
                 'images' => 'required|mimes:ai,eps,pdf,svg,CDR',
             ]);
         }
 
-        if($this->image)
-        {
-            $this->validateOnly($fields,[
+        if ($this->image) {
+            $this->validateOnly($fields, [
                 'image' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
         }
@@ -144,15 +136,13 @@ class AddVectorComponent extends Component
             'image' => 'required|mimes:png,jpg,jpeg,webp',
             'vector_categories_id' => 'required',
         ]);
-        if($this->images)
-        {
+        if ($this->images) {
             $this->validate([
                 'images' => 'required|mimes:ai,eps,pdf,svg,CDR',
             ]);
         }
 
-        if($this->image)
-        {
+        if ($this->image) {
             $this->validate([
                 'image' => 'required|mimes:png,jpg,jpeg,webp',
             ]);
@@ -168,20 +158,20 @@ class AddVectorComponent extends Component
         $vector->format = $this->format;
         $vector->contributor = $this->contributor;
         $vector->vector_status = $this->vector_status;
-        $imageName = Carbon::now()->timestamp.'.'.$this->images->extension();
-        $this->images->storeAs('vectors',$imageName);
+        $imageName = Carbon::now()->timestamp . '.' . $this->images->extension();
+        $this->images->storeAs('vectors', $imageName);
         $vector->images = $imageName;
-        $imgName = Carbon::now()->timestamp.'.'.$this->image->extension();
-        $this->image->storeAs('vectors',$imgName);
+        $imgName = Carbon::now()->timestamp . '.' . $this->image->extension();
+        $this->image->storeAs('vectors', $imgName);
         $vector->image = $imgName;
         $vector->vector_categories_id = $this->vector_categories_id;
         $vector->postedby = $this->postedby;
         $vector->downloads = $this->downloads;
-        $vector->vtag = str_replace("\n",',',trim($this->vtag));
+        $vector->vtag = str_replace("\n", ',', trim($this->vtag));
         $vector->save();
-        Notification::send($users, new TaskCompleted($this->name));
-        //session()->flash('message','Logo has been submitted successfully!');
-        return redirect('/add-vectors/add');
+        ///Notification::send($users, new TaskCompleted($this->name));
+        session()->flash('message', 'Your logo has been successfully submitted!');
+        //return redirect('/add-vectors/add');
     }
 
     public function updateConfirmation()
@@ -194,21 +184,21 @@ class AddVectorComponent extends Component
 
     public function render()
     {
-        if (is_null(Auth::user()->confirm_status_at)){
-            $searchTerm = '%'.$this->searchTerm . '%';
-        $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
-                ->orWhere('name','LIKE',$searchTerm)
-                ->orWhere('slug','LIKE',$searchTerm)
-                ->orWhere('description','LIKE',$searchTerm)
-                ->orWhere('designer','LIKE',$searchTerm)
-                ->orWhere('vtag','LIKE',$searchTerm)
-                ->orderBy('updated_at','ASC',$searchTerm)->paginate(15);
+        if (is_null(Auth::user()->confirm_status_at)) {
+            $searchTerm = '%' . $this->searchTerm . '%';
+            $vectorlogos = Vectorlogos::where('name', 'LIKE', $searchTerm)
+                ->orWhere('name', 'LIKE', $searchTerm)
+                ->orWhere('slug', 'LIKE', $searchTerm)
+                ->orWhere('description', 'LIKE', $searchTerm)
+                ->orWhere('designer', 'LIKE', $searchTerm)
+                ->orWhere('vtag', 'LIKE', $searchTerm)
+                ->orderBy('updated_at', 'ASC', $searchTerm)->paginate(15);
 
-        $vectorcategories = VectorCategory::all();
-        return view('livewire.user.account-status-component',['vectorlogos'=>$vectorlogos,'vectorcategories'=>$vectorcategories])->layout('layouts.baseapp');
-        }else{
-        $vectorcategories = VectorCategory::all();
-        return view('livewire.add-vector-component',['vectorcategories'=>$vectorcategories])->layout('layouts.baseapp');
+            $vectorcategories = VectorCategory::all();
+            return view('livewire.user.account-status-component', ['vectorlogos' => $vectorlogos, 'vectorcategories' => $vectorcategories])->layout('layouts.baseapp');
+        } else {
+            $vectorcategories = VectorCategory::all();
+            return view('livewire.add-vector-component', ['vectorcategories' => $vectorcategories])->layout('layouts.baseapp');
         }
     }
 }
