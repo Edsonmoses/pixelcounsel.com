@@ -32,6 +32,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
+                         <th>Created by</th>
                         <th>Location</th>
                         <th>Status</th>
                         <th>Image</th>
@@ -44,6 +45,7 @@
                         <tr>
                             <td>{{$hookup->id}}</td>
                             <td>{{$hookup->name}}</td>
+                            <td>{{$hookup->postedby}}</td>
                             <td>{{$hookup->location}}</td>
                             <td>{{$hookup->hookup_status}}</td>
                             <td><img src="{{ asset('assets/images/hookups') }}/{{ $hookup->images }}" width="60"/></td>

@@ -36,6 +36,7 @@
                             <th>Id</th>
                             <th>Image</th>
                             <th>Name</th>
+                            <th>Created by</th>
                             <th>Status</th>
                             <th>Date Created</th>
                             <th>Action</th>
@@ -50,6 +51,7 @@
                                 <td>{{$vector->id}}</td>
                                 <td><img src="{{ asset('assets/images/vectors') }}/{{ $vector->image }}" width="60"/></td>
                                 <td>{{$vector->name}}</td>
+                                 <td>{{$vector->postedby}}</td>
                                 <td>{{$vector->vector_status}}</td>
                                 <td>{{$vector->created_at}}</td>
                                 <td>

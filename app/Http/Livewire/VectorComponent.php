@@ -49,19 +49,19 @@ class VectorComponent extends Component
     }
     public function searchTerm()
     {
-        $searchTerm = '%'.$this->searchTerm . '%';
-        $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
-                ->orWhere('name','LIKE',$searchTerm)
-                ->orWhere('slug','LIKE',$searchTerm)
-                ->orWhere('description','LIKE',$searchTerm)
-                ->orWhere('designer','LIKE',$searchTerm)
-                ->orWhere('vtag','LIKE',$searchTerm)
-                ->orderBy('name','ASC',$searchTerm)->paginate(12);
+        $searchTerm = '%' . $this->searchTerm . '%';
+        $vectorlogos = Vectorlogos::where('name', 'LIKE', $searchTerm)
+            ->orWhere('name', 'LIKE', $searchTerm)
+            ->orWhere('slug', 'LIKE', $searchTerm)
+            ->orWhere('description', 'LIKE', $searchTerm)
+            ->orWhere('designer', 'LIKE', $searchTerm)
+            ->orWhere('vtag', 'LIKE', $searchTerm)
+            ->orderBy('name', 'ASC', $searchTerm)->paginate(12);
     }
 
     public function generateSlug()
     {
-        $this->slug = Str::slug($this->name,'-');
+        $this->slug = Str::slug($this->name, '-');
     }
 
     public function addVector()
@@ -75,31 +75,32 @@ class VectorComponent extends Component
         $vector->format = $this->format;
         $vector->contributor = $this->contributor;
         $vector->vector_status = $this->vector_status;
-        $imageName = Carbon::now()->timestamp.'.'.$this->images->extension();
-        $this->images->storeAs('vectors',$imageName);
+        $imageName = Carbon::now()->timestamp . '.' . $this->images->extension();
+        $this->images->storeAs('vectors', $imageName);
         $vector->images = $imageName;
-        $imgName = Carbon::now()->timestamp.'.'.$this->image->extension();
-        $this->image->storeAs('vectors',$imgName);
+        $imgName = Carbon::now()->timestamp . '.' . $this->image->extension();
+        $this->image->storeAs('vectors', $imgName);
         $vector->image = $imgName;
         $vector->vector_categories_id = $this->vector_categories_id;
         $vector->save();
-        session()->flash('message','Logo has been submitted successfully!');
+        session()->flash('message', 'Logo has been submitted successfully!');
     }
     public function render()
     {
-        $searchTerm = '%'.$this->searchTerm . '%';
-        $vectorlogos = Vectorlogos::where('name','LIKE',$searchTerm)
-                ->orWhere('name','LIKE',$searchTerm)
-                ->orWhere('slug','LIKE',$searchTerm)
-                ->orWhere('description','LIKE',$searchTerm)
-                ->orWhere('designer','LIKE',$searchTerm)
-                ->orWhere('vtag','LIKE',$searchTerm)
-                ->orderBy('created_at','DESC')->paginate(15,['*'],'vectors');
+        $searchTerm = '%' . $this->searchTerm . '%';
+        $vectorlogos = Vectorlogos::where('name', 'LIKE', $searchTerm)
+            ->orWhere('name', 'LIKE', $searchTerm)
+            ->orWhere('slug', 'LIKE', $searchTerm)
+            ->orWhere('description', 'LIKE', $searchTerm)
+            ->orWhere('designer', 'LIKE', $searchTerm)
+            ->orWhere('vtag', 'LIKE', $searchTerm)
+            ->orderBy('created_at', 'DESC')->paginate(15, ['*'], 'vectors');
 
+        $vectorlogos = Vectorlogos::where('vector_status', 'published')->latest()->paginate(15, ['*'], 'vectors');
         //$vectorlogos = Vectorlogos::where('vector_status',$this->vectors_status)->orderBy('name', 'ASC')
         //->limit($this->loadAmount)
         //->get();
         $vectorcategories = VectorCategory::all();
-        return view('livewire.vector-component',['vectorlogos'=>$vectorlogos,'vectorcategories'=>$vectorcategories])->layout('layouts.baseapp');
+        return view('livewire.vector-component', ['vectorlogos' => $vectorlogos, 'vectorcategories' => $vectorcategories])->layout('layouts.baseapp');
     }
 }

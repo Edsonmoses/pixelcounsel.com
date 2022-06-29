@@ -11,20 +11,18 @@ class UserHookupComponent extends Component
     public function deleteVector($id)
     {
         $hookup = Hookup::find($id);
-        if($hookup->images)
-        {
-            unlink('assets/images/hookups'.'/'.$hookup->images);
+        if ($hookup->images) {
+            unlink('assets/images/hookups' . '/' . $hookup->images);
         }
-        if($hookup->image)
-        {
-            unlink('assets/images/hookups'.'/'.$hookup->image);
+        if ($hookup->image) {
+            unlink('assets/images/hookups' . '/' . $hookup->image);
         }
         $hookup->delete();
-        session()->flash('message','Hookup file has been deleted successfully!');
+        session()->flash('message', 'Hookup file has been deleted successfully!');
     }
     public function render()
     {
-        $jobs = Hookup::where('hookup_status','published')->where('postedby',Auth::user()->name)->orderBy('created_at','DESC')->paginate(100,['*'],'jobs');
-        return view('livewire.user.user-hookup-component',['jobs'=>$jobs])->layout('layouts.userbackend');
+        $jobs = Hookup::where('hookup_status', 'published')->where('postedby', Auth::user()->name)->orderBy('created_at', 'DESC')->paginate(100, ['*'], 'jobs');
+        return view('livewire.user.user-hookup-component', ['jobs' => $jobs])->layout('layouts.userbackend');
     }
 }

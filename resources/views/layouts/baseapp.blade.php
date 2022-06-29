@@ -365,7 +365,7 @@
   
    
       <script>
-      document.addEventListener('contextmenu',(e) =>{
+     /* document.addEventListener('contextmenu',(e) =>{
           e.preventDefault();
         })
          $(document).bind({
@@ -381,7 +381,7 @@
               var dt = e.originalEvent.dataTransfer;
               dt.effectAllowed = dt.dropEffect = 'none';
             }
-          });
+          });*/
       //myModal
         $(window).load(function(){        
         $('#myModal').modal('show');

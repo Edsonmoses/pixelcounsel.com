@@ -19,6 +19,7 @@
                                             <th>Event Image</th>
                                             <th>Event Name</th>
                                             <th>Created Date</th>
+                                            <th>Closing Date</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -30,6 +31,7 @@
                                                   <td><img src="{{ asset('assets/images/events') }}/{{ $event->images }}" class="rounded-circle" width="30" height="30"/></td>
                                                   <td>{{ $event->name }}</td>
                                                   <td>{{ $event->created_at }}</td>
+                                                  <td>{{ $event->enddate }}</td>
                                                   @if ($event->events_status == 'published')
                                                   <td><span class="badge bg-success">Approved</span></td>
                                                   <td>

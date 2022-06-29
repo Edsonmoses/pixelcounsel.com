@@ -30,7 +30,7 @@
                                                   <td><img src="{{ asset('assets/images/hookups') }}/{{ $job->images }}" class="rounded-circle" width="30" height="30"/></td>
                                                   <td>{{ $job->name }}</td>
                                                   <td>{{ $job->created_at }}</td>
-                                                  @if ($job->hookups_status == 'published')
+                                                  @if ($job->hookup_status == 'published')
                                                   <td><span class="badge bg-success">Approved</span></td>
                                                   <td>
                                                       <a href="{{ route('user.hookedit',['hookup_slug'=>$job->slug]) }}"><i  class="fas fa-edit"></i></a>
