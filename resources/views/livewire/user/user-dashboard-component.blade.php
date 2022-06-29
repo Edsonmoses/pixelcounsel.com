@@ -158,7 +158,7 @@
                                             <tr>
                                                 <td>{{ $vector->id }}</td>
                                                 <td><img src="{{ asset('assets/images/vectors') }}/{{ $vector->image }}" class="rounded-circle" width="30" height="30"/></td>
-                                                <td>{{ $vector->name }}</td>
+                                                <td style="width: 15%">{{ $vector->name }}</td>
                                                 <td>{{ $vector->created_at }}</td>
                                                 <td>{{ $vector->format }}</td>
                                                 @if ($vector->vector_status == 'published')
@@ -198,6 +198,7 @@
                                         <th>Company Logo</th>
                                         <th>Job Name</th>
                                         <th>Created Date</th>
+                                        <th>Company</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -207,9 +208,9 @@
                                           <tr>
                                               <td>{{ $job->id }}</td>
                                               <td><img src="{{ asset('assets/images/hookups') }}/{{ $job->images }}" class="rounded-circle" width="30" height="30"/></td>
-                                              <td>{{ $job->name }}</td>
+                                              <td style="width: 15%">{{ $job->name }}</td>
                                               <td>{{ $job->created_at }}</td>
-                                              <td>{{ $job->company }}</td>
+                                              <td style="width: 15%">{{ $job->company }}</td>
                                               @if ($job->hookup_status == 'published')
                                               <td><span class="badge bg-success">Approved</span></td>
                                               <td>
@@ -257,10 +258,9 @@
                                           <tr>
                                               <td>{{ $event->id }}</td>
                                               <td><img src="{{ asset('assets/images/events') }}/{{ $event->images }}" class="rounded-circle" width="30" height="30"/></td>
-                                              <td>{{ $event->name }}</td>
+                                              <td style="width: 15%">{{ $event->name }}</td>
                                               <td>{{ $event->enddate }}</td>
                                               <td>{{ $event->created_at }}</td>
-                                              <td>{{ $event->format }}</td>
                                               @if ($event->events_status == 'published')
                                               <td><span class="badge bg-success">Approved</span></td>
                                               <td>

@@ -41,9 +41,9 @@
                     @foreach ($hookups as $hookup)
                         <tr>
                             <td>{{$hookup->id}}</td>
-                            <td>{{$hookup->name}}</td>
+                            <td style="width: 15%">{{$hookup->name}}</td>
                             <td>{{$hookup->slug}}</td>
-                            <td>{{$hookup->created_at}}</td>
+                            <td style="width: 15%">{{$hookup->created_at}}</td>
                             <td>
                                 <a href="{{ route('admin.edithookup',['hookup_slug'=>$hookup->slug]) }}"><i  class="fa fa-edit fa-1x"></i></a>
                                 <a href="#" onclick="confirm('Ara you sure, You want to delete this hookup category') || event.stopImmediatePropagation()" wire:click.prevent="deleteHookup({{ $hookup->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>

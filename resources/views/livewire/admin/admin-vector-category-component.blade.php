@@ -41,9 +41,9 @@
                     @foreach ($vectors as $vector)
                         <tr>
                             <td>{{$vector->id}}</td>
-                            <td>{{$vector->name}}</td>
+                            <td style="width: 15%">{{$vector->name}}</td>
                             <td>{{$vector->slug}}</td>
-                            <td>{{$vector->created_at}}</td>
+                            <td style="width: 15%">{{$vector->created_at}}</td>
                             <td>
                                 <a href="{{ route('admin.editvector',['vector_slug'=>$vector->slug]) }}"><i  class="fa fa-edit fa-1x"></i></a>
                                 <a href="#" onclick="confirm('Ara you sure, You want to delete this vector category') || event.stopImmediatePropagation()" wire:click.prevent="deleteVector({{ $vector->id }})" style="margin-left: 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>

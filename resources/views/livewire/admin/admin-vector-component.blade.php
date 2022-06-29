@@ -50,10 +50,10 @@
                               </td>
                                 <td>{{$vector->id}}</td>
                                 <td><img src="{{ asset('assets/images/vectors') }}/{{ $vector->image }}" width="60"/></td>
-                                <td>{{$vector->name}}</td>
+                                <td style="width: 15%">{{$vector->name}}</td>
                                  <td>{{$vector->postedby}}</td>
                                 <td>{{$vector->vector_status}}</td>
-                                <td>{{$vector->created_at}}</td>
+                                <td style="width: 15%">{{$vector->created_at}}</td>
                                 <td>
                                     <a href="{{ route('admin.editvectorlogos',['vector_slug'=>$vector->slug]) }}"><i  class="fa fa-edit fa-1x"></i></a>
                                     <a href="#" onclick="confirm('Ara you sure, You want to delete this vector') || event.stopImmediatePropagation()" wire:click.prevent="deleteVector({{ $vector->id }})" style="margin:0 10px 0 10px"><i class="fa fa-trash fa-1x text-danger"></i></a>
