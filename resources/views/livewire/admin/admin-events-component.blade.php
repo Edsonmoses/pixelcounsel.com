@@ -17,6 +17,8 @@
           <input type="text" class="form-control">
         </div>
         <a href="{{route('admin.addevents')}}" class="btn btn-success pull-right">Add New</a>
+        <a href="#" onclick="confirm('Ara you sure, You want to delete the selected events') || event.stopImmediatePropagation()" wire:click.prevent="deleteBulk" class="btn btn-danger pull-right" style="margin: 0 10px 0 10px">Delete Bulk</a>
+        <a href="#" onclick="confirm('Ara you sure, You want to activate the selected events') || event.stopImmediatePropagation()" wire:click.prevent="activate" class="btn btn-success pull-right" style="margin: 0 10px 0 10px">Activate Bulk</a>
       </div>
     </div>
     
@@ -30,6 +32,9 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                          <th>
+                            <input type="checkbox" onclick="toggle(this);" />
+                          </th>
                             <th>Id</th>
                             <th>Image</th>
                             <th>Name</th>
@@ -43,6 +48,9 @@
                     <tbody>
                         @foreach ($events as $event)
                             <tr>
+                              <td>
+                                <input wire:model="selected" value="{{$event->id}}" type="checkbox">
+                              </td>
                                 <td>{{$event->id}}</td>
                                 <td><img src="{{ asset('assets/images/events') }}/{{ $event->images }}" width="60"/></td>
                                 <td style="width: 5%">{{$event->name}}</td>
@@ -63,3 +71,12 @@
         </div>
       </div>
     </div> <!-- row -->
+     <script>
+      function toggle(source) {
+          var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+          for (var i = 0; i < checkboxes.length; i++) {
+              if (checkboxes[i] != source)
+                  checkboxes[i].checked = source.checked;
+          }
+      }
+    </script>

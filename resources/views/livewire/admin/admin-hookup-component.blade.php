@@ -17,6 +17,8 @@
           <input type="text" class="form-control">
         </div>
         <a href="{{route('admin.addhookups')}}" class="btn btn-success pull-right">Add New</a>
+        <a href="#" onclick="confirm('Ara you sure, You want to delete the selected hookups') || event.stopImmediatePropagation()" wire:click.prevent="deleteBulk" class="btn btn-danger pull-right" style="margin: 0 10px 0 10px">Delete Bulk</a>
+        <a href="#" onclick="confirm('Ara you sure, You want to activate the selected hookups') || event.stopImmediatePropagation()" wire:click.prevent="activate" class="btn btn-success pull-right" style="margin: 0 10px 0 10px">Activate Bulk</a>
       </div>
     </div>
     
@@ -30,6 +32,9 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                       <th>
+                            <input type="checkbox" onclick="toggle(this);" />
+                          </th>
                         <th>Id</th>
                         <th>Name</th>
                          <th>Created by</th>
@@ -43,6 +48,9 @@
                 <tbody>
                     @foreach ($hookups as $hookup)
                         <tr>
+                          <td>
+                                <input wire:model="selected" value="{{$hookup->id}}" type="checkbox">
+                              </td>
                             <td>{{$hookup->id}}</td>
                             <td style="width: 15%">{{$hookup->name}}</td>
                             <td>{{$hookup->postedby}}</td>

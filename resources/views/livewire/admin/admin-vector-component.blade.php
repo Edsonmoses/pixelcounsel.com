@@ -32,7 +32,9 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                          <th></th>
+                          <th>
+                            <input type="checkbox" onclick="toggle(this);" />
+                          </th>
                             <th>Id</th>
                             <th>Image</th>
                             <th>Name</th>
@@ -67,3 +69,12 @@
         </div>
       </div>
     </div> <!-- row -->
+    <script>
+      function toggle(source) {
+          var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+          for (var i = 0; i < checkboxes.length; i++) {
+              if (checkboxes[i] != source)
+                  checkboxes[i].checked = source.checked;
+          }
+      }
+    </script>
