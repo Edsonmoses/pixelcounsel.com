@@ -9,23 +9,15 @@ class AlpFilters extends Model
 {
     use HasFactory;
     protected $table = "alp_filters";
-    
+
     protected $fillable = [
         'name',
+        'postedby',
         'category_id',
     ];
 
-    public function jargon()
+    public function category()
     {
-        $this->belongsTo(Jargons::class);
-    }
-    public function jargonc()
-    {
-        $this->belongsTo(JargonCategory::class);
-    }
-
-    public function jCategori()
-    {
-        $this->belongsTo(JargonCategory::class);
+        $this->belongsTo(Category::class);
     }
 }

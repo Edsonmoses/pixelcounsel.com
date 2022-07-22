@@ -9,4 +9,13 @@ class Category extends Model
 {
     use HasFactory;
     protected $table = "categories";
+    protected $fillable = [
+        'name',
+        'slug',
+        'postedby',
+    ];
+    public function filters()
+    {
+        return $this->hasMany(AlpFilters::class, 'category_id');
+    }
 }

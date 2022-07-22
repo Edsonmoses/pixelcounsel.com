@@ -16,7 +16,7 @@ class AddPostedbyIdToVectorlogosTable extends Migration
     {
         Schema::table('vectorlogos', function (Blueprint $table) {
             $table->string('postedby')->nullable((DB::raw('CURRENT_TIMESTAMP')));
-             $table->dateTime('approved')->nullable((DB::raw('CURRENT_TIMESTAMP')));
+            $table->dateTime('approved')->nullable((DB::raw('CURRENT_TIMESTAMP')));
         });
     }
 
@@ -29,7 +29,7 @@ class AddPostedbyIdToVectorlogosTable extends Migration
     {
         Schema::table('vectorlogos', function (Blueprint $table) {
             $table->dropColumn('postedby');
-             $table->dropColumn('approved');
+            $table->dropColumn('approved');
         });
     }
 }

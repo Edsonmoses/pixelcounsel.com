@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\JargonCategory;
+use App\Models\Subjargoncat;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -13,11 +14,12 @@ class AdminJargonCategoryComponent extends Component
     {
         $jargon = JargonCategory::find($id);
         $jargon->delete();
-        session()->flash('message','Jargon Category has been deleted successfully!');
+        session()->flash('message', 'Jargon Category has been deleted successfully!');
     }
     public function render()
     {
-        $jargons = JargonCategory::orderBy('created_at','DESC')->paginate(20,['*'],'jargons');
-        return view('livewire.admin.admin-jargon-category-component',['jargons'=>$jargons])->layout('layouts.backend');
+        $jargons = Subjargoncat::doesntHave('JargonCategory')->orderBy('id', 'DESC')->paginate(20, ['*'], 'jargons');
+        $subjargoncats = Subjargoncat::all();
+        return view('livewire.admin.admin-jargon-category-component', ['jargons' => $jargons, 'subjargoncats' => $subjargoncats])->layout('layouts.backend');
     }
 }

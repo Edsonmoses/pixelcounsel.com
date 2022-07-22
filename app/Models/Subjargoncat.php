@@ -5,18 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JargonCategory extends Model
+class Subjargoncat extends Model
 {
     use HasFactory;
-    protected $table = "jargon_categories";
+    protected $table = "subjargoncats";
+
     protected $fillable = [
         'id',
         'name',
-        'slug',
         'postedby',
+        'jargoncategory_id',
     ];
-    public function sfilters()
+
+    public function jcategory()
     {
-        return $this->hasMany(Subjargoncat::class, 'jargoncategory_id');
+        $this->belongsTo(JargonCategory::class);
     }
 }

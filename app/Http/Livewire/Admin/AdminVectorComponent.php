@@ -11,7 +11,7 @@ class AdminVectorComponent extends Component
     public $totalRecords;
     public $loadAmount = 24;
     public $selected = [];
-    
+
     use WithPagination;
 
     public function loadMore()
@@ -25,37 +25,37 @@ class AdminVectorComponent extends Component
         $this->vector_status = 'published';
     }
 
-   
+
 
     public function activate()
     {
-        Vectorlogos::find($this->selected);
+        if (!empty($this->selected)) {
+            Vectorlogos::whereIn('id', $this->selected)->update(['vector_status' => 'published']);
+            $this->selected = [];
+        }
     }
 
     public function deleteVector($id)
     {
         $vector = Vectorlogos::find($id);
-        if($vector->images)
-        {
-            unlink('assets/images/vectors'.'/'.$vector->images);
+        if ($vector->images) {
+            unlink('assets/images/vectors' . '/' . $vector->images);
         }
-        if($vector->image)
-        {
-            unlink('assets/images/vectors'.'/'.$vector->image);
+        if ($vector->image) {
+            unlink('assets/images/vectors' . '/' . $vector->image);
         }
         $vector->delete();
-        session()->flash('message','Vector file has been deleted successfully!');
+        session()->flash('message', 'Vector file has been deleted successfully!');
     }
     public function deleteBulk()
     {
         $vector = Vectorlogos::find($this->selected);
         $vector->destroy();
-        
     }
-    
+
     public function render()
     {
-        $vectorlogos = Vectorlogos::orderBy('created_at','DESC')->paginate(20,['*'],'vectors');
-        return view('livewire.admin.admin-vector-component',['vectorlogos'=>$vectorlogos])->layout('layouts.backend');
+        $vectorlogos = Vectorlogos::orderBy('created_at', 'DESC')->paginate(20, ['*'], 'vectors');
+        return view('livewire.admin.admin-vector-component', ['vectorlogos' => $vectorlogos])->layout('layouts.backend');
     }
 }

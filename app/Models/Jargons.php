@@ -8,18 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Jargons extends Model
 {
     use HasFactory;
-    protected $table="jargons";
+    protected $table = "jargons";
 
-    public function jargonCategories () {
-        return $this->belongsTo(JargonCategory::class, 'jargon_categories_id');   
+    public function jargonCategories()
+    {
+        return $this->belongsTo(JargonCategory::class, 'jargon_categories_id');
     }
 
     public function atributes()
     {
-        return $this->hasMany(AlpFilter::class,'afid');
+        return $this->hasMany(AlpFilters::class, 'afid');
     }
     public function atribut()
     {
-        return $this->belongsTo(AlpFilter::class,'afid');
+        return $this->belongsTo(AlpFilters::class, 'afid');
     }
 }
